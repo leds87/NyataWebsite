@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Book";
+        src: url("/fonts/Book.ttf");
+    }
+    @font-face {
+        font-family: "Mark Pro";
+        src: url("/fonts/MarkPro.ttf"); 
+    }
+    @font-face {
+        font-family: "Museo700";
+        src: url("/fonts/Museo700.ttf");
+    }
+}
