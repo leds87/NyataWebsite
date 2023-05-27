@@ -64,28 +64,28 @@
                     <div class="font-bold text-5xl text-black py-5">
                         YOU CAN MAKE A DIFFERENCE
                     </div>
-                    <div class="text-base text-black py-5">
+                    <div class="text-base text-black py-5 font-normal">
                         TEMAN NYATA is a monthly giving program where every dollar goes toward educating a child. You are
                         making an impact in someone else's life, every single month.
                     </div>
-                    <button class="w-[150px] h-[40px] bg-[#ff0000] rounded-xl text-white font-bold">
+                    <button class="w-[170px] h-[40px] bg-[#ff0000] rounded-xl text-white font-bold">
                         GIVE SUPPORT
                     </button>
                 </div>
 
             </div>
-            <div class="bg-[#ff0000] flex-auto w-full md:w-[400px] text-white font-bold text-5xl]">
+            <div class="bg-[#ff0000] flex-auto w-full md:w-[350px] text-white font-bold text-5xl]">
                 <div class="flex flex-col mx-auto p-20">
                     <div class="text-5xl py-2">
-                        No Act of kindness,
+                        No act of kindness,
                     </div>
                     <div class="text-5xl py-2">
-                        No matter how small,
+                        no matter how small,
                     </div>
                     <div class="text-5xl py-2">
-                        Is ever wasted
+                        is ever wasted
                     </div>
-                    <div class="text-5xl py-2">
+                    <div class="text-5xl py-2 pt-10">
                         - Aesop
                     </div>
                 </div>
@@ -170,24 +170,24 @@
         <div class="bg-white h-auto py-10 md:h-[700px]">
             <div class="flex flex-col mx-auto text-center">
                 <div class="text-black font-bold text-5xl py-5 px-2">
-                    WHY GIVE MONTHLY
+                    WHY GIVE MONTHLY?
                 </div>
                 <!--<div class="grid grid-cols-2 gap-8">-->
                 <div class="flex flex-wrap justify-center mx-0 md:mx-auto px-20">
                     <!-- half left -->
-                    <div class="flex flex-col md:basis-1/2">
+                    <div class="flex flex-col md:basis-1/4">
                         <div class="flex flex-col justify-center py-0 md:py-5 px-0 md:px-10">
-                            <div class="text-[#ff0000] text-5xl font-bold p-5 md:p-5">
+                            <div class="text-[#FF0000] text-3xl font-bold p-5 md:p-5">
                                 AFFORDABLE
                             </div>
-                            <div class="text-black">
+                            <div class="text-black text-base">
                                 By giving monthly, you invest what makes sense for you and make an incredible impact over
                                 the
                                 course of your membership
                             </div>
                         </div>
                         <div class="flex flex-col justify-center px-0 md:px-10">
-                            <div class="text-[#ff0000] text-5xl font-bold p-5 md:p-5">
+                            <div class="text-[#ff0000] text-3xl font-bold p-5 md:p-5">
                                 COMMUNITY
                             </div>
                             <div class="text-black">
@@ -198,9 +198,9 @@
                         </div>
                     </div>
                     <!-- half right -->
-                    <div class="flex flex-col md:basis-1/2 mx-0 px-0">
+                    <div class="flex flex-col md:basis-1/4 mx-0 px-0">
                         <div class="flex flex-col justify-center py-0 md:py-5 px-0 md:px-10">
-                            <div class="text-[#ff0000] text-5xl font-bold p-5 md:p-5">
+                            <div class="text-[#ff0000] text-3xl font-bold p-5 md:p-5">
                                 SUSTAINED SUPPORT
                             </div>
                             <div class="text-black">
@@ -210,7 +210,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col justify-center mx-0 px-0 md:px-10">
-                            <div class="text-[#ff0000] text-5xl font-bold p-5 md:p-5">
+                            <div class="text-[#ff0000] text-3xl font-bold p-5 md:p-5">
                                 IT'S EXCITING
                             </div>
                             <div class="text-black mx-0 px-0 py-5 md:px-0 md:py-5">
@@ -224,7 +224,7 @@
                 <div class="text-black font-bold text-5xl py-5 px-2">
                     YOU WILL RECEIVE
                 </div>
-                <div class="text-black font-normal text-base py-5 md:py-10 px-2 md:px-10">
+                <div class="text-black font-normal px-2 text-base py-5 md:py-5 md:px-10 mx-[200px]">
                     Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos
                     and
                     videos from the field, and more!

@@ -8,7 +8,7 @@
                 <h3 class="mx-auto px-3 py-3 text-5xl font-bold text-red-500">
                     ANAK TERANG
                 </h3>
-                <p class="mx-auto px-3 py-3 text-white text-xl">
+                <p class="mx-auto px-3 py-3 text-5xl font-bold text-white">
                     ANAK NYATA
                 </p>
             </div>
@@ -19,7 +19,7 @@
             <h3 class="flex w-full justify-center text-5xl py-3 text-black font-bold">
                 FOUNDING STORY
             </h3>
-            <p class="flex text-center text-xl py-5 mx-[60px] text-black ">
+            <p class="flex text-center text-xl py-5 mx-[380px] text-black font-markpro">
                 Started from the social service program held in high school every year, Nicole Oeij Teng, Pamela Berliana
                 Sofian, and their friends and relatives were moved to continue their social service. Until 2013, Nicole
                 decided to volunteer to teach in underprivileged schools and communites in Africa for 2 months. This
@@ -41,7 +41,7 @@
                     <span class="absolute flex items-center justify-center w-8 h-8 -right-16">
                         <img src="/image/other/RedDot.png" class="">
                     </span>
-                    <h3 class="flex items-center pt-5 mb-1 text-lg font-semibold text-white">2014
+                    <h3 class="flex items-center pb-5 pt-5 mb-1 text-3xl font-bold text-white">2014
                     </h3>
                     <ul class="list-disc">
                         <li>
@@ -67,7 +67,7 @@
                     <span class="absolute flex items-center justify-center w-8 h-8 -left-16">
                         <img src="/image/other/RedDot.png" class="">
                     </span>
-                    <h3 class="flex items-center pt-5 mb-1 text-lg font-semibold text-white">2015
+                    <h3 class="flex items-center pt-5 pb-5 mb-1 text-3xl font-bold text-white">2015
                     </h3>
                     <ul class="list-disc">
                         <li>
@@ -83,7 +83,7 @@
                     <span class="absolute flex items-center justify-center w-8 h-8 -right-16">
                         <img src="/image/other/RedDot.png" class="">
                     </span>
-                    <h3 class="flex items-center pt-5 mb-1 text-lg font-semibold text-white">2016
+                    <h3 class="flex items-center pt-5 pb-5 mb-1 text-3xl font-bold text-white">2016
                     </h3>
                     <ul class="list-disc">
                         <li>
@@ -104,7 +104,7 @@
                     <span class="absolute flex items-center justify-center w-8 h-8 -left-16">
                         <img src="/image/other/RedDot.png" class="">
                     </span>
-                    <h3 class="flex items-center pt-5 mb-1 text-lg font-semibold text-white">2017
+                    <h3 class="flex items-center pt-5 pb-5 mb-1 text-3xl font-bold text-white">2017
                     </h3>
                     <ul class="list-disc">
                         <li>
@@ -120,7 +120,7 @@
                     <span class="absolute flex items-center justify-center w-8 h-8 -right-16">
                         <img src="/image/other/RedDot.png" class="">
                     </span>
-                    <h3 class="flex items-center pt-5 mb-1 text-lg font-semibold text-white">2018
+                    <h3 class="flex items-center pt-5 pb-5 mb-1 text-3xl font-bold text-white">2018
                     </h3>
                     <ul class="list-disc">
                         <li>
@@ -136,7 +136,7 @@
                     <span class="absolute flex items-center justify-center w-8 h-8 -left-16">
                         <img src="/image/other/RedDot.png" class="">
                     </span>
-                    <h3 class="flex items-center pt-5 mb-1 text-lg font-semibold text-white">2021
+                    <h3 class="flex items-center pt-5 pb-5 mb-1 text-3xl font-bold text-white">2021
                     </h3>
                     <ul class="list-disc">
                         <li>
@@ -152,14 +152,14 @@
 
     </section>
     <!-- divide into 2 text and picture with white background -->
-    <section>
+    <section class="bg-white">
         <div class="flex flex-wrap bg-white w-full h-auto py-5 md:py-10 px-5 md:px-[100px]">
             <div class="flex flex-col mx-auto flex-1/2 md:w-1/2 w-full">
                 <div class="flex flex-row justify-center">
                     <div>
-                        <img src="/image/share/400nyata01.png" class="h-[150px] w-[150px] md:w-[200px] md:h-[200px]">
+                        <img src="/image/share/400nyata01.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
                     </div>
-                    <div class="text-black h-[200px] w-[250px] px-5">
+                    <div class="text-black h-[200px] w-[250px] px-5 py-5">
                         <h3 class="text-xl font-bold">
                             HOME
                         </h3>
@@ -170,9 +170,9 @@
                 </div>
                 <div class="flex flex-row justify-center">
                     <div>
-                        <img src="/image/share/400nyata02.png" class="h-[150px] w-[150px] md:w-[200px] md:h-[200px]">
+                        <img src="/image/share/400nyata02.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
                     </div>
-                    <div class="text-black h-[200px] w-[250px] px-5">
+                    <div class="text-black h-[200px] w-[250px] px-5 py-10">
                         <h3 class="text-xl font-bold">
                             EDUCATION
                         </h3>
@@ -183,9 +183,9 @@
                 </div>
                 <div class="flex flex-row justify-center">
                     <div>
-                        <img src="/image/share/400nyata03.png" class="h-[150px] w-[150px] md:w-[200px] md:h-[200px]">
+                        <img src="/image/share/400nyata03.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
                     </div>
-                    <div class="text-black h-[200px] w-[250px] px-5">
+                    <div class="text-black h-[200px] w-[250px] px-5 py-8">
                         <h3 class="text-xl font-bold">
                             CHILDREN
                         </h3>
@@ -196,9 +196,9 @@
                 </div>
                 <div class="flex flex-row justify-center">
                     <div>
-                        <img src="/image/share/400nyata03.png" class="h-[150px] w-[150px] md:w-[200px] md:h-[200px]">
+                        <img src="/image/share/400nyata03.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
                     </div>
-                    <div class="text-black h-[200px] w-[250px] px-5">
+                    <div class="text-black h-[200px] w-[250px] px-5 py-10">
                         <h3 class="text-xl font-bold">
                             LIGHT
                         </h3>
@@ -213,24 +213,33 @@
             </div>
         </div>
     </section>
+
     <!-- Text with picture background-->
+    <div class="bg-white">
+        <h3 class="text-center text-5xl font-bold py-5 text-black">OUR
+            RESULTS
+        </h3>
+    </div>
     <section class="flex relative max-w-none w-full h-[600px] md:h-[950px]">
         <div style="background-image:url('/image/donate/AdikAsuhWide.jpg')"
             class="relative w-full max-w-none bg-cover bg-center bg-fixed">
     </section>
+
     <!-- Text with white background -->
     <section class="relative flex items-center max-w-none w-full bg-white ">
         <div class="container justify-center max-w-none my-10 py-10">
             <h3 class="flex w-full justify-center text-5xl py-3 text-[#ff0000] font-bold">
-                ANAK TERANG, ANAK NYATA
+                ANAK NYATA, ANAK TERANG
             </h3>
-            <p class="text-center text-xl py-5 mx-[60px] text-black">
-                Anak terang dari negeri Indonesia.
-            </p>
-            <div class="flex flex-col justify-center">
-                <button type="button" class="mx-auto px-3 py-3 bg-red-600 text-center rounded-[10px]">
-                    Learn More
-                </button>
+            <div class="flex justify-start mx-[60px]">
+                <div>
+                    <p class="text-left text-xl text-black py-5">
+                        Anak terang dari negeri Indonesia.
+                    </p>
+                    <button type="button" class="px-3 py-2 bg-red-600 text-xl rounded-[10px]">
+                        LEARN MORE
+                    </button>
+                </div>
             </div>
         </div>
     </section>

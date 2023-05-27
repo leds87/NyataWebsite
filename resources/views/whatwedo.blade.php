@@ -12,10 +12,10 @@
             <div
                 class="absolute bottom-0 w-full flex flex-col justify-center text-center mx-auto my-5 px-5 py-5 md:my-10 md:py-10">
                 <h3 class="mx-auto px-3 py-3 text-5xl font-bold text-red-500">
-                    ANAK TERANG
+                    NYATA-KAN KEBAIKAN
                 </h3>
                 <p class="mx-auto px-3 py-3 text-white text-xl">
-                    ANAK NYATA
+                    Discover how NYATA spreads goodness and change for the nation's children
                 </p>
             </div>
     </section>
@@ -103,7 +103,7 @@
                         <h3 class="px-3 py-5 text-3xl text-center font-bold">
                             ADIK ASUH
                         </h3>
-                        <p class="px-3 py-5 text-base text-center">
+                        <p class="text-center px-7 py-5">
                             Join us to be foster brother and sister and help the children reach a brigther future
                         </p>
                     </div>
@@ -115,7 +115,7 @@
                         <h3 class="px-3 py-5 text-3xl text-center font-bold">
                             TRAVEL CHARITY
                         </h3>
-                        <p class="px-3 py-5 text-base text-center">
+                        <p class="px-7 py-5 text-base text-center">
                             Help local livelihoods and economic communities while travel to explore the beauty of
                             Indonesia
                         </p>
@@ -128,7 +128,7 @@
                         <h3 class="px-3 py-5 text-3xl text-center font-bold">
                             ACT OF KINDNESS
                         </h3>
-                        <p class="px-3 py-5 text-base text-center">
+                        <p class="px-7 py-5 text-base text-center">
                             Gives the good deeds to the school, organization, individual or community that in need
                         </p>
                     </div>
