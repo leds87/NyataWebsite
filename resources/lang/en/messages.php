@@ -14,8 +14,8 @@ return [
     goverment and Indonesian children to reduce the high dropout rate and hopes that Indonesian children
     will continue to get a proper education through several programs that NYATA has',
     //share page
-    'Join Nyata' => 'Join Nyata',
-    'JoinNyataDescription' => 'JoinNyataDescriptionJoin Nyata Foundation and help to change the world to become a better place',
+    // 'JoinNyataTitle' => 'Join Nyata',
+    // 'JoinNyataDescription' => 'JoinNyataDescriptionJoin Nyata Foundation and help to change the world to become a better place',
 
     //index page
     'WHO WE ARE' => 'WHO WE ARE',
@@ -38,8 +38,17 @@ return [
     'SustainedSupportNote' => 'Enables NYATA to expand our programs because we know we have the ongoing support from the NYATA Partner community',
     'CommunityNote' => 'Becoming a NYATA Partner allows you to join a dedicated group of supporters who understand the importance of making a sustaining commitment to provide education for all.',
     'ItsExcitingNote' => 'NYATA Partner will receive special updates, photos and videos of the children and communities you’ve impacted and more.',
-    'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!'
+    'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!',
 
 
+    'JoinNyataTitle' => 'Join Nyata',
+    'JoinNyataDescription' => 'Join Nyata Foundation and help to change the world to become a better place',
 
+    'Name' => 'Name',
+    'EmailAddress' => 'Email Address',
+    'Join' => 'Join',
+
+    'ContactUs' => 'Contact Us',
+    'GiveSupport' => 'Give Support',
+    'SendYourDonation' => 'Send Yout Donation To'
 ];
