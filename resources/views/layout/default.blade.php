@@ -6,14 +6,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Test
-    </title>
+
+    <title>Home Page</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
-    <!--Link to Font-->
 
+    <!--Link to Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Lora:wght@700&display=swap"
@@ -22,10 +23,10 @@
 
 
 
-<body class="bg-[#ff0000] text-white max-w-none w-full">
-    <header class="fixed bg-[#ff0000] top-0 z-50 max-w-none w-full">
+<body class="bg-[#ff0000] text-white max-w-none w-full overflow-x-hidden">
+    <header class="bg-[#ff0000] top-0 z-50 max-w-none w-full">
         <section>
-            <nav class="bg-[#FF0000] w-full">
+            <nav class="bg-[#ff0000] w-full">
                 <div class="w-full flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="{{ route('home') }}" class="flex items-center">
                         <img src="/image/share/LogoNyataWord.png" class="h-[100px] mr-3" />
@@ -135,7 +136,7 @@
         </section>
     </header>
 
-    <main>
+    {{-- <main>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -147,9 +148,9 @@
         </li>
 
         @yield('page-content')
-    </main>
+    </main> --}}
 
-    <footer>
+    {{-- <footer>
         <div class="flex flex-wrap bg-neutral-200 w-full h-[400px] md:h-[350px] justify-center">
             <form class="flex flex-col w-[900px] py-5 mx-auto md:py-10 text-black justify-center">
                 <div class="mx-auto font-bold text-5xl text-center px-5 py-3">
@@ -202,10 +203,58 @@
                     BCA Cab. Sukajadi Bandung
                 </div>
             </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+    </footer> --}}
 
-    <script></script>
+    <footer>
+        <div class="flex flex-wrap bg-neutral-200 w-full justify-center">
+            <form class="flex flex-col w-11/12 py-5 mx-auto text-black justify-center">
+                <div class="mx-auto font-bold text-4xl text-center px-5 py-3">
+                    {{ __('messages.JoinNyataTitle') }}
+                </div>
+                <div class="mx-auto text-base text-center px-5 py-3">
+                    {{ __('messages.JoinNyataDescription') }}
+                </div>
+                <div class="flex flex-wrap mx-auto w-full h-[80px] py-3 justify-center">
+                    <input
+                        class="w-[350px] md:w-[400px] mx-[5px] rounded-[25px] py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        id="name" type="name" placeholder="{{ __('messages.Name') }}">
+                    <input
+                        class="w-[350px] md:w-[400px] mx-[5px] rounded-[25px] py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        id="emailaddress" type="emailaddress" placeholder="{{ __('messages.EmailAddress') }}">
+                </div>
+                <button
+                    class="mx-auto w-[300px] bg-[#ff0000] text-white text-base font-bold mt-10 md:mt-5 py-3 px-0 rounded-2xl focus:outline-none focus:shadow-outline"
+                    type="button">
+                    {{ __('messages.Join') }}
+                </button>
+            </form>
+        </div>
+        <div class="flex flex-col bg-[#ff0000] w-full justify-center">
+            <div class="mx-auto px-5 py-3">
+                <img src="/image/share/LogoNyataWord.png" class="h-36">
+            </div>
+            <div class="mx-auto text-lg text-center px-5 py-3">
+                <p class="uppercase">{{ __('messages.ContactUs') }}</p>
+                <p>Ph +62 812 2233 4708</p>
+                <p><a href="https://www.instagram.com/nyatafoundation/" target="blank">IG @nyatafoundation</a></p>
+            </div>
+            <div class="mx-auto w-10/12 px-5 py-6">
+                <button
+                    class="mx-auto w-full bg-white text-[#ff0000] text-base font-bold py-3 rounded-2xl focus:outline-none focus:shadow-outline"
+                    type="button" onclick="window.location='{{ route('contactus') }}'">
+                    {{ __('messages.GiveSupport') }}
+                </button>
+            </div>
+            <div class="mx-auto w-10/12 text-center px-5 py-6">
+                <p class="uppercase">{{ __('messages.SendYourDonation') }}</p>
+                <p>Yayasan Anak-anak Tanah Air</p>
+                <p>No. 233 999 6622</p>
+                <p>BCA Cab. Sukajadi Bandung</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>
 
 </html>
