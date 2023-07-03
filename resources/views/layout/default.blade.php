@@ -21,15 +21,13 @@
         rel="stylesheet">
 </head>
 
-
-
 <body class="bg-[#ff0000] text-white max-w-none w-full overflow-x-hidden">
     <header class="bg-[#ff0000] top-0 z-50 max-w-none w-full">
         <section>
             <nav class="bg-[#ff0000] w-full">
                 <div class="w-full flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <img src="/image/share/LogoNyataWord.png" class="h-[100px] mr-3" />
+                        <img src="/image/share/LogoNyataWord.png" class="h-28 mr-3" />
                     </a>
                     <button data-collapse-toggle="navbar-solid-bg" type="button"
                         class="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:text-black "
@@ -130,126 +128,60 @@
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </nav>
         </section>
     </header>
 
-    {{-- <main>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-            </div>
-        </li>
-
+    <main>
         @yield('page-content')
-    </main> --}}
-
-    {{-- <footer>
-        <div class="flex flex-wrap bg-neutral-200 w-full h-[400px] md:h-[350px] justify-center">
-            <form class="flex flex-col w-[900px] py-5 mx-auto md:py-10 text-black justify-center">
-                <div class="mx-auto font-bold text-5xl text-center px-5 py-3">
-                    {{ __('messages.JOIN NYATA') }}
-                </div>
-                <div class="mx-auto text-base text-center px-5 py-3">
-                    {{ __('messages.JoinNyataDescription') }}
-                </div>
-                <div class="flex flex-wrap mx-auto w-full h-[80px] py-3 justify-center">
-                    <input
-                        class="w-[350px] md:w-[400px] mx-[5px] rounded-[25px] py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        id="name" type="name" placeholder="Name">
-                    <input
-                        class="w-[350px] md:w-[400px] mx-[5px] rounded-[25px] py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        id="emailaddress" type="emailaddress" placeholder="Email address">
-                </div>
-                <button
-                    class="mx-auto w-[300px] bg-[#ff0000] text-white text-base font-bold mt-10 md:mt-5 py-3 px-0 rounded-[25px] focus:outline-none focus:shadow-outline"
-                    type="button">
-                    Join
-                </button>
-            </form>
-        </div>
-        <div class="flex flex-row bg-[#ff0000] w-full justify-between">
-            <div class="flex flex-col bg-[#ff0000] py-5 pl-5 md:py-10 md:pl-10">
-                <img src="/image/share/LogoNyataWord.png" class="w-full h-[100px] pr-5">
-
-                <a href="{{ route('contactus') }}" class="text-white font-bold text-left">CONTACT US</a>
-                <div class="text-left">
-                    Ph +62 812 2233 4708
-                </div>
-                <div class="text-left">
-                    IG @nyatafoundation
-                </div>
-            </div>
-            <div class="flex flex-col bg-[#ff0000] py-5 pr-5 md:py-10 md:pr-10 justify-end items-end">
-                <div>
-                    <a href="{{ route('contactus') }}" class="text-white font-bold text-left">GIVE SUPPORT</a>
-                </div>
-                <div>
-                    SEND YOUR DONATION TO
-                </div>
-                <div>
-                    Yayasan Anak-anak Tanah Air
-                </div>
-                <div>
-                    No. 233 999 6622
-                </div>
-                <div>
-                    BCA Cab. Sukajadi Bandung
-                </div>
-            </div>
-    </footer> --}}
+    </main>
 
     <footer>
-        <div class="flex flex-wrap bg-neutral-200 w-full justify-center">
+        <div class="flex flex-wrap bg-neutral-200 w-full justify-center pb-6">
             <form class="flex flex-col w-11/12 py-5 mx-auto text-black justify-center">
                 <div class="mx-auto font-bold text-4xl text-center px-5 py-3">
                     {{ __('messages.JoinNyataTitle') }}
                 </div>
-                <div class="mx-auto text-base text-center px-5 py-3">
+                <div class="mx-auto text-base text-center px-5 py-3 tracking-wider">
                     {{ __('messages.JoinNyataDescription') }}
                 </div>
-                <div class="flex flex-wrap mx-auto w-full h-[80px] py-3 justify-center">
+                <div class="flex flex-wrap mx-auto w-full h-1/4 py-3 justify-center">
                     <input
-                        class="w-[350px] md:w-[400px] mx-[5px] rounded-[25px] py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        class="w-11/12 mx-1.5 rounded-lg py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         id="name" type="name" placeholder="{{ __('messages.Name') }}">
                     <input
-                        class="w-[350px] md:w-[400px] mx-[5px] rounded-[25px] py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        class="w-11/12 mx-1.5 rounded-lg py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         id="emailaddress" type="emailaddress" placeholder="{{ __('messages.EmailAddress') }}">
                 </div>
                 <button
-                    class="mx-auto w-[300px] bg-[#ff0000] text-white text-base font-bold mt-10 md:mt-5 py-3 px-0 rounded-2xl focus:outline-none focus:shadow-outline"
+                    class="mx-auto w-11/12 bg-[#ff0000] text-white text-base font-bold mt-10 py-3 px-0 rounded-2xl focus:outline-none focus:shadow-outline"
                     type="button">
                     {{ __('messages.Join') }}
                 </button>
             </form>
         </div>
-        <div class="flex flex-col bg-[#ff0000] w-full justify-center">
+        <div class="flex flex-col bg-[#ff0000] w-full justify-center pt-6">
             <div class="mx-auto px-5 py-3">
                 <img src="/image/share/LogoNyataWord.png" class="h-36">
             </div>
             <div class="mx-auto text-lg text-center px-5 py-3">
-                <p class="uppercase">{{ __('messages.ContactUs') }}</p>
-                <p>Ph +62 812 2233 4708</p>
-                <p><a href="https://www.instagram.com/nyatafoundation/" target="blank">IG @nyatafoundation</a></p>
+                <p class="uppercase font-bold text-xl">{{ __('messages.ContactUs') }}</p>
+                <p class="text-xl">Ph +62 812 2233 4708</p>
+                <p class="text-xl"><a href="https://www.instagram.com/nyatafoundation/" target="blank">IG @nyatafoundation</a></p>
             </div>
-            <div class="mx-auto w-10/12 px-5 py-6">
+            <div class="mx-auto w-8/12 px-5 py-6">
                 <button
-                    class="mx-auto w-full bg-white text-[#ff0000] text-base font-bold py-3 rounded-2xl focus:outline-none focus:shadow-outline"
+                    class="mx-auto w-full bg-white text-[#ff0000] text-base font-bold py-3 rounded-2xl focus:outline-none focus:shadow-outline uppercase"
                     type="button" onclick="window.location='{{ route('contactus') }}'">
                     {{ __('messages.GiveSupport') }}
                 </button>
             </div>
             <div class="mx-auto w-10/12 text-center px-5 py-6">
-                <p class="uppercase">{{ __('messages.SendYourDonation') }}</p>
-                <p>Yayasan Anak-anak Tanah Air</p>
-                <p>No. 233 999 6622</p>
-                <p>BCA Cab. Sukajadi Bandung</p>
+                <p class="uppercase font-bold text-xl">{{ __('messages.SendYourDonation') }}</p>
+                <p class="text-xl">Yayasan Anak-anak Tanah Air</p>
+                <p class="text-xl">No. 233 999 6622</p>
+                <p class="text-xl">BCA Cab. Sukajadi Bandung</p>
             </div>
         </div>
     </footer>

@@ -50,5 +50,5 @@ return [
 
     'ContactUs' => 'Contact Us',
     'GiveSupport' => 'Give Support',
-    'SendYourDonation' => 'Send Yout Donation To'
+    'SendYourDonation' => 'Send Your Donation To'
 ];
