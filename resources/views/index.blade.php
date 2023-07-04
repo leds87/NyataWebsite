@@ -1,4 +1,5 @@
 @extends('layout.default')
+@section('title', 'Home Page')
 @section('page-content')
     <!-- CAROUSEL -->
     <section>
