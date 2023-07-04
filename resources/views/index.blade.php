@@ -63,31 +63,31 @@
             </h3>
             <hr class="w-48 h-0.5 mx-auto my-6 bg-gray-400 border-0 rounded">
             <div class="flex flex-row flex-wrap justify-center">
-                <div class="flex flex-col justify-center max-w-sm py-5 px-5">
-                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto max-w-xs py-2">
+                <div class="basis-full justify-center py-5 px-5">
+                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto h-14 py-2">
                     <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                         SHARING
                     </h3>
-                    <p class="px-3 py-3 text-black text-base text-center tracking-wider">
+                    <p class="px-3 py-3 text-black text-base text-center tracking-wider max-w-2xl mx-auto">
                         Help, share knowledge and joy is the way of NYATA
                     </p>
                 </div>
-                <div class="flex flex-col justify-center max-w-sm py-5 px-5">
-                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto max-w-xs py-2">
+                <div class="basis-full justify-center py-5 px-5">
+                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto h-14 py-2">
                     <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                         EMPOWERMENT
                     </h3>
-                    <p class="px-3 py-3 text-black text-base text-center tracking-wider">
+                    <p class="px-3 py-3 text-black text-base text-center tracking-wider max-w-2xl mx-auto">
                         Nyata improves the value of individuals, social and education quality that focus on children quality
                         of life and their education
                     </p>
                 </div>
-                <div class="flex flex-col justify-center max-w-sm py-5 px-5">
-                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto max-w-xs py-2">
+                <div class="basis-full justify-center py-5 px-5">
+                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto h-14 py-2">
                     <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                         PROFESSIONAL
                     </h3>
-                    <p class="px-3 py-3 text-black text-base text-center tracking-wider">
+                    <p class="px-3 py-3 text-black text-base text-center tracking-wider max-w-2xl mx-auto">
                         Nyata focus on education and skill by giving the high quality training to volunteers and teachers
                     </p>
                 </div>
@@ -143,10 +143,10 @@
                 OUR SOLUTION
             </h3>
             <hr class="w-48 h-0.5 mx-auto my-6 bg-gray-400 border-0 rounded">
-            <div class="flex flex-col justify-center max-w-sm mx-5 pt-8 mb-5 h-3/4">
+            <div class="flex flex-col justify-center mx-5 pt-8 mb-5 h-3/4 md:mx-10">
                 <img src="{{ URL::asset('image/homepage/oursolution/oursolution01.jpg') }}"
-                    class="rounded-t-3xl h-56 items-center">
-                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white">
+                    class="rounded-t-3xl h-56 items-center md:w-full md:h-auto">
+                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white md:-translate-y-20">
                     <h3 class="px-3 pt-5 text-3xl text-center font-bold">
                         ADIK ASUH
                     </h3>
@@ -154,16 +154,16 @@
                         Join us to be foster brother and sister and help the children reach a brigther future
                     </p>
                 </div>
-                <div class="px-0 py-5 text-center">
+                <div class="px-0 py-5 text-center md:-translate-y-20">
                     <button type="button" class="w-2/4 px-3 py-3 bg-red-600 rounded-lg" onclick="window.location='{{ route('adikasuh') }}'">
                         LEARN MORE
                     </button>
                 </div>
             </div>
-            <div class="flex flex-col justify-center max-w-sm mx-5 mb-5 pt-5 h-3/4">
+            <div class="flex flex-col justify-center mx-5 mb-5 pt-5 h-3/4 md:mx-10">
                 <img src="{{ URL::asset('image/homepage/oursolution/oursolution02.jpg') }}"
-                    class="rounded-t-3xl h-56 items-center">
-                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white">
+                    class="rounded-t-3xl h-56 items-center md:w-full md:h-full">
+                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white md:-translate-y-20">
                     <h3 class="px-3 pt-5 text-3xl text-center font-bold">
                         TRAVEL CHARITY
                     </h3>
@@ -171,16 +171,16 @@
                         Help local livelihoods and economic communities while travel to explore the beauty of Indonesia
                     </p>
                 </div>
-                <div class="px-0 py-5 text-center">
+                <div class="px-0 py-5 text-center md:-translate-y-20">
                     <button type="button" class="w-2/4 px-3 py-3 bg-red-600 rounded-lg" onclick="window.location='{{ route('travelcharity') }}'">
                         LEARN MORE
                     </button>
                 </div>
             </div>
-            <div class="flex flex-col justify-center max-w-sm mx-5 mb-5 pt-5 h-3/4">
+            <div class="flex flex-col justify-center mx-5 mb-5 pt-5 h-3/4 md:mx-10">
                 <img src="{{ URL::asset('image/homepage/oursolution/oursolution03.jpg') }}"
-                    class="rounded-t-3xl h-56 items-center">
-                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white">
+                    class="rounded-t-3xl h-56 items-center md:w-full md:h-auto">
+                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white md:-translate-y-20">
                     <h3 class="px-3 pt-5 text-3xl text-center font-bold">
                         ACT OF KINDNESS
                     </h3>
@@ -188,7 +188,7 @@
                         Gives the good deeds to the school, organization, individual or community that in need
                     </p>
                 </div>
-                <div class="px-0 py-5 text-center">
+                <div class="px-0 py-5 text-center md:-translate-y-20">
                     <button type="button" class="w-2/4 px-3 py-3 bg-red-600 rounded-lg" onclick="window.location='{{ route('actofkindness') }}'">
                         LEARN MORE
                     </button>
