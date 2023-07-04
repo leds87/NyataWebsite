@@ -42,7 +42,7 @@
                     </button>
                     <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
                         <ul
-                            class="flex flex-col justify-center items-center font-medium mt-4 rounded-lg bg-[#ff0000] md:flex-row md:space-x-8 md:mt-0 md:border-0 border-4 border-white md:bg-transparent">
+                            class="flex flex-col justify-center items-center font-medium mt-4 rounded-lg bg-[#ff0000] md:flex-row md:space-x-4 md:mt-0 md:border-0 border-4 border-white md:bg-transparent">
                             <li>
                                 <a href="{{ route('donate') }}"
                                     class="text-lg mx-2 text-white hover:text-black transition">DONATE
@@ -137,8 +137,8 @@
         @yield('page-content')
     </main>
 
-    <footer>
-        <div class="flex flex-wrap bg-neutral-200 w-full justify-center pb-6">
+    <footer class="h-fit">
+        <div class="flex flex-wrap bg-neutral-200 w-full justify-center pb-6 lg:-translate-y-40">
             <form class="flex flex-col w-11/12 py-5 mx-auto text-black justify-center">
                 <div class="mx-auto font-bold text-4xl text-center px-5 py-3">
                     {{ __('messages.JoinNyataTitle') }}
@@ -146,23 +146,45 @@
                 <div class="mx-auto text-base text-center px-5 py-3 tracking-wider">
                     {{ __('messages.JoinNyataDescription') }}
                 </div>
-                <div class="flex flex-wrap mx-auto w-full h-1/4 py-3 justify-center">
+                <div class="flex flex-wrap mx-auto w-full h-1/4 py-3 justify-center md:flex-row">
                     <input
-                        class="w-11/12 mx-1.5 rounded-lg py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        class="w-11/12 mx-1.5 rounded-lg py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline max-w-xs"
                         id="name" type="name" placeholder="{{ __('messages.Name') }}">
                     <input
-                        class="w-11/12 mx-1.5 rounded-lg py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        class="w-11/12 mx-1.5 rounded-lg py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline max-w-xs"
                         id="emailaddress" type="emailaddress" placeholder="{{ __('messages.EmailAddress') }}">
                 </div>
                 <button
-                    class="mx-auto w-11/12 bg-[#ff0000] text-white text-base font-bold mt-10 py-3 px-0 rounded-2xl focus:outline-none focus:shadow-outline"
+                    class="mx-auto w-11/12 bg-[#ff0000] text-white text-base font-bold mt-8 py-3 px-0 rounded-2xl focus:outline-none focus:shadow-outline max-w-xs md:mt-2"
                     type="button">
                     {{ __('messages.Join') }}
                 </button>
             </form>
         </div>
-        <div class="flex flex-col bg-[#ff0000] w-full justify-center pt-6">
-            <div class="mx-auto px-5 py-3">
+        <div class="flex flex-col bg-[#ff0000] w-full justify-center pt-6 lg:-translate-y-36">
+            <div class="container justify-center mx-auto">
+                <div class="flex flex-row flex-wrap justify-center mx-auto">
+                    <div class="basis-full justify-center text-center py-5 px-8 lg:basis-1/2 lg:text-left">
+                        <img src="/image/share/LogoNyataWord.png" class="h-36 mx-auton lg:mx-0">
+                        <p class="uppercase font-bold text-xl mt-6">{{ __('messages.ContactUs') }}</p>
+                        <p class="text-xl">Ph +62 812 2233 4708</p>
+                        <p class="text-xl"><a href="https://www.instagram.com/nyatafoundation/" target="blank">IG @nyatafoundation</a></p>
+                    </div>
+                    <div class="basis-full justify-center text-center py-5 px-5 mb-6 lg:basis-1/2 lg:translate-y-[4.5rem] lg:text-right">
+                        <button
+                            class="mx-auto w-full bg-white text-[#ff0000] text-base font-bold py-3 rounded-2xl focus:outline-none focus:shadow-outline uppercase max-w-xs"
+                            type="button" onclick="window.location='{{ route('contactus') }}'">
+                            {{ __('messages.GiveSupport') }}
+                        </button>
+                        <p class="uppercase font-bold text-xl mt-6">{{ __('messages.SendYourDonation') }}</p>
+                        <p class="text-xl">Yayasan Anak-anak Tanah Air</p>
+                        <p class="text-xl">No. 233 999 6622</p>
+                        <p class="text-xl">BCA Cab. Sukajadi Bandung</p>
+                    </div>
+                </div>
+            </div>
+
+            {{-- <div class="mx-auto px-5 py-3">
                 <img src="/image/share/LogoNyataWord.png" class="h-36">
             </div>
             <div class="mx-auto text-lg text-center px-5 py-3">
@@ -182,7 +204,7 @@
                 <p class="text-xl">Yayasan Anak-anak Tanah Air</p>
                 <p class="text-xl">No. 233 999 6622</p>
                 <p class="text-xl">BCA Cab. Sukajadi Bandung</p>
-            </div>
+            </div> --}}
         </div>
     </footer>
 

@@ -4,7 +4,7 @@
     <section>
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
-            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <div class="relative h-60 overflow-hidden md:h-96 xl:h-[40rem]">
                 <!-- Item 1 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src="/image/homepage/carousel/carousel01.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
@@ -63,7 +63,7 @@
             </h3>
             <hr class="w-48 h-0.5 mx-auto my-6 bg-gray-400 border-0 rounded">
             <div class="flex flex-row flex-wrap justify-center">
-                <div class="basis-full justify-center py-5 px-5">
+                <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
                     <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto h-14 py-2">
                     <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                         SHARING
@@ -72,7 +72,7 @@
                         Help, share knowledge and joy is the way of NYATA
                     </p>
                 </div>
-                <div class="basis-full justify-center py-5 px-5">
+                <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
                     <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto h-14 py-2">
                     <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                         EMPOWERMENT
@@ -82,7 +82,7 @@
                         of life and their education
                     </p>
                 </div>
-                <div class="basis-full justify-center py-5 px-5">
+                <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
                     <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto h-14 py-2">
                     <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                         PROFESSIONAL
@@ -96,20 +96,23 @@
     </section>
 
     <!-- EDUCATION IS THE HEART OF OUR FUTURE -->
-    <section class="flex relative max-w-none w-full h-full">
+    <section class="flex relative max-w-none w-full h-full my-auto">
         <div style="background-image:url('/image/homepage/background/background01.jpg')"
-            class="relative w-full h-auto max-w-none bg-cover bg-center bg-fixed">
-            <h3 class="ml-10 mr-36 pt-6 text-3xl font-bold text-red-600 text-left drop-shadow-lg">
+            class="relative w-full h-auto max-w-none bg-cover bg-center bg-fixed md:h-[32rem]">
+            <div class="self-center items-center content-center md:my-20 md:ml-6">
+
+            <h3 class="ml-10 mr-36 pt-6 text-3xl font-bold text-[#ff0000] text-left drop-shadow-lg max-w-xs">
                 EDUCATION IS THE HEART OF OUR FUTURE
             </h3>
-            <p class="ml-10 mr-36 pt-4 text-white text-bold text-xl drop-shadow-xl">
+            <p class="ml-10 mr-36 pt-4 text-white text-bold text-xl drop-shadow-xl max-w-xs">
                 Help the children to get proper education. Every help will keep the children to go to schools and make a
                 better future.
             </p>
             <div class="ml-10 mr-36 py-6">
-                <button type="button" class="mx-auto px-3 py-3 bg-red-600 rounded-lg" onclick="window.location='{{ route('home') }}'">
+                <button type="button" class="mx-auto px-3 py-3 bg-[#ff0000] rounded-lg" onclick="window.location='{{ route('home') }}'">
                     TAKE ACTION
                 </button>
+            </div>
             </div>
         </div>
     </section>
@@ -121,77 +124,85 @@
                 OUR PROGRESS
             </h3>
             <hr class="w-48 h-0.5 mx-auto my-6 bg-gray-400 border-0 rounded">
-            <h3 class="px-3 pt-8 pb-2 text-red-600 text-7xl text-center text-extrabold">
-                1089
-            </h3>
-            <p class="px-3 py-3 text-black text-xl text-center tracking-wider">
-                ADIK ASUH
-            </p>
-            <h3 class="px-3 pt-8 pb-2 text-red-600 text-7xl text-center text-extrabold">
-                80
-            </h3>
-            <p class="px-3 py-3 text-black text-xl text-center tracking-wider">
-                SCHOOLS
-            </p>
+            <div class="flex flex-row flex-wrap justify-center">
+                <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
+                    <h3 class="px-3 py-3 text-[#ff0000] text-7xl text-center font-bold">
+                        1089
+                    </h3>
+                    <p class="px-3 py-3 text-black text-xl text-center tracking-wider max-w-2xl mx-auto">
+                        ADIK ASUH
+                    </p>
+                </div>
+                <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
+                    <h3 class="px-3 py-3 text-[#ff0000] text-7xl text-center font-bold">
+                        80
+                    </h3>
+                    <p class="px-3 py-3 text-black text-xl text-center tracking-wider max-w-2xl mx-auto">
+                        SCHOOLS
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- OUR SOLUTIONS -->
+    <!-- OUR SOLUTION -->
     <section class="flex items-center max-w-none w-full bg-white ">
         <div class="container justify-center max-w-none mt-10 mb-10">
             <h3 class="flex w-full justify-center text-4xl py-3 text-black font-bold">
                 OUR SOLUTION
             </h3>
             <hr class="w-48 h-0.5 mx-auto my-6 bg-gray-400 border-0 rounded">
-            <div class="flex flex-col justify-center mx-5 pt-8 mb-5 h-3/4 md:mx-10">
-                <img src="{{ URL::asset('image/homepage/oursolution/oursolution01.jpg') }}"
-                    class="rounded-t-3xl h-56 items-center md:w-full md:h-auto">
-                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white md:-translate-y-20">
-                    <h3 class="px-3 pt-5 text-3xl text-center font-bold">
-                        ADIK ASUH
-                    </h3>
-                    <p class="px-3 py-5 text-base text-center">
-                        Join us to be foster brother and sister and help the children reach a brigther future
-                    </p>
+            <div class="flex flex-row flex-wrap justify-center pt-6 md:mx-6">
+                <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
+                    <img src="{{ URL::asset('image/homepage/oursolution/oursolution01.jpg') }}"
+                        class="rounded-t-3xl h-auto w-full items-center max-h-[38rem]">
+                    <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white lg:-translate-y-36 lg:h-64 xl:-translate-y-[11.5rem] 2xl:-translate-y-56">
+                        <h3 class="px-3 pt-5 text-3xl text-center font-bold">
+                            ADIK ASUH
+                        </h3>
+                        <p class="px-3 py-5 text-base text-center">
+                            Join us to be foster brother and sister and help the children reach a brigther future
+                        </p>
+                    </div>
+                    <div class="px-0 py-5 text-center lg:-translate-y-36 xl:-translate-y-[11.5rem] 2xl:-translate-y-56">
+                        <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg" onclick="window.location='{{ route('adikasuh') }}'">
+                            LEARN MORE
+                        </button>
+                    </div>
                 </div>
-                <div class="px-0 py-5 text-center md:-translate-y-20">
-                    <button type="button" class="w-2/4 px-3 py-3 bg-red-600 rounded-lg" onclick="window.location='{{ route('adikasuh') }}'">
-                        LEARN MORE
-                    </button>
+                <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
+                    <img src="{{ URL::asset('image/homepage/oursolution/oursolution02.jpg') }}"
+                        class="rounded-t-3xl h-auto w-full items-center">
+                    <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white lg:-translate-y-6 lg:h-64 xl:-translate-y-8 2xl:-translate-y-12">
+                        <h3 class="px-3 pt-5 text-3xl text-center font-bold">
+                            TRAVEL CHARITY
+                        </h3>
+                        <p class="px-3 py-5 text-base text-center">
+                            Help local livelihoods and economic communities while travel to explore the beauty of Indonesia
+                        </p>
+                    </div>
+                    <div class="px-0 py-5 text-center lg:-translate-y-6 xl:-translate-y-8 2xl:-translate-y-12">
+                        <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg" onclick="window.location='{{ route('travelcharity') }}'">
+                            LEARN MORE
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-col justify-center mx-5 mb-5 pt-5 h-3/4 md:mx-10">
-                <img src="{{ URL::asset('image/homepage/oursolution/oursolution02.jpg') }}"
-                    class="rounded-t-3xl h-56 items-center md:w-full md:h-full">
-                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white md:-translate-y-20">
-                    <h3 class="px-3 pt-5 text-3xl text-center font-bold">
-                        TRAVEL CHARITY
-                    </h3>
-                    <p class="px-3 py-5 text-base text-center">
-                        Help local livelihoods and economic communities while travel to explore the beauty of Indonesia
-                    </p>
-                </div>
-                <div class="px-0 py-5 text-center md:-translate-y-20">
-                    <button type="button" class="w-2/4 px-3 py-3 bg-red-600 rounded-lg" onclick="window.location='{{ route('travelcharity') }}'">
-                        LEARN MORE
-                    </button>
-                </div>
-            </div>
-            <div class="flex flex-col justify-center mx-5 mb-5 pt-5 h-3/4 md:mx-10">
-                <img src="{{ URL::asset('image/homepage/oursolution/oursolution03.jpg') }}"
-                    class="rounded-t-3xl h-56 items-center md:w-full md:h-auto">
-                <div class="px-0 py-5 bg-red-600 rounded-b-3xl text-white md:-translate-y-20">
-                    <h3 class="px-3 pt-5 text-3xl text-center font-bold">
-                        ACT OF KINDNESS
-                    </h3>
-                    <p class="px-3 py-5 text-base text-center">
-                        Gives the good deeds to the school, organization, individual or community that in need
-                    </p>
-                </div>
-                <div class="px-0 py-5 text-center md:-translate-y-20">
-                    <button type="button" class="w-2/4 px-3 py-3 bg-red-600 rounded-lg" onclick="window.location='{{ route('actofkindness') }}'">
-                        LEARN MORE
-                    </button>
+                <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
+                    <img src="{{ URL::asset('image/homepage/oursolution/oursolution03.jpg') }}"
+                        class="rounded-t-3xl h-auto w-full items-center">
+                    <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white lg:h-64">
+                        <h3 class="px-3 pt-5 text-3xl text-center font-bold">
+                            ACT OF KINDNESS
+                        </h3>
+                        <p class="px-3 py-5 text-base text-center">
+                            Gives the good deeds to the school, organization, individual or community that in need
+                        </p>
+                    </div>
+                    <div class="px-0 py-5 text-center">
+                        <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg" onclick="window.location='{{ route('actofkindness') }}'">
+                            LEARN MORE
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
