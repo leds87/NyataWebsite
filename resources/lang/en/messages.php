@@ -13,9 +13,25 @@ return [
     are at the elementary school level as many as 59,400 students. This is where NYATA moves to help the
     goverment and Indonesian children to reduce the high dropout rate and hopes that Indonesian children
     will continue to get a proper education through several programs that NYATA has',
+
     //share page
-    'Join Nyata' => 'Join Nyata',
-    'JoinNyataDescription' => 'JoinNyataDescriptionJoin Nyata Foundation and help to change the world to become a better place',
+    'JoinNyata' => 'Join Nyata',
+    'JoinNyataDescription' => 'Join Nyata Foundation and help to change the world to become a better place',
+    'Name' => 'Name',
+    'EmailAddress' => 'Email Address',
+    'ContactUs' => 'Contact Us',
+    'GiveSupport' => 'Give Support',
+    'SendYourDonation' => 'Send Your Donation To',
+
+    //menu
+    'DonateMenu' => 'Donate',
+    'AboutUsMenu' => 'About Us',
+    'OurPeopleMenu' => 'Our People',
+    'WhatWeDoMenu' => 'What We Do',
+    'AdikAsuhMenu' => 'Adik Asuh',
+    'TravelCharityMenu' => 'Travel Charity',
+    'ActOfKindnessMenu' => 'Act Of Kindness',
+    'TakeActionMenu' => 'Take Action',
 
     //index page
     'WHO WE ARE' => 'WHO WE ARE',
@@ -39,7 +55,4 @@ return [
     'CommunityNote' => 'Becoming a NYATA Partner allows you to join a dedicated group of supporters who understand the importance of making a sustaining commitment to provide education for all.',
     'ItsExcitingNote' => 'NYATA Partner will receive special updates, photos and videos of the children and communities you’ve impacted and more.',
     'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!'
-
-
-
 ];
