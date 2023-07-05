@@ -22,6 +22,7 @@ return [
     'ContactUs' => 'Contact Us',
     'GiveSupport' => 'Give Support',
     'SendYourDonation' => 'Send Your Donation To',
+    'Join' => 'Join',
 
     //menu
     'DonateMenu' => 'Donate',

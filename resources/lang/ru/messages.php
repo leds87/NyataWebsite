@@ -17,6 +17,7 @@ return [
     'ContactUs' => 'Связаться с нами',
     'GiveSupport' => 'Оказать поддержку',
     'SendYourDonation' => 'Отправить свое пожертвование на',
+    'Join' => 'Присоединиться',
 
     //menu
     'DonateMenu' => 'Donate',

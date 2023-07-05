@@ -19,6 +19,7 @@ return [
     'ContactUs' => 'Kontak Kami',
     'GiveSupport' => 'Beri Dukungan',
     'SendYourDonation' => 'Kirim Donasi Anda Ke',
+    'Join' => 'Bergabung',
 
     //menu
     'DonateMenu' => 'Donate',
