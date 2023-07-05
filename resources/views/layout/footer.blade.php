@@ -1,58 +1,22 @@
-<div class="flex flex-wrap bg-neutral-200 w-full h-[400px] md:h-[350px] justify-center">
-    <form class="flex flex-col max-w-full py-5 mx-auto md:py-10 text-black justify-center">
-        <div class="mx-auto font-bold text-5xl text-center px-5 py-3 uppercase">
-            {{ __('messages.JoinNyata') }}
-        </div>
-        <div class="mx-auto text-base text-center px-5 py-3">
-            {{ __('messages.JoinNyataDescription') }}
-        </div>
-        <div class="flex flex-wrap mx-auto w-full h-[80px] py-3 justify-center">
-            <input class="w-[350px] md:w-[400px] mx-[5px] rounded-[25px] py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="name" type="name" placeholder="{{ __('messages.Name') }}">
-            <input class="w-[350px] md:w-[400px] mx-[5px] rounded-[25px] py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="emailaddress" type="emailaddress" placeholder="{{ __('messages.EmailAddress') }}">
-        </div>
-        <button class="mx-auto w-[300px] bg-[#ff0000] text-white text-base font-bold mt-10 md:mt-5 py-3 px-0 rounded-[25px] focus:outline-none focus:shadow-outline"
-            type="button">
-            {{ __('messages.Join') }}
-        </button>
-    </form>
-</div>
-<div class="flex flex-row bg-[#ff0000] w-full justify-between">
-    <div class="flex flex-col bg-[#ff0000] py-5 pl-5 md:py-10 md:pl-10">
-        <img src="/image/share/LogoNyataWord.png" class="w-full h-[100px] pr-5">
-
-        <a href="{{ route('contactus') }}" class="text-white font-bold text-left uppercase">
-            {{ __('messages.ContactUs') }}
-        </a>
-        <div class="text-left">
-            <a href="tel:6281222334708">
-                Ph +62 812 2233 4708
+<div class="mx-auto w-full max-w-screen-full">
+    <div class="grid grid-cols-1 gap-8 px-4 py-6 lg:py-8 md:grid-cols-2">
+        <div class="w-full text-center mx-auto md:text-left">
+            <a href="{{ route('home') }}">
+                <img src="/image/share/LogoNyataWord.png" class="h-36 mx-auto md:mx-0">
             </a>
+            <p class="uppercase font-bold text-xl mt-6">{{ __('messages.ContactUs') }}</p>
+            <p class="text-xl"><a href="tel:6281222334708">Ph +62 812 2233 4708</a></p>
+            <p class="text-xl"><a href="https://www.instagram.com/nyatafoundation/" target="blank">IG @nyatafoundation</a></p>
         </div>
-        <div class="text-left">
-            <a href="https://www.instagram.com/nyatafoundation/" target="blank">
-                IG @nyatafoundation
-            </a>
-        </div>
-    </div>
-    <div class="flex flex-col bg-[#ff0000] py-5 pr-5 md:py-10 md:pr-10 justify-end items-end">
-        <div>
-            <a href="{{ route('contactus') }}" class="text-white font-bold text-left uppercase">
+        <div class="text-center md:text-right md:pt-16">
+            <button class="mx-auto w-full bg-white text-[#ff0000] text-base font-bold py-3 rounded-2xl focus:outline-none focus:shadow-outline uppercase max-w-xs"
+                type="button" onclick="window.location='{{ route('contactus') }}'">
                 {{ __('messages.GiveSupport') }}
-            </a>
-        </div>
-        <div class="uppercase">
-            {{ __('messages.SendYourDonation') }}
-        </div>
-        <div>
-            Yayasan Anak-anak Tanah Air
-        </div>
-        <div>
-            No. 233 999 6622
-        </div>
-        <div>
-            BCA Cab. Sukajadi Bandung
+            </button>
+            <p class="uppercase font-bold text-xl mt-6">{{ __('messages.SendYourDonation') }}</p>
+            <p class="text-xl">Yayasan Anak-anak Tanah Air</p>
+            <p class="text-xl">No. 233 999 6622</p>
+            <p class="text-xl">BCA Cab. Sukajadi Bandung</p>
         </div>
     </div>
 </div>
