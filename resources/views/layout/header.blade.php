@@ -15,7 +15,7 @@
             </svg>
         </button>
         <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
-            <ul class="flex flex-col justify-center items-center font-medium mt-4 rounded-lg bg-[#ff0000] md:flex-row md:space-x-8 md:mt-0 md:border-0 border-4 border-white md:bg-transparent">
+            <ul class="flex flex-col justify-center items-center font-medium mt-4 rounded-lg bg-[#ff0000] md:flex-row md:space-x-4 md:mt-0 md:border-0 border-4 border-white md:bg-transparent">
                 <li>
                     <a href="{{ route('donate') }}" class="text-lg mx-2 text-white hover:text-black transition uppercase">
                         {{ __('messages.DonateMenu') }}
