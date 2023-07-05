@@ -6,9 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Test
-    </title>
+    <title>@yield('title')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
@@ -20,11 +18,11 @@
         rel="stylesheet">
 </head>
 
+<body class="bg-[#ff0000] text-white w-full">
+    <header class="fixed bg-[#ff0000] top-0 z-50 w-full">
+        @include('layout.header')
 
-
-<body class="bg-[#ff0000] text-white max-w-none w-full">
-    <header class="fixed bg-[#ff0000] top-0 z-50 max-w-none w-full">
-        <section>
+        {{-- <section>
             <nav class="bg-[#FF0000] w-full">
                 <div class="w-full flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="{{ route('home') }}" class="flex items-center">
@@ -132,25 +130,16 @@
 
                 </div>
             </nav>
-        </section>
+        </section> --}}
     </header>
 
     <main>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-            </div>
-        </li>
-
         @yield('page-content')
     </main>
 
     <footer>
-        <div class="flex flex-wrap bg-neutral-200 w-full h-[400px] md:h-[350px] justify-center">
+        @include('layout.footer')
+        {{-- <div class="flex flex-wrap bg-neutral-200 w-full h-[400px] md:h-[350px] justify-center">
             <form class="flex flex-col w-[900px] py-5 mx-auto md:py-10 text-black justify-center">
                 <div class="mx-auto font-bold text-5xl text-center px-5 py-3">
                     {{ __('messages.JOIN NYATA') }}
@@ -201,11 +190,9 @@
                 <div>
                     BCA Cab. Sukajadi Bandung
                 </div>
-            </div>
+            </div> --}}
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
-
-    <script></script>
 </body>
 
 </html>
