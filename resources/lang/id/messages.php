@@ -30,4 +30,8 @@ return [
     'TravelCharityMenu' => 'Travel Charity',
     'ActOfKindnessMenu' => 'Act Of Kindness',
     'TakeActionMenu' => 'Take Action',
+
+    //Take Action Page
+    'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
+    'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children'
 ];

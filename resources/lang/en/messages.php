@@ -55,5 +55,9 @@ return [
     'SustainedSupportNote' => 'Enables NYATA to expand our programs because we know we have the ongoing support from the NYATA Partner community',
     'CommunityNote' => 'Becoming a NYATA Partner allows you to join a dedicated group of supporters who understand the importance of making a sustaining commitment to provide education for all.',
     'ItsExcitingNote' => 'NYATA Partner will receive special updates, photos and videos of the children and communities you’ve impacted and more.',
-    'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!'
+    'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!',
+
+    //Take Action Page
+    'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
+    'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children'
 ];
