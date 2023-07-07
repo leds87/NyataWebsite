@@ -16,7 +16,7 @@
     <div class="inline-flex items-center justify-center w-full px-24">
         <hr class="w-64 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
     </div>
-    <p class="text-black dark:text-gray-400 px-8 py-6 tracking-wider">{{ __('messages.FoundingHistoryDescription') }}</p>
+    <p class="text-black dark:text-gray-400 px-8 py-6 max-w-[68rem] mx-auto tracking-wider">{{ __('messages.FoundingHistoryDescription') }}</p>
 </section>
 
 {{-- OUR JOURNEY --}}
@@ -175,6 +175,67 @@
     {{-- <p class="text-black dark:text-gray-400 px-8 py-6">{{ __('messages.FoundingHistoryDescription') }}</p> --}}
 </section>
 
+{{-- FILOSOPHY --}}
+<section class="text-center max-w-none w-full bg-white py-16 px-8 md:text-left">
+    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <div class="mt-4 md:mt-0">
+            <div class="flex flex-wrap justify-center py-4">
+                <div>
+                    <img src="/image/share/400nyata01.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
+                </div>
+                <div class="text-black h-[200px] w-[250px] px-5 py-5">
+                    <h3 class="text-xl font-bold uppercase">
+                        {{ __('messages.Home') }}
+                    </h3>
+                    <p class="tracking-wide">
+                        {{ __('messages.HomeDescription') }}
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center py-4">
+                <div>
+                    <img src="/image/share/400nyata02.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
+                </div>
+                <div class="text-black h-[200px] w-[250px] px-5 py-10">
+                    <h3 class="text-xl font-bold uppercase">
+                        {{ __('messages.Education') }}
+                    </h3>
+                    <p class="tracking-wide">
+                        {{ __('messages.EducationDescription') }}
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center py-4">
+                <div>
+                    <img src="/image/share/400nyata03.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
+                </div>
+                <div class="text-black h-[200px] w-[250px] px-5 py-8">
+                    <h3 class="text-xl font-bold uppercase">
+                        {{ __('messages.Children') }}
+                    </h3>
+                    <p class="tracking-wide">
+                        {{ __('messages.ChildrenDescription') }}
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center py-4">
+                <div>
+                    <img src="/image/share/400nyata03.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
+                </div>
+                <div class="text-black h-[200px] w-[250px] px-5 py-10">
+                    <h3 class="text-xl font-bold uppercase">
+                        {{ __('messages.Light') }}
+                    </h3>
+                    <p class="tracking-wide">
+                        {{ __('messages.LightDescription') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <img class="w-full rounded-3xl" src="/image/donate/HomePageuOurJourney.jpg" alt="dashboard image">
+        {{-- <img class="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image"> --}}
+    </div>
+</section>
 
 
     {{-- <section class="flex relative max-w-none w-full h-[400px] md:h-[950px]">
