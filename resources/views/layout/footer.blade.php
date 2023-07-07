@@ -1,4 +1,4 @@
-{{-- FOUNDING STORY --}}
+{{-- JOIN FORM --}}
 <section class="text-center max-w-none w-full bg-neutral-200 py-16">
     <h1 class="text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl px-24 uppercase">{{ __('messages.JoinNyata') }}</h1>
     <p class="text-black dark:text-gray-400 px-8 py-6 max-w-[68rem] mx-auto tracking-wider">{{ __('messages.JoinNyataDescription') }}</p>
@@ -18,8 +18,8 @@
         </button>
     </form>
 </section>
-<div class="mx-auto w-full max-w-screen-full">
-    <div class="grid grid-cols-1 gap-8 px-4 py-6 lg:py-8 md:grid-cols-2">
+<section class="mx-auto w-full max-w-screen-full">
+    <div class="grid grid-cols-1 gap-8 px-4 py-6 lg:py-8 md:grid-cols-2 md:px-16">
         <div class="w-full text-center mx-auto md:text-left">
             <a href="{{ route('home') }}">
                 <img src="/image/share/LogoNyataWord.png" class="h-36 mx-auto md:mx-0">
@@ -39,4 +39,4 @@
             <p class="text-xl">BCA Cab. Sukajadi Bandung</p>
         </div>
     </div>
-</div>
+</section>
