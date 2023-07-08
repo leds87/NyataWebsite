@@ -58,6 +58,7 @@ return [
     'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!',
 
     //Take Action Page
+    'TakeActionTitle' => 'TAKE ACTION',
     'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
     'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children'
 ];

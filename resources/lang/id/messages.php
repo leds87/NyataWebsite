@@ -32,6 +32,7 @@ return [
     'TakeActionMenu' => 'Take Action',
 
     //Take Action Page
-    'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
-    'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children'
+    'TakeActionTitle' => 'TAKE ACTION',
+    'TakeAction' => 'INGIN BERGABUNG DENGAN TIM KAMI ?',
+    'TakeActionDescription' => 'Bergabunglah dengan kami dan rasakan membantu orang dan berbagi kebahagiaan dengan anak-anak'
 ];

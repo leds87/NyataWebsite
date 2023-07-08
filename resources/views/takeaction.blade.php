@@ -1,5 +1,5 @@
 @extends('layout.default')
-@section('title', 'TAKE ACTION')
+@section('title', __('messages.TakeActionTitle'))
 @section('page-content')
 {{-- FOUNDING STORY --}}
 <section class="text-center max-w-none w-full bg-white py-16">
