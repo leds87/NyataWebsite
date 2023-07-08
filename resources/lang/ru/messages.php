@@ -28,4 +28,7 @@ return [
     'TravelCharityMenu' => 'Travel Charity',
     'ActOfKindnessMenu' => 'Act Of Kindness',
     'TakeActionMenu' => 'Take Action',
+
+    //What we do page
+    'WhatWeDoTitle' => 'WHAT WE DO',
 ];
