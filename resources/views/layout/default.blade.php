@@ -19,7 +19,7 @@
 </head>
 
 <body class="bg-[#ff0000] text-white w-full">
-    <header class="fixed bg-[#ff0000] top-0 z-50 w-full">
+    <header class="bg-[#ff0000] top-0 z-50 w-full bg-[#ff0000] top-0 z-50 w-full h-0 md:h-8 lg:h-2">
         @include('layout.header')
     </header>
 
