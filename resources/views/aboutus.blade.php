@@ -1,5 +1,5 @@
 @extends('layout.default')
-@section('title', "ABOUT US")
+@section('title', __('messages.AboutUsTitle'))
 @section('page-content')
 
 {{-- header image --}}
