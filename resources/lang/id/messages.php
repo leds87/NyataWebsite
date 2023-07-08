@@ -32,5 +32,6 @@ return [
     'TakeActionMenu' => 'Take Action',
 
     //Our People Page
+    'OurPeopleTitle' => 'OUR PEOPLE',
     'OurPeople' => 'Our People'
 ];

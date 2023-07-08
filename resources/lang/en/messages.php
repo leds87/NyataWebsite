@@ -58,5 +58,6 @@ return [
     'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!',
 
     //Our People Page
+    'OurPeopleTitle' => 'OUR PEOPLE',
     'OurPeople' => 'Our People'
 ];

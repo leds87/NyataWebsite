@@ -1,5 +1,5 @@
 @extends('layout.default')
-@section('title', "OUR PEOPLE")
+@section('title', __('messages.OurPeopleTitle'))
 @section('page-content')
 
 {{-- FOUNDING STORY --}}
