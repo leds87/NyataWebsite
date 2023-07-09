@@ -50,4 +50,8 @@ return [
 
     //TITLE
     "AboutUsTitle" => "ABOUT US",
+
+    //Our People Page
+    'OurPeopleTitle' => 'OUR PEOPLE',
+    'OurPeople' => 'Our People'
 ];

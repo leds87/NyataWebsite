@@ -49,7 +49,6 @@ return [
     // 'TravelCharityNote' => 'Help local livelihoods and economic communities while travel to explore the beauty of Indonesia',
     // 'ActOfKindnessNote' => 'Gives the good deeds to the school, organization, individual or community that in need',
 
-
     // //Donate page
     // 'YouCanMakeNote' => 'TEMAN NYATA is a monthly giving program where every dollar goes toward educating a child. You are making an impact in life of someone else, every single month.',
     // 'AffordableNote' => 'By giving monthly, you invest what makes sense for you and make an incredible impact over the course of your membership',
@@ -65,7 +64,7 @@ return [
     "Home" => "Home",
     "HomeDescription" => "Mountain, a historic symbol of Indonesia, represents home to the children we are taking care of.",
     "Education" => "Education",
-    "EducationDescription" => "Education as the base of our value that we hold tightly to.",
+    "EducationDescription" => "Educati<<<<<<< HEADon as the base of our value that we hold tightly to.",
     "Children" => "Children",
     "ChildrenDescription" => "Like a flower that is blooming, we focus on nurturing children of the nation.",
     "Light" => "Light",
@@ -76,4 +75,16 @@ return [
 
     //TITLE
     "AboutUsTitle" => "ABOUT US",
+
+    //Donate page
+    'YouCanMakeNote' => 'TEMAN NYATA is a monthly giving program where every dollar goes toward educating a child. You are making an impact in life of someone else, every single month.',
+    'AffordableNote' => 'By giving monthly, you invest what makes sense for you and make an incredible impact over the course of your membership',
+    'SustainedSupportNote' => 'Enables NYATA to expand our programs because we know we have the ongoing support from the NYATA Partner community',
+    'CommunityNote' => 'Becoming a NYATA Partner allows you to join a dedicated group of supporters who understand the importance of making a sustaining commitment to provide education for all.',
+    'ItsExcitingNote' => 'NYATA Partner will receive special updates, photos and videos of the children and communities you’ve impacted and more.',
+    'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!',
+
+    //Our People Page
+    'OurPeopleTitle' => 'OUR PEOPLE',
+    'OurPeople' => 'Our People'
 ];

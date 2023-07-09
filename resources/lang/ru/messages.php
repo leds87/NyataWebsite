@@ -48,4 +48,8 @@ return [
 
     //TITLE
     "AboutUsTitle" => "ABOUT US",
+
+    //Our People Page
+    'OurPeopleTitle' => 'OUR PEOPLE',
+    'OurPeople' => 'Наши люди'
 ];
