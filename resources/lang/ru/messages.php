@@ -51,5 +51,10 @@ return [
 
     //Our People Page
     'OurPeopleTitle' => 'OUR PEOPLE',
-    'OurPeople' => 'Наши люди'
+    'OurPeople' => 'Наши люди',
+
+    //Take Action Page
+    'TakeActionTitle' => 'TAKE ACTION',
+    'TakeAction' => 'Хотите присоединиться к нашей команде ?',
+    'TakeActionDescription' => 'Присоединяйтесь к нам и участвуйте в помощи людям и делитесь радостью с детьми'
 ];

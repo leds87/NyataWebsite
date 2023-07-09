@@ -86,5 +86,10 @@ return [
 
     //Our People Page
     'OurPeopleTitle' => 'OUR PEOPLE',
-    'OurPeople' => 'Our People'
+    'OurPeople' => 'Our People',
+
+    //Take Action Page
+    'TakeActionTitle' => 'TAKE ACTION',
+    'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
+    'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children'
 ];

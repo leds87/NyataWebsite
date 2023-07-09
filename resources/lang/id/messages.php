@@ -53,5 +53,10 @@ return [
 
     //Our People Page
     'OurPeopleTitle' => 'OUR PEOPLE',
-    'OurPeople' => 'Our People'
+    'OurPeople' => 'Our People',
+
+    //Take Action Page
+    'TakeActionTitle' => 'TAKE ACTION',
+    'TakeAction' => 'INGIN BERGABUNG DENGAN TIM KAMI ?',
+    'TakeActionDescription' => 'Bergabunglah dengan kami dan rasakan membantu orang dan berbagi kebahagiaan dengan anak-anak'
 ];
