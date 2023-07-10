@@ -168,4 +168,20 @@ return [
     'WhoYouHelpChildren' => 'Share knowledge and provides a fun educational experience for children across Indonesia.',
     'LocalCommunities' => 'Local Communities',
     'LocalCommunitiesDescription' => 'Provide new job oppotunities to prosper and improve the standard of living of local communities.',
+
+    //Act of Kindness Page
+    'ActOfKindnessTitle' => 'ACT OF KINDNESS',
+    'ActOfKindnessHeaderDescription' => 'Take part to share goodness that impacts schools, organizations, individuals or communities who are in need of help from TEMAN NYATA',
+    'Record' => 'Record',
+    'RecordDescription' => 'Act of kindess in one of the school.',
+    'Volunteer' => 'Volunteer',
+    'JoinTemanNyata' => 'Join Teman Nyata',
+    'VisitInstagram' => 'Visit Instagram',
+    'ExploreBeauty' => 'EXPLORE BEAUTY, SHARE KINDNESS',
+    'WhyYouChooseAct' => 'WHY YOU CHOOSE ACT OF KINDNESS PROGRAM',
+    'WhyYouChooseActDescription' => 'This program offers opportunities to share with those who are in need of assitance. NYATA friends can also develop skills or seek new experiences and knowledge through this program by volunteering.',
+    'HowCanYouHelpVolunteerDescription' => 'Joining a volunteer allows you to be directly involved in the field to help those in need.',
+    'HowCanYouHelpDonateDescription' => 'Every donation given will be effectively allocated to help those in need.',
+    'Donate' => 'Пожертвовать',
+    'WhoYouHelpAct' => 'Schools, organizations, individuals or communities who are in need of assitance with the aim of solving or easing their burden.'
 ];
