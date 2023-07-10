@@ -120,4 +120,17 @@ return [
     'AdikAsuhWhoYouHelp3' => 'Reports of Adik Asuh every end of semester school',
     'AdikAsuhWhoYouHelp4' => 'Contract as Kakak Asuh for at least 1 school year',
     'AdikAsuhWhoYouHelp5' => 'School tuition bills are sent every month via WhatsApp or email',
+
+    //Travel Charity Page
+    'TravelCharityTitle' => 'TRAVEL CHARITY',
+    'OtherSide' => 'THE OTHER SIDE OF INDONESIA',
+    'ExploreShare' => 'EXPLORE BEAUTY, SHARE KINDNESS',
+    'WhyYouChooseTravel' => 'WHY YOU CHOOSE OUR TRAVEL CHARITY PROGRAM',
+    'WhyYouChooseTravel1' => 'Welfare of local businesses to help improve the standard of living of the people in the area.',
+    'WhyYouChooseTravel2' => 'Closer to understanding the problems faced by local communities, it becomes an opportunity to provide NYATA help for them.',
+    'WhyYouChooseTravel3' => 'Explore and enjoy the beauty and culture of the regions in Indonesia.',
+    'HowCanYouHelpTravelDescription' => 'By choosing this program, NYATA helps the local community while traveling on vacation. Everything you do contributes to the long-term and sustainable goals of the area.',
+    'WhoYouHelpChildren' => 'Share knowledge and provides a fun educational experience for children across Indonesia.',
+    'LocalCommunities' => 'Local Communities',
+    'LocalCommunitiesDescription' => 'Provide new job oppotunities to prosper and improve the standard of living of local communities.',
 ];

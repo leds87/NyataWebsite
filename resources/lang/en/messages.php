@@ -134,7 +134,7 @@ return [
     'GrowTeacherDescription' => 'Support the welfare of teachers in getting a decent wage, so that the teaching and learning process can be carried out in a sustainable manner. NYATA also provides training programs for teachers in the regions so that they can continue to develop their knowledge',
     'OperationalIntegrityAdikAsuhDescription' => 'NYATA is proactive in ensuring that every school and teachers can educate Adik Asuh properly. NYATA involved in the development of each individual Kakak Asuh',
     'BeSavior' => 'Be Savior, Give Hope',
-    'WhyYouChooseOur' => 'WHY YOU CHOOSE OUR TRAVEL CHARITY PROGRAM',
+    'WhyYouChooseOur' => 'WHY YOU CHOOSE OUR ADIK ASUH PROGRAM',
     'WhyYouChooseOur1' => 'Donations given by Kakak Asuh are directly channeled to NYATA partner schools and are known by Adik Asuh in a transparent manner, in order to avoid misuse of funds',
     'WhyYouChooseOur2' => 'Support the welfare of teachers in getting a decent wage, so that the teaching and learning process can be carried out in a sustainable manner. NYATA also provides training programs for teachers in the regions so that they can continue to develop their knowledge',
     'WhyYouChooseOur3' => 'NYATA is proactive in ensuring that every school and teachers can educate Adik Asuh properly. NYATA involved in the development of each individual Kakak Asuh',
@@ -155,4 +155,17 @@ return [
     'AdikAsuhWhoYouHelp3' => 'Reports of Adik Asuh every end of semester school',
     'AdikAsuhWhoYouHelp4' => 'Contract as Kakak Asuh for at least 1 school year',
     'AdikAsuhWhoYouHelp5' => 'School tuition bills are sent every month via WhatsApp or email',
+
+    //Travel Charity Page
+    'TravelCharityTitle' => 'TRAVEL CHARITY',
+    'OtherSide' => 'THE OTHER SIDE OF INDONESIA',
+    'ExploreShare' => 'EXPLORE BEAUTY, SHARE KINDNESS',
+    'WhyYouChooseTravel' => 'WHY YOU CHOOSE OUR TRAVEL CHARITY PROGRAM',
+    'WhyYouChooseTravel1' => 'Welfare of local businesses to help improve the standard of living of the people in the area.',
+    'WhyYouChooseTravel2' => 'Closer to understanding the problems faced by local communities, it becomes an opportunity to provide NYATA help for them.',
+    'WhyYouChooseTravel3' => 'Explore and enjoy the beauty and culture of the regions in Indonesia.',
+    'HowCanYouHelpTravelDescription' => 'By choosing this program, NYATA helps the local community while traveling on vacation. Everything you do contributes to the long-term and sustainable goals of the area.',
+    'WhoYouHelpChildren' => 'Share knowledge and provides a fun educational experience for children across Indonesia.',
+    'LocalCommunities' => 'Local Communities',
+    'LocalCommunitiesDescription' => 'Provide new job oppotunities to prosper and improve the standard of living of local communities.',
 ];
