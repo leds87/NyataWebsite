@@ -12,7 +12,7 @@
 {{-- HEADER IMAGE --}}
 <section class="flex relative max-w-none w-full h-[500px]">
     <div
-        class="relative w-full max-w-none bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/image/homepage/carousel/carousel03.jpg')]">
+        class="relative w-full max-w-none bg-cover bg-fixed bg-no-repeat bg-[url('/image/homepage/carousel/carousel03.jpg')]">
         <div class="px-12 max-w-screen-xl text-left py-24 md:py-36 md:px-24 lg:py-32 lg:px-32 xl:py-40">
             <h1 class="mb-4 text-6xl font-extrabold tracking-tight leading-none text-[#ff0000] max-w-md md:text-5xl lg:text-6xl lg:max-w-none">NYATA-KAN KEBAIKAN</h1>
             <p class="mb-4 text-2xl font-extrabold tracking-wider leading-8 text-white">Discover how NYATA spreads goodness and change for the nation’s children</p>
