@@ -50,7 +50,7 @@
         </div>
 </section>
 
-{{-- FOUNDING STORY --}}
+{{-- WHAT WE HOLD --}}
 <section class="text-center max-w-none w-full bg-neutral-200 py-16">
     <h1 class="text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl px-24 uppercase">{{ __('messages.WhatWeHold') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
@@ -99,16 +99,16 @@
                 <img src="{{ URL::asset('image/homepage/oursolution/oursolution01.jpg') }}"
                     class="rounded-t-3xl h-full w-full items-center max-h-[320px]">
                 <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white">
-                    <h3 class="px-3 pt-5 text-3xl text-center font-bold">
-                        ADIK ASUH
+                    <h3 class="px-3 pt-5 text-3xl text-center font-bold uppercase">
+                        {{ __('messages.AdikAsuh') }}
                     </h3>
                     <p class="px-3 py-5 text-base text-center max-w-md mx-auto">
-                        Join us to be foster brother and sister and help the children reach a brigther future
+                        {{ __('messages.AdikAsuhDescriptionWhatWeDo') }}
                     </p>
                 </div>
                 <div class="px-0 py-5 text-center">
-                    <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg" onclick="window.location='{{ route('adikasuh') }}'">
-                        LEARN MORE
+                    <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg uppercase" onclick="window.location='{{ route('adikasuh') }}'">
+                        {{ __('messages.LearnMore') }}
                     </button>
                 </div>
             </div>
@@ -116,16 +116,16 @@
                 <img src="{{ URL::asset('image/homepage/oursolution/oursolution02.jpg') }}"
                     class="rounded-t-3xl h-full w-full items-center max-h-[320px]">
                 <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white">
-                    <h3 class="px-3 pt-5 text-3xl text-center font-bold">
-                        TRAVEL CHARITY
+                    <h3 class="px-3 pt-5 text-3xl text-center font-bold uppercase">
+                        {{ __('messages.TravelCharity') }}
                     </h3>
                     <p class="px-3 py-5 text-base text-center max-w-md mx-auto">
-                        Help local livelihoods and economic communities while travel to explore the beauty of Indonesia
+                        {{ __('messages.TravelCharityDescription') }}
                     </p>
                 </div>
                 <div class="px-0 py-5 text-center">
-                    <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg" onclick="window.location='{{ route('travelcharity') }}'">
-                        LEARN MORE
+                    <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg uppercase" onclick="window.location='{{ route('travelcharity') }}'">
+                        {{ __('messages.LearnMore') }}
                     </button>
                 </div>
             </div>
@@ -133,16 +133,16 @@
                 <img src="{{ URL::asset('image/homepage/oursolution/oursolution03.jpg') }}"
                     class="rounded-t-3xl h-full w-full items-center max-h-[320px]">
                 <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white">
-                    <h3 class="px-3 pt-5 text-3xl text-center font-bold">
-                        ACT OF KINDNESS
+                    <h3 class="px-3 pt-5 text-3xl text-center font-bold uppercase">
+                        {{ __('messages.ActOfKindness') }}
                     </h3>
                     <p class="px-3 py-5 text-base text-center max-w-md mx-auto">
-                        Gives the good deeds to the school, organization, individual or community that in need
+                        {{ __('messages.ActOfKindnessDescription') }}
                     </p>
                 </div>
                 <div class="px-0 py-5 text-center">
-                    <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg" onclick="window.location='{{ route('actofkindness') }}'">
-                        LEARN MORE
+                    <button type="button" class="w-2/4 px-3 py-3 bg-[#ff0000] rounded-lg uppercase" onclick="window.location='{{ route('actofkindness') }}'">
+                        {{ __('messages.LearnMore') }}
                     </button>
                 </div>
             </div>

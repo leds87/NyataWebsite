@@ -105,6 +105,11 @@ return [
     'OperationalIntegrity' => 'Operational Integrity',
     'OperationalIntegrityDescription' => 'NYATA is proactive in ensuring that every ongoing activity and program can be carried out sustainably',
     'OurSolution' => 'Our Solution',
+    'AdikAsuhDescriptionWhatWeDo' => 'Join us to be foster brother and sister and help the children reach a brighter future',
+    'TravelCharity' => 'Travel Charity',
+    'TravelCharityDescription' => 'Help local livelihoods and economic communities while travel to explore the beauty of Indonesia',
+    'ActOfKindness' => 'Act of Kindness',
+    'ActOfKindnessDescription' => 'Gives the good deeds to the school, organization, individual or community that in need',
 
     //adik asuh page
     'AdikAsuhTitle' => 'ADIK ASUH',
