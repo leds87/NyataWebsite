@@ -75,6 +75,8 @@ return [
     "OurResults" => "Our Results",
     "TagLine" => "Anak Nyata, Anak Terang",
     "TagLineDescription" => "Anak terang dari negeri Indonesia.",
+    'AnakTerang' => 'Anak Terang',
+    'AnakNyata' => 'Anak Nyata',
 
     //Donate page
     'YouCanMakeNote' => 'TEMAN NYATA is a monthly giving program where every dollar goes toward educating a child. You are making an impact in life of someone else, every single month.',
@@ -120,7 +122,6 @@ return [
     'Updated' => 'Updated',
     'Aku' => 'Aku',
     'Bintang' => 'Bintang',
-    'AnakTerang' => 'Anak Terang',
     'MeetMaria' => 'Meet Maria',
     'Nickname' => 'Nickname',
     'Age' => 'Age',

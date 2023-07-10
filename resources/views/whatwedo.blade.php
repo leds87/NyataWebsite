@@ -12,7 +12,7 @@
 {{-- HEADER IMAGE --}}
 <section class="flex relative max-w-none w-full h-[500px]">
     <div
-        class="relative w-full max-w-none bg-cover bg-fixed bg-no-repeat bg-[url('/image/homepage/carousel/carousel03.jpg')]">
+        class="relative w-full max-w-none bg-cover bg-fixed bg-no-repeat bg-[url('/image/what-we-do/header-bg.jpg')]">
         <div class="px-12 max-w-screen-xl text-left py-24 md:py-36 md:px-24 lg:py-32 lg:px-32 xl:py-40">
             <h1 class="mb-4 text-6xl font-extrabold tracking-tight leading-none text-[#ff0000] max-w-md md:text-5xl lg:text-6xl lg:max-w-none">NYATA-KAN KEBAIKAN</h1>
             <p class="mb-4 text-2xl font-extrabold tracking-wider leading-8 text-white">Discover how NYATA spreads goodness and change for the nation’s children</p>
@@ -58,7 +58,7 @@
     </div>
     <div class="flex flex-col flex-wrap justify-center w-full mx-auto py-5 my-5 max-w-[700px]">
         <div class="flex flex-col justify-center py-5 px-5">
-            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/what-we-do/direct-giving-icon.png') }}" class="mx-auto max-w-xs py-2">
             <h3 class="px-3 py-3 text-black text-3xl text-center font-bold uppercase">
                 {{ __('messages.DirectGiving') }}
             </h3>
@@ -67,7 +67,7 @@
             </p>
         </div>
         <div class="flex flex-col justify-center py-5 px-5">
-            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/what-we-do/local-support-icon.png') }}" class="mx-auto max-w-xs py-2">
             <h3 class="px-3 py-3 text-black text-3xl text-center font-bold uppercase">
                 {{ __('messages.LocalSupport') }}
             </h3>
@@ -76,7 +76,7 @@
             </p>
         </div>
         <div class="flex flex-col justify-center py-5 px-5">
-            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/what-we-do/operational-integrity-icon.png') }}" class="mx-auto max-w-xs py-2">
             <h3 class="px-3 py-3 text-black text-3xl text-center font-bold uppercase">
                 {{ __('messages.OperationalIntegrity') }}
             </h3>
@@ -96,7 +96,7 @@
     <div class="flex flex-wrap justify-evenly mx-auto">
         <div class="flex flex-row flex-wrap justify-center pt-6 md:mx-6">
             <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
-                <img src="{{ URL::asset('image/homepage/oursolution/oursolution01.jpg') }}"
+                <img src="{{ URL::asset('image/our-solution/adik-asuh.jpg') }}"
                     class="rounded-t-3xl h-full w-full items-center max-h-[320px]">
                 <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white">
                     <h3 class="px-3 pt-5 text-3xl text-center font-bold uppercase">
@@ -113,7 +113,7 @@
                 </div>
             </div>
             <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
-                <img src="{{ URL::asset('image/homepage/oursolution/oursolution02.jpg') }}"
+                <img src="{{ URL::asset('image/our-solution/travel-charity.jpg') }}"
                     class="rounded-t-3xl h-full w-full items-center max-h-[320px]">
                 <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white">
                     <h3 class="px-3 pt-5 text-3xl text-center font-bold uppercase">
@@ -130,7 +130,7 @@
                 </div>
             </div>
             <div class="basis-full justify-center py-5 px-5 lg:basis-1/3">
-                <img src="{{ URL::asset('image/homepage/oursolution/oursolution03.jpg') }}"
+                <img src="{{ URL::asset('image/our-solution/act-of-kindness.jpg') }}"
                     class="rounded-t-3xl h-full w-full items-center max-h-[320px]">
                 <div class="px-0 py-5 bg-[#ff0000] rounded-b-3xl text-white">
                     <h3 class="px-3 pt-5 text-3xl text-center font-bold uppercase">

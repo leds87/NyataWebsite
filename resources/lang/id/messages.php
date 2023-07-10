@@ -48,6 +48,8 @@ return [
     "OurResults" => "Our Results",
     "TagLine" => "Anak Nyata, Anak Terang",
     "TagLineDescription" => "Anak terang dari negeri Indonesia.",
+    'AnakTerang' => 'Anak Terang',
+    'AnakNyata' => 'Anak Nyata',
 
     //Our People Page
     'OurPeopleTitle' => 'OUR PEOPLE',
@@ -85,7 +87,6 @@ return [
     'Updated' => 'Updated',
     'Aku' => 'Aku',
     'Bintang' => 'Bintang',
-    'AnakTerang' => 'Anak Terang',
     'MeetMaria' => 'Meet Maria',
     'Nickname' => 'Nickname',
     'Age' => 'Age',

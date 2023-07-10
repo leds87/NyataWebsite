@@ -3,10 +3,10 @@
 @section('page-content')
 
 {{-- header image --}}
-<section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/donate/HomePageAnakTerangNyata.jpg')]">
+<section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/about-us/header-bg.jpg')]">
     <div class="px-8 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-[#ff0000] md:text-5xl lg:text-6xl">ANAK TERANG</h1>
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">ANAK NYATA</h1>
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-[#ff0000] md:text-5xl lg:text-6xl uppercase">{{ __('messages.AnakTerang') }}</h1>
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl uppercase">{{ __('messages.AnakNyata') }}</h1>
     </div>
 </section>
 
@@ -124,21 +124,11 @@
         <!-- left -->
         <div class="flex flex-row-reverse md:contents">
             <div class="bg-[#ff0000] col-start-1 col-end-5 p-8 rounded-[28px] my-4 ml-auto shadow-md h-fit w-[36rem] min-h-[12rem] md:w-[20rem] lg:w-[26rem] xl:w-[32rem]">
-            <h3 class="flex items-center py-2 mb-1 text-3xl font-bold text-white">2014</h3>
+            <h3 class="flex items-center py-2 mb-1 text-3xl font-bold text-white">2018</h3>
             <ul class="list-disc text-left p-4">
                 <li>
                     <p class="text-base font-normal text-white py-1 ">
-                        Birth of the foundation
-                    </p>
-                </li>
-                <li>
-                    <p class="text-base font-normal text-white py-1 ">
-                        Travel Charity Kupang Program
-                    </p>
-                </li>
-                <li>
-                    <p class="text-base font-normal text-white py-1 ">
-                        Bandung & Jakarta Event
+                        Adik Asuh 100 children
                     </p>
                 </li>
             </ul>
@@ -180,7 +170,7 @@
         <div class="mt-4 md:mt-0">
             <div class="flex flex-wrap justify-center py-4">
                 <div>
-                    <img src="/image/share/400nyata01.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
+                    <img src="/image/about-us/home-icon.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
                 </div>
                 <div class="text-black h-[200px] w-[250px] px-5 py-5">
                     <h3 class="text-xl font-bold uppercase">
@@ -193,7 +183,7 @@
             </div>
             <div class="flex flex-wrap justify-center py-4">
                 <div>
-                    <img src="/image/share/400nyata02.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
+                    <img src="/image/about-us/education-icon.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
                 </div>
                 <div class="text-black h-[200px] w-[250px] px-5 py-10">
                     <h3 class="text-xl font-bold uppercase">
@@ -206,7 +196,7 @@
             </div>
             <div class="flex flex-wrap justify-center py-4">
                 <div>
-                    <img src="/image/share/400nyata03.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
+                    <img src="/image/about-us/children-icon.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
                 </div>
                 <div class="text-black h-[200px] w-[250px] px-5 py-8">
                     <h3 class="text-xl font-bold uppercase">
@@ -219,7 +209,7 @@
             </div>
             <div class="flex flex-wrap justify-center py-4">
                 <div>
-                    <img src="/image/share/400nyata03.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
+                    <img src="/image/about-us/light-icon.png" class="h-[150px] w-[150px] md:w-[180px] md:h-[180px]">
                 </div>
                 <div class="text-black h-[200px] w-[250px] px-5 py-10">
                     <h3 class="text-xl font-bold uppercase">
@@ -231,7 +221,7 @@
                 </div>
             </div>
         </div>
-        <img class="w-full rounded-3xl" src="/image/donate/HomePageuOurJourney.jpg">
+        <img class="w-full rounded-3xl" src="/image/about-us/filosophy-bg.jpg">
     </div>
 </section>
 
@@ -244,7 +234,7 @@
 </section>
 <section class="flex relative max-w-none w-full h-[600px] md:h-[950px]">
     <div
-        class="relative w-full max-w-none bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/image/donate/AdikAsuhWide.jpg')]">
+        class="relative w-full max-w-none bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/image/about-us/our-result-bg.jpg')]">
     </div>
 </section>
 <section class="text-center max-w-none w-full bg-white py-16">
