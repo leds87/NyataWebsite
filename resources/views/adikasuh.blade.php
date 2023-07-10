@@ -5,7 +5,7 @@
 {{-- HEADER IMAGE --}}
 <section class="flex relative max-w-none w-full h-[500px]">
     <div
-        class="relative w-full max-w-none bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/image/donate/AdikAsuhWide.jpg')]">
+        class="relative w-full max-w-none bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/image/adik-asuh/header-bg.jpg')]">
         <div class="px-12 text-center py-8 md:py-36 md:px-24 lg:py-32 lg:px-32 xl:py-40">
             <h1 class="mb-4 text-6xl font-extrabold tracking-tight leading-none text-[#ff0000] max-w-md md:text-5xl lg:text-6xl lg:max-w-none uppercase mx-auto">{{ __('messages.AdikAsuh') }}</h1>
             <p class="mb-4 text-2xl font-extrabold tracking-wider leading-8 text-white max-w-[800px] mx-auto">{{ __('messages.AdikAsuhDescription') }}</p>
@@ -50,7 +50,7 @@
         </button>
     </div>
     <div class="relative overflow-x-auto w-full h-auto">
-        <img src="/image/share/IndonesiaMap.png"
+        <img src="/image/adik-asuh/indonesia-map.png"
             class="relative bg-cover p-4 xl:p-8">
         {{-- <button data-popover-target="popover-default" type="button"
             class="absolute top-[100px] left-[200px] bg-[#ffFF00] w-4 h-4 ring-4 ring-white focus:ring-4 focus:outline-none focus:ring-white rounded-xl">
@@ -71,7 +71,7 @@
 {{-- CONTENT IMAGE --}}
 <section class="flex relative max-w-none w-full h-[500px]">
     <div
-        class="relative w-full max-w-none bg-cover bg-fixed bg-no-repeat bg-[url('/image/homepage/carousel/carousel03.jpg')]">
+        class="relative w-full max-w-none bg-cover bg-fixed bg-no-repeat bg-[url('/image/adik-asuh/tagline-bg.jpg')]">
         <div class="px-12 text-left py-28 md:py-48 md:px-24 lg:py-32 lg:px-32 xl:py-40">
             <h1 class="mb-4 text-6xl font-extrabold tracking-tight leading-none text-[#ff0000] max-w-md md:text-5xl lg:text-6xl lg:max-w-none uppercase mx-auto">{{ __('messages.Aku') }} <span class="text-white underline underline-offset-4">{{ __('messages.Bintang') }}</span></h1>
             <h1 class="mb-4 text-6xl font-extrabold tracking-tight leading-none text-[#ff0000] max-w-md md:text-5xl lg:text-6xl lg:max-w-none uppercase mx-auto">{{ __('messages.AnakTerang') }}</h1>
@@ -132,7 +132,7 @@
             </div>
         </div>
         <div class="mt-4">
-            <img class="w-full rounded-3xl" src="/image/other/Act-of-Kindness-act-3.jpg">
+            <img class="w-full rounded-3xl" src="/image/adik-asuh/maria-bg.jpg">
         </div>
     </div>
 </section>
@@ -145,7 +145,7 @@
     </div>
     <div class="flex flex-col flex-wrap justify-center w-full mx-auto py-5 my-5 max-w-[700px]">
         <div class="flex flex-col justify-center py-5 px-5">
-            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/adik-asuh/direct-giving-icon.png') }}" class="mx-auto max-w-xs py-2">
             <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                 {{ __('messages.DirectGiving') }}
             </h3>
@@ -154,7 +154,7 @@
             </p>
         </div>
         <div class="flex flex-col justify-center py-5 px-5">
-            <img src="{{ URL::asset('image/other/Nyata-5.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/adik-asuh/grow-teacher-icon.png') }}" class="mx-auto max-w-xs py-2">
             <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                 {{ __('messages.GrowTeacher') }}
             </h3>
@@ -163,7 +163,7 @@
             </p>
         </div>
         <div class="flex flex-col justify-center py-5 px-5">
-            <img src="{{ URL::asset('image/other/Nyata-6.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/adik-asuh/operational-integrity-icon.png') }}" class="mx-auto max-w-xs py-2">
             <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
                 {{ __('messages.OperationalIntegrity') }}
             </h3>
