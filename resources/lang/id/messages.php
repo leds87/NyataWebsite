@@ -147,5 +147,8 @@ return [
     'HowCanYouHelpVolunteerDescription' => 'Joining a volunteer allows you to be directly involved in the field to help those in need.',
     'HowCanYouHelpDonateDescription' => 'Every donation given will be effectively allocated to help those in need.',
     'Donate' => 'Donate',
-    'WhoYouHelpAct' => 'Schools, organizations, individuals or communities who are in need of assitance with the aim of solving or easing their burden.'
+    'WhoYouHelpAct' => 'Schools, organizations, individuals or communities who are in need of assitance with the aim of solving or easing their burden.',
+    'Act1' => 'Act 1',
+    'Act2' => 'Act 2',
+    'Act3' => 'Act 3'
 ];

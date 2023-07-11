@@ -144,6 +144,9 @@ return [
     'WhyYouChooseActDescription' => 'This program offers opportunities to share with those who are in need of assitance. NYATA friends can also develop skills or seek new experiences and knowledge through this program by volunteering.',
     'HowCanYouHelpVolunteerDescription' => 'Joining a volunteer allows you to be directly involved in the field to help those in need.',
     'HowCanYouHelpDonateDescription' => 'Every donation given will be effectively allocated to help those in need.',
-    'Donate' => 'Donate',
-    'WhoYouHelpAct' => 'Schools, organizations, individuals or communities who are in need of assitance with the aim of solving or easing their burden.'
+    'Donate' => 'Пожертвовать',
+    'WhoYouHelpAct' => 'Schools, organizations, individuals or communities who are in need of assitance with the aim of solving or easing their burden.',
+    'Act1' => 'Акт 1',
+    'Act2' => 'Акт 2',
+    'Act3' => 'Акт 3'
 ];
