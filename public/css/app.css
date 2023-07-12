@@ -2347,14 +2347,14 @@ p.content-header {
 }
 
 h1.title-body {
-  font-size: 31px;
+  font-size: 34px;
   letter-spacing:1px;
   line-height: 1.4em;
   font-weight: 920;
 }
 
 h2.title-body {
-  font-size: 28px;
+  font-size: 30px;
   letter-spacing:1px;
   line-height: 1.4em;
 }
@@ -2363,12 +2363,16 @@ p.content-body {
   /* 13, 20, 36, 42 */
   font-size: 18px;
   letter-spacing:1px;
-  line-height: 2em;
+  line-height: 1.4em;
   /* font-weight: 500; */
 }
 
 .text-red {
   color: #ff0000;
+}
+
+.bg-red {
+  background-color: #ff0000;
 }
 
 /* Animation */
