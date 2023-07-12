@@ -1,6 +1,6 @@
 <?php
 
-// lang/id/messages.php
+// lang/en/messages.php
 
 return [
 
@@ -79,6 +79,10 @@ return [
     'OurProgress' => 'Our Progress',
     'EducationHeart' => 'EDUCATION IS THE HEART OF OUR FUTURE',
     'EducationHeartDescription' => 'Help the children to get proper education. Every help will keep the children to go to schools and make a better future.',
+    'TakeAction' => 'Take Action',
+    'AdikAsuhDescriptionHome' => 'Join us to be foster brother and sister and help the children reach a brigther future',
+    'TravelCharityDescriptionHome' => 'Help local livelihoods and economic communities while travel to explore the beauty of Indonesia',
+    'ActOfKindnessDescriptionHome' => 'Gives the good deeds to the school, organization, individual or community that in need',
 
     //ABOUT US PAGE
     "AboutUsTitle" => "ABOUT US",
@@ -113,8 +117,8 @@ return [
 
     //Take Action Page
     'TakeActionTitle' => 'TAKE ACTION',
-    'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
-    'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children',
+    'JoinTeam' => 'WANT TO JOIN OUR TEAM ?',
+    'JoinTeamDescription' => 'Join us and experience helping people and share the happiness with the children',
 
     //What we do page
     'WhatWeDoTitle' => 'WHAT WE DO',
