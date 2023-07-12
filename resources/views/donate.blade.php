@@ -19,6 +19,25 @@
     </div>
 </section>
 
+{{-- MAKE A DIFFERENCE--}}
+<section>
+    <div class="flex flex-wrap">
+        <div class="bg-white flex-auto w-full md:w-[600px]">
+            <div class="flex flex-col justify-start p-10 md:p-20">
+                <h1 class="title-body text-black uppercase">{{__('messages.YouCanMakeDifference') }}</h1>
+                <p class="text-black content-body pt-4 max-w-[800px]">
+                    {{ __('messages.YouCanMakeDifferenceDescription') }}
+                </p>
+            </div>
+        </div>
+        <div class="bg-[#ff0000] flex-auto w-full md:w-[400px] text-white font-extrabold">
+            <div class="flex flex-col justify-start p-10 md:p-20">
+                <h1 class="title-body text-white font-bold">{{__('messages.NoActOfKindness') }}</h1>
+                <h1 class="title-body text-white font-bold pt-10"> - {{__('messages.Aesop') }}</h1>
+            </div>
+        </div>
+</section>
+
     {{-- <section>
         <div id="default-carousel" class="relative h-[400px] md:h-full w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
