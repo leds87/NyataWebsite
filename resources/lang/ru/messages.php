@@ -77,6 +77,8 @@ return [
     'Professional' => 'Professional',
     'ProfessionalDescription' => 'Nyata focus on education and skill by giving the high quality training to volunteers and teachers',
     'OurProgress' => 'Our Progress',
+    'EducationHeart' => 'EDUCATION IS THE HEART OF OUR FUTURE',
+    'EducationHeartDescription' => 'Help the children to get proper education. Every help will keep the children to go to schools and make a better future.',
 
     //ABOUT US PAGE
     "AboutUsTitle" => "ABOUT US",

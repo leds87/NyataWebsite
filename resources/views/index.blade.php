@@ -20,7 +20,7 @@
                     <p class="text-white text-header-description pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
-                    <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
+                    <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donate') }}'">
                         {{ __('messages.GiveSupport') }}
                     </button>
                 </div>
@@ -114,91 +114,39 @@
     </div>
     <div class="flex flex-row flex-wrap justify-center items-start py-5 my-5">
         <div class="flex flex-col justify-center py-5 px-5 max-w-md 2xl:max-w-md xl:basis-1/3 lg:max-w-xs">
-            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto max-w-xs py-2 animated animatedFadeInDown fadeInDown">
             <h2 class="title-body text-black uppercase py-4">{{ __('messages.Sharing') }}</h2>
             <p class="content-body text-black mx-auto px-8">{{ __('messages.SharingDescription') }}</p>
         </div>
         <div class="flex flex-col justify-center py-2 px-5 max-w-md xl:basis-1/3 xl:max-w-md lg:max-w-xs">
-            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto max-w-xs py-2 animated animatedFadeInDown fadeInDown">
             <h2 class="title-body text-black uppercase py-4">{{ __('messages.Empowerment') }}</h2>
             <p class="content-body text-black mx-auto px-8">{{ __('messages.EmpowermentDescription') }}</p>
         </div>
         <div class="flex flex-col justify-center py-5 px-5 max-w-md 2xl:max-w-md xl:basis-1/3 lg:max-w-xs">
-            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto max-w-xs py-2">
+            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto max-w-xs py-2 animated animatedFadeInDown fadeInDown">
             <h2 class="title-body text-black uppercase py-4">{{ __('messages.Professional') }}</h2>
             <p class="content-body text-black mx-auto px-8">{{ __('messages.ProfessionalDescription') }}</p>
         </div>
     </div>
 </section>
 
-    <!-- just text with white background -->
-    {{-- <section class="relative flex items-center max-w-none w-full bg-white ">
-        <div class="container justify-center max-w-none my-10 py-10">
-            <h3 class="flex w-full justify-center text-5xl py-3 text-black font-bold">
-                WHO WE ARE
-            </h3>
-            <p class="flex text-center text-xl py-5 mx-[60px] text-black ">
-                NYATA Foundation is a non profit organization works on improving the children with low quality of life.
-                Start
-                with the name “Tanah Air Foundation” rose in 2014 and to adjust thename now becomes it is known as Yayasan
-                Anak-anak Tanah Air (NYATA)
-            </p>
-        </div>
-    </section>
-    <!-- divide to 3 flex part with grey background -->
-    <section class="flex items-center max-w-none w-full bg-neutral-200 ">
-        <div class="container justify-center max-w-none py-6">
-            <h3 class="flex w-full justify-center mx-auto text-5xl py-3 my-5 text-black font-bold">
-                WHAT WE HOLD
-            </h3>
-            <div class="flex flex-row flex-wrap justify-center py-5 my-5">
-                <div class="flex flex-col justify-center max-w-sm py-5 px-5">
-                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto max-w-xs py-2">
-                    <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
-                        SHARING
-                    </h3>
-                    <p class="px-3 py-3 text-black text-base text-center">
-                        Help, share knowledge and joy is the way of NYATA
-                    </p>
-                </div>
-                <div class="flex flex-col justify-center max-w-sm py-5 px-5">
-                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto max-w-xs py-2">
-                    <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
-                        EMPOWERMENT
-                    </h3>
-                    <p class="px-3 py-3 text-black text-base text-center">
-                        Nyata improves the value of individuals, social and education quality that focus on children quality
-                        of life and their education
-                    </p>
-                </div>
-                <div class="flex flex-col justify-center max-w-sm py-5 px-5">
-                    <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto max-w-xs py-2">
-                    <h3 class="px-3 py-3 text-black text-3xl text-center font-bold">
-                        PROFESSIONAL
-                    </h3>
-                    <p class="px-3 py-3 text-black text-base text-center">
-                        Nyata focus on education and skill by giving the high quality training to volunteers and teachers
-                    </p>
-                </div>
-    </section>
-    <!--EDUCATION IS THE HEART OF OUR FUTURE-->
-    <section class="flex relative max-w-none w-full h-[400px] md:h-[600px]">
-        <div style="background-image:url('/image/homepage/background/background01.jpg')"
-            class="relative w-full max-w-none bg-cover bg-center bg-fixed">
-            <div
-                class="absolute bottom-0 w-full flex flex-col justify-center text-center mx-auto my-5 px-5 py-5 md:my-10 md:py-10">
-                <h3 class="mx-auto px-3 py-3 text-5xl font-bold text-red-500">
-                    EDUCATION IS THE HEART OF OUR FUTURE
-                </h3>
-                <p class="mx-auto px-3 py-3 text-white text-xl">
-                    Help the children to get proper education. Every help will keep the children to go to schools and make a
-                    better future.
-                </p>
-                <button type="button" class="mx-auto px-3 py-3 bg-red-600 rounded-[10px]">
-                    TAKE ACTION
-                </button>
-            </div>
-    </section>
+<!--EDUCATION IS THE HEART OF OUR FUTURE-->
+<section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/homepage/background/background01.jpg')]">
+    <div class="relative w-full flex flex-col justify-start max-w-xl inset-x-[10%] py-20  animated animatedFadeInUp fadeInUp">
+        <h1 class="text-red text-header max-w-xs sm:max-w-md md:max-w-none">
+            {{ __('messages.EducationHeart') }}
+        </h1>
+        <p class="py-3 text-white content-body font-bold max-w-xs 2xl:max-w-none lg:max-w-md sm:max-w-xs">
+            {{ __('messages.EducationHeartDescription') }}
+        </p>
+        <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('home') }}'">
+            {{ __('messages.TakeAction') }}
+        </button>
+    </div>
+</section>
+
+{{--
 
     <section class="flex flex-row items-center max-w-none w-full bg-neutral-200 py-10 md:py-5">
         <div class="container justify-center max-w-none py-6">

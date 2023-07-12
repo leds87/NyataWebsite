@@ -77,6 +77,9 @@ return [
     'Professional' => 'Professional',
     'ProfessionalDescription' => 'Nyata focus on education and skill by giving the high quality training to volunteers and teachers',
     'OurProgress' => 'Our Progress',
+    'EducationHeart' => 'EDUCATION IS THE HEART OF OUR FUTURE',
+    'EducationHeartDescription' => 'Help the children to get proper education. Every help will keep the children to go to schools and make a better future.',
+    'TakeAction' => 'Take Action',
 
     //ABOUT US PAGE
     "AboutUsTitle" => "ABOUT US",
@@ -111,8 +114,8 @@ return [
 
     //Take Action Page
     'TakeActionTitle' => 'TAKE ACTION',
-    'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
-    'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children',
+    'JoinTeam' => 'WANT TO JOIN OUR TEAM ?',
+    'JoinTeamDescription' => 'Join us and experience helping people and share the happiness with the children',
 
     //What we do page
     'WhatWeDoTitle' => 'WHAT WE DO',

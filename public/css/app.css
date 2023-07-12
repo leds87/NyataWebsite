@@ -2395,6 +2395,28 @@ p.content-body {
   }
 }
 
+@keyframes fadeInDown {
+  from {
+      transform: translate3d(0,-40px,0);
+  }
+
+  to {
+    transform: translate3d(0,0,0);
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    transform: translate3d(0,-40px,0);
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
 .animated {
   animation-duration: 2s;
   animation-fill-mode: both;
@@ -2410,4 +2432,14 @@ p.content-body {
   opacity: 0;
   animation-name: fadeInUp;
   -webkit-animation-name: fadeInUp;
+}
+
+.animatedFadeInDown {
+  opacity: 0
+}
+
+.fadeInDown {
+  opacity: 0;
+  animation-name: fadeInDown;
+  -webkit-animation-name: fadeInDown;
 }
