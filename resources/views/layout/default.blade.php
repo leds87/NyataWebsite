@@ -18,7 +18,7 @@
         rel="stylesheet">
 </head>
 
-<body class="bg-[#ff0000] text-white w-full">
+<body class="bg-[#ff0000] text-white w-full overflow-x-hidden">
     <header class="fixed w-full bg-[#ff0000] top-0 z-50 w-full h-0 md:h-8 lg:h-2">
         @include('layout.header')
     </header>
