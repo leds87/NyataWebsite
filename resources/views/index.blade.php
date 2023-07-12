@@ -134,10 +134,10 @@
 {{-- EDUCATION IS THE HEART OF OUR FUTURE --}}
 <section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/homepage/background/education-bg.jpg')] bg-white">
     <div class="relative flex flex-col justify-start inset-x-[10%] py-20 animated animatedFadeInUp fadeInUp">
-        <h1 class="text-red title-header max-w-xs md:max-w-2xl">
+        <h1 class="text-red title-header max-w-xs md:max-w-[700px] lg:max-w-[900px]">
             {{ __('messages.EducationHeart') }}
         </h1>
-        <h1 class="text-red title-header max-w-xs md:max-w-md">
+        <h1 class="text-red title-header max-w-xs md:max-w-[700px]">
             {{ __('messages.OurFuture') }}
         </h1>
         <p class="py-3 text-white content-body font-bold max-w-xs 2xl:max-w-xl lg:max-w-md sm:max-w-xs">
