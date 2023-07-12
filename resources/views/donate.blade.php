@@ -1,6 +1,25 @@
 @extends('layout.default')
+@section('title', __('messages.DonateTitle'))
 @section('page-content')
-    <section>
+
+{{-- HEADER IMAGE --}}
+<section class="flex relative max-w-none w-full h-[500px]">
+    <div
+        class="relative w-full max-w-none bg-cover bg-fixed bg-center bg-no-repeat bg-[url('/image/donate/header-bg.jpg')]">
+        <div class="px-12 max-w-screen-xl text-center mx-auto py-16 md:py-28 md:px-24 lg:py-20 lg:px-32 xl:py-28">
+            <h1 class="title-header text-red uppercase">{{__('messages.Teman') }}</h1>
+            <h1 class="title-header text-white uppercase mt-[-35px]">{{__('messages.Nyata') }}</h1>
+            <p class="text-white content-header pt-4 max-w-[600px] mx-auto">
+                {{ __('messages.TemanNyataDescription') }}
+            </p>
+            <button type="button" class="px-3 py-2 my-8 bg-none border-2 border-white text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donate') }}'">
+                {{ __('messages.GiveSupport') }}
+            </button>
+        </div>
+    </div>
+</section>
+
+    {{-- <section>
         <div id="default-carousel" class="relative h-[400px] md:h-full w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative overflow-hidden h-[500px] rounded-lg md:h-[1000px]">
@@ -250,5 +269,5 @@
     </section>
     <div>
 
-    </div>
+    </div> --}}
 @endsection
