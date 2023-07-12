@@ -3,24 +3,55 @@
 // lang/id/messages.php
 
 return [
-    // 'Welcome' => 'Selamat datang di aplikasi Nyata',
-    // 'Test' => 'Tes sudah berhasil',
-    // 'Join Nyata Foundation and help to change the world to become a better place' => 'Bergabung dengan Nyata Foundation dan bantu merubah dunia menjadi lebih baik',
-    // 'Welcome to our website' => 'Selamat Datang di website kami',
 
-    // 'THE ISSUE' => 'Inti Masalah',
-    // 'TheIssueDescription' => 'Kementerian Pendidikan dan Kebudayaan (Kemendikbud) mencatat terdapat 157.000 siswa SD hingga SMA putus sekolah pada tahun ajaran 2019/2020. Siswa yang putus sekolah paling banyak berada di jenjang sekolah dasar (SD) sebanyak 59,400 siswa. Disinilah NYATA bergerak membantu pemerintah dan anak Indonesia untuk mengurangi tingginya angka putus sekolah dan harapan agar anak Indonesia terus mendapatkan pendidikan yang layak melalui beberapa program-program yg dimiliki NYATA.',
+    // 'Welcome' => 'Welcome to our application!',
+    // 'Test' => 'Test is successful',
+    // 'Join Nyata Foundation and help to change the world to become a better place' => 'Join Nyata Foundation and help to change the world to become a better place',
+    // 'Welcome to our website' => 'Welcome to our website',
+
+    // 'THE ISSUE' => 'THE ISSUE',
+    // 'TheIssueDescription' => 'The Ministry of Education and Culture noted that there were 157,000 elementary to high school
+    // students dropping out of school in the 2019/2020 school year. Most students who drop out of school
+    // are at the elementary school level as many as 59,400 students. This is where NYATA moves to help the
+    // goverment and Indonesian children to reduce the high dropout rate and hopes that Indonesian children
+    // will continue to get a proper education through several programs that NYATA has',
+
+    // //index page
+    // 'WHO WE ARE' => 'WHO WE ARE',
+    // 'WhoWeAreNote' => 'NYATA Foundation is a non profit organization works on improving the children with low quality of life. Start with the name “Tanah Air Foundation” rose in 2014 and to adjust thename now becomes it is known as Yayasan Anak-anak Tanah Air (NYATA)',
+    // 'WHAT WE HOLD' => 'WHAT WE HOLD',
+    // 'SHARING' => 'SHARING',
+    // 'SharingNote' => 'Help, share knowledge and joy is the way of NYATA',
+    // 'EmpowermentNote' => 'Nyata improves the value of individuals, social and education quality that focus on children quality of life and their education',
+    // 'ProfessionalNote' => 'Nyata focus on education and skill by giving the high quality training to volunteers and teachers',
+    // 'EducationIsTheHeartNote' => 'Help the children to get proper education. Every help will keep the children to go to schools and make a better future.',
+    // 'OUR SOLUTION' => 'OUR SOLUTION',
+    // 'AdikAsuhNote' => 'Join us to be foster brother and sister and help the children reach a brigther future',
+    // 'TravelCharityNote' => 'Help local livelihoods and economic communities while travel to explore the beauty of Indonesia',
+    // 'ActOfKindnessNote' => 'Gives the good deeds to the school, organization, individual or community that in need',
+
+    // //Donate page
+    // 'YouCanMakeNote' => 'TEMAN NYATA is a monthly giving program where every dollar goes toward educating a child. You are making an impact in life of someone else, every single month.',
+    // 'AffordableNote' => 'By giving monthly, you invest what makes sense for you and make an incredible impact over the course of your membership',
+    // 'SustainedSupportNote' => 'Enables NYATA to expand our programs because we know we have the ongoing support from the NYATA Partner community',
+    // 'CommunityNote' => 'Becoming a NYATA Partner allows you to join a dedicated group of supporters who understand the importance of making a sustaining commitment to provide education for all.',
+    // 'ItsExcitingNote' => 'NYATA Partner will receive special updates, photos and videos of the children and communities you’ve impacted and more.',
+    // 'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!',
 
     //share page
-    'JoinNyata' => 'Gabung Nyata',
-    'JoinNyataDescription' => 'Bergabung dengan Nyata Foundation dan bantu merubah dunia menjadi lebih baik',
-    'Name' => 'Nama',
-    'EmailAddress' => 'Alamat Email',
-    'ContactUs' => 'Kontak Kami',
-    'GiveSupport' => 'Beri Dukungan',
-    'SendYourDonation' => 'Kirim Donasi Anda Ke',
-    'Join' => 'Bergabung',
+    'JoinNyata' => 'Join Nyata',
+    'JoinNyataDescription' => 'Join Nyata Foundation and help to change the world to become a better place',
+    'Name' => 'Name',
+    'EmailAddress' => 'Email Address',
+    'ContactUs' => 'Contact Us',
+    'GiveSupport' => 'Give Support',
+    'SendYourDonation' => 'Send Your Donation To',
+    'Join' => 'Join',
     "LearnMore" => "Learn More",
+    'OurSolution' => 'Our Solution',
+    'AdikAsuh' => 'Adik Asuh',
+    'TravelCharity' => 'Travel Charity',
+    'ActOfKindness' => 'Act Of Kindness',
 
     //menu
     'DonateMenu' => 'Donate',
@@ -31,6 +62,21 @@ return [
     'TravelCharityMenu' => 'Travel Charity',
     'ActOfKindnessMenu' => 'Act Of Kindness',
     'TakeActionMenu' => 'Take Action',
+
+    //HOME PAGE
+    'HomePageTitle' => 'HOME PAGE',
+    'EqualLearning' => 'EQUAL LEARNING FOR EVERY CHILD',
+    'EveryDonate' => 'Every dollar you donate increases children education and improve their lives.',
+    'MakeDreams' => 'Make their dreams come true together with NYATA',
+    'WhoWeAre' => 'Who We Are',
+    'WhoWeAreDescription' => 'NYATA Foundation is a non profit organization works on improving the children with low quality of life. Start with the name “Tanah Air Foundation” rose in 2014 and to adjust thename now becomes it is known as Yayasan Anak-anak Tanah Air (NYATA)',
+    'Sharing' => 'Sharing',
+    'SharingDescription' => 'Help, share knowledge and joy is the way of NYATA',
+    'Empowerment' => 'Empowerment',
+    'EmpowermentDescription' => 'Nyata improves the value of individuals, social and education quality that focus on children quality of life and their education',
+    'Professional' => 'Professional',
+    'ProfessionalDescription' => 'Nyata focus on education and skill by giving the high quality training to volunteers and teachers',
+    'OurProgress' => 'Our Progress',
 
     //ABOUT US PAGE
     "AboutUsTitle" => "ABOUT US",
@@ -51,14 +97,22 @@ return [
     'AnakTerang' => 'Anak Terang',
     'AnakNyata' => 'Anak Nyata',
 
+    //Donate page
+    'YouCanMakeNote' => 'TEMAN NYATA is a monthly giving program where every dollar goes toward educating a child. You are making an impact in life of someone else, every single month.',
+    'AffordableNote' => 'By giving monthly, you invest what makes sense for you and make an incredible impact over the course of your membership',
+    'SustainedSupportNote' => 'Enables NYATA to expand our programs because we know we have the ongoing support from the NYATA Partner community',
+    'CommunityNote' => 'Becoming a NYATA Partner allows you to join a dedicated group of supporters who understand the importance of making a sustaining commitment to provide education for all.',
+    'ItsExcitingNote' => 'NYATA Partner will receive special updates, photos and videos of the children and communities you’ve impacted and more.',
+    'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!',
+
     //Our People Page
     'OurPeopleTitle' => 'OUR PEOPLE',
     'OurPeople' => 'Our People',
 
     //Take Action Page
     'TakeActionTitle' => 'TAKE ACTION',
-    'TakeAction' => 'INGIN BERGABUNG DENGAN TIM KAMI ?',
-    'TakeActionDescription' => 'Bergabunglah dengan kami dan rasakan membantu orang dan berbagi kebahagiaan dengan anak-anak',
+    'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
+    'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children',
 
     //What we do page
     'WhatWeDoTitle' => 'WHAT WE DO',
@@ -71,16 +125,12 @@ return [
     'LocalSupportDescription' => 'Participate in supporting the welfare of local communities in obtaining a decent wage and life',
     'OperationalIntegrity' => 'Operational Integrity',
     'OperationalIntegrityDescription' => 'NYATA is proactive in ensuring that every ongoing activity and program can be carried out sustainably',
-    'OurSolution' => 'Our Solution',
     'AdikAsuhDescriptionWhatWeDo' => 'Join us to be foster brother and sister and help the children reach a brighter future',
-    'TravelCharity' => 'Travel Charity',
     'TravelCharityDescription' => 'Help local livelihoods and economic communities while travel to explore the beauty of Indonesia',
-    'ActOfKindness' => 'Act of Kindness',
     'ActOfKindnessDescription' => 'Gives the good deeds to the school, organization, individual or community that in need',
 
     //adik asuh page
-    'AdikAsuhTItle' => 'ADIK ASUH',
-    'AdikAsuh' => 'Adik Asuh',
+    'AdikAsuhTitle' => 'ADIK ASUH',
     'AdikAsuhDescription' => 'Be Kakak Asuh to provide support for our younger siblings so they can continue to go to school and achieve a brighter future',
     'Schools' => 'Schools',
     'SeeAll' => 'See All',
@@ -99,7 +149,7 @@ return [
     'GrowTeacherDescription' => 'Support the welfare of teachers in getting a decent wage, so that the teaching and learning process can be carried out in a sustainable manner. NYATA also provides training programs for teachers in the regions so that they can continue to develop their knowledge',
     'OperationalIntegrityAdikAsuhDescription' => 'NYATA is proactive in ensuring that every school and teachers can educate Adik Asuh properly. NYATA involved in the development of each individual Kakak Asuh',
     'BeSavior' => 'Be Savior, Give Hope',
-    'WhyYouChooseOur' => 'WHY YOU CHOOSE OUR TRAVEL CHARITY PROGRAM',
+    'WhyYouChooseOur' => 'WHY YOU CHOOSE OUR ADIK ASUH PROGRAM',
     'WhyYouChooseOur1' => 'Donations given by Kakak Asuh are directly channeled to NYATA partner schools and are known by Adik Asuh in a transparent manner, in order to avoid misuse of funds',
     'WhyYouChooseOur2' => 'Support the welfare of teachers in getting a decent wage, so that the teaching and learning process can be carried out in a sustainable manner. NYATA also provides training programs for teachers in the regions so that they can continue to develop their knowledge',
     'WhyYouChooseOur3' => 'NYATA is proactive in ensuring that every school and teachers can educate Adik Asuh properly. NYATA involved in the development of each individual Kakak Asuh',
@@ -136,6 +186,7 @@ return [
 
     //Act of Kindness Page
     'ActOfKindnessTitle' => 'ACT OF KINDNESS',
+    'ActOfKindnessHeaderDescription' => 'Take part to share goodness that impacts schools, organizations, individuals or communities who are in need of help from TEMAN NYATA',
     'Record' => 'Record',
     'RecordDescription' => 'Act of kindess in one of the school.',
     'Volunteer' => 'Volunteer',
@@ -149,6 +200,9 @@ return [
     'Donate' => 'Donate',
     'WhoYouHelpAct' => 'Schools, organizations, individuals or communities who are in need of assitance with the aim of solving or easing their burden.',
     'Act1' => 'Act 1',
+    'Act1Description' => 'Join us to provide education and assistance to Indonesian brothers and sisters',
     'Act2' => 'Act 2',
-    'Act3' => 'Act 3'
+    'Act2Description' => 'Visiting areas that need development',
+    'Act3' => 'Act 3',
+    'Act3Description' => 'Providing assistance to people in need'
 ];

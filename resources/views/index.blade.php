@@ -1,64 +1,106 @@
 @extends('layout.default')
+@section('title', __('messages.HomePageTitle'))
 @section('page-content')
-    <section>
-        <div id="default-carousel" class="relative h-[400px] md:h-full w-full" data-carousel="slide">
-            <!-- Carousel wrapper -->
-            <div class="relative overflow-hidden h-[500px] rounded-lg md:h-[950px]">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/image/homepage/carousel/carousel01.jpg"
-                        class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="carousel01">
-                </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/image/homepage/carousel/carousel02.jpg"
-                        class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="carousel02">
-                </div>
-                <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/image/homepage/carousel/carousel03.jpg"
-                        class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="carousel03">
+<section>
+    <div id="default-carousel" class="relative md:h-full w-full overflow-x-hidden" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative overflow-hidden h-[200px] 2xl:h-[740px] xl:h-[680px] lg:h-[520px] md:h-[500px] sm:h-[420px]">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/image/homepage/carousel/carousel01.jpg"
+                    class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="carousel01">
+                <div
+                    class="absolute inset-x-[15%] text-left text-white hidden sm:block 2xl:top-56 xl:top-56 lg:top-20 md:top-20 sm:top-4 animated animatedFadeInUp fadeInUp">
+                    <h1 class="text-red text-header">{{ __('messages.EqualLearning') }}</h1>
+                    <p class="text-white text-header-description pt-4">
+                        {{ __('messages.EveryDonate') }}
+                    </p>
+                    <p class="text-white text-header-description pt-4">
+                        {{ __('messages.MakeDreams') }}
+                    </p>
+                    <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
+                        {{ __('messages.GiveSupport') }}
+                    </button>
                 </div>
             </div>
-            <!-- Slider indicators -->
-            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                    data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                    data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                    data-carousel-slide-to="2"></button>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/image/homepage/carousel/carousel02.jpg"
+                    class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="carousel02">
+                <div
+                    class="absolute inset-x-[15%] text-left text-white hidden sm:block 2xl:top-56 xl:top-56 lg:top-20 md:top-20 sm:top-4 animated animatedFadeInUp fadeInUp">
+                    <h1 class="text-red text-header">{{ __('messages.EqualLearning') }}</h1>
+                    <p class="text-white text-header-description pt-4">
+                        {{ __('messages.EveryDonate') }}
+                    </p>
+                    <p class="text-white text-header-description pt-4">
+                        {{ __('messages.MakeDreams') }}
+                    </p>
+                    <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
+                        {{ __('messages.GiveSupport') }}
+                    </button>
+                </div>
             </div>
-            <!-- Slider controls -->
-            <button type="button"
-                class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-prev>
-                <span
-                    class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                        </path>
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button"
-                class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-next>
-                <span
-                    class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out " data-carousel-item>
+                <img src="/image/homepage/carousel/carousel03.jpg"
+                    class="top-1/2 left-1/2" alt="carousel03">
+                <div
+                    class="absolute inset-x-[15%] text-left text-white hidden sm:block 2xl:top-56 xl:top-56 lg:top-20 md:top-20 sm:top-4 animated animatedFadeInUp fadeInUp">
+                    <h1 class="text-red text-header">{{ __('messages.EqualLearning') }}</h1>
+                    <p class="text-white text-header-description pt-4">
+                        {{ __('messages.EveryDonate') }}
+                    </p>
+                    <p class="text-white text-header-description pt-4">
+                        {{ __('messages.MakeDreams') }}
+                    </p>
+                    <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
+                        {{ __('messages.GiveSupport') }}
+                    </button>
+                </div>
+            </div>
         </div>
-    </section>
+        <!-- Slider indicators -->
+        <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                data-carousel-slide-to="2"></button>
+        </div>
+        <!-- Slider controls -->
+        <button type="button"
+            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev>
+            <span
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                    </path>
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button"
+            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next>
+            <span
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
+    </div>
+</section>
+
+
     <!-- just text with white background -->
-    <section class="relative flex items-center max-w-none w-full bg-white ">
+    {{-- <section class="relative flex items-center max-w-none w-full bg-white ">
         <div class="container justify-center max-w-none my-10 py-10">
             <h3 class="flex w-full justify-center text-5xl py-3 text-black font-bold">
                 WHO WE ARE
@@ -195,5 +237,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection

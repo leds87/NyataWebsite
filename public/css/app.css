@@ -380,7 +380,7 @@ video {
     }
     @font-face {
         font-family: "Mark Pro";
-        src: url("/fonts/MarkPro.ttf"); 
+        src: url("/fonts/MarkPro.ttf");
     }
     @font-face {
         font-family: "Museo700";
@@ -2330,4 +2330,64 @@ video {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+
+h1.text-header {
+  font-size: 46px;
+  font-weight: bolder;
+  text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4);
+}
+
+p.text-header-description {
+  font-size: 20px;
+  font-weight: bolder;
+  line-height: 1.3em;
+  text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4);
+}
+
+.text-red {
+  color: #ff0000;
+}
+
+/* Animation */
+
+
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+.animated {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+}
+
+.animatedFadeInUp {
+  opacity: 0
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
 }

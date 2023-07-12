@@ -16,27 +16,6 @@ return [
     // goverment and Indonesian children to reduce the high dropout rate and hopes that Indonesian children
     // will continue to get a proper education through several programs that NYATA has',
 
-    //share page
-    'JoinNyata' => 'Join Nyata',
-    'JoinNyataDescription' => 'Join Nyata Foundation and help to change the world to become a better place',
-    'Name' => 'Name',
-    'EmailAddress' => 'Email Address',
-    'ContactUs' => 'Contact Us',
-    'GiveSupport' => 'Give Support',
-    'SendYourDonation' => 'Send Your Donation To',
-    'Join' => 'Join',
-    "LearnMore" => "Learn More",
-
-    //menu
-    'DonateMenu' => 'Donate',
-    'AboutUsMenu' => 'About Us',
-    'OurPeopleMenu' => 'Our People',
-    'WhatWeDoMenu' => 'What We Do',
-    'AdikAsuhMenu' => 'Adik Asuh',
-    'TravelCharityMenu' => 'Travel Charity',
-    'ActOfKindnessMenu' => 'Act Of Kindness',
-    'TakeActionMenu' => 'Take Action',
-
     // //index page
     // 'WHO WE ARE' => 'WHO WE ARE',
     // 'WhoWeAreNote' => 'NYATA Foundation is a non profit organization works on improving the children with low quality of life. Start with the name “Tanah Air Foundation” rose in 2014 and to adjust thename now becomes it is known as Yayasan Anak-anak Tanah Air (NYATA)',
@@ -58,6 +37,46 @@ return [
     // 'CommunityNote' => 'Becoming a NYATA Partner allows you to join a dedicated group of supporters who understand the importance of making a sustaining commitment to provide education for all.',
     // 'ItsExcitingNote' => 'NYATA Partner will receive special updates, photos and videos of the children and communities you’ve impacted and more.',
     // 'YouWillReceieveNote' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year sourvenir, photos and videos from the field, and more!',
+
+    //share page
+    'JoinNyata' => 'Join Nyata',
+    'JoinNyataDescription' => 'Join Nyata Foundation and help to change the world to become a better place',
+    'Name' => 'Name',
+    'EmailAddress' => 'Email Address',
+    'ContactUs' => 'Contact Us',
+    'GiveSupport' => 'Give Support',
+    'SendYourDonation' => 'Send Your Donation To',
+    'Join' => 'Join',
+    "LearnMore" => "Learn More",
+    'OurSolution' => 'Our Solution',
+    'AdikAsuh' => 'Adik Asuh',
+    'TravelCharity' => 'Travel Charity',
+    'ActOfKindness' => 'Act Of Kindness',
+
+    //menu
+    'DonateMenu' => 'Donate',
+    'AboutUsMenu' => 'About Us',
+    'OurPeopleMenu' => 'Our People',
+    'WhatWeDoMenu' => 'What We Do',
+    'AdikAsuhMenu' => 'Adik Asuh',
+    'TravelCharityMenu' => 'Travel Charity',
+    'ActOfKindnessMenu' => 'Act Of Kindness',
+    'TakeActionMenu' => 'Take Action',
+
+    //HOME PAGE
+    'HomePageTitle' => 'HOME PAGE',
+    'EqualLearning' => 'EQUAL LEARNING FOR EVERY CHILD',
+    'EveryDonate' => 'Every dollar you donate increases children education and improve their lives.',
+    'MakeDreams' => 'Make their dreams come true together with NYATA',
+    'WhoWeAre' => 'Who We Are',
+    'WhoWeAreDescription' => 'NYATA Foundation is a non profit organization works on improving the children with low quality of life. Start with the name “Tanah Air Foundation” rose in 2014 and to adjust thename now becomes it is known as Yayasan Anak-anak Tanah Air (NYATA)',
+    'Sharing' => 'Sharing',
+    'SharingDescription' => 'Help, share knowledge and joy is the way of NYATA',
+    'Empowerment' => 'Empowerment',
+    'EmpowermentDescription' => 'Nyata improves the value of individuals, social and education quality that focus on children quality of life and their education',
+    'Professional' => 'Professional',
+    'ProfessionalDescription' => 'Nyata focus on education and skill by giving the high quality training to volunteers and teachers',
+    'OurProgress' => 'Our Progress',
 
     //ABOUT US PAGE
     "AboutUsTitle" => "ABOUT US",
@@ -106,16 +125,12 @@ return [
     'LocalSupportDescription' => 'Participate in supporting the welfare of local communities in obtaining a decent wage and life',
     'OperationalIntegrity' => 'Operational Integrity',
     'OperationalIntegrityDescription' => 'NYATA is proactive in ensuring that every ongoing activity and program can be carried out sustainably',
-    'OurSolution' => 'Our Solution',
     'AdikAsuhDescriptionWhatWeDo' => 'Join us to be foster brother and sister and help the children reach a brighter future',
-    'TravelCharity' => 'Travel Charity',
     'TravelCharityDescription' => 'Help local livelihoods and economic communities while travel to explore the beauty of Indonesia',
-    'ActOfKindness' => 'Act of Kindness',
     'ActOfKindnessDescription' => 'Gives the good deeds to the school, organization, individual or community that in need',
 
     //adik asuh page
     'AdikAsuhTitle' => 'ADIK ASUH',
-    'AdikAsuh' => 'Adik Asuh',
     'AdikAsuhDescription' => 'Be Kakak Asuh to provide support for our younger siblings so they can continue to go to school and achieve a brighter future',
     'Schools' => 'Schools',
     'SeeAll' => 'See All',
