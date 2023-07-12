@@ -1,6 +1,8 @@
 @extends('layout.default')
 @section('title', __('messages.HomePageTitle'))
 @section('page-content')
+
+{{-- CAROUSEL --}}
 <section>
     <div id="default-carousel" class="relative md:h-full w-full overflow-x-hidden" data-carousel="slide">
         <!-- Carousel wrapper -->
@@ -98,6 +100,36 @@
     </div>
 </section>
 
+{{-- WHO WE ARE --}}
+<section class="text-center max-w-none w-full bg-white py-16">
+    <h1 class="title-body text-black uppercase">{{ __('messages.WhoWeAre') }}</h1>
+    <p class="content-body text-black mx-auto py-8 px-8 max-w-[1300px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[700px] ">{{ __('messages.WhoWeAreDescription') }}</p>
+</section>
+
+{{-- WHAT WE HOLD --}}
+<section class="text-center max-w-none w-full bg-neutral-200 py-16">
+    <h1 class="title-body text-black uppercase">{{ __('messages.WhatWeHold') }}</h1>
+    <div class="inline-flex items-center justify-center w-full px-24">
+        <hr class="w-64 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+    </div>
+    <div class="flex flex-row flex-wrap justify-center items-start py-5 my-5">
+        <div class="flex flex-col justify-center py-5 px-5 max-w-md 2xl:max-w-md xl:basis-1/3 lg:max-w-xs">
+            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto max-w-xs py-2">
+            <h2 class="title-body text-black uppercase py-4">{{ __('messages.Sharing') }}</h2>
+            <p class="content-body text-black mx-auto px-8">{{ __('messages.SharingDescription') }}</p>
+        </div>
+        <div class="flex flex-col justify-center py-2 px-5 max-w-md xl:basis-1/3 xl:max-w-md lg:max-w-xs">
+            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto max-w-xs py-2">
+            <h2 class="title-body text-black uppercase py-4">{{ __('messages.Empowerment') }}</h2>
+            <p class="content-body text-black mx-auto px-8">{{ __('messages.EmpowermentDescription') }}</p>
+        </div>
+        <div class="flex flex-col justify-center py-5 px-5 max-w-md 2xl:max-w-md xl:basis-1/3 lg:max-w-xs">
+            <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto max-w-xs py-2">
+            <h2 class="title-body text-black uppercase py-4">{{ __('messages.Professional') }}</h2>
+            <p class="content-body text-black mx-auto px-8">{{ __('messages.ProfessionalDescription') }}</p>
+        </div>
+    </div>
+</section>
 
     <!-- just text with white background -->
     {{-- <section class="relative flex items-center max-w-none w-full bg-white ">

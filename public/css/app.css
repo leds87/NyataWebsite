@@ -2346,13 +2346,33 @@ p.text-header-description {
   text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4);
 }
 
+h1.title-body {
+  font-size: 31px;
+  letter-spacing:1px;
+  line-height: 1.4em;
+  font-weight: 920;
+}
+
+h2.title-body {
+  font-size: 28px;
+  letter-spacing:1px;
+  line-height: 1.4em;
+  font-weight: 820;
+}
+
+p.content-body {
+  /* 13, 20, 36, 42 */
+  font-size: 18px;
+  letter-spacing:1px;
+  line-height: 2em;
+  /* font-weight: 500; */
+}
+
 .text-red {
   color: #ff0000;
 }
 
 /* Animation */
-
-
 @keyframes fadeInUp {
   from {
       transform: translate3d(0,40px,0)
