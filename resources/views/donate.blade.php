@@ -6,7 +6,7 @@
 <section class="flex relative max-w-none w-full h-[500px]">
     <div
         class="relative w-full max-w-none bg-cover bg-fixed bg-center bg-no-repeat bg-[url('/image/donate/header-bg.jpg')]">
-        <div class="px-12 max-w-screen-xl text-center mx-auto py-16 md:py-28 md:px-24 lg:py-20 lg:px-32 xl:py-28">
+        <div class="px-12 max-w-screen-xl text-center mx-auto py-16 md:py-28 md:px-24 lg:py-20 lg:px-32 xl:py-28 animated animatedFadeInUp fadeInUp">
             <h1 class="title-header text-red uppercase">{{__('messages.Teman') }}</h1>
             <h1 class="title-header text-white uppercase mt-[-35px]">{{__('messages.Nyata') }}</h1>
             <p class="text-white content-header pt-4 max-w-[600px] mx-auto">
@@ -28,7 +28,7 @@
                 <p class="text-black content-body pt-4 max-w-[800px]">
                     {{ __('messages.YouCanMakeDifferenceDescription') }}
                 </p>
-                <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
+                <button type="button" class="py-3 my-5 bg-[#ff0000] rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
                     {{ __('messages.GiveSupport') }}
                 </button>
             </div>
@@ -51,7 +51,7 @@
                     {{__('messages.SchoolBuild') }}
                 </div>
             </div>
-            <p class="py-3 px-8 text-white content-body font-bold max-w-[1200px] mx-auto self-end bg-red-600/20 rounded-2xl">
+            <p class="py-3 px-8 text-white content-body font-bold max-w-[1200px] mx-auto self-end bg-[#ff0000]/20 rounded-2xl">
                 {{ __('messages.SchoolBuildDescription') }}
             </p>
             <img src="{{ URL::asset('image/donate/school-build.jpg') }}" class="w-full transition duration-700" alt="school build">
@@ -62,7 +62,7 @@
                     {{__('messages.GrowTeacherDonate') }}
                 </div>
             </div>
-            <p class="py-3 px-8 text-white content-body font-bold max-w-[1200px] mx-auto self-end bg-red-600/20 rounded-2xl">
+            <p class="py-3 px-8 text-white content-body font-bold max-w-[1200px] mx-auto self-end bg-[#ff0000]/20 rounded-2xl">
                 {{ __('messages.GrowTeacherDescription') }}
             </p>
             <img src="{{ URL::asset('image/donate/grow-teacher.jpg') }}" class="w-full transition duration-700" alt="grows teachers">
@@ -73,7 +73,7 @@
                     {{__('messages.ChildrenNutrition') }}
                 </div>
             </div>
-            <p class="py-3 px-8 text-white content-body font-bold max-w-[1200px] mx-auto self-end bg-red-600/20 rounded-2xl">
+            <p class="py-3 px-8 text-white content-body font-bold max-w-[1200px] mx-auto self-end bg-[#ff0000]/20 rounded-2xl">
                 {{ __('messages.ChildrenNutritionDescription') }}
             </p>
             <img src="{{ URL::asset('image/donate/children-nutrition.jpg') }}" class="w-full transition duration-700">
@@ -84,7 +84,7 @@
                     {{__('messages.Scholarships') }}
                 </div>
             </div>
-            <p class="py-3 px-8 text-white content-body font-bold max-w-[1200px] mx-auto self-end bg-red-600/20 rounded-2xl">
+            <p class="py-3 px-8 text-white content-body font-bold max-w-[1200px] mx-auto self-end bg-[#ff0000]/20 rounded-2xl">
                 {{ __('messages.ScholarshipsDescription') }}
             </p>
             <img src="{{ URL::asset('image/donate/scholarship.jpg') }}" class="w-full transition duration-700">
@@ -139,7 +139,7 @@
         <div class="hidden transition-all duration-700 ease-in-out" id="school" role="tabpanel"
             aria-labelledby="school-tab">
             <div class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/donate/school-build.jpg')] h-[750px]">
-                <p class="py-3 px-8 mb-10 text-white content-body font-bold max-w-[800px] mx-auto self-end bg-red-600/40 rounded-2xl 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[600px]">
+                <p class="py-3 px-8 mb-10 text-white content-body font-bold max-w-[800px] mx-auto self-end bg-[#ff0000]/40 rounded-2xl 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[600px]">
                     {{ __('messages.SchoolBuildDescription') }}
                 </p>
             </div>
@@ -148,7 +148,7 @@
         <div class="hidden transition-all duration-700 ease-in-out" id="teacher" role="tabpanel"
             aria-labelledby="teacher-tab">
             <div class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/donate/grow-teacher.jpg')] h-[750px]">
-                <p class="py-3 px-8 mb-10 text-white content-body font-bold max-w-[800px] mx-auto self-end bg-red-600/40 rounded-2xl 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[600px]">
+                <p class="py-3 px-8 mb-10 text-white content-body font-bold max-w-[800px] mx-auto self-end bg-[#ff0000]/40 rounded-2xl 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[600px]">
                     {{ __('messages.GrowTeacherDescription') }}
                 </p>
             </div>
@@ -157,7 +157,7 @@
         <div class="hidden transition-all duration-700 ease-in-out" id="children" role="tabpanel"
             aria-labelledby="children-tab">
             <div class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/donate/children-nutrition.jpg')] h-[750px]">
-                <p class="py-3 px-8 mb-10 text-white content-body font-bold max-w-[800px] mx-auto self-end bg-red-600/40 rounded-2xl 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[600px]">
+                <p class="py-3 px-8 mb-10 text-white content-body font-bold max-w-[800px] mx-auto self-end bg-[#ff0000]/40 rounded-2xl 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[600px]">
                     {{ __('messages.ChildrenNutritionDescription') }}
                 </p>
             </div>
@@ -166,7 +166,7 @@
         <div class="hidden transition-all duration-700 ease-in-out" id="scholarship" role="tabpanel"
             aria-labelledby="scholarship-tab">
             <div class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/donate/scholarship.jpg')] h-[750px]">
-                <p class="py-3 px-8 mb-10 text-white content-body font-bold max-w-[800px] mx-auto self-end bg-red-600/40 rounded-2xl 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[600px]">
+                <p class="py-3 px-8 mb-10 text-white content-body font-bold max-w-[800px] mx-auto self-end bg-[#ff0000]/40 rounded-2xl 2xl:max-w-[1200px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[600px]">
                     {{ __('messages.ScholarshipsDescription') }}
                 </p>
             </div>
@@ -214,7 +214,7 @@
 
 {{-- EDUCATION IS THE HEART OF OUR FUTURE --}}
 <section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/homepage/background/education-bg.jpg')] bg-white">
-    <div class="relative flex flex-col justify-start inset-x-[10%] py-20 animated animatedFadeInUp fadeInUp">
+    <div class="relative flex flex-col justify-start px-8 py-20 animated animatedFadeInUp fadeInUp md:px-20">
         <h1 class="text-red title-header max-w-xs md:max-w-[700px] lg:max-w-[900px]">
             {{ __('messages.EducationHeart') }}
         </h1>
@@ -224,7 +224,7 @@
         <p class="py-3 text-white content-body font-bold max-w-xs 2xl:max-w-xl lg:max-w-md sm:max-w-xs">
             {{ __('messages.EducationHeartDescription') }}
         </p>
-        <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
+        <button type="button" class="py-3 my-5 bg-[#ff0000] rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
             {{ __('messages.TakeAction') }}
         </button>
     </div>
@@ -248,7 +248,7 @@
                 <p class="text-black content-body pt-4 max-w-[800px]">
                     {{ __('messages.NotReadyGiveMonthlyDescription') }}
                 </p>
-                <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[250px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
+                <button type="button" class="py-3 my-5 bg-[#ff0000] rounded-[10px] max-w-[250px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
                     {{ __('messages.GiveSupportNow') }}
                 </button>
             </div>

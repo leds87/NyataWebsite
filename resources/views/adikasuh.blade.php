@@ -5,15 +5,15 @@
 {{-- HEADER IMAGE --}}
 <section class="flex relative max-w-none w-full h-[500px]">
     <div
-        class="relative w-full max-w-none bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/image/adik-asuh/header-bg.jpg')]">
-        <div class="px-12 text-center py-8 md:py-36 md:px-24 lg:py-32 lg:px-32 xl:py-40">
-            <h1 class="mb-4 text-6xl font-extrabold tracking-tight leading-none text-[#ff0000] max-w-md md:text-5xl lg:text-6xl lg:max-w-none uppercase mx-auto">{{ __('messages.AdikAsuh') }}</h1>
-            <p class="mb-4 text-2xl font-extrabold tracking-wider leading-8 text-white max-w-[800px] mx-auto">{{ __('messages.AdikAsuhDescription') }}</p>
-            <div class="px-0 py-5 text-center">
-                <button type="button" class="w-fit px-3 py-3 bg-[#ff0000] rounded-lg uppercase font-bold" onclick="window.location='{{ route('adikasuh') }}'">
-                    {{ __('messages.GiveSupport') }}
-                </button>
-            </div>
+        class="relative w-full max-w-none bg-cover bg-fixed bg-no-repeat bg-[url('/image/adik-asuh/header-bg.jpg')]">
+        <div class="px-12 max-w-screen-xl text-center mx-auto py-16 md:py-28 md:px-24 lg:py-20 lg:px-32 xl:py-28 animated animatedFadeInUp fadeInUp">
+            <h1 class="title-header text-red uppercase">{{__('messages.AdikAsuh') }}</h1>
+            <p class="text-white content-header pt-4 max-w-[600px] mx-auto">
+                {{ __('messages.AdikAsuhDescription') }}
+            </p>
+            <button type="button" class="bg-[#ff0000] px-3 py-2 my-8 text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donationdetail') }}'">
+                {{ __('messages.GiveSupport') }}
+            </button>
         </div>
     </div>
 </section>
@@ -69,21 +69,25 @@
 </section>
 
 {{-- CONTENT IMAGE --}}
-<section class="flex relative max-w-none w-full h-[500px]">
+<section class="flex relative max-w-none w-full h-fit">
     <div
-        class="relative w-full max-w-none bg-cover bg-fixed bg-no-repeat bg-[url('/image/adik-asuh/tagline-bg.jpg')]">
-        <div class="px-12 text-left py-28 md:py-48 md:px-24 lg:py-32 lg:px-32 xl:py-40">
-            <h1 class="mb-4 text-6xl font-extrabold tracking-tight leading-none text-[#ff0000] max-w-md md:text-5xl lg:text-6xl lg:max-w-none uppercase mx-auto">{{ __('messages.Aku') }} <span class="text-white underline underline-offset-4">{{ __('messages.Bintang') }}</span></h1>
-            <h1 class="mb-4 text-6xl font-extrabold tracking-tight leading-none text-[#ff0000] max-w-md md:text-5xl lg:text-6xl lg:max-w-none uppercase mx-auto">{{ __('messages.AnakTerang') }}</h1>
+        class="relative w-full max-w-none bg-cover bg-fixed bg-no-repeat bg-[url('/image/adik-asuh/tagline-bg.jpg')] bg-white w-full h-[500px]">
+        <div class="relative flex flex-col justify-start inset-x-[10%] py-16 md:py-36 xl:py-40 animated animat  edFadeInUp fadeInUp">
+            <h1 class="text-red title-header max-w-xs md:max-w-[700px] lg:max-w-[900px] uppercase">
+                {{ __('messages.Aku') }} <span class="text-white underline underline-offset-4">{{ __('messages.Bintang') }}</span>
+            </h1>
+            <h1 class="text-red title-header max-w-xs md:max-w-[700px] uppercase">
+                {{ __('messages.AnakTerang') }}
+            </h1>
         </div>
     </div>
 </section>
 
 {{-- MEET MARIA --}}
 <section class="text-center max-w-none w-full bg-white py-16 px-8">
-    <h1 class="text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl px-24 uppercase mx-auto">{{ __('messages.MeetMaria') }}</h1>
+    <h1 class="title-body text-black uppercase">{{__('messages.MeetMaria') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-64 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
     </div>
     <div class="gap-8 items-start py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 lg:grid lg:grid-cols-2 sm:py-16 lg:px-6">
         <div class="mt-4 md:mt-0">
@@ -125,7 +129,7 @@
             </div>
             <div class="flex flex-wrap py-4">
                 <div>
-                    <p class="tracking-widest text-left text-black">
+                    <p class="text-black text-left content-body pt-4 max-w-[1100px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1000px] 2xl:max-w-[1200px]">
                         {{ __('messages.MeetDescription') }}
                     </p>
                 </div>
@@ -139,9 +143,9 @@
 
 {{-- WHY CHOOSE --}}
 <section class="text-center max-w-none w-full bg-neutral-200 py-16">
-    <h1 class="text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl px-24 uppercase">{{ __('messages.WhatWeHold') }}</h1>
+    <h1 class="title-body text-black uppercase">{{__('messages.WhyChoose') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-64 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
     </div>
     <div class="flex flex-col flex-wrap justify-center w-full mx-auto py-5 my-5 max-w-[700px]">
         <div class="flex flex-col justify-center py-5 px-5">
@@ -176,11 +180,11 @@
 
 {{-- BE SAVIOR --}}
 <section class="text-center max-w-none w-full bg-white py-16">
-    <h1 class="text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl px-24 uppercase">{{ __('messages.BeSavior') }}</h1>
+    <h1 class="title-body text-black uppercase">{{__('messages.BeSavior') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-64 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
     </div>
-    <div class="px-8 md:px-24">
+    <div class="px-8 mx-auto 2xl:max-w-[1200px] lg:max-w-[800px] md:max-w-[600px]">
         <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhyYouChooseOur') }}</p>
         <ul class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider list-disc px-6">
             <li>{{ __('messages.WhyYouChooseOur1') }}</li>

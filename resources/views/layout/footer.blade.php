@@ -12,7 +12,7 @@
                 class="w-11/12 mx-1.5 rounded-lg py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline max-w-xs"
                 id="emailaddress" type="emailaddress" placeholder="{{ __('messages.EmailAddress') }}">
         </div>
-        <button type="button" class="px-3 py-2 bg-red-600 text-xl rounded-[10px] uppercase w-[200px] mx-auto">
+        <button type="button" class="px-3 py-2 bg-[#ff0000] text-xl rounded-[10px] uppercase w-[200px] mx-auto">
             {{ __('messages.Join') }}
         </button>
     </form>

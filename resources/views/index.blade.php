@@ -20,7 +20,7 @@
                     <p class="text-white content-header pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
-                    <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donate') }}'">
+                    <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donate') }}'">
                         {{ __('messages.GiveSupport') }}
                     </button>
                 </div>
@@ -38,7 +38,7 @@
                     <p class="text-white content-header pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
-                    <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
+                    <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
                         {{ __('messages.GiveSupport') }}
                     </button>
                 </div>
@@ -56,7 +56,7 @@
                     <p class="text-white content-header pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
-                    <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
+                    <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
                         {{ __('messages.GiveSupport') }}
                     </button>
                 </div>
@@ -132,20 +132,23 @@
 </section>
 
 {{-- EDUCATION IS THE HEART OF OUR FUTURE --}}
-<section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/homepage/background/education-bg.jpg')] bg-white">
-    <div class="relative flex flex-col justify-start inset-x-[10%] py-20 animated animatedFadeInUp fadeInUp">
-        <h1 class="text-red title-header max-w-xs md:max-w-[700px] lg:max-w-[900px]">
-            {{ __('messages.EducationHeart') }}
-        </h1>
-        <h1 class="text-red title-header max-w-xs md:max-w-[700px]">
-            {{ __('messages.OurFuture') }}
-        </h1>
-        <p class="py-3 text-white content-body font-bold max-w-xs 2xl:max-w-xl lg:max-w-md sm:max-w-xs">
-            {{ __('messages.EducationHeartDescription') }}
-        </p>
-        <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('home') }}'">
-            {{ __('messages.TakeAction') }}
-        </button>
+<section class="flex relative max-w-none w-full h-fit">
+    <div
+        class="relative w-full max-w-none bg-cover bg-center bg-fixed bg-no-repeat bg-[url('/image/homepage/background/education-bg.jpg')]">
+        <div class="relative flex flex-col justify-start px-8 py-20 animated animatedFadeInUp fadeInUp md:px-20">
+            <h1 class="text-red title-header max-w-xs md:max-w-[700px] lg:max-w-[900px]">
+                {{ __('messages.EducationHeart') }}
+            </h1>
+            <h1 class="text-red title-header max-w-xs md:max-w-[700px]">
+                {{ __('messages.OurFuture') }}
+            </h1>
+            <p class="py-3 text-white content-body font-bold max-w-xs 2xl:max-w-xl lg:max-w-md sm:max-w-xs">
+                {{ __('messages.EducationHeartDescription') }}
+            </p>
+            <button type="button" class="py-3 my-5 bg-[#ff0000] rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('home') }}'">
+                {{ __('messages.TakeAction') }}
+            </button>
+        </div>
     </div>
 </section>
 
@@ -185,7 +188,7 @@
                     {{ __('messages.AdikAsuhDescriptionHome') }}
                 </p>
             </div>
-            <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('adikasuh') }}'">
+            <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('adikasuh') }}'">
                 {{ __('messages.LearnMore') }}
             </button>
         </div>
@@ -200,7 +203,7 @@
                     {{ __('messages.TravelCharityDescriptionHome') }}
                 </p>
             </div>
-            <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('travelcharity') }}'">
+            <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('travelcharity') }}'">
                 {{ __('messages.LearnMore') }}
             </button>
         </div>
@@ -215,7 +218,7 @@
                     {{ __('messages.ActOfKindnessDescriptionHome') }}
                 </p>
             </div>
-            <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('actofkindness') }}'">
+            <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('actofkindness') }}'">
                 {{ __('messages.LearnMore') }}
             </button>
         </div>
