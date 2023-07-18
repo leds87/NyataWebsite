@@ -52,20 +52,255 @@
     <div class="relative overflow-x-auto w-full h-auto">
         <img src="/image/adik-asuh/indonesia-map.png"
             class="relative bg-cover p-4 xl:p-8">
-        {{-- <button data-popover-target="popover-default" type="button"
-            class="absolute top-[100px] left-[200px] bg-[#ffFF00] w-4 h-4 ring-4 ring-white focus:ring-4 focus:outline-none focus:ring-white rounded-xl">
-        </button> --}}
+
+        {{-- SIALOGO, SUMUT --}}
+        <button data-popover-target="popover-sialogo" type="button" id="sialogo"
+            class="absolute hidden md:block bg-transparent w-4 h-4 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-sialogo" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Sialogo, Sumut</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Ampolo & Sialogo, Sumatra Utara<br/>
+                        Nama Sekolah Partner Nyata : Sakola Pelangi<br/>
+                        Jumlah adik asuh : 60 orang
+                    </li>
+                </ul>
+            </div>
+            <div data-popper-arrow></div>
+        </div>
+
+
+        {{-- NIAS, SUMUT --}}
+        <button data-popover-target="popover-nias" type="button" id="nias"
+            class="absolute hidden md:block bg-transparent w-4 h-4 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-nias" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Nias, Sumut</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi: Nias, Sumatra Utara<br/>
+                        Nama Sekolah Partner Nyata: Sakola adat Nias Bawomataluo & Hilimaeta<br/>
+                        Jumlah adik asuh: 69 orang
+                    </li>
+                </ul>
+            </div>
+            <div data-popper-arrow></div>
+        </div>
+
+        {{-- SIMPANG HULU, KALBAR --}}
+        <button data-popover-target="popover-simpanghulu" type="button" id="simpanghulu"
+            class="absolute hidden md:block bg-transparent w-6 h-6 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-simpanghulu" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Simpang Hulu, Kalimantan Barat</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Simpang Hulu, Kalimantan<br/>
+                        Nama Sekolah Partner Nyata : Sakola Adat Arus Kualan<br/>
+                        Jumlah adik asuh : 169 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- BANDUNG, JABAR --}}
+        <button data-popover-target="popover-bandung" type="button" id="bandung"
+            class="absolute hidden md:block bg-transparent w-5 h-5 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-bandung" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Bandung, Jawa Barat</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Bandung, Jawa Barat<br/>
+                        Nama Sekolah Partner Nyata : TK&SD Paulus<br/>
+                        Jumlah adik asuh : 30 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- SUMBA, NTT --}}
+        <button data-popover-target="popover-sumba" type="button" id="sumba"
+            class="absolute hidden md:block bg-transparent w-5 h-5 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-sumba" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Sumba, NTT</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Sumba Tengah, NTT<br/>
+                        Nama Sekolah Partner Nyata : Via Romo Vinzent<br/>
+                        Jumlah adik asuh : 49 orang
+                    </li>
+                    <li>
+                        Titik Lokasi : Sumba Tengah, NTT<br/>
+                        Nama Sekolah Partner Nyata : Via Pastor Nuel<br/>
+                        Jumlah adik asuh : 29 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- NAGEKEO, FLORES --}}
+        <button data-popover-target="popover-nagekeo" type="button" id="nagekeo"
+            class="absolute hidden md:block bg-transparent w-5 h-5 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-nagekeo" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Nagekeo, Flores</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Nagekeo, Flores<br/>
+                        Nama Sekolah Partner Nyata : SD Inpreslea<br/>
+                        Jumlah adik asuh : 57 orang
+                    </li>
+                    <li>
+                        Titik Lokasi : Giriwawo, Flores<br/>
+                        Nama Sekolah Partner Nyata : SD Giriwawo<br/>
+                        Jumlah adik asuh : 53 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- LEMBATA, NTT --}}
+        <button data-popover-target="popover-lembata" type="button" id="lembata"
+            class="absolute hidden md:block bg-transparent w-4 h-4 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-lembata" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Lembata, NTT</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Lembata, NTT<br/>
+                        Nama Sekolah Partner Nyata : Via Suster Hillaria<br/>
+                        Jumlah adik asuh : 51 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- ALOR, NTT --}}
+        <button data-popover-target="popover-alor" type="button" id="alor"
+            class="absolute hidden md:block bg-transparent w-5 h-5 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-alor" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Alor, NTT</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Alor , NTT<br/>
+                        Nama Sekolah Partner Nyata : SMTK Alor<br/>
+                        Jumlah adik asuh : 75 orang
+                    </li>
+                    <li>
+                        Titik Lokasi : Alor, NTT<br/>
+                        Nama Sekolah Partner Nyata : SMP Maleipea<br/>
+                        Jumlah adik asuh : 35 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- KUPANG, NTT --}}
+        <button data-popover-target="popover-kupang" type="button" id="kupang"
+            class="absolute hidden md:block bg-transparent w-5 h-5 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-kupang" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Kupang, NTT</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Semau, NTT<br/>
+                        Nama Sekolah Partner Nyata : Via Ka Cony<br/>
+                        Jumlah adik asuh : 61 orang
+                    </li>
+                    <li>
+                        Titik Lokasi : Amfoang Kupang, NTT<br/>
+                        Nama Sekolah Partner Nyata : SD Naeelo<br/>
+                        Jumlah adik asuh : 45 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- MOROTAI, MALUKU --}}
+        <button data-popover-target="popover-morotai" type="button" id="morotai"
+            class="absolute hidden md:block bg-transparent w-5 h-5 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-morotai" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Morotai, Maluku</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Morotai, Maluku Utara<br/>
+                        Nama Sekolah Partner Nyata : SMA Hohidai<br/>
+                        Jumlah adik asuh : 62 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- MERAUKE, PAPUA --}}
+        <button data-popover-target="popover-merauke" type="button" id="merauke"
+            class="absolute hidden md:block bg-transparent w-5 h-5 focus:outline-none rounded-xl">
+        </button>
+        <div data-popover id="popover-merauke" role="tooltip"
+            class="absolute z-10 invisible inline-block w-fit text-sm text-white transition-opacity duration-300 bg-[#ff0000] border border-2 border-white rounded-lg shadow-sm opacity-0">
+            <div class="px-3 py-2 rounded-t-lg">
+                <h1 class="font-semibold text-white text-3xl">Merauke, Papua</h1>
+            </div>
+            <div class="px-3 py-2">
+                <ul class="list-disc text-left mx-4 mb-4 leading-6 text-md">
+                    <li>
+                        Titik Lokasi : Koa, Papua<br/>
+                        Nama Sekolah Partner Nyata : SEKOLAH YPPK KOA MERAUKE<br/>
+                        Jumlah adik asuh : 129 orang
+                    </li>
+                    <li>
+                        Titik Lokasi : Zanegi, Papua<br/>
+                        Nama Sekolah Partner Nyata : SD YPPK SENEGI<br/>
+                        Jumlah adik asuh : 123 orang
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    {{-- <div data-popover id="popover-default" role="tooltip"
-        class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
-        <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-            <h3 class="font-semibold text-gray-900 dark:text-white">Popover title</h3>
-        </div>
-        <div class="px-3 py-2">
-            <p>And here's some amazing content. It's very engaging. Right?</p>
-        </div>
-        <div data-popper-arrow></div>
-    </div> --}}
 </section>
 
 {{-- CONTENT IMAGE --}}
