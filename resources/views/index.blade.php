@@ -132,7 +132,7 @@
 </section>
 
 {{-- EDUCATION IS THE HEART OF OUR FUTURE --}}
-<section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/homepage/background/education-bg.jpg')] bg-white">
+<section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/homepage/background/background01.jpg')]">
     <div class="relative flex flex-col justify-start inset-x-[10%] py-20 animated animatedFadeInUp fadeInUp">
         <h1 class="text-red title-header max-w-xs md:max-w-2xl">
             {{ __('messages.EducationHeart') }}
