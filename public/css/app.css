@@ -2461,7 +2461,7 @@ p.content-body {
   position: fixed;
   bottom: 20px;
   right : 20px;
-  z-index: 10;
+  z-index: 99;
 }
 
 .whatsapp-ico:hover{

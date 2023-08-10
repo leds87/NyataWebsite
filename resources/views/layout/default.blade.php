@@ -63,67 +63,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-
-    <script>
-        var width = window.innerWidth;
-        var height = window.innerHeight;
-
-        window.addEventListener('load', function(event) {
-            console.log('Screen Load!');
-            initPinPoint();
-        });
-
-        window.addEventListener('resize', function(event) {
-            console.log('Screen size changed!');
-            initPinPoint();
-        });
-
-        function initPinPoint() {
-            var element = document.getElementById("sialogo");
-            element.style.top = `${20.5}%`;
-            element.style.left = `${9}%`;
-
-            var element = document.getElementById("nias");
-            element.style.top = `${23}%`;
-            element.style.left = `${6.3}%`;
-
-            var element = document.getElementById("simpanghulu");
-            element.style.top = `${30.5}%`;
-            element.style.left = `${31.9}%`;
-
-            var element = document.getElementById("bandung");
-            element.style.top = `${66.2}%`;
-            element.style.left = `${27.1}%`;
-
-            var element = document.getElementById("sumba");
-            element.style.top = `${82.2}%`;
-            element.style.left = `${53.4}%`;
-
-            var element = document.getElementById("nagekeo");
-            element.style.top = `${77.5}%`;
-            element.style.left = `${55.5}%`;
-
-            var element = document.getElementById("lembata");
-            element.style.top = `${77.3}%`;
-            element.style.left = `${59.4}%`;
-
-            var element = document.getElementById("alor");
-            element.style.top = `${75}%`;
-            element.style.left = `${63.5}%`;
-
-            var element = document.getElementById("morotai");
-            element.style.top = `${16.2}%`;
-            element.style.left = `${71.2}%`;
-
-            var element = document.getElementById("kupang");
-            element.style.top = `${85}%`;
-            element.style.left = `${61.3}%`;
-
-            var element = document.getElementById("merauke");
-            element.style.top = `${75.2}%`;
-            element.style.left = `${96.5}%`;
-        }
-    </script>
 </body>
 
 </html>
