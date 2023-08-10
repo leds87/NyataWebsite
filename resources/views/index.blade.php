@@ -13,11 +13,11 @@
                     class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="carousel01">
                 <div
                     class="absolute inset-x-[15%] text-left text-white hidden sm:block 2xl:top-56 xl:top-56 lg:top-20 md:top-20 sm:top-4 animated animatedFadeInUp fadeInUp">
-                    <h1 class="text-red title-header">{{ __('messages.EqualLearning') }}</h1>
-                    <p class="text-white content-header pt-4">
+                    <h1 class="text-red text-header">{{ __('messages.EqualLearning') }}</h1>
+                    <p class="text-white text-header-description pt-4">
                         {{ __('messages.EveryDonate') }}
                     </p>
-                    <p class="text-white content-header pt-4">
+                    <p class="text-white text-header-description pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
                     <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donate') }}'">
@@ -31,11 +31,11 @@
                     class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="carousel02">
                 <div
                     class="absolute inset-x-[15%] text-left text-white hidden sm:block 2xl:top-56 xl:top-56 lg:top-20 md:top-20 sm:top-4 animated animatedFadeInUp fadeInUp">
-                    <h1 class="text-red title-header">{{ __('messages.EqualLearning') }}</h1>
-                    <p class="text-white content-header pt-4">
+                    <h1 class="text-red text-header">{{ __('messages.EqualLearning') }}</h1>
+                    <p class="text-white text-header-description pt-4">
                         {{ __('messages.EveryDonate') }}
                     </p>
-                    <p class="text-white content-header pt-4">
+                    <p class="text-white text-header-description pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
                     <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
@@ -49,11 +49,11 @@
                     class="top-1/2 left-1/2" alt="carousel03">
                 <div
                     class="absolute inset-x-[15%] text-left text-white hidden sm:block 2xl:top-56 xl:top-56 lg:top-20 md:top-20 sm:top-4 animated animatedFadeInUp fadeInUp">
-                    <h1 class="text-red title-header">{{ __('messages.EqualLearning') }}</h1>
-                    <p class="text-white content-header pt-4">
+                    <h1 class="text-red text-header">{{ __('messages.EqualLearning') }}</h1>
+                    <p class="text-white text-header-description pt-4">
                         {{ __('messages.EveryDonate') }}
                     </p>
-                    <p class="text-white content-header pt-4">
+                    <p class="text-white text-header-description pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
                     <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
@@ -101,40 +101,40 @@
 </section>
 
 {{-- WHO WE ARE --}}
-<section class="text-center w-full bg-white py-16">
+<section class="text-center max-w-none w-full bg-white py-16">
     <h1 class="title-body text-black uppercase">{{ __('messages.WhoWeAre') }}</h1>
-    <p class="content-body text-black mx-auto py-8 px-8 2xl:max-w-[1300px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[700px] ">{{ __('messages.WhoWeAreDescription') }}</p>
+    <p class="content-body text-black mx-auto py-8 px-8 max-w-[1300px] xl:max-w-[1000px] lg:max-w-[800px] md:max-w-[700px] ">{{ __('messages.WhoWeAreDescription') }}</p>
 </section>
 
 {{-- WHAT WE HOLD --}}
-<section class="text-center w-full bg-neutral-200 py-16">
+<section class="text-center max-w-none w-full bg-neutral-200 py-16">
     <h1 class="title-body text-black uppercase">{{ __('messages.WhatWeHold') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-64 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
     </div>
     <div class="flex flex-row flex-wrap justify-center items-start py-5 my-5">
         <div class="flex flex-col justify-center py-5 px-5 max-w-md 2xl:max-w-md xl:basis-1/3 lg:max-w-xs">
             <img src="{{ URL::asset('image/homepage/icon/whatweholdicon01.png') }}" class="mx-auto max-w-xs py-2 animated animatedFadeInDown fadeInDown">
-            <h2 class="title-body text-black uppercase py-4 font-bold">{{ __('messages.Sharing') }}</h2>
+            <h2 class="title-body text-black uppercase py-4">{{ __('messages.Sharing') }}</h2>
             <p class="content-body text-black mx-auto px-8">{{ __('messages.SharingDescription') }}</p>
         </div>
         <div class="flex flex-col justify-center py-2 px-5 max-w-md xl:basis-1/3 xl:max-w-md lg:max-w-xs">
             <img src="{{ URL::asset('image/homepage/icon/whatweholdicon02.png') }}" class="mx-auto max-w-xs py-2 animated animatedFadeInDown fadeInDown">
-            <h2 class="title-body text-black uppercase py-4 font-bold">{{ __('messages.Empowerment') }}</h2>
+            <h2 class="title-body text-black uppercase py-4">{{ __('messages.Empowerment') }}</h2>
             <p class="content-body text-black mx-auto px-8">{{ __('messages.EmpowermentDescription') }}</p>
         </div>
         <div class="flex flex-col justify-center py-5 px-5 max-w-md 2xl:max-w-md xl:basis-1/3 lg:max-w-xs">
             <img src="{{ URL::asset('image/homepage/icon/whatweholdicon03.png') }}" class="mx-auto max-w-xs py-2 animated animatedFadeInDown fadeInDown">
-            <h2 class="title-body text-black uppercase py-4 font-bold">{{ __('messages.Professional') }}</h2>
+            <h2 class="title-body text-black uppercase py-4">{{ __('messages.Professional') }}</h2>
             <p class="content-body text-black mx-auto px-8">{{ __('messages.ProfessionalDescription') }}</p>
         </div>
     </div>
 </section>
 
-{{-- EDUCATION IS THE HEART OF OUR FUTURE --}}
+<!--EDUCATION IS THE HEART OF OUR FUTURE-->
 <section class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/homepage/background/background01.jpg')]">
     <div class="relative w-full flex flex-col justify-start max-w-xl inset-x-[10%] py-20  animated animatedFadeInUp fadeInUp">
-        <h1 class="text-red title-header max-w-xs sm:max-w-md md:max-w-none">
+        <h1 class="text-red text-header max-w-xs sm:max-w-md md:max-w-none">
             {{ __('messages.EducationHeart') }}
         </h1>
         <p class="py-3 text-white content-body font-bold max-w-xs 2xl:max-w-none lg:max-w-md sm:max-w-xs">
@@ -146,23 +146,6 @@
     </div>
 </section>
 
-{{-- OUR PROGRESS --}}
-<section class="text-center w-full bg-neutral-200 py-16">
-    <h1 class="title-body text-black uppercase">{{ __('messages.OurProgress') }}</h1>
-    <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
-    </div>
-    <div class="flex flex-row flex-wrap justify-center items-start my-5">
-        <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
-            <h1 class="text-red text-[70px] font-extrabold">1033</h1>
-            <h2 class="title-body text-black mx-auto px-8 uppercase ">{{ __('messages.AdikAsuh') }}</h2>
-        </div>
-        <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
-            <h1 class="text-red text-[70px] font-extrabold">89</h1>
-            <h2 class="title-body text-black mx-auto px-8 uppercase">{{ __('messages.Schools') }}</h2>
-        </div>
-    </div>
-</section>
 {{--
 
     <section class="flex flex-row items-center max-w-none w-full bg-neutral-200 py-10 md:py-5">
