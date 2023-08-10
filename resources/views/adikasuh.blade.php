@@ -45,7 +45,7 @@
 {{-- MAP --}}
 <section class="text-center max-w-none w-full h-auto bg-neutral-200">
     <div class="p-4 xl:p-8 text-right">
-        <button type="button" class="w-fit px-3 py-3 bg-[#ff0000] rounded-lg uppercase font-bold" onclick="window.location='{{ route('detailschool') }}'">
+        <button type="button" class="w-fit px-3 py-3 bg-[#ff0000] rounded-lg uppercase font-bold" onclick="window.location='{{ route('adikasuh') }}'">
             {{ __('messages.SeeAll') }}
         </button>
     </div>

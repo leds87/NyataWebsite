@@ -61,10 +61,6 @@ Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
 
-Route::get('/detailschool', function () {
-    return view('detailschool');
-})->name('detailschool');
-
 
 Route::get('/products', [NyataController::class, 'index']);
 Route::get('/products/about', [NyataController::class, 'about']);

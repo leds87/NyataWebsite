@@ -249,8 +249,4 @@ return [
     'TakeActionTitle' => 'TAKE ACTION',
     'JoinTeam' => 'WANT TO JOIN OUR TEAM ?',
     'JoinTeamDescription' => 'Join us and experience helping people and share the happiness with the children',
-
-    //Detail School Page
-    'DetailSchoolTitle' => 'DETAIL SCHOOL',
-    'DetailSchool' => 'Detail School'
 ];
