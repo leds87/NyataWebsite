@@ -146,6 +146,26 @@
     </div>
 </section>
 
+<<<<<<< HEAD
+=======
+{{-- OUR PROGRESS --}}
+<section class="text-center w-full bg-neutral-200 py-16">
+    <h1 class="title-body text-black uppercase">{{ __('messages.OurProgress') }}</h1>
+    <div class="inline-flex items-center justify-center w-full px-24">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+    </div>
+    <div class="flex flex-row flex-wrap justify-center items-start my-5">
+        <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
+            <h1 class="text-red text-[70px] font-extrabold">1033</h1>
+            <h2 class="title-body text-black mx-auto px-8 uppercase ">{{ __('messages.AdikAsuh') }}</h2>
+        </div>
+        <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
+            <h1 class="text-red text-[70px] font-extrabold">89</h1>
+            <h2 class="title-body text-black mx-auto px-8 uppercase">{{ __('messages.Schools') }}</h2>
+        </div>
+    </div>
+</section>
+>>>>>>> parent of b78ebc7b (section our solution)
 {{--
 
     <section class="flex flex-row items-center max-w-none w-full bg-neutral-200 py-10 md:py-5">
