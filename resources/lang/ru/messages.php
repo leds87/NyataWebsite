@@ -114,7 +114,7 @@ return [
     'YouReceive' => 'You\'ll Receive',
     'YouReceiveDescription' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year souvenir, photos and videos from the field, and more!',
     'SmallActions' => 'Small Actions',
-    'LotsOfPeople' => 'Lots of People',
+    'LotsOfPeople' => 'Lots Of People',
     'BigChange' => 'Big Change',
     'NotReadyGiveMonthly' => 'Not Ready To Give Monthly ?',
     'NotReadyGiveMonthlyDescription' => 'Make a one-time donation to give quality education',
