@@ -147,6 +147,11 @@ return [
     'OurPeopleTitle' => 'OUR PEOPLE',
     'OurPeople' => 'Our People',
 
+    //Take Action Page
+    'TakeActionTitle' => 'TAKE ACTION',
+    'JoinTeam' => 'WANT TO JOIN OUR TEAM ?',
+    'JoinTeamDescription' => 'Join us and experience helping people and share the happiness with the children',
+
     //What we do page
     'WhatWeDoTitle' => 'WHAT WE DO',
     'TheIssue' => 'The Issue',
@@ -161,10 +166,6 @@ return [
     'AdikAsuhDescriptionWhatWeDo' => 'Join us to be foster brother and sister and help the children reach a brighter future',
     'TravelCharityDescription' => 'Help local livelihoods and economic communities while travel to explore the beauty of Indonesia',
     'ActOfKindnessDescription' => 'Gives the good deeds to the school, organization, individual or community that in need',
-    'NyatakanKebaikan' => 'Nyata-kan Kebaikan',
-    'NyatakanKebaikanDescription' => 'Discover how NYATA spreads goodness and change for the nation’s children',
-    'NoCountry' => 'No country can really develop unless its citizen are educated',
-    "NelsonMandela" => 'Nelson Mandela',
 
     //adik asuh page
     'AdikAsuhTitle' => 'ADIK ASUH',
@@ -226,7 +227,6 @@ return [
     'ActOfKindnessHeaderDescription' => 'Take part to share goodness that impacts schools, organizations, individuals or communities who are in need of help from TEMAN NYATA',
     'Record' => 'Record',
     'RecordDescription' => 'Act of kindess in one of the school.',
-    'GetInvolved' => 'Get Involved',
     'Volunteer' => 'Volunteer',
     'JoinTemanNyata' => 'Join Teman Nyata',
     'VisitInstagram' => 'Visit Instagram',
@@ -242,11 +242,5 @@ return [
     'Act2' => 'Act 2',
     'Act2Description' => 'Visiting areas that need development',
     'Act3' => 'Act 3',
-    'Act3Description' => 'Providing assistance to people in need',
-
-
-    //Take Action Page
-    'TakeActionTitle' => 'TAKE ACTION',
-    'JoinTeam' => 'WANT TO JOIN OUR TEAM ?',
-    'JoinTeamDescription' => 'Join us and experience helping people and share the happiness with the children',
+    'Act3Description' => 'Providing assistance to people in need'
 ];
