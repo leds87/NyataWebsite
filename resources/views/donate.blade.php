@@ -170,35 +170,6 @@
         </div>
     </div>
 </section>
-
-{{-- WHY GIVE MONTHLY --}}
-<section class="text-center w-full bg-white py-16">
-    <h1 class="title-body text-black uppercase">{{ __('messages.WhyGiveMonthly') }}</h1>
-    <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
-    </div>
-    <div class="flex flex-row flex-wrap justify-center items-start my-5">
-        <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
-            <h2 class="title-body text-red font-bold mx-auto px-8 uppercase mx-auto md:max-w-xs lg:max-w-none">{{ __('messages.Affordable') }}</h2>
-            <p class="content-body text-black py-4 max-w-xs mx-auto md:max-w-xs">{{ __('messages.AffordableDescription') }}</p>
-        </div>
-        <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
-            <h2 class="title-body text-red font-bold mx-auto px-8 uppercase mx-auto md:max-w-xs lg:max-w-none">{{ __('messages.Community') }}</h2>
-            <p class="content-body text-black py-4 max-w-xs mx-auto md:max-w-xs">{{ __('messages.CommunityDescription') }}</p>
-        </div>
-    </div>
-    <div class="flex flex-row flex-wrap justify-center items-start my-5">
-        <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
-            <h2 class="title-body text-red font-bold mx-auto px-8 uppercase mx-auto md:max-w-xs lg:max-w-none">{{ __('messages.SustainedSupport') }}</h2>
-            <p class="content-body text-black py-4 max-w-xs mx-auto md:max-w-xs">{{ __('messages.SustainedSupportDescription') }}</p>
-        </div>
-        <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
-            <h2 class="title-body text-red font-bold mx-auto px-8 uppercase mx-auto md:max-w-xs lg:max-w-none">{{ __('messages.ItsExiting') }}</h2>
-            <p class="content-body text-black py-4 max-w-xs mx-auto md:max-w-xs">{{ __('messages.ItsExitingDescription') }}</p>
-        </div>
-    </div>
-</section>
-
     {{-- <section>
         <div id="default-carousel" class="relative h-[400px] md:h-full w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
