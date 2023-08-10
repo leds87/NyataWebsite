@@ -25,10 +25,6 @@ Route::get('/donate', function () {
     return view('donate');
 })->name('donate');
 
-Route::get('/donationdetail', function () {
-    return view('donationdetail');
-})->name('donationdetail');
-
 Route::get('/aboutus', function () {
     return view('aboutus');
 })->name('aboutus');
