@@ -163,60 +163,76 @@
         </div>
     </div>
 </section>
+{{--
 
-{{-- OUR SOLUTIONS --}}
-<section class="text-center w-full bg-white py-16 px-8">
-    <h1 class="title-body text-black uppercase">{{ __('messages.OurSolution') }}</h1>
-    <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
-    </div>
-    <div class="flex flex-wrap justify-around items-start mx-auto">
-        <div class="flex flex-col justify-center max-w-lg my-5 2xl:max-w-lg xl:max-w-[370px] lg:max-w-[300px]">
-            <div class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/our-solution/adik-asuh.jpg')] h-[350px] rounded-t-[25px]">
-            </div>
-            <div class="pb-8 py-5 bg-red rounded-b-[25px] text-white 2xl:h-[200px] xl:h-[230px] lg:h-[300px]">
-                <h2 class="title-body px-3 text-center font-bold uppercase">
-                    {{ __('messages.AdikAsuh') }}
-                </h2>
-                <p class="content-body px-10 py-5 text-center font-bold">
-                    {{ __('messages.AdikAsuhDescriptionHome') }}
-                </p>
-            </div>
-            <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('adikasuh') }}'">
-                {{ __('messages.LearnMore') }}
-            </button>
-        </div>
-        <div class="flex flex-col justify-center max-w-lg my-5 2xl:max-w-lg xl:max-w-[370px] lg:max-w-[300px]">
-            <div class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/our-solution/travel-charity.jpg')] h-[350px] rounded-t-[25px]">
-            </div>
-            <div class="pb-4 py-5 bg-red rounded-b-[25px] text-white 2xl:h-[200px] xl:h-[230px] lg:h-[300px]">
-                <h2 class="title-body px-3 text-center font-bold uppercase">
-                    {{ __('messages.TravelCharity') }}
-                </h2>
-                <p class="content-body px-10 py-5 text-center font-bold">
-                    {{ __('messages.TravelCharityDescriptionHome') }}
-                </p>
-            </div>
-            <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('travelcharity') }}'">
-                {{ __('messages.LearnMore') }}
-            </button>
-        </div>
-        <div class="flex flex-col justify-center max-w-lg my-5 2xl:max-w-lg xl:max-w-[370px] lg:max-w-[300px]">
-            <div class="flex relative bg-cover bg-center bg-no-repeat bg-[url('/image/our-solution/act-of-kindness.jpg')] h-[350px] rounded-t-[25px]">
-            </div>
-            <div class="pb-6 py-5 bg-red rounded-b-[25px] text-white 2xl:h-[200px] xl:h-[230px] lg:h-[300px]">
-                <h2 class="title-body px-3 text-center font-bold uppercase">
-                    {{ __('messages.ActOfKindness') }}
-                </h2>
-                <p class="content-body px-10 py-5 text-center font-bold">
-                    {{ __('messages.ActOfKindnessDescriptionHome') }}
-                </p>
-            </div>
-            <button type="button" class="px-3 py-2 my-8 bg-red-600 text-xl rounded-[10px] uppercase w-[200px] mx-auto" onclick="window.location='{{ route('actofkindness') }}'">
-                {{ __('messages.LearnMore') }}
-            </button>
-        </div>
-    </div>
-</section>
+    <section class="flex flex-row items-center max-w-none w-full bg-neutral-200 py-10 md:py-5">
+        <div class="container justify-center max-w-none py-6">
+            <h3 class="w-full text-center font-bold text-5xl py-3 text-black">
+                OUR PROGRESS
+            </h3>
+            <div class="flex flex-row justify-evenly">
+                <div class="justify-center max-w-md py-3 px-6 text-center font-bold">
+                    <h3 class="px-3 py-3 text-red-500 text-5xl">
+                        1089
+                    </h3>
+                    <p class="px-3 py-3 text-black text-xl">
+                        ADIK ASUH
+                    </p>
+                </div>
+                <div class="justify-center max-w-md py-3 px-6 text-center font-bold">
+                    <h3 class="px-3 py-3 text-red-500 text-5xl">
+                        89
+                    </h3>
+                    <p class="px-3 py-3 text-black text-xl">
+                        SCHOOL
+                    </p>
+                </div>
+    </section>
 
+    <section class="flex items-center max-w-none w-full bg-white ">
+        <div class="container justify-center max-w-none py-6">
+            <h3 class="flex w-full justify-center mx-auto text-5xl py-3 text-black font-bold">
+                OUR SOLUTION
+            </h3>
+            <div class="flex flex-wrap justify-evenly mx-auto">
+                <div class="flex flex-col justify-center max-w-sm mx-5 my-5">
+                    <img src="{{ URL::asset('image/homepage/oursolution/oursolution01.jpg') }}"
+                        class="rounded-t-[25px] w-full h-[300px] items-center">
+                    <div class="px-0 py-5 bg-red-500 rounded-b-[25px] text-white ">
+                        <h3 class="px-3 py-5 text-3xl text-center font-bold">
+                            ADIK ASUH
+                        </h3>
+                        <p class="px-3 py-5 text-base text-center">
+                            Join us to be foster brother and sister and help the children reach a brigther future
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center max-w-sm mx-5 my-5">
+                    <img src="{{ URL::asset('image/homepage/oursolution/oursolution02.jpg') }}"
+                        class="rounded-t-[25px] w-full">
+                    <div class="px-0 py-5 bg-red-500 rounded-b-[25px] text-white ">
+                        <h3 class="px-3 py-5 text-3xl text-center font-bold">
+                            TRAVEL CHARITY
+                        </h3>
+                        <p class="px-3 py-5 text-base text-center">
+                            Help local livelihoods and economic communities while travel to explore the beauty of
+                            Indonesia
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center max-w-sm mx-5 my-5">
+                    <img src="{{ URL::asset('image/homepage/oursolution/oursolution03.jpg') }}"
+                        class="rounded-t-[25px] w-full">
+                    <div class="px-0 py-5 bg-red-500 rounded-b-[25px] text-white ">
+                        <h3 class="px-3 py-5 text-3xl text-center font-bold">
+                            ACT OF KINDNESS
+                        </h3>
+                        <p class="px-3 py-5 text-base text-center">
+                            Gives the good deeds to the school, organization, individual or community that in need
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
 @endsection
