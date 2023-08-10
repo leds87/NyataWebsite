@@ -52,6 +52,12 @@ return [
     'AdikAsuh' => 'Adik Asuh',
     'TravelCharity' => 'Travel Charity',
     'ActOfKindness' => 'Act Of Kindness',
+<<<<<<< HEAD
+=======
+    'EducationHeart' => 'EDUCATION IS THE HEART',
+    'OurFuture' => 'OF OUR FUTURE',
+    'EducationHeartDescription' => 'Help the children to get proper education. Every help will keep the children to go to schools and make a better future.',
+>>>>>>> parent of 5dc576a0 (Revert "add indonesian content and take out russian content")
 
     //menu
     'DonateMenu' => 'Donate',
@@ -77,8 +83,54 @@ return [
     'Professional' => 'Professional',
     'ProfessionalDescription' => 'Nyata focus on education and skill by giving the high quality training to volunteers and teachers',
     'OurProgress' => 'Our Progress',
+<<<<<<< HEAD
     'EducationHeart' => 'EDUCATION IS THE HEART OF OUR FUTURE',
     'EducationHeartDescription' => 'Help the children to get proper education. Every help will keep the children to go to schools and make a better future.',
+=======
+    'TakeAction' => 'Take Action',
+    'AdikAsuhDescriptionHome' => 'Join us to be foster brother and sister and help the children reach a brigther future',
+    'TravelCharityDescriptionHome' => 'Help local livelihoods and economic communities while travel to explore the beauty of Indonesia',
+    'ActOfKindnessDescriptionHome' => 'Gives the good deeds to the school, organization, individual or community that in need',
+
+    //Donate page
+    'DonateTitle' => 'DONATE',
+    'Teman' => 'Teman',
+    'Nyata' => 'Nyata',
+    'TemanNyataDescription' => 'Wondering how it is to be living your life for something bigger than yourself? Begin your journey here.',
+    'YouCanMakeDifference' => 'You Can Make A Difference',
+    'YouCanMakeDifferenceDescription' => 'TEMAN NYATA is a monthly giving program where every dollar goes toward educating a child. You are making an impact in life of someone else, every single month.',
+    'NoActOfKindness' => 'No act of kindness, no matter how small, is ever wasted',
+    'Aesop' => 'Aesop',
+    'SchoolBuild' => 'School Build',
+    'SchoolBuildDescription' => 'Improve the quality of proper education by building or renovating schools and equipping school facilities so that the learning environment is safe, comfortable and beneficial for hundreds, even thousands of children.',
+    'GrowTeacherDonate' => 'Grows Teachers Well-Being',
+    'GrowTeacherDescriptionDonate' => 'Support teacher welfare in NYATA partner schools to get devent wages and teachers training programs so that they can continue to develop their knowledge.',
+    'ChildrenNutrition' => 'Children\'s Nutrition',
+    'ChildrenNutritionDescription' => 'Improving the health of children in the region by supporting the need for good nutrition and improving the quality of local health facilities so that they can continue to attend school in a healthy manner without experiencing malnutrition',
+    'Scholarships' => 'Scholarships',
+    'ScholarshipsDescription' => 'Provide opportunities for potential children to get a higher education. Don’t let povery and financial incapacity hinder their potential to continue to grow',
+    'WhyGiveMonthly' => 'Why Give Monthly ?',
+    'Affordable' => 'Affordable',
+    'AffordableDescription' => 'By giving monthly, you invest what makes sense for you and make an incredible impact over the course of your membership',
+    'Community' => 'Community',
+    'CommunityDescription' => 'Becoming a NYATA Partner allows you to join a dedicated group of supporters who understand the importance of making a sustaining commitment to provide education for all',
+    'SustainedSupport' => 'Sustained Support',
+    'SustainedSupportDescription' => 'Enables NYATA to expand our programs because we know we have the ongoing support from the NYATA Partner community',
+    'ItsExiting' => 'It\'s Exiting',
+    'ItsExitingDescription' => 'NYATA Partner will receive special updates, photos and videos of the children and communities you’ve impacted and more',
+    'YouReceive' => 'You\'ll Receive',
+    'YouReceiveDescription' => 'Quarterly progress updates from the field, Welcome gift, Surprise end of the year souvenir, photos and videos from the field, and more!',
+    'SmallActions' => 'Small Actions',
+    'LotsOfPeople' => 'Lots of People',
+    'BigChange' => 'Big Change',
+    'NotReadyGiveMonthly' => 'Not Ready To Give Monthly ?',
+    'NotReadyGiveMonthlyDescription' => 'Make a one-time donation to give quality education',
+    'GiveSupportNow' => 'Give Support Now',
+
+    //donation detail
+    'DonationDetailTitle' => 'DONATION DETAIL',
+    'SupportDonation' => 'Support Donation Detail',
+>>>>>>> parent of 5dc576a0 (Revert "add indonesian content and take out russian content")
 
     //ABOUT US PAGE
     "AboutUsTitle" => "ABOUT US",
@@ -110,11 +162,14 @@ return [
     //Our People Page
     'OurPeopleTitle' => 'OUR PEOPLE',
     'OurPeople' => 'Our People',
+<<<<<<< HEAD
 
     //Take Action Page
     'TakeActionTitle' => 'TAKE ACTION',
     'TakeAction' => 'WANT TO JOIN OUR TEAM ?',
     'TakeActionDescription' => 'Join us and experience helping people and share the happiness with the children',
+=======
+>>>>>>> parent of 5dc576a0 (Revert "add indonesian content and take out russian content")
 
     //What we do page
     'WhatWeDoTitle' => 'WHAT WE DO',
@@ -191,6 +246,10 @@ return [
     'ActOfKindnessHeaderDescription' => 'Take part to share goodness that impacts schools, organizations, individuals or communities who are in need of help from TEMAN NYATA',
     'Record' => 'Record',
     'RecordDescription' => 'Act of kindess in one of the school.',
+<<<<<<< HEAD
+=======
+    'GetInvolved' => 'Get Involved',
+>>>>>>> parent of 5dc576a0 (Revert "add indonesian content and take out russian content")
     'Volunteer' => 'Volunteer',
     'JoinTemanNyata' => 'Join Teman Nyata',
     'VisitInstagram' => 'Visit Instagram',
@@ -206,5 +265,19 @@ return [
     'Act2' => 'Act 2',
     'Act2Description' => 'Visiting areas that need development',
     'Act3' => 'Act 3',
+<<<<<<< HEAD
     'Act3Description' => 'Providing assistance to people in need'
+=======
+    'Act3Description' => 'Providing assistance to people in need',
+
+
+    //Take Action Page
+    'TakeActionTitle' => 'TAKE ACTION',
+    'JoinTeam' => 'WANT TO JOIN OUR TEAM ?',
+    'JoinTeamDescription' => 'Join us and experience helping people and share the happiness with the children',
+
+    //Detail School Page
+    'DetailSchoolTitle' => 'DETAIL SCHOOL',
+    'DetailSchool' => 'Detail School'
+>>>>>>> parent of 5dc576a0 (Revert "add indonesian content and take out russian content")
 ];
