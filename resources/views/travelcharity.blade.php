@@ -24,6 +24,30 @@
 
 <section>
     <div class="sm:hidden">
+        <select id="tabs-dropdown" class="uppercase bg-neutral-200 border border-neutral-200 font-bold text-lg text-black focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <option class="font-bold" value="jogjakarta">JOGJAKARTA</option>
+            <option class="font-bold" value="sumba">SUMBA, NTT</option>
+            <option class="font-bold" value="flores">FLORES</option>
+            <option class="font-bold" value="alor">ALOR</option>
+            <option class="font-bold" value="other">OTHER</option>
+        </select>
+    </div>
+    <div class="hidden" id="jogjakarta">
+        <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Jogjakarta.jpg') }}" class="w-full transition duration-700">
+    </div>
+    <div class="hidden" id="sumba">
+        <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Sumba.jpg') }}" class="w-full transition duration-700">
+    </div>
+    <div class="hidden" id="flores">
+        <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Flores.jpg') }}" class="w-full transition duration-700">
+    </div>
+    <div class="hidden" id="alor">
+        <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Alor.jpg') }}" class="w-full transition duration-700">
+    </div>
+    <div class="hidden" id="other">
+        <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Papua.jpg') }}" class="w-full transition duration-700">
+    </div>
+    {{-- <div class="sm:hidden">
         <div>
             <div class="inline-block w-full font-bold text-xl bg-neutral-200">
                 <div class=" p-4 text-black">
@@ -64,7 +88,7 @@
             </div>
             <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Papua.jpg') }}" class="w-full transition duration-700">
         </div>
-    </div>
+    </div> --}}
     <div>
         <ul class="hidden text-xl font-medium text-center divide-x active:text-[#ff0000] divide-[#ff0000] sm:flex"
             id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
@@ -165,5 +189,63 @@
         <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.LocalCommunities') }} : </span> {{ __('messages.LocalCommunitiesDescription') }}</p>
     </div>
 </section>
+
+<script>
+    window.addEventListener('load', function(event) {
+        initDropdown();
+    });
+
+    function initDropdown() {
+        var element = document.getElementById('tabs-dropdown');
+        var activeValue = element.value;
+        activeImage(activeValue);
+
+        element.addEventListener('change', function(event) {
+            activeImage(element.value);
+            switch(element.value) {
+                case 'jogjakarta':
+                    nonactiveImage('sumba');
+                    nonactiveImage('flores');
+                    nonactiveImage('alor');
+                    nonactiveImage('other');
+                    break;
+                case 'sumba':
+                    nonactiveImage('jogjakarta');
+                    nonactiveImage('flores');
+                    nonactiveImage('alor');
+                    nonactiveImage('other');
+                    break;
+                case 'flores':
+                    nonactiveImage('sumba');
+                    nonactiveImage('jogjakarta');
+                    nonactiveImage('alor');
+                    nonactiveImage('other');
+                    break;
+                case 'alor':
+                    nonactiveImage('sumba');
+                    nonactiveImage('flores');
+                    nonactiveImage('jogjakarta');
+                    nonactiveImage('other');
+                    break;
+                case 'other':
+                    nonactiveImage('sumba');
+                    nonactiveImage('flores');
+                    nonactiveImage('alor');
+                    nonactiveImage('jogjakarta');
+                    break;
+            }
+        });
+    }
+
+    function activeImage(id) {
+        var image = document.getElementById(id);
+        image.style.display = 'block';
+    }
+
+    function nonactiveImage(id) {
+        var image = document.getElementById(id);
+        image.style.display = 'none';
+    }
+</script>
 
 @endsection

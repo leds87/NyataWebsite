@@ -45,6 +45,26 @@
 {{-- PROGRAM --}}
 <section>
     <div class="sm:hidden">
+        <select id="tabs-dropdown" class="uppercase bg-neutral-200 border border-neutral-200 font-bold text-lg text-black focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <option class="font-bold" value="school-build">{{__('messages.SchoolBuild') }}</option>
+            <option class="font-bold" value="grow-teacher">{{__('messages.GrowTeacherDonate') }}</option>
+            <option class="font-bold" value="children-nutrition">{{__('messages.ChildrenNutrition') }}</option>
+            <option class="font-bold" value="scholarships">{{__('messages.Scholarships') }}</option>
+        </select>
+    </div>
+    <div class="hidden" id="school-build">
+        <img src="{{ URL::asset('image/donate/school-build.jpg') }}" class="w-full transition duration-700" alt="school build">
+    </div>
+    <div class="hidden" id="grow-teacher">
+        <img src="{{ URL::asset('image/donate/grow-teacher.jpg') }}" class="w-full transition duration-700" alt="school build">
+    </div>
+    <div class="hidden" id="children-nutrition">
+        <img src="{{ URL::asset('image/donate/children-nutrition.jpg') }}" class="w-full transition duration-700" alt="school build">
+    </div>
+    <div class="hidden" id="scholarships">
+        <img src="{{ URL::asset('image/donate/scholarship.jpg') }}" class="w-full transition duration-700" alt="school build">
+    </div>
+    {{-- <div class="sm:hidden">
         <div>
             <div class="inline-block w-full font-bold text-xl bg-neutral-200">
                 <div class=" p-4 text-black uppercase">
@@ -89,7 +109,7 @@
             </p>
             <img src="{{ URL::asset('image/donate/scholarship.jpg') }}" class="w-full transition duration-700">
         </div>
-    </div>
+    </div> --}}
     <div>
         <ul class="hidden text-xl font-medium text-center divide-x active:text-[#ff0000] divide-[#ff0000] sm:flex"
             id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
@@ -255,5 +275,53 @@
         </div>
     </div>
 </section>
+
+<script>
+    window.addEventListener('load', function(event) {
+        initDropdown();
+    });
+
+    function initDropdown() {
+        var element = document.getElementById('tabs-dropdown');
+        var activeValue = element.value;
+        activeImage(activeValue);
+
+        element.addEventListener('change', function(event) {
+            activeImage(element.value);
+            switch(element.value) {
+                case 'school-build':
+                    nonactiveImage('grow-teacher');
+                    nonactiveImage('children-nutrition');
+                    nonactiveImage('scholarships');
+                    break;
+                case 'grow-teacher':
+                    nonactiveImage('school-build');
+                    nonactiveImage('children-nutrition');
+                    nonactiveImage('scholarships');
+                    break;
+                case 'children-nutrition':
+                    nonactiveImage('school-build');
+                    nonactiveImage('grow-teacher');
+                    nonactiveImage('scholarships');
+                    break;
+                case 'scholarships':
+                    nonactiveImage('school-build');
+                    nonactiveImage('children-nutrition');
+                    nonactiveImage('grow-teacher');
+                    break;
+            }
+        });
+    }
+
+    function activeImage(id) {
+        var image = document.getElementById(id);
+        image.style.display = 'block';
+    }
+
+    function nonactiveImage(id) {
+        var image = document.getElementById(id);
+        image.style.display = 'none';
+    }
+</script>
 
 @endsection
