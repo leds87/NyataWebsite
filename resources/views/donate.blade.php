@@ -12,7 +12,7 @@
             <p class="text-white content-header pt-4 max-w-[600px] mx-auto">
                 {{ __('messages.TemanNyataDescription') }}
             </p>
-            <button type="button" class="px-3 py-2 my-8 bg-none border-2 border-white text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donationdetail') }}'">
+            <button type="button" class="px-3 py-2 my-8 bg-none border-2 border-white text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donate') }}'">
                 {{ __('messages.GiveSupport') }}
             </button>
         </div>
@@ -28,9 +28,6 @@
                 <p class="text-black content-body pt-4 max-w-[800px]">
                     {{ __('messages.YouCanMakeDifferenceDescription') }}
                 </p>
-                <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
-                    {{ __('messages.GiveSupport') }}
-                </button>
             </div>
         </div>
         <div class="bg-[#ff0000] flex-auto w-full md:w-[400px] text-white font-extrabold">
@@ -224,7 +221,7 @@
         <p class="py-3 text-white content-body font-bold max-w-xs 2xl:max-w-xl lg:max-w-md sm:max-w-xs">
             {{ __('messages.EducationHeartDescription') }}
         </p>
-        <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
+        <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[150px] font-bold uppercase" onclick="window.location='{{ route('home') }}'">
             {{ __('messages.TakeAction') }}
         </button>
     </div>
@@ -248,7 +245,7 @@
                 <p class="text-black content-body pt-4 max-w-[800px]">
                     {{ __('messages.NotReadyGiveMonthlyDescription') }}
                 </p>
-                <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[250px] font-bold uppercase" onclick="window.location='{{ route('donationdetail') }}'">
+                <button type="button" class="py-3 my-5 bg-red-600 rounded-[10px] max-w-[250px] font-bold uppercase" onclick="window.location='{{ route('donate') }}'">
                     {{ __('messages.GiveSupportNow') }}
                 </button>
             </div>

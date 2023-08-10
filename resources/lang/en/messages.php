@@ -120,10 +120,6 @@ return [
     'NotReadyGiveMonthlyDescription' => 'Make a one-time donation to give quality education',
     'GiveSupportNow' => 'Give Support Now',
 
-    //donation detail
-    'DonationDetailTitle' => 'DONATION DETAIL',
-    'SupportDonation' => 'Support Donation Detail',
-
     //ABOUT US PAGE
     "AboutUsTitle" => "ABOUT US",
     "FoundingHistory" => "Founding History",
