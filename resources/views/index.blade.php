@@ -38,7 +38,7 @@
                     <p class="text-white content-header pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
-                    <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
+                    <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donate') }}'">
                         {{ __('messages.GiveSupport') }}
                     </button>
                 </div>
@@ -56,7 +56,7 @@
                     <p class="text-white content-header pt-4">
                         {{ __('messages.MakeDreams') }}
                     </p>
-                    <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px]" onclick="window.location='{{ route('donate') }}'">
+                    <button type="button" class="px-3 py-2 my-8 bg-[#ff0000] text-xl rounded-[10px] uppercase" onclick="window.location='{{ route('donate') }}'">
                         {{ __('messages.GiveSupport') }}
                     </button>
                 </div>
@@ -76,8 +76,8 @@
             class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             data-carousel-prev>
             <span
-                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
                     </path>
@@ -89,8 +89,8 @@
             class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             data-carousel-next>
             <span
-                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
@@ -110,7 +110,7 @@
 <section class="text-center w-full bg-neutral-200 py-16">
     <h1 class="title-body text-black uppercase">{{ __('messages.WhatWeHold') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="flex flex-row flex-wrap justify-center items-start py-5 my-5">
         <div class="flex flex-col justify-center py-5 px-5 max-w-md 2xl:max-w-md xl:basis-1/3 lg:max-w-xs">
@@ -156,7 +156,7 @@
 <section class="text-center w-full bg-neutral-200 py-16">
     <h1 class="title-body text-black uppercase">{{ __('messages.OurProgress') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="flex flex-row flex-wrap justify-center items-start my-5">
         <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
@@ -174,7 +174,7 @@
 <section class="text-center w-full bg-white py-16 px-8">
     <h1 class="title-body text-black uppercase">{{ __('messages.OurSolution') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="flex flex-wrap justify-around items-start mx-auto">
         <div class="flex flex-col justify-center max-w-lg my-5 2xl:max-w-lg xl:max-w-[370px] lg:max-w-[300px]">

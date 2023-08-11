@@ -322,7 +322,7 @@
 <section class="text-center max-w-none w-full bg-white py-16 px-8">
     <h1 class="title-body text-black uppercase">{{__('messages.MeetMaria') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="gap-8 items-start py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 lg:grid lg:grid-cols-2 sm:py-16 lg:px-6">
         <div class="mt-4 md:mt-0">
@@ -380,7 +380,7 @@
 <section class="text-center max-w-none w-full bg-neutral-200 py-16">
     <h1 class="title-body text-black uppercase">{{__('messages.WhyChoose') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="flex flex-col flex-wrap justify-center w-full mx-auto py-5 my-5 max-w-[700px]">
         <div class="flex flex-col justify-center py-5 px-5">
@@ -417,35 +417,35 @@
 <section class="text-center max-w-none w-full bg-white py-16">
     <h1 class="title-body text-black uppercase">{{__('messages.BeSavior') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="px-8 mx-auto 2xl:max-w-[1200px] lg:max-w-[800px] md:max-w-[600px]">
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhyYouChooseOur') }}</p>
-        <ul class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider list-disc px-6">
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhyYouChooseOur') }}</p>
+        <ul class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider list-disc px-6">
             <li>{{ __('messages.WhyYouChooseOur1') }}</li>
             <li>{{ __('messages.WhyYouChooseOur2') }}</li>
             <li>{{ __('messages.WhyYouChooseOur3') }}</li>
         </ul>
 
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.HowCanYouHelp') }}</p>
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider">{{ __('messages.HowCanYouHelpDescription') }}</p>
-        <p class="text-black dark:text-gray-400 max-w-[68rem] text-left tracking-wider">{{ __('messages.AdikAsuhHelp') }}</p>
-        <ul class="text-black dark:text-gray-400 pb-2 max-w-[68rem] text-left tracking-wider list-disc px-6">
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.HowCanYouHelp') }}</p>
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider">{{ __('messages.HowCanYouHelpDescription') }}</p>
+        <p class="text-black max-w-[68rem] text-left tracking-wider">{{ __('messages.AdikAsuhHelp') }}</p>
+        <ul class="text-black pb-2 max-w-[68rem] text-left tracking-wider list-disc px-6">
             <li>{{ __('messages.AdikAsuhHelp1') }}</li>
             <li>{{ __('messages.AdikAsuhHelp2') }}</li>
             <li>{{ __('messages.AdikAsuhHelp3') }}</li>
             <li>{{ __('messages.AdikAsuhHelp4') }}</li>
         </ul>
 
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhoYouHelp') }}</p>
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold uppercase">{{ __('messages.Schools') }} : </span> {{ __('messages.SchoolWhoYouHelpDescription') }}</p>
-        <ul class="text-black dark:text-gray-400 max-w-[68rem] text-left tracking-wider list-disc px-6">
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhoYouHelp') }}</p>
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold uppercase">{{ __('messages.Schools') }} : </span> {{ __('messages.SchoolWhoYouHelpDescription') }}</p>
+        <ul class="text-black max-w-[68rem] text-left tracking-wider list-disc px-6">
             <li>{{ __('messages.SchoolWhoYouHelp1') }}</li>
             <li>{{ __('messages.SchoolWhoYouHelp2') }}</li>
         </ul>
 
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold uppercase">{{ __('messages.AdikAsuh') }} : </span>{{ __('messages.AdikAsuhWhoYouHelpDescription') }}</p>
-        <ul class="text-black dark:text-gray-400 max-w-[68rem] text-left tracking-wider list-disc px-6">
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold uppercase">{{ __('messages.AdikAsuh') }} : </span>{{ __('messages.AdikAsuhWhoYouHelpDescription') }}</p>
+        <ul class="text-black max-w-[68rem] text-left tracking-wider list-disc px-6">
             <li>{{ __('messages.AdikAsuhWhoYouHelp1') }}</li>
             <li>{{ __('messages.AdikAsuhWhoYouHelp2') }}</li>
             <li>{{ __('messages.AdikAsuhWhoYouHelp3') }}</li>

@@ -44,7 +44,7 @@
 
 {{-- PROGRAM --}}
 <section>
-    <div class="sm:hidden">
+    <div class="sm:hidden" id="container-dropdown">
         <select id="tabs-dropdown" class="uppercase bg-neutral-200 border border-neutral-200 font-bold text-lg text-black focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
             <option class="font-bold" value="school-build">{{__('messages.SchoolBuild') }}</option>
             <option class="font-bold" value="grow-teacher">{{__('messages.GrowTeacherDonate') }}</option>
@@ -278,7 +278,27 @@
 
 <script>
     window.addEventListener('load', function(event) {
-        initDropdown();
+        var width = window.innerWidth;
+        if(width < 640) {
+            initDropdown();
+        } else {
+            nonactiveImage('school-build');
+            nonactiveImage('grow-teacher');
+            nonactiveImage('children-nutrition');
+            nonactiveImage('scholarships');
+        }
+    });
+
+    window.addEventListener('resize', function(event) {
+        var width = window.innerWidth;
+        if(width < 640) {
+            initDropdown();
+        } else {
+            nonactiveImage('school-build');
+            nonactiveImage('grow-teacher');
+            nonactiveImage('children-nutrition');
+            nonactiveImage('scholarships');
+        }
     });
 
     function initDropdown() {

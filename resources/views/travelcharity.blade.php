@@ -18,33 +18,33 @@
 <section class="text-center max-w-none w-full bg-white py-16">
     <h1 class="title-body text-black uppercase">{{__('messages.OtherSide') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
 </section>
 
 <section>
     <div class="sm:hidden">
         <select id="tabs-dropdown" class="uppercase bg-neutral-200 border border-neutral-200 font-bold text-lg text-black focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-            <option class="font-bold" value="jogjakarta">JOGJAKARTA</option>
-            <option class="font-bold" value="sumba">SUMBA, NTT</option>
-            <option class="font-bold" value="flores">FLORES</option>
-            <option class="font-bold" value="alor">ALOR</option>
-            <option class="font-bold" value="other">OTHER</option>
+            <option class="font-bold" value="jogjakarta-img">JOGJAKARTA</option>
+            <option class="font-bold" value="sumba-img">SUMBA, NTT</option>
+            <option class="font-bold" value="flores-img">FLORES</option>
+            <option class="font-bold" value="alor-img">ALOR</option>
+            <option class="font-bold" value="other-img">OTHER</option>
         </select>
     </div>
-    <div class="hidden" id="jogjakarta">
+    <div class="hidden" id="jogjakarta-img">
         <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Jogjakarta.jpg') }}" class="w-full transition duration-700">
     </div>
-    <div class="hidden" id="sumba">
+    <div class="hidden" id="sumba-img">
         <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Sumba.jpg') }}" class="w-full transition duration-700">
     </div>
-    <div class="hidden" id="flores">
+    <div class="hidden" id="flores-img">
         <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Flores.jpg') }}" class="w-full transition duration-700">
     </div>
-    <div class="hidden" id="alor">
+    <div class="hidden" id="alor-img">
         <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Alor.jpg') }}" class="w-full transition duration-700">
     </div>
-    <div class="hidden" id="other">
+    <div class="hidden" id="other-img">
         <img src="{{ URL::asset('image/travel-charity/Travel-Charity-Papua.jpg') }}" class="w-full transition duration-700">
     </div>
     {{-- <div class="sm:hidden">
@@ -171,28 +171,50 @@
 <section class="text-center max-w-none w-full bg-white py-16">
     <h1 class="title-body text-black uppercase">{{__('messages.ExploreShare') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="px-8 mx-auto 2xl:max-w-[1200px] lg:max-w-[800px] md:max-w-[600px]">
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhyYouChooseTravel') }}</p>
-        <ul class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider list-disc px-6">
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhyYouChooseTravel') }}</p>
+        <ul class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider list-disc px-6">
             <li>{{ __('messages.WhyYouChooseTravel1') }}</li>
             <li>{{ __('messages.WhyYouChooseTravel2') }}</li>
             <li>{{ __('messages.WhyYouChooseTravel3') }}</li>
         </ul>
 
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.HowCanYouHelp') }}</p>
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider">{{ __('messages.HowCanYouHelpTravelDescription') }}</p>
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.HowCanYouHelp') }}</p>
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider">{{ __('messages.HowCanYouHelpTravelDescription') }}</p>
 
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhoYouHelp') }}</p>
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.Children') }} : </span> {{ __('messages.WhoYouHelpChildren') }}</p>
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.LocalCommunities') }} : </span> {{ __('messages.LocalCommunitiesDescription') }}</p>
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhoYouHelp') }}</p>
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.Children') }} : </span> {{ __('messages.WhoYouHelpChildren') }}</p>
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.LocalCommunities') }} : </span> {{ __('messages.LocalCommunitiesDescription') }}</p>
     </div>
 </section>
 
 <script>
     window.addEventListener('load', function(event) {
-        initDropdown();
+        var width = window.innerWidth;
+        if(width < 640) {
+            initDropdown();
+        } else {
+            nonactiveImage('jogjakarta-img');
+            nonactiveImage('sumba-img');
+            nonactiveImage('flores-img');
+            nonactiveImage('alor-img');
+            nonactiveImage('other-img');
+        }
+    });
+
+    window.addEventListener('resize', function(event) {
+        var width = window.innerWidth;
+        if(width < 640) {
+            initDropdown();
+        } else {
+            nonactiveImage('jogjakarta-img');
+            nonactiveImage('sumba-img');
+            nonactiveImage('flores-img');
+            nonactiveImage('alor-img');
+            nonactiveImage('other-img');
+        }
     });
 
     function initDropdown() {
@@ -203,35 +225,35 @@
         element.addEventListener('change', function(event) {
             activeImage(element.value);
             switch(element.value) {
-                case 'jogjakarta':
-                    nonactiveImage('sumba');
-                    nonactiveImage('flores');
-                    nonactiveImage('alor');
-                    nonactiveImage('other');
+                case 'jogjakarta-img':
+                    nonactiveImage('sumba-img');
+                    nonactiveImage('flores-img');
+                    nonactiveImage('alor-img');
+                    nonactiveImage('other-img');
                     break;
-                case 'sumba':
-                    nonactiveImage('jogjakarta');
-                    nonactiveImage('flores');
-                    nonactiveImage('alor');
-                    nonactiveImage('other');
+                case 'sumba-img':
+                    nonactiveImage('jogjakarta-img');
+                    nonactiveImage('flores-img');
+                    nonactiveImage('alor-img');
+                    nonactiveImage('other-img');
                     break;
-                case 'flores':
-                    nonactiveImage('sumba');
-                    nonactiveImage('jogjakarta');
-                    nonactiveImage('alor');
-                    nonactiveImage('other');
+                case 'flores-img':
+                    nonactiveImage('sumba-img');
+                    nonactiveImage('jogjakarta-img');
+                    nonactiveImage('alor-img');
+                    nonactiveImage('other-img');
                     break;
-                case 'alor':
-                    nonactiveImage('sumba');
-                    nonactiveImage('flores');
-                    nonactiveImage('jogjakarta');
-                    nonactiveImage('other');
+                case 'alor-img':
+                    nonactiveImage('sumba-img');
+                    nonactiveImage('flores-img');
+                    nonactiveImage('jogjakarta-img');
+                    nonactiveImage('other-img');
                     break;
-                case 'other':
-                    nonactiveImage('sumba');
-                    nonactiveImage('flores');
-                    nonactiveImage('alor');
-                    nonactiveImage('jogjakarta');
+                case 'other-img':
+                    nonactiveImage('sumba-img');
+                    nonactiveImage('flores-img');
+                    nonactiveImage('alor-img');
+                    nonactiveImage('jogjakarta-img');
                     break;
             }
         });

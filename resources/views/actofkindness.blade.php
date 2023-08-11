@@ -37,7 +37,7 @@
 <section class="text-center w-full bg-white py-16 px-8">
     <h1 class="title-body text-black uppercase">{{ __('messages.GetInvolved') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="flex flex-wrap justify-around items-start mx-auto">
         <div class="flex flex-col justify-center 2xl:w-[500px] xl:w-[360px] lg:w-[280px] md:w-[700px]">
@@ -98,18 +98,18 @@
 <section class="text-center max-w-none w-full bg-white py-16">
     <h1 class="title-body text-black uppercase">{{__('messages.ExploreBeauty') }}</h1>
     <div class="inline-flex items-center justify-center w-full px-24">
-        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0 dark:bg-gray-700">
+        <hr class="w-48 h-[2px] my-6 bg-gray-400 border-0">
     </div>
     <div class="px-8 mx-auto 2xl:max-w-[1200px] lg:max-w-[800px] md:max-w-[600px]">
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhyYouChooseAct') }}</p>
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider">{{ __('messages.WhyYouChooseActDescription') }}</p>
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhyYouChooseAct') }}</p>
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider">{{ __('messages.WhyYouChooseActDescription') }}</p>
 
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.HowCanYouHelp') }}</p>
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.Volunteer') }} : </span> {{ __('messages.HowCanYouHelpVolunteerDescription') }}</p>
-        <p class="text-black dark:text-gray-400 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.Donate') }} : </span> {{ __('messages.HowCanYouHelpDonateDescription') }}</p>
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.HowCanYouHelp') }}</p>
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.Volunteer') }} : </span> {{ __('messages.HowCanYouHelpVolunteerDescription') }}</p>
+        <p class="text-black pb-2 max-w-[68rem] text-left tracking-wider"><span class="font-bold">{{ __('messages.Donate') }} : </span> {{ __('messages.HowCanYouHelpDonateDescription') }}</p>
 
-        <p class="text-black dark:text-gray-400 pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhoYouHelp') }}</p>
-        <p class="text-black dark:text-gray-400 pt-4 pb-2 max-w-[68rem] text-left tracking-wider">{{ __('messages.WhoYouHelpAct') }}</p>
+        <p class="text-black pt-6 max-w-[68rem] text-left tracking-wider font-bold">{{ __('messages.WhoYouHelp') }}</p>
+        <p class="text-black pt-4 pb-2 max-w-[68rem] text-left tracking-wider">{{ __('messages.WhoYouHelpAct') }}</p>
     </div>
 </section>
 
