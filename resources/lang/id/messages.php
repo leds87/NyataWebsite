@@ -142,6 +142,7 @@ return [
     "TagLineDescription" => "Anak terang dari negeri Indonesia.",
     'AnakTerang' => 'Anak Terang',
     'AnakNyata' => 'Anak Nyata',
+    'Certificate' => 'Sertifikat',
 
     //Our People Page
     'OurPeopleTitle' => 'OUR PEOPLE',
