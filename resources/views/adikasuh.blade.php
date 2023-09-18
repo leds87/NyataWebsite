@@ -25,7 +25,7 @@
             <div class="grid gap-8 md:grid-cols-2 font-bold">
                 <div>
                     <h3 class="px-3 py-3 text-red-500 text-7xl">
-                        <span id="AdikAsuhMember">0</span>
+                        <span class="font-['Book']" id="AdikAsuhMember">0</span>
                     </h3>
                     <p class="px-3 py-3 text-black text-xl font-museo700 uppercase">
                         {{ __('messages.AdikAsuh') }}
@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <h3 class="px-3 py-3 text-red-500 text-7xl">
-                        <span id="SekolahMember">0</span>
+                        <span class="font-['Book']" id="SekolahMember">0</span>
                     </h3>
                     <p class="px-3 py-3 text-black text-xl font-museo700 uppercase">
                         {{ __('messages.Schools') }}

@@ -189,15 +189,24 @@
         </div>
         <div class="flex flex-row flex-wrap justify-center items-start my-5">
             <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
-                <h1 class="text-red text-[70px] font-extrabold">1033</h1>
+                <h1 class="text-red text-[70px] font-extrabold">
+                    <span class="font-['Book']" id="AdikAsuhMember">0</span>
+                </h1>
                 <h2 class="title-body text-black mx-auto px-8 uppercase ">{{ __('messages.AdikAsuh') }}</h2>
             </div>
             <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
-                <h1 class="text-red text-[70px] font-extrabold">89</h1>
+                <h1 class="text-red text-[70px] font-extrabold">
+                    <span class="font-['Book']" id="SekolahMember">0</span>
+                </h1>
                 <h2 class="title-body text-black mx-auto px-8 uppercase">{{ __('messages.Schools') }}</h2>
             </div>
         </div>
     </section>
+
+    <script>
+        countUp('AdikAsuhMember', 1788, true);
+        countUp('SekolahMember', 35, false);
+    </script>
 
     {{-- OUR SOLUTIONS --}}
     <section class="text-center w-full bg-white py-16 px-8">
