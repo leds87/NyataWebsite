@@ -25,3 +25,8 @@ function alertTest()
     alert("TestTest");
 }
 
+function alertTest2()
+{
+    alert("TestTestTest");
+}
+
