@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\admindata_controller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\NyataController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\userdata_controller;
+use App\Models\admindata;
 use Illuminate\Console\View\Components\Alert;
 
 /*
@@ -78,6 +81,29 @@ Route::get('language/{locale?}', function ($locale) {
     }
     return redirect()->back();
 });
+
+
+Route::get('/adminpage', [userdata_controller::class, 'getUsersCount']);
+Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser');
+Route::post('/inputusers', [userdata_controller::class, 'store']);
+Route::get('/user', [userdata_controller::class, 'showdata']);
+
+Route::get('/inputadmin', function () { return view('adminpage.inputadmin'); })->name('inputadmin');
+Route::post('/inputadmin', [admindata_controller::class, 'store']);
+
+
+Route::get('/school', function () {
+    return view('adminpage.school');
+})->name('school');
+Route::get('/children', function () {
+    return view('adminpage.children');
+})->name('children');
+
+
+
+Route::get('/log', function () {
+    return view('adminpage.log');
+})->name('log');
 
 Route::get('/welcome', function () {
     return view('welcome');
