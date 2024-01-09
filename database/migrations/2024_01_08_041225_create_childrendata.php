@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('age');
             $table->string('story');
             $table->string('description');
+            $table->string('status');
         });
     }
 

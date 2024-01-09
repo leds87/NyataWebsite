@@ -57,20 +57,21 @@
         </style>
 
         <div class="sidebar">
-            <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
-            <a href='school' class="p-4 block hover:bg-gray-600">School</a>
-            <a href='children' class="p-4 block hover:bg-gray-600">Children</a>
-            <a href="#" class="p-4 block hover:bg-gray-600">User</a>
-            <a href='log' class="p-4 block hover:bg-gray-600">Log</a>
+          <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
+          <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
+          <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
+          <a href='user' class="p-4 block hover:bg-gray-600">User</a>
+          <a href='log' class="p-4 block hover:bg-gray-600">Log</a>
+          <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
         </div>
 
         <div class="content">
-            <h1 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">User Overview</h1>
-            <a href='inputuser' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input user</a>
+            <h1 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">Children Overview</h1>
+            <a href='/inputchildren' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input Children</a>
             <section class=""> <!-- Contact Us-->
                 <section class=" text-gray-900">
                     <div class="py-8 lg:py-16 mx-auto max-w-screen-lg">
-                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">User List</h2>
+                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Children List</h2>
             
                         <div class="flex flex-col">
                             <div class="sm:-mx-6 lg:-mx-8">
@@ -81,12 +82,11 @@
                                       <tr>
                                         <th scope="col" class="px-6 py-4">ID</th>
                                         <th scope="col" class="px-6 py-4">Name</th>
-                                        <th scope="col" class="px-6 py-4">Address</th>
-                                        <th scope="col" class="px-6 py-4">Email</th>
-                                        <th scope="col" class="px-6 py-4">Phone</th>
-                                        <th scope="col" class="px-6 py-4">Tier</th>
-                                        <th scope="col" class="px-6 py-4">Note</th>
-                                        <th scope="col" class="px-6 py-4">Since</th>
+                                        <th scope="col" class="px-6 py-4">school</th>
+                                        <th scope="col" class="px-6 py-4">Location</th>
+                                        <th scope="col" class="px-6 py-4">age</th>
+                                        <th scope="col" class="px-6 py-4">story</th>
+                                        <th scope="col" class="px-6 py-4">Description</th>
                                         <th scope="col" class="px-6 py-4">Status</th>
                                       </tr>
                                     </thead>
@@ -95,17 +95,16 @@
                                       <tr class="border-b dark:border-neutral-500">
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['id']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['name']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['address']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['email']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['phone']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['tier']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['note']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['since']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$item['school']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$item['location']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$item['age']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$item['story']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$item['description']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td>
                                         <td class="whitespace-nowrap px-6 py-4">
-                                          <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/contactusdetail/{{$item->id}}/edit">Edit</a> </button>
+                                          <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/childrenedit/{{$item->id}}/edit">Edit</a> </button>
                                             {{-- <form action="{{route('contactus.destroy',$item->id)}}" method="POST" class="inline-block"> --}}
                                               @csrf
                                               @method('DELETE')

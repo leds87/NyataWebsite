@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\admindata_controller;
+use App\Http\Controllers\childrendata_controller;
+use App\Http\Controllers\dashboard_controller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\NyataController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\schooldata_controller;
 use App\Http\Controllers\userdata_controller;
 use App\Models\admindata;
 use Illuminate\Console\View\Components\Alert;
@@ -83,13 +86,36 @@ Route::get('language/{locale?}', function ($locale) {
 });
 
 
-Route::get('/adminpage', [userdata_controller::class, 'getUsersCount']);
+Route::get('/adminpage', [dashboard_controller::class, 'index']);
+
 Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser');
 Route::post('/inputusers', [userdata_controller::class, 'store']);
-Route::get('/user', [userdata_controller::class, 'showdata']);
+Route::delete('/destroyuser/{id}',[userdata_controller::class,'destroy'])->name('destroyuser');
+Route::get('/useredit/{id}/edit',[userdata_controller::class,'edit'])->name('useredit');
+Route::put('/useredit/{id}',[userdata_controller::class,'update']);
+Route::get('/usershow', [userdata_controller::class, 'showdata']);
 
 Route::get('/inputadmin', function () { return view('adminpage.inputadmin'); })->name('inputadmin');
 Route::post('/inputadmin', [admindata_controller::class, 'store']);
+Route::delete('/destroyadmin/{id}',[admindata_controller::class,'destroy'])->name('destroyadmin');
+Route::get('/adminedit/{id}/edit',[admindata_controller::class,'edit'])->name('adminedit');
+Route::put('/adminedit/{id}',[admindata_controller::class,'update']);
+Route::get('/adminshow', [admindata_controller::class, 'showdata']);
+
+Route::get('/inputschool', function () { return view('adminpage.inputschool'); })->name('inputschool');
+Route::post('/inputschool', [schooldata_controller::class, 'store']);
+Route::delete('/destroyschool/{id}',[schooldata_controller::class,'destroy'])->name('destroyschool');
+Route::get('/schooledit/{id}/edit',[schooldata_controller::class,'edit'])->name('schooledit');
+Route::put('/schooledit/{id}',[schooldata_controller::class,'update']);
+Route::get('/schoolshow', [schooldata_controller::class, 'showdata']);
+
+
+Route::get('/inputchildren', function () { return view('adminpage.inputchildren'); })->name('inputchildren');
+Route::post('/inputchildren', [childrendata_controller::class, 'store']);
+Route::delete('/destroychildren/{id}',[childrendata_controller::class,'destroy'])->name('destroychildren');
+Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit');
+Route::put('/childrenedit/{id}',[childrendata_controller::class,'update']);
+Route::get('/childrenshow', [childrendata_controller::class, 'showdata']);
 
 
 Route::get('/school', function () {
