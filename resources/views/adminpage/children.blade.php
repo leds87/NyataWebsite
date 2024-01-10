@@ -59,9 +59,9 @@
         <div class="sidebar">
             <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
             <a href='school' class="p-4 block hover:bg-gray-600">School</a>
-            <a href="#" class="p-4 block hover:bg-gray-600">Children</a>
-            <a href='user' class="p-4 block hover:bg-gray-600">User</a>
-            <a href="#" class="p-4 block hover:bg-gray-600">Log</a>
+            <a href="childrenshow" class="p-4 block hover:bg-gray-600">Children</a>
+            <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
+            <a href="log" class="p-4 block hover:bg-gray-600">Log</a>
         </div>
 
         <div class="content">

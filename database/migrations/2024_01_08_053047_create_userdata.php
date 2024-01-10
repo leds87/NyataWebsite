@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('email');
+            $table->string('password');
             $table->bigInteger('phone');
             $table->string('tier');
             $table->string('note');

@@ -3,72 +3,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
     <div class="bg-white py-20">
-        <style>
-            body {
-                margin: 0;
-                font-family: 'Arial', sans-serif;
-                background-color: #f4f4f4;
-                display: block;
-            }
 
-            .sidebar {
-                width: 250px;
-                background-color: red;
-                color: #fff;
-                padding-top: 20px;
-                height: 300px;
-                position: fixed;
-                top: 200px;
-                left: 50px;
-                transition: width 0.3s;
-                border: rounded;
-                text-align: center;
-                border-style: solid;
+        <div class=" py-9">
+            <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                Admin Register</h1>
 
-            }
-
-            .content {
-                margin-left: 400px;
-                padding: 20px;
-            }
-
-            .sidebar a {
-                padding: 15px;
-                text-decoration: none;
-                color: #fff;
-                display: block;
-                transition: background-color 0.3s;
-            }
-
-            .sidebar a:hover {
-                background-color: #555;
-            }
-
-            /* Adjustments for small screens */
-            @media (max-width: 768px) {
-                .sidebar {
-                    width: 0;
-                    display: none;
-                }
-
-                .content {
-                    margin-left: 0;
-                }
-            }
-        </style>
-
-        <div class="sidebar">
-            <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
-            <a href='school' class="p-4 block hover:bg-gray-600">School</a>
-            <a href='children' class="p-4 block hover:bg-gray-600">Children</a>
-            <a href="#" class="p-4 block hover:bg-gray-600">User</a>
-            <a href='log' class="p-4 block hover:bg-gray-600">Log</a>
-        </div>
-
-        <div class="content">
-            <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-                Admin Input</h1>
             <form action="/inputadmin" method="POST" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -89,6 +28,17 @@
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="email" name="email" type="email" placeholder="Doe@mail.com">
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-password">
+                            Password
+                        </label>
+                        <input
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="password" name="password" type="text" placeholder="password">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -143,11 +93,13 @@
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="note" name="note" type="text" placeholder="desc/note personal">
                     </div>
-                </div>
-                    <button type="submit"
-                        class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <div class="mx-auto py-5">
+                        <button type="submit"
+                        class="py-2 bg-red px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Submit</button>
-
+                    </div>
+                </div>
+                    
             </form>
         </div>
     </div>

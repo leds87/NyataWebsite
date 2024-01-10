@@ -60,7 +60,7 @@
           <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
           <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
           <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
-          <a href='user' class="p-4 block hover:bg-gray-600">User</a>
+          <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
           <a href='log' class="p-4 block hover:bg-gray-600">Log</a>
           <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
         </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\schooldata_controller;
 use App\Http\Controllers\userdata_controller;
 use App\Models\admindata;
+use App\Models\userdata;
 use Illuminate\Console\View\Components\Alert;
 
 /*
@@ -86,7 +87,7 @@ Route::get('language/{locale?}', function ($locale) {
 });
 
 
-Route::get('/adminpage', [dashboard_controller::class, 'index']);
+Route::get('/adminpage', [dashboard_controller::class, 'index'])->middleware('auth');
 
 Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser');
 Route::post('/inputusers', [userdata_controller::class, 'store']);
@@ -100,7 +101,7 @@ Route::post('/inputadmin', [admindata_controller::class, 'store']);
 Route::delete('/destroyadmin/{id}',[admindata_controller::class,'destroy'])->name('destroyadmin');
 Route::get('/adminedit/{id}/edit',[admindata_controller::class,'edit'])->name('adminedit');
 Route::put('/adminedit/{id}',[admindata_controller::class,'update']);
-Route::get('/adminshow', [admindata_controller::class, 'showdata']);
+Route::get('/adminshow', [admindata_controller::class, 'showdata'])->name('adminshow');
 
 Route::get('/inputschool', function () { return view('adminpage.inputschool'); })->name('inputschool');
 Route::post('/inputschool', [schooldata_controller::class, 'store']);
@@ -116,6 +117,18 @@ Route::delete('/destroychildren/{id}',[childrendata_controller::class,'destroy']
 Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit');
 Route::put('/childrenedit/{id}',[childrendata_controller::class,'update']);
 Route::get('/childrenshow', [childrendata_controller::class, 'showdata']);
+
+Route::get('/nyataadmin',[admindata_controller::class, 'index']);
+Route::post('/nyataadmin',[admindata_controller::class, 'login'])->name('login');
+Route::post('/logout',[admindata_controller::class, 'logout']);
+
+
+// // User authentication routes
+// Route::get('/loginuser', [userdata::class, 'index'])->name('loginuser'); // Display login form
+// Route::post('/loginuser', [userdata::class, 'login']); // Handle login form submission
+// Route::post('/logoutuser', [userdata::class, 'logout'])->name('logoutuser'); // Handle logout
+
+
 
 
 Route::get('/school', function () {
