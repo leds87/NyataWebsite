@@ -1,69 +1,9 @@
 @extends('layout.default')
+@extends('adminpage.layoutadmin')
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">
-        <style>
-            body {
-                margin: 0;
-                font-family: 'Arial', sans-serif;
-                background-color: #f4f4f4;
-                display: block;
-            }
 
-            .sidebar {
-                width: 250px;
-                background-color: red;
-                color: #fff;
-                padding-top: 20px;
-                height: 300px;
-                position: fixed;
-                top: 200px;
-                left: 50px;
-                transition: width 0.3s;
-                border: rounded;
-                text-align: center;
-                border-style: solid;
-
-            }
-
-            .content {
-                margin-left: 400px;
-                padding: 20px;
-            }
-
-            .sidebar a {
-                padding: 15px;
-                text-decoration: none;
-                color: #fff;
-                display: block;
-                transition: background-color 0.3s;
-            }
-
-            .sidebar a:hover {
-                background-color: #555;
-            }
-
-            /* Adjustments for small screens */
-            @media (max-width: 768px) {
-                .sidebar {
-                    width: 0;
-                    display: none;
-                }
-
-                .content {
-                    margin-left: 0;
-                }
-            }
-        </style>
-
-        <div class="sidebar">
-          <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
-          <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
-          <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
-          <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
-          <a href='log' class="p-4 block hover:bg-gray-600">Log</a>
-          <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
-        </div>
 
         <div class="content">
             <h1 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">Children Overview</h1>
@@ -105,7 +45,7 @@
                                           <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/childrenedit/{{$item->id}}/edit">Edit</a> </button>
-                                            {{-- <form action="{{route('contactus.destroy',$item->id)}}" method="POST" class="inline-block"> --}}
+                                            <form action="/childrendestroy/{{$item->id}}" method="POST" class="inline-block">
                                               @csrf
                                               @method('DELETE')
                                               <button type="submit" class="bg-red-600 text-white px-2 py-2 rounded-lg" onclick="return confirm('Are You Sure?')"> HAPUS                            </button> 

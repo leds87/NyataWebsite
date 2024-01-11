@@ -34,7 +34,7 @@ class childrendata_controller extends Controller
     {
         $data = childrendata::find($id);
         $data->delete();
-        return view('adminpage.childrenshow')->with("success","Data Deleted!");
+        return redirect('childrenshow')->with("success","Data Deleted!");
     }
 
     public function update(Request $request, $id)

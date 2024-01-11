@@ -1,80 +1,9 @@
 @extends('layout.default')
+@extends('adminpage.layoutadmin')
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">
-        <style>
-            body {
-                margin: 0;
-                font-family: 'Arial', sans-serif;
-                background-color: #f4f4f4;
-                display: block;
-            }
 
-            .sidebar {
-                width: 250px;
-                background-color: red;
-                color: #fff;
-                padding-top: 20px;
-                height: 500px;
-                position: fixed;
-                top: 200px;
-                left: 50px;
-                transition: width 0.3s;
-                border: rounded;
-                text-align: center;
-                border-style: solid;
-
-            }
-
-            .content {
-                margin-left: 400px;
-                padding: 20px;
-            }
-
-            .sidebar a {
-                padding: 15px;
-                text-decoration: none;
-                color: #fff;
-                display: block;
-                transition: background-color 0.3s;
-            }
-
-            .sidebar a:hover {
-                background-color: #555;
-            }
-
-            /* Adjustments for small screens */
-            @media (max-width: 768px) {
-                .sidebar {
-                    width: 0;
-                    display: none;
-                }
-
-                .content {
-                    margin-left: 0;
-                }
-            }
-        </style>
-
-        <div class="sidebar">
-            <div class="bg-slate-500 px-2 py-1">
-                <p class="normal-case tracking-wide">@auth  Welcome back, <span class="capitalize">{{auth()->user()->name}}</span>!@endauth</p>
-                <p class="normal-case tracking-wide">@auth  Current Role: <span class="capitalize bg-black/80 px-1 py-1 rounded-xl">{{auth()->user()->role}}</span>@endauth</p>
-            </div>
-            <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
-            <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
-            <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
-            <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
-            <a href='log' class="p-4 block hover:bg-gray-600">Log</a>
-            <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
-            <form id="logout-form" method="POST" action="/logout" role="">
-                @csrf
-                <a href="#" onclick="document.getElementById('logout-form').submit()" class="p-4 block hover:bg-gray-600">Logout</a>
-            </form>
-            
-                        {{-- <button type="submit" class="text-white text-center bg-black">Log out</button> --}}
-
-        </div>
 
         <div class="content">
 

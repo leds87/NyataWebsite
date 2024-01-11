@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\NyataController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\schooldata_controller;
 use App\Http\Controllers\userdata_controller;
 use App\Models\admindata;
@@ -113,7 +114,7 @@ Route::get('/schoolshow', [schooldata_controller::class, 'showdata']);
 
 Route::get('/inputchildren', function () { return view('adminpage.inputchildren'); })->name('inputchildren');
 Route::post('/inputchildren', [childrendata_controller::class, 'store']);
-Route::delete('/destroychildren/{id}',[childrendata_controller::class,'destroy'])->name('destroychildren');
+Route::delete('/childrendestroy/{id}',[childrendata_controller::class,'destroy'])->name('childrendestroy');
 Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit');
 Route::put('/childrenedit/{id}',[childrendata_controller::class,'update']);
 Route::get('/childrenshow', [childrendata_controller::class, 'showdata']);
@@ -121,6 +122,8 @@ Route::get('/childrenshow', [childrendata_controller::class, 'showdata']);
 Route::get('/nyataadmin',[admindata_controller::class, 'index']);
 Route::post('/nyataadmin',[admindata_controller::class, 'login'])->name('login');
 Route::post('/logout',[admindata_controller::class, 'logout']);
+
+Route::get('/log', [LogController::class, 'index'])->name('log');
 
 
 // // User authentication routes
@@ -140,9 +143,9 @@ Route::get('/children', function () {
 
 
 
-Route::get('/log', function () {
-    return view('adminpage.log');
-})->name('log');
+// Route::get('/log', function () {
+//     return view('adminpage.log');
+// })->name('log');
 
 Route::get('/welcome', function () {
     return view('welcome');

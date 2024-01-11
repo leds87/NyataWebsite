@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_log_database', function (Blueprint $table) {
-            $table->date('date');
+        Schema::create('userlog', function (Blueprint $table) {
+            $table->string('date',30);
             $table->id();
-            $table->string('typelog');
-            $table->string('personid');
-            $table->integer('description');
+            $table->string('typelog',10);
+            $table->string('personid',4);
+            $table->string('description',255);
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_log_database');
+        Schema::dropIfExists('userlogs');
     }
 };
