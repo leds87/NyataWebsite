@@ -86,7 +86,10 @@ class admindata_controller extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ];
+                    //  dd($infologin);
+                    //  guard('user')->
         if (Auth::attempt($infologin)) {
+
             return redirect()->intended('/adminpage')->with("sukses", "Berhasil Login!");
         } else {
             return redirect()->route('login')->with("gagal", 'Username/Password salah');

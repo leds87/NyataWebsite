@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\admindata_controller;
+use App\Http\Controllers\adminlog_controller;
 use App\Http\Controllers\childrendata_controller;
 use App\Http\Controllers\dashboard_controller;
+use App\Http\Controllers\dashboarduser_controller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\NyataController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\news_controller;
 use App\Http\Controllers\schooldata_controller;
 use App\Http\Controllers\userdata_controller;
 use App\Models\admindata;
@@ -88,7 +91,10 @@ Route::get('language/{locale?}', function ($locale) {
 });
 
 
-Route::get('/adminpage', [dashboard_controller::class, 'index'])->middleware('auth');
+Route::get('/adminpage', [dashboard_controller::class, 'index'])->middleware('auth'); //:user
+Route::get('/userpage', [dashboarduser_controller::class, 'index'])->middleware('auth'); //:user
+Route::get('/news', [news_controller::class, 'index'])->middleware('auth'); //:user
+Route::get('/inputnews', function () { return view('adminpage.inputnews'); })->name('inputnews');
 
 Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser');
 Route::post('/inputusers', [userdata_controller::class, 'store']);
@@ -124,6 +130,7 @@ Route::post('/nyataadmin',[admindata_controller::class, 'login'])->name('login')
 Route::post('/logout',[admindata_controller::class, 'logout']);
 
 Route::get('/log', [LogController::class, 'index'])->name('log');
+Route::get('/adminlog', [adminlog_controller::class, 'index'])->name('adminlog');
 
 
 // // User authentication routes

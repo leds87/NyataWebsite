@@ -4,13 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Auth;
 
-class childrendata extends Model
+class news extends Model
 {
     protected $guarded=['id'];
-    protected $table='childrendata';
+    protected $table='news';
     public $timestamps=false;
 
     protected static function boot()

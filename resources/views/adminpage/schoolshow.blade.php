@@ -34,7 +34,11 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['address']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['location']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['children']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
+                                        @if($item['status'] === 'Active')
+                                        <td class="whitespace-nowrap px-6 py-4 bg-green-400">{{$item['status']}}</td>
+                                        @else
+                                        <td class="whitespace-nowrap px-6 py-4 bg-red-400">{{$item['status']}}</td>
+                                        @endif
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td>
                                         <td class="whitespace-nowrap px-6 py-4">
