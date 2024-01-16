@@ -58,10 +58,10 @@ class schooldata_controller extends Controller
         $data = schooldata::find($id);
         $laststatus = schooldata::find($id,'status');
         $data2 = $data->value('school_name');
-        dd($laststatus);
+        // dd($laststatus);
         return view ('adminpage.editschool',[
             'data'=>$data,
-            'laststatus' => $data->value('schoolname'), 
+            // 'laststatus' => $data->value('schoolname'), 
         ]);
     }
 }

@@ -40,6 +40,12 @@ class admindata_controller extends Controller
         $data = admindata::all();
         return view('adminpage.adminshow', ['data' => $data]);
     }
+
+    public function showprofile()
+    {
+        $datanews = admindata::all();
+        return view('adminpage.profile', ['datanews' => $datanews]);
+    }
     public function destroy($id)
     {
         $data = admindata::find($id);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\childrendata;
+use App\Models\news;
 use App\Models\userdata;
 use App\Models\schooldata;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class dashboarduser_controller extends Controller
         $activeusers = userdata::where('status', 'active')->count();
         $inactiveusers = userdata::where('status', 'inactive')->count();
         $postponeusers = userdata::where('status', 'postpone')->count();
+        $datanews = news::get();
 
         return view('adminpage.userpage', [
 
@@ -34,8 +36,12 @@ class dashboarduser_controller extends Controller
             'activechildren' => $activechildren,
             'educatedchildren' => $educatedchildren,
             'successchildren' => $successchildren,
+            'datanews' => $datanews,
 
         ]);
+
+
+        return view('adminpage.userpage',compact('datanews'));
     }
 
 

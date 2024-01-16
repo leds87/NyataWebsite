@@ -14,6 +14,7 @@ use App\Http\Controllers\news_controller;
 use App\Http\Controllers\schooldata_controller;
 use App\Http\Controllers\userdata_controller;
 use App\Models\admindata;
+use App\Models\news;
 use App\Models\userdata;
 use Illuminate\Console\View\Components\Alert;
 
@@ -93,8 +94,18 @@ Route::get('language/{locale?}', function ($locale) {
 
 Route::get('/adminpage', [dashboard_controller::class, 'index'])->middleware('auth'); //:user
 Route::get('/userpage', [dashboarduser_controller::class, 'index'])->middleware('auth'); //:user
+
+
+Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth'); //:user
+
+
 Route::get('/news', [news_controller::class, 'index'])->middleware('auth'); //:user
 Route::get('/inputnews', function () { return view('adminpage.inputnews'); })->name('inputnews');
+Route::post('/inputnews', [news_controller::class, 'store']);
+Route::delete('/destroynews/{id}',[news_controller::class,'destroy'])->name('destroynews');
+Route::get('/newsedit/{id}/edit',[news_controller::class,'edit'])->name('newsedit');
+Route::put('/newsedit/{id}',[news_controller::class,'update']);
+Route::get('/newsshow/{title}', [news_controller::class, 'show']);
 
 Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser');
 Route::post('/inputusers', [userdata_controller::class, 'store']);

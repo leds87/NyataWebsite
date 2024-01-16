@@ -16,23 +16,23 @@
                     <!-- User Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">News </div>
-
-                        <div class="w-1/4 flex ">
-                            <a href='usershow' class="text-white text-md ">Details
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </a>
-                        </div>
                     </div>
 
                     <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4 ">
                             <span class="mb-3 text-lg font-normal dark:text-gray-100">
-                                <p> *This news is related to the supported children only and admin news*</p>
+                                {{-- <p> *This news is related to the supported children only and admin news*</p>
                                 <p> Nyata successfully approached a school in East Java </p>
-                                <p> Mina (supported child by user) is getting graduation on 15th July at Aloysius</p>
+                                <p> Mina (supported child by user) is getting graduation on 15th July at Aloysius</p> --}}
+                                  @foreach ($datanews->take(6) as $items) 
+                                  <div>
+                                    <a href="/newsshow/{{$items->id}}" class="flex flex-wrap pb-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                                          </svg>
+                                        {{ $items['title'] }}</a>
+                                  </div> 
+                                  @endforeach
                             </span>
                         </div>
                     </div>
@@ -70,9 +70,8 @@
                     <!-- Money Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> Profile </div>
-
                         <div class="w-1/4 flex ">
-                            <a href='' class="text-white text-md ">Details
+                            <a href='profile' class="text-white text-md ">Details
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -91,6 +90,7 @@
                             </span>
                         </div>
                     </div>
+                    
                 </div>
 
                 <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
