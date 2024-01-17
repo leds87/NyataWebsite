@@ -92,56 +92,57 @@ Route::get('language/{locale?}', function ($locale) {
 });
 
 
-Route::get('/adminpage', [dashboard_controller::class, 'index'])->middleware('auth'); //:user
-Route::get('/userpage', [dashboarduser_controller::class, 'index'])->middleware('auth'); //:user
+Route::get('/adminpage', [dashboard_controller::class, 'index'])->middleware('auth:web,admin'); //:user
+Route::get('/userpage', [dashboarduser_controller::class, 'index'])->middleware('auth:web,admin'); //:user
 
 
-Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth'); //:user
+Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth:web,admin');
 
 
-Route::get('/news', [news_controller::class, 'index'])->middleware('auth'); //:user
-Route::get('/inputnews', function () { return view('adminpage.inputnews'); })->name('inputnews');
-Route::post('/inputnews', [news_controller::class, 'store']);
-Route::delete('/destroynews/{id}',[news_controller::class,'destroy'])->name('destroynews');
-Route::get('/newsedit/{id}/edit',[news_controller::class,'edit'])->name('newsedit');
-Route::put('/newsedit/{id}',[news_controller::class,'update']);
-Route::get('/newsshow/{title}', [news_controller::class, 'show']);
+Route::get('/news', [news_controller::class, 'index'])->middleware('auth:web,admin');
+Route::get('/inputnews', function () { return view('adminpage.inputnews'); })->name('inputnews')->middleware('auth:web,admin');
+Route::post('/inputnews', [news_controller::class, 'store'])->middleware('auth:web,admin');
+Route::delete('/destroynews/{id}',[news_controller::class,'destroy'])->name('destroynews')->middleware('auth:web,admin');
+Route::get('/newsedit/{id}/edit',[news_controller::class,'edit'])->name('newsedit')->middleware('auth:web,admin');
+Route::put('/newsedit/{id}',[news_controller::class,'update'])->middleware('auth:web,admin');
+Route::get('/newsshow/{title}', [news_controller::class, 'show'])->middleware('auth:web,admin');
 
 Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser');
-Route::post('/inputusers', [userdata_controller::class, 'store']);
-Route::delete('/destroyuser/{id}',[userdata_controller::class,'destroy'])->name('destroyuser');
+Route::post('/inputusers', [userdata_controller::class, 'store'])->middleware('auth:web,admin');
+Route::delete('/destroyuser/{id}',[userdata_controller::class,'destroy'])->name('destroyuser')->middleware('auth:web,admin');
 Route::get('/useredit/{id}/edit',[userdata_controller::class,'edit'])->name('useredit');
-Route::put('/useredit/{id}',[userdata_controller::class,'update']);
-Route::get('/usershow', [userdata_controller::class, 'showdata']);
+Route::put('/useredit/{id}',[userdata_controller::class,'update'])->middleware('auth:web,admin');
+Route::get('/usershow', [userdata_controller::class, 'showdata'])->middleware('auth:web,admin');
 
 Route::get('/inputadmin', function () { return view('adminpage.inputadmin'); })->name('inputadmin');
-Route::post('/inputadmin', [admindata_controller::class, 'store']);
+Route::post('/inputadmin', [admindata_controller::class, 'store'])->middleware('auth:web,admin');
 Route::delete('/destroyadmin/{id}',[admindata_controller::class,'destroy'])->name('destroyadmin');
 Route::get('/adminedit/{id}/edit',[admindata_controller::class,'edit'])->name('adminedit');
-Route::put('/adminedit/{id}',[admindata_controller::class,'update']);
-Route::get('/adminshow', [admindata_controller::class, 'showdata'])->name('adminshow');
+Route::put('/adminedit/{id}',[admindata_controller::class,'update'])->middleware('auth:web,admin');
+Route::get('/adminshow', [admindata_controller::class, 'showdata'])->name('adminshow')->middleware('auth:admin');
 
 Route::get('/inputschool', function () { return view('adminpage.inputschool'); })->name('inputschool');
-Route::post('/inputschool', [schooldata_controller::class, 'store']);
-Route::delete('/destroyschool/{id}',[schooldata_controller::class,'destroy'])->name('destroyschool');
+Route::post('/inputschool', [schooldata_controller::class, 'store'])->middleware('auth:web,admin');
+Route::delete('/destroyschool/{id}',[schooldata_controller::class,'destroy'])->name('destroyschool')->middleware('auth:web,admin');
 Route::get('/schooledit/{id}/edit',[schooldata_controller::class,'edit'])->name('schooledit');
-Route::put('/schooledit/{id}',[schooldata_controller::class,'update']);
-Route::get('/schoolshow', [schooldata_controller::class, 'showdata']);
+Route::put('/schooledit/{id}',[schooldata_controller::class,'update'])->middleware('auth:web,admin');
+Route::get('/schoolshow', [schooldata_controller::class, 'showdata'])->middleware('auth:web,admin');
 
 
 Route::get('/inputchildren', function () { return view('adminpage.inputchildren'); })->name('inputchildren');
-Route::post('/inputchildren', [childrendata_controller::class, 'store']);
-Route::delete('/childrendestroy/{id}',[childrendata_controller::class,'destroy'])->name('childrendestroy');
+Route::post('/inputchildren', [childrendata_controller::class, 'store'])->middleware('auth:web,admin');
+Route::delete('/childrendestroy/{id}',[childrendata_controller::class,'destroy'])->name('childrendestroy')->middleware('auth:web,admin');
 Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit');
-Route::put('/childrenedit/{id}',[childrendata_controller::class,'update']);
-Route::get('/childrenshow', [childrendata_controller::class, 'showdata']);
+Route::put('/childrenedit/{id}',[childrendata_controller::class,'update'])->middleware('auth:web,admin');
+Route::get('/childrenshow', [childrendata_controller::class, 'showdata'])->middleware('auth:web,admin');
+Route::get('/childrensupported', [childrendata_controller::class, 'childrensupported'])->middleware('auth:web,admin')->name('childrensupported');;
 
 Route::get('/nyataadmin',[admindata_controller::class, 'index']);
 Route::post('/nyataadmin',[admindata_controller::class, 'login'])->name('login');
 Route::post('/logout',[admindata_controller::class, 'logout']);
 
-Route::get('/log', [LogController::class, 'index'])->name('log');
-Route::get('/adminlog', [adminlog_controller::class, 'index'])->name('adminlog');
+Route::get('/log', [LogController::class, 'index'])->name('log')->middleware('auth:web,admin');
+Route::get('/adminlog', [adminlog_controller::class, 'index'])->name('adminlog')->middleware('auth:web,admin');
 
 
 // // User authentication routes

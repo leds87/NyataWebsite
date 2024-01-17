@@ -163,8 +163,8 @@
                             Since
                         </label>
                         <input datepicker datepicker-format="yyyy-mm-dd" type="text" id="since" name="since"
-                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date">
+                            class="bg-white border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Select date" autocomplete="off">
 
                     </div>
                 </div>
@@ -182,6 +182,7 @@
                             <option>Postpone</option>
                         </select>
                     </div>
+                    
                     <button type="submit"
                         class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Submit</button>

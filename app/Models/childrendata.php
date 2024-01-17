@@ -54,7 +54,7 @@ class childrendata extends Model
                 // 'data' => json_encode($admin->only(['name', 'address', 'phone','role','note'])),  
 
         static::deleted(function ($children) {
-            $currentDate = now()->format('dmY');
+            $currentDate = now()->format('j F Y');
             $logData = [
                 'date' => $currentDate,
                 // 'id' => Auth::id(),

@@ -80,7 +80,6 @@ class admindata_controller extends Controller
 
     public function login(Request $request)
     {
-
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -94,12 +93,15 @@ class admindata_controller extends Controller
         ];
                     //  dd($infologin);
                     //  guard('user')->
-        if (Auth::attempt($infologin)) {
+        if (Auth()->guard('web')->attempt($infologin)) {
 
             return redirect()->intended('/adminpage')->with("sukses", "Berhasil Login!");
-        } else {
-            return redirect()->route('login')->with("gagal", 'Username/Password salah');
+        } 
+        elseif (Auth()->guard('admin')->attempt($infologin)) 
+        {
+            return redirect()->intended('/adminpage')->with("sukses", "Berhasil Login!");
         }
+        return redirect()->route('login')->with("gagal", 'Username/Password salah');
     }
 
 

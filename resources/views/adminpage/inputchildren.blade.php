@@ -70,7 +70,7 @@
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Children Input</h1>
-            <form action="/inputchildren" method="POST" class="w-full max-w-lg py-5 mx-auto">
+            <form action="/inputchildren" method="POST" enctype="multipart/form-data" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -128,8 +128,11 @@
                         <textarea id="description" name="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Project Details..."></textarea>
                     </div>
                     <div class="relative">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                            Status
+                        </label>
                         <select
-                            class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            class="block mb-5 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="status" name="status">
                             <option>Active</option>
                             <option>Educated</option>
@@ -142,7 +145,26 @@
                             </svg>
                         </div>
                     </div>
-
+                    
+                    <div class="relative">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                            Status
+                        </label>
+                        {{-- <div class="">
+                            <input type="file" id="Images" name="Images" class=" mx-auto text-center  w-full text-sm text-slate-500
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-violet-50 file:text-violet-700
+                            hover:file:bg-violet-100
+                            "/>
+                        </div> --}}
+                             <div> <!-- Upload Image -->
+                            <label class="block mb-2 text-sm font-medium text-gray-900" for="image">Upload file</label>
+                            <input name="Image" id="Image" type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
+                    </div>
+                    </div>
+                        
                     <div class="flex">
                         <button type="submit"
                         class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">

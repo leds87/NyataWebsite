@@ -18,15 +18,13 @@ class userdata extends Authenticatable
     {
         parent::boot();
 
-        // Listen for the created event and log the information
-
         static::created(function ($user) {
             $currentDate = now()->format('j F Y');
             $logData = [
                 'date' => $currentDate,
                 // 'id' => Auth::id(),
                 'typelog' => 'User',
-                'personid' => Auth::id(),
+                'personid' => Auth::user()->id,
                 'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$user->name : 'unknown created a record'),
             ];
             adminlog::create($logData);

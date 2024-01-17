@@ -8,12 +8,12 @@
             <a href='inputuser' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input user</a>
             <section class=""> <!-- Contact Us-->
                 <section class=" text-gray-900">
-                    <div class="py-8 lg:py-16 mx-auto max-w-screen-lg">
+                    <div class="py-8 lg:py-16 max-w-screen-2xl">
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">User List</h2>
             
                         <div class="flex flex-col">
                             <div class="sm:-mx-6 lg:-mx-8">
-                              <div class="inline-block  py-2 sm:px-6 lg:px-8">
+                              <div class="inline-block py-2 sm:px-6 lg:px-8">
                                 <div class="overflow-hidden">
                                   <table class="min-w-full text-left text-gray-900 text-sm font-light">
                                     <thead class="border-b font-medium dark:border-neutral-500">
@@ -41,8 +41,6 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['note']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['since']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">
-                                          <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/useredit/{{$item->id}}/edit">Edit</a> </button>
                                             {{-- <form action="{{route('contactus.destroy',$item->id)}}" method="POST" class="inline-block"> --}}

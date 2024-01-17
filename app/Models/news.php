@@ -23,7 +23,7 @@ class news extends Model
             $logData = [
                 'date' => $currentDate,
                 // 'id' => Auth::id(),
-                'typelog' => 'news',
+                'typelog' => 'News',
                 'personid' => Auth::id(),
                 'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$news->title : 'unknown created a record'),
             ];
@@ -37,7 +37,8 @@ class news extends Model
             $logData = [
                 'date' => $currentDate,
                 // 'id' => Auth::id(),
-                'typelog' => 'news',
+
+                'typelog' => 'News',
                 'personid' => Auth::id(),
                 'description' => (Auth::user()->name.' '.'updated a record of '.".$news->title.".' '.
                 implode(', ', $modifiedAttributes).' '.'to'. ' '.
@@ -57,7 +58,7 @@ class news extends Model
             $logData = [
                 'date' => $currentDate,
                 // 'id' => Auth::id(),
-                'typelog' => 'news',
+                'typelog' => 'News',
                 'personid' => Auth::id(),
                 'description' => (Auth::user()->name.' '.'deleted a record of '.$news->title),
             ];

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('story');
             $table->string('description');
             $table->string('status');
+            $table->string('image')->nullable();
         });
     }
 

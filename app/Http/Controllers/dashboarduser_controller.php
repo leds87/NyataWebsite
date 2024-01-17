@@ -20,6 +20,9 @@ class dashboarduser_controller extends Controller
         $inactiveusers = userdata::where('status', 'inactive')->count();
         $postponeusers = userdata::where('status', 'postpone')->count();
         $datanews = news::get();
+        $datachildren = childrendata::get();
+        // $postponeusers = userdata::where('status', 'postpone')->count();
+
 
         return view('adminpage.userpage', [
 
@@ -37,11 +40,9 @@ class dashboarduser_controller extends Controller
             'educatedchildren' => $educatedchildren,
             'successchildren' => $successchildren,
             'datanews' => $datanews,
+            'datachildren' => $datachildren,
 
         ]);
-
-
-        return view('adminpage.userpage',compact('datanews'));
     }
 
 
