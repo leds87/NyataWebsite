@@ -43,8 +43,10 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['description']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
+                                          <img src="{{ asset('storage/children-images' . $item->path) }}" alt="{{ $item->name }} Image">
+
                                           {{-- <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td> --}}
-                                          <img src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" srcset="" class="w-20"></td>
+                                          {{-- <img src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" srcset="" class="w-20"></td> --}}
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/childrenedit/{{$item->id}}/edit">Edit</a> </button>
                                             <form action="/childrendestroy/{{$item->id}}" method="POST" class="inline-block">

@@ -3,6 +3,8 @@
 use App\Http\Controllers\admindata_controller;
 use App\Http\Controllers\adminlog_controller;
 use App\Http\Controllers\childrendata_controller;
+use App\Http\Controllers\childrennotsupported_controller;
+use App\Http\Controllers\childrensupported_controller;
 use App\Http\Controllers\dashboard_controller;
 use App\Http\Controllers\dashboarduser_controller;
 use Illuminate\Support\Facades\Route;
@@ -93,14 +95,18 @@ Route::get('language/{locale?}', function ($locale) {
 
 
 Route::get('/adminpage', [dashboard_controller::class, 'index'])->middleware('auth:web,admin'); //:user
-Route::get('/userpage', [dashboarduser_controller::class, 'index'])->middleware('auth:web,admin'); //:user
 
+Route::get('/userpage', [dashboarduser_controller::class, 'index'])->middleware('auth:web,admin');
+Route::post('/childrensupportedfilter',[childrensupported_controller::class,'filter'])->name('childrensupported.filter')->middleware('auth:web,admin');
+Route::get('/childrensupported', [childrensupported_controller::class, 'index'])->middleware('auth:web,admin')->name('childrensupported');
+Route::get('/childrennotsupported', [childrennotsupported_controller::class, 'index'])->middleware('auth:web,admin')->name('childrennotsupported');
 
 Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth:web,admin');
 
 
 Route::get('/news', [news_controller::class, 'index'])->middleware('auth:web,admin');
-Route::get('/inputnews', function () { return view('adminpage.inputnews'); })->name('inputnews')->middleware('auth:web,admin');
+// Route::get('/inputnews', function () { return view('adminpage.inputnews'); })->name('inputnews')->middleware('auth:web,admin');
+Route::get('/inputnews', [news_controller::class, 'showchildrenid'])->middleware('auth:web,admin');
 Route::post('/inputnews', [news_controller::class, 'store'])->middleware('auth:web,admin');
 Route::delete('/destroynews/{id}',[news_controller::class,'destroy'])->name('destroynews')->middleware('auth:web,admin');
 Route::get('/newsedit/{id}/edit',[news_controller::class,'edit'])->name('newsedit')->middleware('auth:web,admin');
@@ -135,7 +141,7 @@ Route::delete('/childrendestroy/{id}',[childrendata_controller::class,'destroy']
 Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit');
 Route::put('/childrenedit/{id}',[childrendata_controller::class,'update'])->middleware('auth:web,admin');
 Route::get('/childrenshow', [childrendata_controller::class, 'showdata'])->middleware('auth:web,admin');
-Route::get('/childrensupported', [childrendata_controller::class, 'childrensupported'])->middleware('auth:web,admin')->name('childrensupported');;
+
 
 Route::get('/nyataadmin',[admindata_controller::class, 'index']);
 Route::post('/nyataadmin',[admindata_controller::class, 'login'])->name('login');

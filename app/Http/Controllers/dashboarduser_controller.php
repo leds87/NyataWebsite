@@ -23,7 +23,6 @@ class dashboarduser_controller extends Controller
         $datachildren = childrendata::get();
         // $postponeusers = userdata::where('status', 'postpone')->count();
 
-
         return view('adminpage.userpage', [
 
             'usercount' => $activeusers + $inactiveusers + $postponeusers,
@@ -44,6 +43,7 @@ class dashboarduser_controller extends Controller
 
         ]);
     }
+
 
 
 

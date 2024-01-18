@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\childrendata;
 use App\Models\news;
 use Illuminate\Http\Request;
 
@@ -43,6 +44,12 @@ class news_controller extends Controller
         return view('adminpage.newsshow', [
             'datanews' => $datanews,
         ]);
+    }
+
+    public function showchildrenid()
+    {
+        $data = childrendata::all();
+        return view('adminpage.inputnews', ['data' => $data]);
     }
 
     public function update(Request $request, $id)

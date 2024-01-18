@@ -10,8 +10,8 @@ class adminlog_controller extends Controller
 {
     public function index()
     {
-        $data = adminlog::get()->paginate(10);
-        $data2 = adminlog::paginate(10);
+        $data = adminlog::paginate(10);
+        $data2 = adminlog::get();
         
         return view('adminpage.adminlog', compact('data'));
     }

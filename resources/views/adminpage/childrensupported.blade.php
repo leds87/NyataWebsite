@@ -11,32 +11,125 @@
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Children Supported Overview</h1>
 
+            <form action="{{ route('childrensupported.filter') }}" method="POST">
+                @csrf
                 <div class="grid grid-cols-4 grid-flow-col gap-2 pb-2">
-                    <a href=""><div class="bg-red-700 py-3 rounded-lg text-center text-lg">School Name</div></a>
-                    <a href=""><div class="bg-red-700 py-3 rounded-lg text-center text-lg">Location</div></a>
-                    <a href=""><div class="bg-red-700 py-3 rounded-lg text-center text-lg">Setting</div></a>
-                    <a href=""><div class="bg-red-700 py-3 rounded-lg text-center text-lg">Support More Children</div></a>
-                </div>
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown5" data-dropdown-trigger="hover">
+                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg">School Name</div>
+                    </button>
+                    <div id="dropdown5" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
+                        <ul id="dropdown5" class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
+                            @foreach ($uniqueschools as $items)
+                                <li class=" flex items-center">
+                                    <input id="school_{{ $items }}" type="checkbox" name="school_filters[]"
+                                        value="{{ $items }}"
+                                        class="filter filter-school w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                    <label for="school_{{ $items }}"
+                                        class="ml-2 text-sm font-medium text-white dark:text-gray-100">{{ $items }}</label>
+                                </li>
+                            @endforeach
+                            {{-- @foreach ($data as $items)
+                            <li class=" flex items-center">
+                                <input id="location_{{ $items['school'] }}" type="checkbox" name="location_filters[]"
+                                    value="{{ $items['school'] }}"
+                                    class="filter filter-location w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                <label for="location_{{ $items['school'] }}"
+                                    class="ml-2 text-sm font-medium text-white dark:text-gray-100">{{ $items['school'] }}</label>
+                            </li>
+                        @endforeach --}}
+                        </ul>
+                    </div>
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" data-dropdown-trigger="hover">
+                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Location</div>
+                    </button>
+                    <div id="dropdown6" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
+                        <ul id="dropdown6" class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
+                            {{-- @foreach ($data as $items)
+                            <li class=" flex items-center">
+                                <input id="location_{{ $items['location'] }}" type="checkbox" name="location_filters[]"
+                                    value="{{ $items['location'] }}"
+                                    class="filter filter-location w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                <label for="location_{{ $items['location'] }}"
+                                    class="ml-2 text-sm font-medium text-white dark:text-gray-100">{{ $items['location'] }}</label>
+                            </li>
+                        @endforeach --}}
+                            @foreach ($uniqueslocations as $items)
+                            <li class="flex items-center">
+                                <input id="location_{{ $items }}" type="checkbox" name="location_filters[]" value="{{ $items }}"
+                                       class="filter filter-location w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                <label for="location_{{ $items }}"
+                                       class="ml-2 text-sm font-medium text-white dark:text-gray-100">{{ $items }}</label>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <button>
+                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Setting</div>
+                    </button>
+                    <a href='childrennotsupported'>
+                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Support More Children</div>
+                    </a>
+                    <button type="submit">
+                        <div class="bg-red-900 py-3 px-3 rounded-lg text-center text-lg">Filter</div>
+                    </button>
+                    <a href='childrensupported'>
+                        <div class="bg-red-900 py-3 px-3 rounded-lg text-center text-lg">Reset Filter</div>
+                    </a>
 
-                <section class="bg-[#f8f5f2] py-4"> <!-- Gallery -->
-                    <div class="inline-grid lg:grid-cols-4 gap-10 sm:grid-cols-1 sm:gap-4 ml-5">
-                        @foreach ($data as $items) 
-                        {{-- ($data as $items)  ->take(6)--}}
+                </div>
+            </form>
+
+
+
+            <section class="bg-[#f8f5f2] py-4">
+                <div class="inline-grid lg:grid-cols-4 gap-10 sm:grid-cols-1 sm:gap-4 ml-5">
+                    @foreach ($data as $items)
                         <div>
-                            <div class="sm:ml-1 lg:ml-3 max-w-xl h-auto my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
+    <!-- Modal toggle --><button data-modal-target="static-modal" data-modal-toggle="static-modal" class="" type="button">
+                                <div class="sm:ml-1 lg:ml-3 max-w-xl h-auto my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
                                 <div class="p-5">
-                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                                            {{ $items['name'] }}</h5>
-                                            <div class="flex">
-                                                <div>
-                                                    <p class="mb-3 font-normal text-gray-800">Description {{ $items['description'] }}</p>
-                                                    <p class="mb-3 font-normal text-gray-800">Story {{ $items['story'] }}</p>
-                                                    <p class="mb-3 font-normal text-gray-800">Status {{ $items['status'] }}</p>
-                                                </div>
-                                                <div class="justify-items-center ml-10 bg-black">
-                                                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" srcset="" class="w-20">
-                                                </div>
-                                            </div>
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                        {{ $items['name'] }}</h5>
+                                    <div class="flex justify-center ">
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 inline-flex">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                                            </svg>
+                                            {{ $items['school'] }}
+                                        </p>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                            </svg>
+                                            {{ $items['location'] }}
+                                        </p>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
+                                            {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+                                            </svg> --}}
+                                            Age {{ $items['age'] }}
+                                        </p>
+                                    </div>
+                                    <div class="flex">
+                                        <div>
+                                            <p class="mb-3 font-normal text-gray-800">Description
+                                                {{ $items['description'] }}</p>
+                                            <p class="mb-3 font-normal text-gray-800">Story {{ $items['story'] }}</p>
+                                            <p class="mb-3 font-normal text-gray-800">Status {{ $items['status'] }}</p>
+                                        </div>
+                                        <div class="justify-items-center ml-10 bg-black">
+                                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                alt="" srcset="" class="w-20">
+                                        </div>
+                                    </div>
                                     {{-- <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-800  rounded-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300  dark:focus:ring-blue-800">
                                         Read more
                                         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
@@ -46,145 +139,105 @@
                                         </svg>
                                     </a> --}}
                                 </div>
-                                <div class="flex justify-center ">
-                                    <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 inline-flex">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                                          </svg>
-                                          
-                                        {{ $items['school'] }}</p>
-                                    <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
-                                          </svg>
-                                        {{ $items['location'] }}
-                                    </p>
-                                    <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
-                                          </svg>
-                                        {{ $items['age'] }}
-                                    </p>
                                 </div>
-                            </div>
-                        </div> 
-                        @endforeach
-                    </div>
-            
-                </section>
-
-            {{-- <div class="flex flex-wrap py-2 ">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
-                    <!-- User Data -->
-                    <div class="flex flex-row w-full bg-black p-5">
-                        <div class=" text-2xl tracking-tight font-bold w-3/4">News </div>
-                    </div>
-
-                    <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
-                        <div class="p-4 ">
-                            <span class="mb-3 text-lg font-normal dark:text-gray-100">
-                                {{-- <p> *This news is related to the supported children only and admin news*</p>
-                                <p> Nyata successfully approached a school in East Java </p>
-                                <p> Mina (supported child by user) is getting graduation on 15th July at Aloysius</p>
-                                  @foreach ($data->take(6) as $items) 
-                                  <div>
-                                    <a href="/newsshow/{{$items->id}}" class="flex flex-wrap pb-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
-                                          </svg>
-                                        {{ $items['title'] }}</a>
-                                  </div> 
-                                  @endforeach
-                            </span>
+                            </button>
                         </div>
+                    @endforeach
+                </div>
+            </section>
+        </div>
+    </div>
+ <!-- Main modal -->
+ <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Static modal
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="static-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                    {{ $items['name'] }}</h5>
+                <div class="flex ">
+                    <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 inline-flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+                        {{ $items['school'] }}
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                        </svg>
+                        {{ $items['location'] }}
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
+                        {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+                        </svg> --}}
+                        Age {{ $items['age'] }}
+                    </p>
+                </div>
+                <div class="flex">
+                    <div>
+                        <p class="mb-3 font-normal text-gray-800">Description
+                            {{ $items['description'] }}</p>
+                        <p class="mb-3 font-normal text-gray-800">Story {{ $items['story'] }}</p>
+                        <p class="mb-3 font-normal text-gray-800">Status {{ $items['status'] }}</p>
+                    </div>
+                    <div class="justify-items-center ml-10 bg-black">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" srcset="" class="w-20">
                     </div>
                 </div>
-
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
-                    <!-- Child Data -->
-                    <div class="flex flex-row w-full bg-black p-5">
-                        <div class=" text-2xl tracking-tight font-bold w-3/4">Balance </div>
-
-                        <div class="w-1/4 flex ">
-                            <a href='childrenshow' class="text-white text-md ">Details
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
-                        <div class="p-4">
-                            <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                                <p>Balance: 600K</p>
-                                <p>Last Month Support = 200k</p>
-                                <p>Expected Support Next Month = 250k (*50k per child*)</p>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                {{-- <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-800  rounded-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300  dark:focus:ring-blue-800">
+                    Read more
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a> --}}
+            </div>
+            {{-- <div class="p-4 md:p-5 space-y-4">
+                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    {{$items->name}}
+                </p>
+                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                </p>
             </div> --}}
-
-            {{-- <div class="flex flex-wrap py-2">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
-                    <!-- Money Data -->
-                    <div class="flex flex-row w-full bg-black p-5">
-                        <div class=" text-2xl tracking-tight font-bold w-3/4"> Profile </div>
-                        <div class="w-1/4 flex ">
-                            <a href='profile' class="text-white text-md ">Details
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
-                        <div class="p-4">
-                            <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                            <p>Name      : {{auth()->user()->name}} </p>
-                            <p>Address   :{{auth()->user()->address}}  </p>
-                            <p>Contact No: {{auth()->user()->phone}} </p>
-                            <p>Email     : {{auth()->user()->email}} </p>
-                            </span>
-                        </div>
-                    </div>
-                    
-                </div> --}}
-
-                {{-- <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
-                    <!-- Child Data -->
-                    <div class="flex flex-row w-full bg-black p-5">
-                        <div class=" text-2xl tracking-tight font-bold w-3/4"> Supported Kids </div>
-
-                        <div class="w-1/4 flex ">
-                            <a href='schoolshow' class="text-white text-md ">Details
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
-                        <div class="p-4">
-                            <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                                <p>Under Support Child : </p>
-                                 {{ $activechildren }} 
-                                <p>Graduated Child : </p>
-                            </span>
-                        </div>
-                    </div>
-                </div> --}}
-            @endsection
+            <!-- Modal footer -->
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button data-modal-hide="static-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
+                <button data-modal-hide="static-modal" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
+ 
+  
+@endsection
 
-            
 
-         
+  

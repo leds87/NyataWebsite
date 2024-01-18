@@ -18,8 +18,12 @@
                         <img class="mr-4 w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
                         <div>
                             <a href="#" rel="author" class="text-xl font-bold text-gray-900 ">Admin</a>
-                            <p class="text-base text-gray-500 dark:text-gray-400">Graphic Designer, educator & CEO Flowbite</p>
-                            <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">{{$datanews->date}}</time></p>
+                            <p class="text-base text-gray-500 dark:text-gray-400">NYATA Admin Author</p>
+                            <p class="text-base text-gray-500 dark:text-gray-400">
+                                <time pubdate datetime="{{ $datanews->date }}" title="{{ \Carbon\Carbon::createFromFormat('Y-m-d', $datanews->date)->format('F jS, Y') }}">
+                                    {{ $datanews->date }}
+                                </time>
+                                </p>
                         </div>
                     </div>
                 </address>

@@ -9,7 +9,7 @@
                 Admin Log Overview</h1>
             <section class="">
                 <section class=" text-gray-900">
-                    <div class="py-8 lg:py-8 mx-auto max-w-screen-2xl">
+                    <div class="py-8 lg:py-8 mx-auto max-w-screen-xl">
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Log List</h2>
 
                         <div class="flex flex-col">
@@ -38,6 +38,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        {{ $data->links() }}
                                     </div>
                                 </div>
                             </div>
