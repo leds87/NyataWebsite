@@ -18,25 +18,29 @@
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> User Information Data</div>
 
                         <div class="w-1/4 flex ">
-                            <a href='usershow' class="text-white text-md ">Details
+                            <div>
+                                <a href='usershow' class="text-white text-md ">Details
+                            </div>
+                            <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4 w-2/3">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                            <p>Total Users: {{ $usercount }}</p>
-                            <p>User Active: {{ $activeusers }}</p>
-                            <p>User Postpone: {{ $postponeusers }}</p>
-                            <p>User Inactive: {{ $inactiveusers }}</p>
+                                <p>Total Users: {{ $usercount }}</p>
+                                <p>User Active: {{ $activeusers }}</p>
+                                <p>User Postpone: {{ $postponeusers }}</p>
+                                <p>User Inactive: {{ $inactiveusers }}</p>
                             </span>
                         </div>
-                            <canvas id="userPieChart" width="200" height="200"></canvas>
+                        <canvas id="userPieChart" width="200" height="200"></canvas>
                     </div>
                 </div>
 
@@ -67,12 +71,16 @@
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> Child Information Data</div>
 
                         <div class="w-1/4 flex ">
-                            <a href='childrenshow' class="text-white text-md ">Details
+                            <div class="">
+                                <a href='childrenshow' class="text-white text-md ">Details
+                            </div>
+                            <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -85,7 +93,7 @@
                                 <p>Child Success: {{ $successchildren }}</p>
                             </span>
                         </div>
-                            <canvas id="childPieChart" width="200" height="200"></canvas>
+                        <canvas id="childPieChart" width="200" height="200"></canvas>
                     </div>
                 </div>
 
@@ -96,9 +104,11 @@
                         var childPieChart = new Chart(ctx, {
                             type: 'pie',
                             data: {
-								labels: ['Active Child', 'Educated Child', 'Success Child'],
+                                labels: ['Active Child', 'Educated Child', 'Success Child'],
                                 datasets: [{
-                                    data: [{{ $activechildren }}, {{ $educatedchildren }}, {{ $successchildren }}],
+                                    data: [{{ $activechildren }}, {{ $educatedchildren }},
+                                        {{ $successchildren }}
+                                    ],
                                     backgroundColor: ['#36A2EB', '#FF6384', '#235200'],
                                 }]
                             },
@@ -118,22 +128,28 @@
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> Money Information Data</div>
 
                         <div class="w-1/4 flex ">
-                            <a href='' class="text-white text-md ">Details
+                            <div class="">
+
+                                <a href='' class="text-white text-md ">Details
+                            </div>
+                            <div class="">
+
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4 w-2/3">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                            <p>Total Balance : </p>
+                                <p>Total Balance : </p>
                             </span>
                         </div>
-                            <canvas id="userPieChart" width="200" height="200"></canvas>
+                        <canvas id="userPieChart" width="200" height="200"></canvas>
                     </div>
                 </div>
 
@@ -164,12 +180,16 @@
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> School Information Data</div>
 
                         <div class="w-1/4 flex ">
-                            <a href='schoolshow' class="text-white text-md ">Details
+                            <div class="">
+                                <a href='schoolshow' class="text-white text-md ">Details
+                            </div>
+                            <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -180,7 +200,7 @@
                                 <p>School Inactive : {{ $inactiveschool }}</p>
                             </span>
                         </div>
-                            <canvas id="schoolPieChart" width="200" height="200"></canvas>
+                        <canvas id="schoolPieChart" width="200" height="200"></canvas>
                     </div>
                 </div>
 
@@ -204,12 +224,4 @@
                         });
                     });
                 </script>
-                
-
             @endsection
-
-
-
-            
-
-         

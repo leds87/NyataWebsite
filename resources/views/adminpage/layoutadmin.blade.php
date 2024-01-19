@@ -52,6 +52,7 @@
         .sidebar {
             width: 0;
             display: none;
+            /* top:-50px; */
         }
 
         .content {

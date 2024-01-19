@@ -66,6 +66,11 @@
                                 <p>Last Month Support = 200k</p>
                                 <p>Expected Support Next Month = 250k (*50k per child*)</p>
                             </div>
+                            <div class="flex items-center p-4 md:p-5">
+                                <button data-modal-hide="static-modal" type="button"
+                                class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-24 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">Support
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

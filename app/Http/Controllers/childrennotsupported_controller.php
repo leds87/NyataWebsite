@@ -28,7 +28,7 @@ class childrennotsupported_controller extends Controller
             $query->whereIn('location', $location);
         })
         ->get();
-        return view('adminpage.childrensupported', compact('data','uniqueschools','uniqueslocations'));
+        return view('adminpage.childrennotsupported', compact('data','uniqueschools','uniqueslocations'));
     }
 
 

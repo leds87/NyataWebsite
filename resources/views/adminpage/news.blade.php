@@ -3,8 +3,6 @@
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">
-
-
         <div class="content">
             <h1 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">News Overview</h1>
             <a href='inputnews' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input news</a>
@@ -36,8 +34,16 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['description']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['category']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['children_id']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">
-                                          <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td>
+                                        {{-- <td class="whitespace-nowrap px-6 py-4">
+                                          @php
+                                          $item2 = $datachildren->get($item['id']);
+                                          $item2 = $item2 ? $item2->only(['children_id', 'name']) : null;
+                                      @endphp
+                                            @if ($item2) {{ $item2->name }}
+                                        @else
+                                            Not found
+                                        @endif 
+                                          </td>--}}
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/newsedit/{{$item->id}}/edit">Edit</a> </button>
                                             <form action="{{route('destroynews',$item->id)}}" method="POST" class="inline-block">
@@ -56,7 +62,7 @@
                           </div>
                     </div>
                 </section>
-                </section>
+            </section>
         </div>
     </div>
 @endsection

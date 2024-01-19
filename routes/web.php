@@ -100,6 +100,7 @@ Route::get('/userpage', [dashboarduser_controller::class, 'index'])->middleware(
 Route::post('/childrensupportedfilter',[childrensupported_controller::class,'filter'])->name('childrensupported.filter')->middleware('auth:web,admin');
 Route::get('/childrensupported', [childrensupported_controller::class, 'index'])->middleware('auth:web,admin')->name('childrensupported');
 Route::get('/childrennotsupported', [childrennotsupported_controller::class, 'index'])->middleware('auth:web,admin')->name('childrennotsupported');
+Route::post('/childrennotsupportedfilter',[childrennotsupported_controller::class,'filter'])->name('childrennotsupported.filter')->middleware('auth:web,admin');
 
 Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth:web,admin');
 

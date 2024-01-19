@@ -56,7 +56,6 @@
                         <select name="children_id" id="children_id" class="text-gray-400 font-normal focus:text-gray-700 w-full px-2 py-2 bg-gray-200 focus:bg-white border-none">
                             @foreach ($data as $child)
                                 <option value="{{ $child->id }}">{{ $child->name }}</option>
-
                             @endforeach
                             <option value="all">All</option>
                         </select>

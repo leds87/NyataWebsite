@@ -7,7 +7,7 @@
             <h1 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Support More Child Overview</h1>
 
-            <form action="{{ route('childrensupported.filter') }}" method="POST">
+            <form action="{{ route('childrennotsupported.filter') }}" method="POST">
                 @csrf
                 <div class="grid grid-cols-4 grid-flow-col gap-2 pb-2">
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown5" data-dropdown-trigger="hover">

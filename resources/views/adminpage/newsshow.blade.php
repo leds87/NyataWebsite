@@ -28,7 +28,9 @@
                     </div>
                 </address>
                 <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl ">{{$datanews->title}}</h1>
-                <p class="">Children ID <span class=" bg-black text-white rounded-md px-2 py-2">{{$datanews->children_id}}</span> </p>
+                <p class="" >Children ID <span class=" bg-black text-white rounded-md px-2 py-2" >{{$datanews->children_id}}</span>
+                <p class="" >Children ID <span class=" bg-black text-white rounded-md px-2 py-2" >{{$datachildren->name}}</span>
+            </p>
             </header>
             <p class="border-4 border-gray-50 pb-10 mb-10">{{$datanews->description}}</p>
             

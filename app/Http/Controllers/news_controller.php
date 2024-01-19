@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\news;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class news_controller extends Controller
@@ -12,8 +13,10 @@ class news_controller extends Controller
     public function index()
     {
         $datanews = news::get();
-        return view('adminpage.news',compact('datanews'));
-        return view('adminpage.userpage',compact('datanews'));
+        $datachildren = childrendata::get();
+        $mergeddata = new Collection([$datanews,$datachildren]);
+        return view('adminpage.news',compact('datanews','datachildren'));
+        // return view('adminpage.news', ['mergeddata'=>$mergeddata]);
     }
 
     public function store(Request $request)
@@ -41,8 +44,10 @@ class news_controller extends Controller
     public function show($id)
     {
         $datanews = news::find($id);
+        $datachildren = childrendata::find($id);
         return view('adminpage.newsshow', [
             'datanews' => $datanews,
+            'datachildren' => $datachildren,
         ]);
     }
 
