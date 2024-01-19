@@ -160,8 +160,8 @@
                             "/>
                         </div> --}}
                              <div> <!-- Upload Image -->
-                            <label class="block mb-2 text-sm font-medium text-gray-900" for="image">Upload file</label>
-                            <input name="Image" id="Image" type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
+                            <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file</label>
+                            <input name="Images" id="Images" type="file" multiple class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
                     </div>
                     </div>
                         

@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class image extends Model
 {
-    use HasFactory;
+    protected $guarded=['children_id'];
+    protected $table='images';
+
+        // Define a many-to-one relationship with childrendata
+        public function child()
+        {
+            return $this->belongsTo(childrendata::class);
+        }
 }

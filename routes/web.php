@@ -121,7 +121,7 @@ Route::put('/useredit/{id}',[userdata_controller::class,'update'])->middleware('
 Route::get('/usershow', [userdata_controller::class, 'showdata'])->middleware('auth:web,admin');
 
 Route::get('/inputadmin', function () { return view('adminpage.inputadmin'); })->name('inputadmin');
-Route::post('/inputadmin', [admindata_controller::class, 'store'])->middleware('auth:web,admin');
+Route::post('/inputadmin', [admindata_controller::class, 'store']);
 Route::delete('/destroyadmin/{id}',[admindata_controller::class,'destroy'])->name('destroyadmin');
 Route::get('/adminedit/{id}/edit',[admindata_controller::class,'edit'])->name('adminedit');
 Route::put('/adminedit/{id}',[admindata_controller::class,'update'])->middleware('auth:web,admin');

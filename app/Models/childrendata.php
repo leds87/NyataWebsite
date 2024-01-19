@@ -13,6 +13,11 @@ class childrendata extends Model
     protected $table='childrendata';
     public $timestamps=false;
 
+    public function images()
+    {
+        return $this->hasMany(image::class);
+    }
+    
     protected static function boot()
     {
         parent::boot();
