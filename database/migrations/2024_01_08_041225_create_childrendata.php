@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('status');
             $table->string('image')->nullable();
-            $table->string('support by')->nullable();
+            $table->foreignId('support_by')->nullable();
+            $table->foreign('support_by')->references('id')->on('userdata')->onDelete('SET NULL'); 
         });
     }
 

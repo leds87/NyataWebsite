@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class childrennotsupported_controller extends Controller
 {
     public function index(){
-        $data=childrendata::all();
+        $data = childrendata::where('support_by','!=',Auth::id())->orWhereNull('support_by','')->get();
         $uniqueschools = array_unique(array_column($data->toArray(), 'school'));
         $uniqueslocations = array_unique(array_column($data->toArray(), 'location'));
         return view('adminpage.childrennotsupported',compact('data','uniqueschools','uniqueslocations'));

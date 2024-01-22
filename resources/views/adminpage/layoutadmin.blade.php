@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
         background-color: red;
         color: #fff;
         padding-top: 20px;
-        height: 680px;
+        height: 700px;
         position: fixed;
         top: 200px;
         left: 50px;
@@ -62,31 +63,65 @@
 </style>
 
 <div class="sidebar">
-    <div class="bg-slate-500 px-2 py-1">
-        <p class="normal-case tracking-wide">@auth  Welcome back, <span class="capitalize">{{auth()->user()->name}}</span>!@endauth</p>
-        <p class="normal-case tracking-wide">@auth  Current Role: <span class="capitalize bg-black/80 px-1 py-1 rounded-xl">{{auth()->user()->role}}</span>@endauth</p>
+    @if (auth()->user()->log == 'admin')
+        <div class="bg-slate-500 px-2 py-1">
+            @auth
+                <p class="normal-case tracking-wide"> Welcome back, <span
+                        class="capitalize">{{ auth()->user()->name }}</span>!
+                </p>
+                <p class="normal-case tracking-wide"> Current Role: <span
+                        class="capitalize bg-black/80 px-1 py-1 rounded-xl">{{ auth()->user()->role }}</span>
+                </p>
+                <p class="normal-case tracking-wide mt-2"> Log as:
+                    <span class="capitalize bg-green-500 px-1 py-1 rounded-lg ">
+                        {{ auth()->user()->log }}
+                    </span>
+                </p>
+            </div>
+            @if (auth()->user()->role === 'Super')
+                <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
+                <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
+                <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
+                <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
+                <a href='adminlog' class="p-4 block hover:bg-gray-600">Log</a>
+                <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
+                <a href='news' class="p-4 block hover:bg-gray-600">News</a>
+                <a href='userpage' class="p-4 block hover:bg-gray-600">Dashboard User</a>
+                <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
+                <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a>
+            @elseif(auth()->user()->role === 'Admin')
+                <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
+                <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
+                <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
+            @endif
+        @endauth
+    @else
+        <div class="bg-slate-500 px-2 py-1">
+            @auth
+                <p class="normal-case tracking-wide"> Welcome back, <span
+                        class="capitalize">{{ auth()->user()->name }}</span>!
+                </p>
+                <p class="normal-case tracking-wide"> Current tier: <span
+                        class="capitalize bg-black/80 px-1 py-1 rounded-xl">{{ auth()->user()->tier }}</span>
+                </p>
+                <p class="normal-case tracking-wide mt-2"> Log as:
+                    <span class="capitalize px-1 py-1 rounded-xl bg-red-500 ">
+                        {{ auth()->user()->log }}
+                    </span>
+                </p>
+            </div>
+            <a href='userpage' class="p-4 block hover:bg-gray-600">Dashboard User</a>
+            <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
+            <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
+            <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a>
+            <a href='#' class="p-4 block hover:bg-gray-600">Contact Admin</a>
+        @endif
+        @endif
+        <form id="logout-form" method="POST" action="/logout" role="">
+            @csrf
+            <a href="#" onclick="document.getElementById('logout-form').submit()"
+                class="p-4 block hover:bg-gray-600">Logout</a>
+        </form>
     </div>
-    @auth 
-    @if(auth()->user()->role === 'Super')
-    <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
-    <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
-    <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
-    <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
-    <a href='adminlog' class="p-4 block hover:bg-gray-600">Log</a>
-    <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
-    <a href='news' class="p-4 block hover:bg-gray-600">News</a>
-    <a href='userpage' class="p-4 block hover:bg-gray-600">Dashboard User</a>
-    <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
-    <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a>
-    @elseif(auth()->user()->role === 'Admin')
-    <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
-    <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
-    <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
-    @endif
-    @endauth
-    <form id="logout-form" method="POST" action="/logout" role="">
-        @csrf
-        <a href="#" onclick="document.getElementById('logout-form').submit()" class="p-4 block hover:bg-gray-600">Logout</a>
-    </form>
-</div>
-</html>
+
+    </html>

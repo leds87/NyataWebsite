@@ -82,7 +82,7 @@
                 <div class="inline-grid lg:grid-cols-4 gap-10 sm:grid-cols-1 sm:gap-4 ml-5">
                     @foreach ($data as $items)
                         <div>
-                            <!-- Modal toggle --><button data-modal-target="static-modal" data-modal-toggle="static-modal"
+                            <!-- Modal toggle --><button data-modal-target="static-modal_{{$items->id}}" data-modal-toggle="static-modal_{{$items->id}}"
                                 class="" type="button">
                                 <div
                                     class="sm:ml-1 lg:ml-3 max-w-xl h-auto my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
@@ -146,7 +146,8 @@
         </div>
     </div>
     <!-- Main modal -->
-    <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+    @foreach ($data as $items)
+    <div id="static-modal_{{$items->id}}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
@@ -158,7 +159,7 @@
                     </h3>
                     <button type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="static-modal">
+                        data-modal-hide="static-modal_{{$items->id}}">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -204,11 +205,12 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="static-modal" type="button"
+                    <button data-modal-hide="static-modal_{{$items->id}}" type="button"
                         class="text-white mx-auto bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">Support This Children</button>
-                    {{-- <button data-modal-hide="static-modal" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button> --}}
+                    {{-- <button data-modal-hide="static-modal_{{$items->id}}" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button> --}}
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
 @endsection

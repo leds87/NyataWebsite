@@ -17,16 +17,27 @@
                     <div>
                         <p class="text-black font-semibold">{{auth()->user()->name}}</p>
                         <p class="text-black">{{auth()->user()->email}}</p>
+                        <p class="text-black uppercase text-center">{{auth()->user()->log}}</p>
                     </div>
                     <a href="/useredit/{{ auth()->user()->id }}/edit">
                         <button class="bg-black px-5 py-5 text-white">Edit</button>
                     </a>
                 </div>
+
             </div>
             <div class="flex">
             <div class="mx-auto  shadow-lg text-left w-1/3 pt-3 mb-5 pl-5 ">
                 <div class="text-2xl text-black font-bold ">Details </div>
                     <div class="my-2 border-2 border-gray-300"></div>
+                    @auth
+                    @if(auth()->user()->log == 'admin')
+                    <h1 class="text-sm text-black mb-2">Name : <span class="text-lg">{{auth()->user()->name}}</span></h1>
+                    <h1 class="text-sm text-black mb-2">address : <span class="text-lg">{{auth()->user()->address}}</span></h1>
+                    <h1 class="text-sm text-black mb-2">email : <span class="text-lg">{{auth()->user()->email}}</span></h1>
+                    <h1 class="text-sm text-black mb-2">phone : <span class="text-lg">{{auth()->user()->phone}}</span></h1>
+                    <h1 class="text-sm text-black mb-2">tier : <span class="text-lg">{{auth()->user()->role}}</span></h1>
+                    <h1 class="text-sm text-black mb-2">note : <span class="text-lg">{{auth()->user()->note}}</span></h1>
+                    @else
                     <h1 class="text-sm text-black mb-2">Name : <span class="text-lg">{{auth()->user()->name}}</span></h1>
                     <h1 class="text-sm text-black mb-2">address : <span class="text-lg">{{auth()->user()->address}}</span></h1>
                     <h1 class="text-sm text-black mb-2">email : <span class="text-lg">{{auth()->user()->email}}</span></h1>
@@ -35,6 +46,8 @@
                     <h1 class="text-sm text-black mb-2">note : <span class="text-lg">{{auth()->user()->note}}</span></h1>
                     <h1 class="text-sm text-black mb-2">since : <span class="text-lg">{{auth()->user()->since}}</span></h1>
                     <h1 class="text-sm text-black mb-2">status : <span class="text-lg">{{auth()->user()->status}}</span></h1>
+                    @endauth
+                    @endif
             </div>
         </div>
 

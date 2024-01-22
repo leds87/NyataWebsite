@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\userdata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class userdata_controller extends Controller
 {
@@ -29,6 +30,8 @@ public function store(Request $request)
             'status'=> 'required',
         ]
         );
+        $data['log'] = 'user';
+        $data['password'] = Hash::make($data['password']);
         userdata::create($data);
         return redirect('/adminpage')->with("success","Your Data Has Been Input!");
 }
@@ -59,7 +62,7 @@ public function destroy($id)
         $data->since = $request->since;
         $data->status = $request->status;
     
-
+        $data['password'] = Hash::make($data['password']);
         $data->save();
         return redirect('adminpage')->with("success","Data Updated");
         

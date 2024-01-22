@@ -30,6 +30,7 @@ class admindata_controller extends Controller
                 'note' => 'required',
             ]
         );
+        $validatedData['log'] = 'admin';
         $validatedData['password'] = Hash::make($validatedData['password']);
         admindata::create($validatedData);
         return redirect()->route('login')->with("success", "Your Data Has Been Input!");
@@ -87,19 +88,20 @@ class admindata_controller extends Controller
             'email.required' => 'Email wajib diisi!',
             'password.required' => 'Password wajib diisi',
         ]);
+
         $infologin = [
             'email' => $request->email,
             'password' => $request->password,
         ];
-                    //  dd($infologin);
-                    //  guard('user')->
-        if (Auth()->guard('web')->attempt($infologin)) {
 
+        if (Auth::guard('admin')->attempt($infologin)) {
+            $request->session()->regenerate();
             return redirect()->intended('/adminpage')->with("sukses", "Berhasil Login!");
         } 
-        elseif (Auth()->guard('admin')->attempt($infologin)) 
+        if (Auth::guard('user')->attempt($infologin)) 
         {
-            return redirect()->intended('/adminpage')->with("sukses", "Berhasil Login!");
+            $request->session()->regenerate();
+            return redirect()->intended('/userpage')->with("sukses", "Berhasil Login!");
         }
         return redirect()->route('login')->with("gagal", 'Username/Password salah');
     }

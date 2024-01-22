@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\image;
+use App\Models\userdata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -79,7 +80,7 @@ class childrendata_controller extends Controller
             }
         }
 
-        return redirect('/adminpage')->with("success", "Your Data Has Been Input!");
+        return redirect('/childrenshow')->with("success", "Your Data Has Been Input!");
     }
 
     public function showdata()
@@ -107,15 +108,20 @@ class childrendata_controller extends Controller
         $data->story = $request->story;
         $data->description = $request->description;
         $data->status = $request->status;
-
         $data->save();
+        $data->update([
+            'support_by' => $request->input('support_by'),
+        ]);
+        
         return redirect('childrenshow')->with("success", "Data Updated");
     }
     public function edit($id)
     {
         $data = childrendata::find($id);
+        $datauser = userdata::all();
         return view('adminpage.childrenedit', [
             'data' => $data,
+            'datauser' => $datauser,
         ]);
     }
 }

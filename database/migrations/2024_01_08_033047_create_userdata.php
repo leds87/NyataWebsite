@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('note');
             $table->date('since');
             $table->string('status')->nullable();
+            $table->string('log');
+            $table->foreignId('children_id')->nullable();
         });
     }
 

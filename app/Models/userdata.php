@@ -14,6 +14,10 @@ class userdata extends Authenticatable
     protected $table='userdata';
     public $timestamps=false;
 
+    public function childrens()
+    {
+        return $this->belongsTo(childrendata::class);
+    }
     protected static function boot()
     {
         parent::boot();

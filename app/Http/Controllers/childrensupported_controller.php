@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class childrensupported_controller extends Controller
 {
+
+
     public function filter (Request $request){
         $data=childrendata::all();
         $school = $request->input('school_filters', []);
@@ -26,10 +29,12 @@ class childrensupported_controller extends Controller
     }
 
     public function index(){
-        $data=childrendata::all();
+        $data = childrendata::where('support_by', Auth::id())->get();
         $uniqueschools = array_unique(array_column($data->toArray(), 'school'));
         $uniqueslocations = array_unique(array_column($data->toArray(), 'location'));
         // $uniqueslocations =$data->pluck('location')->unique()->values()->all();
-        return view('adminpage.childrensupported', compact('data','uniqueschools','uniqueslocations'));
+        $child = childrendata::findOrFail(Auth::id());
+        $supportby= $child->users;
+        return view('adminpage.childrensupported', compact('data','uniqueschools','uniqueslocations','supportby'));
     }
 }

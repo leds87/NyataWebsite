@@ -22,6 +22,7 @@ return new class extends Migration
             $table->bigInteger('phone');
             $table->string('role');
             $table->string('note');
+            $table->string('log');
         });
     }
 

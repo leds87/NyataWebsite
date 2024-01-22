@@ -4,7 +4,8 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
-            <h1 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+            <h1
+                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Children Supported Overview</h1>
 
             <form action="{{ route('childrensupported.filter') }}" method="POST">
@@ -76,13 +77,11 @@
                 </div>
             </form>
 
-
-
             <section class="bg-[#f8f5f2] py-4">
                 <div class="inline-grid lg:grid-cols-4 gap-10 sm:grid-cols-1 sm:gap-4 ml-5">
                     @foreach ($data as $items)
                         <div>
-                            <!-- Modal toggle --><button data-modal-target="static-modal" data-modal-toggle="static-modal"
+                            <!-- Modal toggle --><button data-modal-target="static-modal{{$items->id}}" data-modal-toggle="static-modal{{$items->id}}"
                                 class="" type="button">
                                 <div
                                     class="sm:ml-1 lg:ml-3 max-w-xl h-auto my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
@@ -109,19 +108,17 @@
                                                 {{ $items['location'] }}
                                             </p>
                                             <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
-                                                {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
-                                            </svg> --}}
                                                 Age {{ $items['age'] }}
                                             </p>
                                         </div>
                                         <div class="flex">
                                             <div>
-                                                <p class="mb-3 text-left font-normal text-gray-800">Description {{ $items['description'] }}</p>
-                                                <p class="mb-3 text-left font-normal text-gray-800">Story {{ $items['story'] }}</p>
-                                                <p class="mb-3 text-left font-normal text-gray-800">Status {{ $items['status'] }}</p>
+                                                <p class="mb-3 text-left font-normal text-gray-800">Description
+                                                    {{ $items['description'] }}</p>
+                                                <p class="mb-3 text-left font-normal text-gray-800">Story
+                                                    {{ $items['story'] }}</p>
+                                                <p class="mb-3 text-left font-normal text-gray-800">Status
+                                                    {{ $items['status'] }}</p>
                                             </div>
                                             <div class="justify-items-center ml-10 ">
                                                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -146,7 +143,8 @@
         </div>
     </div>
     <!-- Main modal -->
-    <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+    @foreach ($data as $items)
+    <div id="static-modal{{$items->id}}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
@@ -158,7 +156,7 @@
                     </h3>
                     <button type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="static-modal">
+                        data-modal-hide="static-modal{{$items->id}}">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -204,12 +202,13 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="static-modal" type="button"
+                    <button data-modal-hide="static-modal{{$items->id}}" type="button"
                         class="text-white mx-auto bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">Support
                         / Not Support</button>
-                    {{-- <button data-modal-hide="static-modal" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button> --}}
+                    {{-- <button data-modal-hide="static-modal{{$items->id}}" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button> --}}
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
 @endsection

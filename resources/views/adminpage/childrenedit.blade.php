@@ -75,7 +75,6 @@
                         <select
                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="status" name="status" >
-
                             <option>Active</option>
                             <option>Educated</option>
                             <option>Success</option>
@@ -86,7 +85,22 @@
                             </svg>
                         </div>
                     </div>
-
+                    <div class="relative">
+                        <label for="projectdesc" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">support_by</label>
+                        <select
+                            class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="support_by" name="support_by" >
+                            @foreach($datauser as $du)
+                            <option value="{{$du->id}}">{{$du->name}}</option>
+                            @endforeach
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                        </div>
+                    </div>
+                    
                     <div class="flex">
                         <button type="submit"
                         class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">

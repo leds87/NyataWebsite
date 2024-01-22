@@ -28,6 +28,7 @@
                                         <th scope="col" class="px-6 py-4">story</th>
                                         <th scope="col" class="px-6 py-4">Description</th>
                                         <th scope="col" class="px-6 py-4">Status</th>
+                                        <th scope="col" class="px-6 py-4">SupportBy</th>
                                         <th scope="col" class="px-6 py-4">Photo</th>
                                       </tr>
                                     </thead>
@@ -42,6 +43,7 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['story']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['description']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$item['support_by']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <img src="{{ asset('storage/children-images' . $item->path) }}" alt="{{ $item->name }} Image">
 
