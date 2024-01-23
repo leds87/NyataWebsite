@@ -5,6 +5,7 @@ use App\Http\Controllers\adminlog_controller;
 use App\Http\Controllers\childrendata_controller;
 use App\Http\Controllers\childrennotsupported_controller;
 use App\Http\Controllers\childrensupported_controller;
+use App\Http\Controllers\contactadmin_controller;
 use App\Http\Controllers\dashboard_controller;
 use App\Http\Controllers\dashboarduser_controller;
 use Illuminate\Support\Facades\Route;
@@ -103,6 +104,8 @@ Route::post('/childrennotsupportedfilter',[childrennotsupported_controller::clas
 
 Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth:user,admin');
 
+Route::get('/contactadmin', [contactadmin_controller::class, 'index'])->middleware('auth:user,admin');
+Route::post('/contactadmin',[contactadmin_controller::class,'store'])->middleware('auth:user,admin');
 
 Route::get('/news', [news_controller::class, 'index'])->middleware('auth:user,admin');
 // Route::get('/inputnews', function () { return view('adminpage.inputnews'); })->name('inputnews')->middleware('auth:user,admin');
@@ -126,6 +129,7 @@ Route::delete('/destroyadmin/{id}',[admindata_controller::class,'destroy'])->nam
 Route::get('/adminedit/{id}/edit',[admindata_controller::class,'edit'])->name('adminedit');
 Route::put('/adminedit/{id}',[admindata_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/adminshow', [admindata_controller::class, 'showdata'])->name('adminshow')->middleware('auth:user,admin');
+
 Route::get('/inputschool', function () { return view('adminpage.inputschool'); })->name('inputschool');
 Route::post('/inputschool', [schooldata_controller::class, 'store'])->middleware('auth:user,admin');
 Route::delete('/destroyschool/{id}',[schooldata_controller::class,'destroy'])->name('destroyschool')->middleware('auth:user,admin');
@@ -133,14 +137,14 @@ Route::get('/schooledit/{id}/edit',[schooldata_controller::class,'edit'])->name(
 Route::put('/schooledit/{id}',[schooldata_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/schoolshow', [schooldata_controller::class, 'showdata'])->middleware('auth:user,admin');
 
-
-Route::get('/inputchildren', function () { return view('adminpage.inputchildren'); })->name('inputchildren');
+Route::get('/inputchildren', [childrendata_controller::class, 'getstore'])->middleware('auth:user,admin')->name('inputchildren');
 Route::post('/inputchildren', [childrendata_controller::class, 'store'])->middleware('auth:user,admin');
 Route::delete('/childrendestroy/{id}',[childrendata_controller::class,'destroy'])->name('childrendestroy')->middleware('auth:user,admin');
 Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit');
 Route::put('/childrenedit/{id}',[childrendata_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/childrenshow', [childrendata_controller::class, 'showdata'])->middleware('auth:user,admin');
-
+Route::put('/childrenupdatesupport/{id}',[childrendata_controller::class,'updatesupport'])->middleware('auth:user,admin')->name('updatesupport');
+Route::put('/childrenupdateunsupport/{id}',[childrendata_controller::class,'updateunsupport'])->middleware('auth:user,admin')->name('updateunsupport');
 
 Route::get('/nyataadmin',[admindata_controller::class, 'index']);
 Route::post('/nyataadmin',[admindata_controller::class, 'login'])->name('login');
@@ -148,7 +152,6 @@ Route::post('/logout',[admindata_controller::class, 'logout']);
 
 Route::get('/log', [LogController::class, 'index'])->name('log')->middleware('auth:user,admin');
 Route::get('/adminlog', [adminlog_controller::class, 'index'])->name('adminlog')->middleware('auth:user,admin');
-
 
 
 Route::get('/school', function () {

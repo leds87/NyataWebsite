@@ -24,7 +24,7 @@ class admin extends Seeder
                 'phone' => '088484',
                 'role' => 'Super',
                 'note' => '-',
-                'log' => 'Admin',
+                'log' => 'admin'
             ]);
         });
     }

@@ -7,6 +7,7 @@ use App\Models\childrendata;
 use App\Models\news;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class news_controller extends Controller
 {
@@ -27,7 +28,7 @@ class news_controller extends Controller
                 'date'=> 'required',
                 'description' => 'required',
                 'category'=> 'required',
-                'children_id'=> 'required',
+                'children_id'=> 'max:100',
             ]
             );
             news::create($data);

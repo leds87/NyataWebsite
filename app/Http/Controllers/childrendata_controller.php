@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\image;
+use App\Models\schooldata;
 use App\Models\userdata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class childrendata_controller extends Controller
@@ -89,6 +91,12 @@ class childrendata_controller extends Controller
         return view('adminpage.childrenshow', ['data' => $data]);
     }
 
+    public function getstore()
+    {
+        $dataschool = schooldata::all();
+        return view('adminpage.inputchildren',compact('dataschool'));
+    }
+
 
     public function destroy($id)
     {
@@ -115,13 +123,32 @@ class childrendata_controller extends Controller
         
         return redirect('childrenshow')->with("success", "Data Updated");
     }
+
+
+    public function updatesupport($id)
+    {
+        $data = childrendata::find($id);
+        $data->support_by = Auth::id();
+        $data->save();
+        return redirect('childrensupported')->with("success", "Data Updated");
+    }
+
+    public function updateunsupport($id)
+    {
+        $data = childrendata::find($id);
+        $data->support_by = null;
+        $data->save();
+        return redirect('childrensupported')->with("success", "Data Updated");
+    }
     public function edit($id)
     {
         $data = childrendata::find($id);
         $datauser = userdata::all();
+        $dataschool = schooldata::all();
         return view('adminpage.childrenedit', [
             'data' => $data,
             'datauser' => $datauser,
+            'dataschool' => $dataschool,
         ]);
     }
 }

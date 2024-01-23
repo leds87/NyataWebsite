@@ -17,16 +17,35 @@ class school extends Seeder
     {
         schooldata::create(
             [
-                'name' => 'user',
-                'email' => 'user@mail.com',
-                'password' => bcrypt('user'),
+                'school_name' => 'school1',
+                'location' => 'Bandung',
                 'address' => '-',
-                'phone' => '0818445',
-                'tier' => 'Loyal',
-                'note' => '-',
-                'since' => '2024-01-01',
-                'status' => 'active',
-                'log' => 'User',
+                'children' => '100',
+                'status' => 'Active'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'school2',
+                'location' => 'Bandung',
+                'address' => '-',
+                'children' => '150',
+                'status' => 'Inactive'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'school3',
+                'location' => 'Jakarta',
+                'address' => '-',
+                'children' => '150',
+                'status' => 'Active'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'school4',
+                'location' => 'Jakarta',
+                'address' => '-',
+                'children' => '150',
+                'status' => 'Inactive'
             ]);
     }
 }

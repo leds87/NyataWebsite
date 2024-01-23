@@ -64,7 +64,7 @@ public function destroy($id)
     
         $data['password'] = Hash::make($data['password']);
         $data->save();
-        return redirect('adminpage')->with("success","Data Updated");
+        return redirect('profile')->with("success","Data Updated");
         
 
 

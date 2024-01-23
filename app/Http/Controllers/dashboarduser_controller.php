@@ -7,45 +7,40 @@ use App\Models\news;
 use App\Models\userdata;
 use App\Models\schooldata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class dashboarduser_controller extends Controller
 {
     public function index (){
-        $activeschool = schooldata::where('status', 'active')->count();
-        $inactiveschool = schooldata::where('status', 'inactive')->count();
-        $activechildren = childrendata::where('status', 'active')->count();
-        $educatedchildren = childrendata::where('status', 'educated')->count();
-        $successchildren = childrendata::where('status', 'success')->count();
-        $activeusers = userdata::where('status', 'active')->count();
-        $inactiveusers = userdata::where('status', 'inactive')->count();
-        $postponeusers = userdata::where('status', 'postpone')->count();
-        $datanews = news::get();
+
+        // $successchildren = childrendata::where('status', 'success')->count();
+
+        //NEWS FILTER ONLY BY CHILD SUPPORT ID
+        $datachildrenfilter =childrendata::where('support_by',Auth::id())->get(); //GET CHILDREN DATA BY SUPPORT SAME AS SUPPORTED CHILDREN
+        $filter = [];
+        foreach ($datachildrenfilter as $child) {
+            $filter[] = $child->id;
+        }
+        $idfilter = implode(",", $filter); // EVERY ID THAT SUPPORTED SAVE IN ID FILTER result-> 1,4 but doesnt recongnize, 
+        $data1 = news::where('children_id',$idfilter)->get(); // CALL CHILD ID THAT SUPPOORTED
+        $datanull = news::WhereNull('children_id','')->get(); // CALL NEWS THAT FOR ALL/NULL
+
+        
+        $undersupportchild = count($filter);
+        
+        // for ($i = 0; $i < $undersupportchild; $i++){
+        //     $dataloop[i] = a;
+        // }
+        
+        $data3 = [];
+        $data3 = $datanull->merge($data1) ;
+        $datanews = $data3; // MERGE DATA!!
+
+        // dd($idfilter);
+
         $datachildren = childrendata::get();
-        // $postponeusers = userdata::where('status', 'postpone')->count();
-
-        return view('adminpage.userpage', [
-
-            'usercount' => $activeusers + $inactiveusers + $postponeusers,
-            'activeusers' => $activeusers,
-            'inactiveusers' => $inactiveusers,
-            'postponeusers' => $postponeusers,
-
-            'schoolcount' => $activeschool + $inactiveschool,
-            'activeschool' => $activeschool,
-            'inactiveschool' => $inactiveschool,
-            
-            'childrencount' => $activechildren + $educatedchildren + $successchildren,
-            'activechildren' => $activechildren,
-            'educatedchildren' => $educatedchildren,
-            'successchildren' => $successchildren,
-            'datanews' => $datanews,
-            'datachildren' => $datachildren,
-
-        ]);
+        return view('adminpage.userpage', compact('datanews','datachildren','undersupportchild')
+    );
     }
-
-
-
-
-
 }
+

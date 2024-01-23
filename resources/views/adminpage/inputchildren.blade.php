@@ -3,7 +3,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
     <div class="bg-white py-20">
-        <style>
+        {{-- <style>
             body {
                 margin: 0;
                 font-family: 'Arial', sans-serif;
@@ -64,7 +64,7 @@
             <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
             <a href='log' class="p-4 block hover:bg-gray-600">Log</a>
             <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
-        </div>
+        </div> --}}
 
         <div class="content">
             <h1
@@ -87,9 +87,13 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             school
                         </label>
-                        <input
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="school" name="school" type="school" placeholder="School Name">
+                        <select
+                            class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="school" name="school">
+                            @foreach ($dataschool as $du)
+                                <option value="{{ $du->id }}">{{ $du->school_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -123,34 +127,36 @@
                             id="story" name="story" type="text" placeholder="desc/note personal">
                     </div>
                 </div>
-                    <div class="w-full flex flex-wrap px-3 -mx-3 mb-6">
-                        <label for="projectdesc" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description</label>
-                        <textarea id="description" name="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Project Details..."></textarea>
+                <div class="w-full flex flex-wrap px-3 -mx-3 mb-6">
+                    <label for="projectdesc"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description</label>
+                    <textarea id="description" name="description"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        placeholder="Project Details..."></textarea>
+                </div>
+                <div class="relative">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                        Status
+                    </label>
+                    <select
+                        class="block mb-5 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="status" name="status">
+                        <option>Active</option>
+                        <option>Educated</option>
+                        <option>Success</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
                     </div>
-                    <div class="relative">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                            Status
-                        </label>
-                        <select
-                            class="block mb-5 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="status" name="status">
-                            <option>Active</option>
-                            <option>Educated</option>
-                            <option>Success</option>
-                        </select>
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
-                        </div>
-                    </div>
-                    
-                    <div class="relative">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                            Status
-                        </label>
-                        {{-- <div class="">
+                </div>
+
+                <div class="relative">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                        Status
+                    </label>
+                    {{-- <div class="">
                             <input type="file" id="Images" name="Images" class=" mx-auto text-center  w-full text-sm text-slate-500
                             file:mr-4 file:py-2 file:px-4
                             file:rounded-full file:border-0
@@ -159,17 +165,18 @@
                             hover:file:bg-violet-100
                             "/>
                         </div> --}}
-                             <div> <!-- Upload Image -->
-                            <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file</label>
-                            <input name="Images" id="Images" type="file" multiple class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
+                    <div> <!-- Upload Image -->
+                        <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file</label>
+                        <input name="Images" id="Images" type="file" multiple
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
                     </div>
-                    </div>
-                        
-                    <div class="flex">
-                        <button type="submit"
+                </div>
+
+                <div class="flex">
+                    <button type="submit"
                         class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Submit</button>
-                    </div>
+                </div>
             </form>
         </div>
     </div>

@@ -1,5 +1,5 @@
 @extends('layout.default')
-@extends('adminpage.layoutadmin')
+{{-- @extends('adminpage.layoutadmin') --}}
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
@@ -28,9 +28,14 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             school
                         </label>
-                        <input
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="school" name="school" type="school" placeholder="School Name"value="{{$data->school}}">
+                        <select
+                            class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="school" name="school" >
+                            <option value=""></option>
+                            @foreach($dataschool as $du)
+                            <option value="{{$du->school_name}}">{{$du->school_name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -90,6 +95,7 @@
                         <select
                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="support_by" name="support_by" >
+                            <option value=""></option>
                             @foreach($datauser as $du)
                             <option value="{{$du->id}}">{{$du->name}}</option>
                             @endforeach

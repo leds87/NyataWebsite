@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('description');
             $table->string('category');
-            $table->string('children_id');
+            $table->string('children_id')->nullable();
         });
     }
 

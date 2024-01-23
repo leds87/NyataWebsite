@@ -31,6 +31,7 @@
                     <div class="my-2 border-2 border-gray-300"></div>
                     @auth
                     @if(auth()->user()->log == 'admin')
+                    <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{auth()->user()->id}}</span></h1>
                     <h1 class="text-sm text-black mb-2">Name : <span class="text-lg">{{auth()->user()->name}}</span></h1>
                     <h1 class="text-sm text-black mb-2">address : <span class="text-lg">{{auth()->user()->address}}</span></h1>
                     <h1 class="text-sm text-black mb-2">email : <span class="text-lg">{{auth()->user()->email}}</span></h1>
@@ -38,6 +39,7 @@
                     <h1 class="text-sm text-black mb-2">tier : <span class="text-lg">{{auth()->user()->role}}</span></h1>
                     <h1 class="text-sm text-black mb-2">note : <span class="text-lg">{{auth()->user()->note}}</span></h1>
                     @else
+                    <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{auth()->user()->id}}</span></h1>
                     <h1 class="text-sm text-black mb-2">Name : <span class="text-lg">{{auth()->user()->name}}</span></h1>
                     <h1 class="text-sm text-black mb-2">address : <span class="text-lg">{{auth()->user()->address}}</span></h1>
                     <h1 class="text-sm text-black mb-2">email : <span class="text-lg">{{auth()->user()->email}}</span></h1>

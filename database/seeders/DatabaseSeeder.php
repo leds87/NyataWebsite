@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             admin::class,
-            adminuser::class,
+            user::class,
             children::class,
+            school::class
         ]);
     }
 }

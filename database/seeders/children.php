@@ -18,9 +18,42 @@ class children extends Seeder
     {
         childrendata::create(
             [
+                'name' => 'child1',
+                'school' => '-',
+                'location' => 'Bandung',
+                'age' => '2',
+                'story' => '-',
+                'description' => '-',
+                'status' => 'Active',
+            ],
+        );
+        childrendata::create(
+            [
+                'name' => 'child2',
+                'school' => '-',
+                'location' => 'Bandung',
+                'age' => '2',
+                'story' => '-',
+                'description' => '-',
+                'status' => 'Educated',
+            ],
+        );
+        childrendata::create(
+            [
                 'name' => 'child3',
                 'school' => '-',
-                'location' => '-',
+                'location' => 'Jakarta',
+                'age' => '2',
+                'story' => '-',
+                'description' => '-',
+                'status' => 'Success',
+            ],
+        );
+        childrendata::create(
+            [
+                'name' => 'child4',
+                'school' => '-',
+                'location' => 'Jakarta',
                 'age' => '2',
                 'story' => '-',
                 'description' => '-',

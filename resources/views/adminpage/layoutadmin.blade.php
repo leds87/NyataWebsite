@@ -86,7 +86,6 @@
                 <a href='adminlog' class="p-4 block hover:bg-gray-600">Log</a>
                 <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
                 <a href='news' class="p-4 block hover:bg-gray-600">News</a>
-                <a href='userpage' class="p-4 block hover:bg-gray-600">Dashboard User</a>
                 <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
                 <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a>
             @elseif(auth()->user()->role === 'Admin')
@@ -112,9 +111,8 @@
             </div>
             <a href='userpage' class="p-4 block hover:bg-gray-600">Dashboard User</a>
             <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
-            <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
             <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a>
-            <a href='#' class="p-4 block hover:bg-gray-600">Contact Admin</a>
+            <a href='contactadmin' class="p-4 block hover:bg-gray-600">Contact Admin</a>
         @endif
         @endif
         <form id="logout-form" method="POST" action="/logout" role="">

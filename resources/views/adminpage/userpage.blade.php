@@ -132,9 +132,9 @@
                     <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                                <p>Under Support Child :
+                                <p>Under Support Child : {{ $undersupportchild }}
                                 </p>
-                                <p>Graduated Child :{{ $successchildren }} </p>
+                                <p>Graduated Child : </p>
                             </span>
                         </div>
                     </div>

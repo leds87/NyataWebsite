@@ -33,9 +33,8 @@ class childrendata extends Model
             $currentDate = now()->format('j F Y');
             $logData = [
                 'date' => $currentDate,
-                // 'id' => Auth::id(),
                 'typelog' => 'Children',
-                'personid' => Auth::id(),
+                'personid' => (Auth::id() ? : 'null'),
                 'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$children->name : 'unknown created a record'),
             ];
             adminlog::create($logData);
@@ -47,7 +46,6 @@ class childrendata extends Model
             $modifiedAttributes2 = $children->getDirty(); //get value of 
             $logData = [
                 'date' => $currentDate,
-                // 'id' => Auth::id(),
                 'typelog' => 'Children',
                 'personid' => Auth::id(),
                 'description' => (Auth::user()->name.' '.'updated a record of '.$children->name.' '.
@@ -56,18 +54,10 @@ class childrendata extends Model
             ];
             adminlog::create($logData);
         });
-                // 'admin_id' => Auth::id(),
-                // 'name' => (Auth::user() ? Auth::user()->name: 'unknown'),
-                // 'log_id' => $currentDate.'_'.uniqid(),
-                // 'action' => (Auth::user() ? Auth::user()->name . ' updated a record' : 'unknown updated a record'),
-                // 'data' => json_encode($modifiedAttributes),  
-                // 'data' => json_encode($admin->only(['name', 'address', 'phone','role','note'])),  
-
         static::deleted(function ($children) {
             $currentDate = now()->format('j F Y');
             $logData = [
                 'date' => $currentDate,
-                // 'id' => Auth::id(),
                 'typelog' => 'Children',
                 'personid' => Auth::id(),
                 'description' => (Auth::user()->name.' '.'deleted a record of '.$children->name),
