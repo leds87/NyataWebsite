@@ -15,39 +15,21 @@ class adminuser extends Seeder
      */
     public function run()
     {
-        userdata::create(
-        [
-            'name' => 'user1',
-            'email' => 'user1@mail.com',
-            'password' => bcrypt('user1'),
-            'address' => '-',
-            'phone' => '0818445',
-            'tier' => 'Loyal',
-            'note' => '-',
-            'since' => '01-01-2024',
-            'status' => 'active',
-        ],
-        [
-            'name' => 'user2',
-            'email' => 'user2@mail.com',
-            'password' => bcrypt('user2'),
-            'address' => '-',
-            'phone' => '0818445',
-            'tier' => 'Loyal',
-            'note' => '-',
-            'since' => '01-01-2024',
-            'status' => 'active',
-        ],
-        [
-            'name' => 'user3',
-            'email' => 'user3@mail.com',
-            'password' => bcrypt('user3'),
-            'address' => '-',
-            'phone' => '0818445',
-            'tier' => 'Loyal',
-            'note' => '-',
-            'since' => '01-01-2024',
-            'status' => 'active',
-        ]);
-    }
+        userdata::withoutEvents(function () {
+            userdata::create(
+                [
+                    'name' => 'user',
+                    'email' => 'user@mail.com',
+                    'password' => bcrypt('user'),
+                    'address' => '-',
+                    'phone' => '0818445',
+                    'tier' => 'Loyal',
+                    'note' => '-',
+                    'since' => '2024-01-01',
+                    'status' => 'active',
+                    'log' => 'User',
+                ]);
+            });
+            }
+        
 }

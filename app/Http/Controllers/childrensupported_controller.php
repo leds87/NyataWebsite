@@ -30,11 +30,12 @@ class childrensupported_controller extends Controller
 
     public function index(){
         $data = childrendata::where('support_by', Auth::id())->get();
+        // $data=childrendata::all();
         $uniqueschools = array_unique(array_column($data->toArray(), 'school'));
         $uniqueslocations = array_unique(array_column($data->toArray(), 'location'));
         // $uniqueslocations =$data->pluck('location')->unique()->values()->all();
-        $child = childrendata::findOrFail(Auth::id());
-        $supportby= $child->users;
-        return view('adminpage.childrensupported', compact('data','uniqueschools','uniqueslocations','supportby'));
+        // $child = childrendata::findOrFail(Auth::id());
+        // $supportby= $child->users;
+        return view('adminpage.childrensupported', compact('data','uniqueschools','uniqueslocations'));
     }
 }

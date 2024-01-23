@@ -25,10 +25,10 @@ return new class extends Migration
             $table->date('since');
             $table->string('status')->nullable();
             $table->string('log');
-            $table->foreignId('children_id')->nullable();
+
         });
     }
-
+            // $table->foreignId('children_id')->nullable();
     /**
      * Reverse the migrations.
      *

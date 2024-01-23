@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('status');
             $table->string('image')->nullable();
             $table->foreignId('support_by')->nullable();
-            $table->foreign('support_by')->references('id')->on('userdata')->onDelete('SET NULL'); 
+            // $table->foreign('support_by')->references('id')->on('userdata')->onDelete('SET NULL'); 
         });
     }
 
