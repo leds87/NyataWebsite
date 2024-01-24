@@ -134,7 +134,7 @@
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
                                 <p>Under Support Child : {{ $undersupportchild }}
                                 </p>
-                                <p>Graduated Child : </p>
+                                <p>Graduated Child : {{$graduatedchild}} </p>
                             </span>
                         </div>
                     </div>

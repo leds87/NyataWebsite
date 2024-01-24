@@ -30,11 +30,12 @@
                         </label>
                         <select
                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="school" name="school" >
-                            <option value=""></option>
+                            id="school" name="school" place >
+                            {{-- <option value="{{$data->school}}">{{$data->school}}</option> --}}
                             @foreach($dataschool as $du)
                             <option value="{{$du->school_name}}">{{$du->school_name}}</option>
                             @endforeach
+                            <option value="">null</option>
                         </select>
                     </div>
                 </div>
@@ -90,7 +91,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="relative">
+                    {{-- <div class="relative">
                         <label for="projectdesc" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">support_by</label>
                         <select
                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -105,7 +106,7 @@
                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                             </svg>
                         </div>
-                    </div>
+                    </div> --}}
                     
                     <div class="flex">
                         <button type="submit"

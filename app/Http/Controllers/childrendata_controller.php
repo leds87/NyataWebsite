@@ -15,35 +15,15 @@ class childrendata_controller extends Controller
 {
     public function store(Request $request)
     {
-        // $data = $request->validate(
-        //     [
-        //         'name' => 'required|max:100',
-        //         'school' => 'required',
-        //         'location' => 'required',
-        //         'age' => 'required',
-        //         'story' => 'required',
-        //         'description' => 'required',
-        //         'status' => 'required',
-        //         'Images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     ]
-        // );
-        // if ($request->hasFile('Images')) {
-        //     // put image in the public storage
-        //     $filePath = Storage::disk('public')->put('children-images', request()->file('Images'));
-        //     $data['Images'] = $filePath;
-        // }
-        //      childrendata::create($data);
-             
-        // return redirect('/adminpage')->with("success", "Your Data Has Been Input!");
         $data = $request->validate([
-                'name' => 'required|max:100',
-                'school' => 'required',
-                'location' => 'required',
-                'age' => 'required',
-                'story' => 'required',
-                'description' => 'required',
-                'status' => 'required',
-                'Images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required|max:100',
+            'school' => 'required',
+            'location' => 'required',
+            'age' => 'required',
+            'story' => 'required',
+            'description' => 'required',
+            'status' => 'required',
+            'Images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         // Create the child without images
         $child = childrendata::create([
@@ -55,33 +35,20 @@ class childrendata_controller extends Controller
             'description' => $data['description'],
             'status' => $data['status'],
         ]);
-        
+
         // Upload and associate multiple images
         if ($request->hasFile('Images')) {
             foreach ($request->file('Images') as $image) {
                 $filename = date('Y-m-d') . $image->getClientOriginalName();
                 $path = $image->storeAs('children-images', $filename, 'public');
-                // Create image record in the database
 
-                  // Create image record in the database
-        $childImage = image::create([
-            'children_id' => $child->id,
-            'filename' => $filename,
-            'path' => $path, // Assuming you have the child ID
-        ]);
-        
-         // Associate the image with the child
-         $child->images()->save($childImage);
-
-        // Associate the image with the child
-        $child->images()->save($childImage);
+                // Associate the image with the child
                 $child->images()->create([
                     'filename' => $filename,
                     'path' => $path,
                 ]);
             }
         }
-
         return redirect('/childrenshow')->with("success", "Your Data Has Been Input!");
     }
 
@@ -94,7 +61,7 @@ class childrendata_controller extends Controller
     public function getstore()
     {
         $dataschool = schooldata::all();
-        return view('adminpage.inputchildren',compact('dataschool'));
+        return view('adminpage.inputchildren', compact('dataschool'));
     }
 
 
@@ -120,7 +87,7 @@ class childrendata_controller extends Controller
         $data->update([
             'support_by' => $request->input('support_by'),
         ]);
-        
+
         return redirect('childrenshow')->with("success", "Data Updated");
     }
 
@@ -128,16 +95,29 @@ class childrendata_controller extends Controller
     public function updatesupport($id)
     {
         $data = childrendata::find($id);
-        $data->support_by = Auth::id();
-        $data->save();
+        // $data->support_by = Auth::id();
+        // $data->save();
+
+        // Many to Many
+        $data->users()->create([
+            'user_id' => Auth::id(),
+            ]
+        );
+
         return redirect('childrensupported')->with("success", "Data Updated");
     }
 
     public function updateunsupport($id)
     {
         $data = childrendata::find($id);
-        $data->support_by = null;
-        $data->save();
+        // $data->support_by = null;
+        // $data->save();
+
+        // Many to Many
+        $data->users()->delete([
+            'user_id' => null,
+        ]);
+
         return redirect('childrensupported')->with("success", "Data Updated");
     }
     public function edit($id)

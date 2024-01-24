@@ -57,7 +57,7 @@ class children extends Seeder
                 'age' => '2',
                 'story' => '-',
                 'description' => '-',
-                'status' => 'Active',
+                'status' => 'Success',
             ],
         );
     }

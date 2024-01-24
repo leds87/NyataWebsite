@@ -153,21 +153,10 @@
                 </div>
 
                 <div class="relative">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                        Status
-                    </label>
-                    {{-- <div class="">
-                            <input type="file" id="Images" name="Images" class=" mx-auto text-center  w-full text-sm text-slate-500
-                            file:mr-4 file:py-2 file:px-4
-                            file:rounded-full file:border-0
-                            file:text-sm file:font-semibold
-                            file:bg-violet-50 file:text-violet-700
-                            hover:file:bg-violet-100
-                            "/>
-                        </div> --}}
+                    <
                     <div> <!-- Upload Image -->
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file</label>
-                        <input name="Images" id="Images" type="file" multiple
+                        <input name="Images[]" id="Images[]" type="file" multiple
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
                     </div>
                 </div>

@@ -25,7 +25,7 @@ class news extends Model
                 // 'id' => Auth::id(),
                 'typelog' => 'News',
                 'personid' => Auth::id(),
-                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$news->title : 'unknown created a record'),
+                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$news->title : 'DB seeder created a record'),
             ];
             adminlog::create($logData);
         });

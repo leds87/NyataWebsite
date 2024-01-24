@@ -121,8 +121,16 @@
                                                     {{ $items['status'] }}</p>
                                             </div>
                                             <div class="justify-items-center ml-10 ">
-                                                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                    alt="" srcset="" class="w-20">
+                                                @if ($items->images->isNotEmpty())
+                                                <div class="image-container inline-flex mx-4 mb-4">
+                                                    @php $firstImage = $items->images->first(); @endphp
+                                                    <img src="{{ asset('storage/children-images/' . $firstImage->filename) }}"
+                                                        alt="{{ $firstImage->filename }}"
+                                                        class="w-16 object-cover rounded-md">
+                                                </div>
+                                            @else
+                                                <p class="text-gray-400 dark:text-gray-600">No images available</p>
+                                            @endif   
                                             </div>
                                         </div>
                                         {{-- <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-800  rounded-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300  dark:focus:ring-blue-800">
@@ -194,9 +202,22 @@
                             <p class="mb-3 font-normal text-gray-800">Story {{ $items['story'] }}</p>
                             <p class="mb-3 font-normal text-gray-800">Status {{ $items['status'] }}</p>
                         </div>
-                        <div class="justify-items-center ml-10 bg-black">
-                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="" srcset="" class="w-36">
+                        <div class="justify-items-center ml-10 ">
+                            {{-- <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="" srcset="" class="w-36"> --}}
+                                @if ($items->images->isNotEmpty())
+                                <div class="image-container inline-flex mx-4 mb-4">
+                                    @foreach ($items->images as $image)
+                                        <img src="{{ asset('storage/children-images/' . $image->filename) }}"
+                                            alt="{{ $image->filename }}"
+                                            class="w-24 object-cover rounded-md">
+                                        <div class="mx-2"></div>
+                                    @endforeach
+                                </div>
+                            @else
+                                <p class="text-gray-400 dark:text-gray-600">No images available for this children
+                                </p>
+                            @endif                          
                         </div>
                     </div>
                 </div>

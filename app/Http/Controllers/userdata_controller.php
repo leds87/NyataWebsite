@@ -45,7 +45,7 @@ public function destroy($id)
     {
         $data = userdata::find($id);
         $data->delete();
-        return view('adminpage.usershow')->with("success","Data Deleted!");
+        return redirect('usershow')->with("success","Data Deleted!");
     }
 
     public function update(Request $request, $id)
@@ -55,14 +55,14 @@ public function destroy($id)
         $data->name = $request->name;
         $data->address = $request->address;
         $data->email = $request->email;
-        $data->password = $request->password;
+        // $data->password = $request->password;
         $data->phone = $request->phone;
         $data->tier = $request->tier;
         $data->note = $request->note;
         $data->since = $request->since;
         $data->status = $request->status;
     
-        $data['password'] = Hash::make($data['password']);
+        // $data['password'] = Hash::make($data['password']);
         $data->save();
         return redirect('profile')->with("success","Data Updated");
         

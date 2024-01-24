@@ -14,10 +14,11 @@ class userdata extends Authenticatable
     protected $table='userdata';
     public $timestamps=false;
 
-    public function childrens()
-    {
-        return $this->belongsTo(childrendata::class);
-    }
+    // public function childrens()
+    // {
+    //     return $this->belongsTo(childrendata::class);
+    // }
+    
     protected static function boot()
     {
         parent::boot();
@@ -29,7 +30,7 @@ class userdata extends Authenticatable
                 // 'id' => Auth::id(),
                 'typelog' => 'User',
                 'personid' => Auth::user()->id,
-                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$user->name : 'unknown created a record'),
+                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$user->name : 'DB Seeder created a record'),
             ];
             adminlog::create($logData);
         });

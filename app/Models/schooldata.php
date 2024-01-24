@@ -25,8 +25,8 @@ class schooldata extends Model
                 'date' => $currentDate,
                 // 'id' => Auth::id(),
                 'typelog' => 'School',
-                'personid' => (Auth::id() ? : 'null'),
-                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record on School '.$school->school_name : 'unknown created a record'),
+                'personid' => (Auth::id() ? : null),
+                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record on School '.$school->school_name : 'DB Seeder created a record'),
             ];
             adminlog::create($logData);
         });
@@ -39,7 +39,7 @@ class schooldata extends Model
                 'date' => $currentDate,
                 // 'id' => Auth::id(),
                 'typelog' => 'School',
-                'personid' => (Auth::id() ? : 'null'),
+                'personid' => (Auth::id() ? : null),
                 'description' => (Auth::user()->name.' '.'updated a record of '.$school->school_name.' '.
                 implode(', ', $modifiedAttributes).' '.'to'. ' '.
                 implode(', ', $modifiedAttributes2)),
@@ -52,7 +52,7 @@ class schooldata extends Model
                 'date' => $currentDate,
                 // 'id' => Auth::id(),
                 'typelog' => 'School',
-                'personid' => (Auth::id() ? : 'null'),
+                'personid' => (Auth::id() ? : null),
                 'description' => (Auth::user()->name.' '.'deleted a record of '.$school->school_name),
             ];
             adminlog::create($logData);

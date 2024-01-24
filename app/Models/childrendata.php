@@ -15,7 +15,7 @@ class childrendata extends Model
 
     public function users()
     {
-        return $this->hasMany(userdata::class);
+        return $this->hasMany(supportedchildren::class);
     }
 
     public function images()
@@ -34,8 +34,8 @@ class childrendata extends Model
             $logData = [
                 'date' => $currentDate,
                 'typelog' => 'Children',
-                'personid' => (Auth::id() ? : 'null'),
-                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$children->name : 'unknown created a record'),
+                'personid' => (Auth::id() ? : null),
+                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$children->name : 'DB Seeder created a record'),
             ];
             adminlog::create($logData);
         });

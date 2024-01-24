@@ -25,7 +25,7 @@ class admindata extends Authenticatable
                 'admin_id' => Auth::id(),
                 'name' => (Auth::user() ? Auth::user()->name: 'unknown'),
                 'log_id' => $currentDate.'_'.uniqid(),
-                'action' => (Auth::user() ? Auth::user()->name . '_created a record' : 'unknown_created a record'),
+                'action' => (Auth::user() ? Auth::user()->name . '_created a record' : 'DB Seeder create a record'),
                 'data' => json_encode($admin->only(['name', 'address', 'phone','role','note'])),  
             ];
             logdata::create($logData);

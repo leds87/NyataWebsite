@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->string('children_id')->nullable();
+            $table->string('childrendata_id')->nullable();
             $table->string('filename')->nullable();
             $table->timestamps();
         });

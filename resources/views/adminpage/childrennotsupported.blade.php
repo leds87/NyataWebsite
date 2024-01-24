@@ -128,18 +128,19 @@
                                                     {{ $items['status'] }}</p>
                                             </div>
                                             <div class="justify-items-center ml-10 ">
-                                                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                    alt="" srcset="" class="w-20">
+                                                @if ($items->images->isNotEmpty())
+                                                    <div class="image-container inline-flex mx-4 mb-4">
+                                                        @php $firstImage = $items->images->first(); @endphp
+                                                        <img src="{{ asset('storage/children-images/' . $firstImage->filename) }}"
+                                                            alt="{{ $firstImage->filename }}"
+                                                            class="w-16 object-cover rounded-md">
+                                                    </div>
+                                                @else
+                                                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                        class="w-16">
+                                                        @endif
                                             </div>
                                         </div>
-                                        {{-- <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-800  rounded-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300  dark:focus:ring-blue-800">
-                                        Read more
-                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                        </svg>
-                                    </a> --}}
                                     </div>
                                 </div>
                             </button>
@@ -201,9 +202,18 @@
                                 <p class="mb-3 font-normal text-gray-800">Story {{ $items['story'] }}</p>
                                 <p class="mb-3 font-normal text-gray-800">Status {{ $items['status'] }}</p>
                             </div>
-                            <div class="justify-items-center ml-10 bg-black">
-                                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                    alt="" srcset="" class="w-36">
+                            <div class="justify-items-center ml-10 ">
+                                @if ($items->images->isNotEmpty())
+                                    <div class="image-container inline-flex mx-4 mb-4">
+                                        @php $firstImage = $items->images->first(); @endphp
+                                        <img src="{{ asset('storage/children-images/' . $firstImage->filename) }}"
+                                            alt="{{ $firstImage->filename }}"
+                                            class="w-16 object-cover rounded-md">
+                                    </div>
+                                @else
+                                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        class="w-36">
+                                        @endif
                             </div>
                         </div>
                     </div>

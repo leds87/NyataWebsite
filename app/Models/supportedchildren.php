@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class logdata extends Model
+class supportedchildren extends Model
 {
     protected $guarded=['id'];
-    protected $table='logdata';
+    protected $table='supportedchildren';
     public $timestamps=false;
-
 }

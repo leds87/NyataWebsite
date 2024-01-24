@@ -8,11 +8,11 @@
         <div class="content">
             <h1 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">Children Overview</h1>
             <a href='/inputchildren' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input Children</a>
-            <section class=""> <!-- Contact Us-->
+            <h2 class="mb-4 text-4xl justify-center tracking-tight font-extrabold text-center text-gray-900 ">Children List</h2>
+            <section class=""> <!-- Contact Us lg:py-16 -->
                 <section class=" text-gray-900">
-                    <div class="py-8 lg:py-16 mx-auto lg:max-w-screen-lg md:max-w-screen-md">
-                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Children List</h2>
-            
+                    <div class="py-8 mx-24 lg:max-w-screen-2xl md:max-w-screen-md">
+                      
                         <div class="flex flex-col">
                             <div class="sm:-mx-6 lg:-mx-8">
                               <div class="inline-block  py-2 sm:px-6 lg:px-8">
@@ -29,7 +29,8 @@
                                         <th scope="col" class="px-6 py-4">Description</th>
                                         <th scope="col" class="px-6 py-4">Status</th>
                                         <th scope="col" class="px-6 py-4">SupportBy</th>
-                                        <th scope="col" class="px-6 py-4">Photo</th>
+                                        <th scope="col" class="px-24 py-4">Photo</th>
+                                        <th scope="col" class=" px-6 py-4">Action</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -45,10 +46,19 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['support_by']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
-                                          <img src="{{ asset('storage/children-images' . $item->path) }}" alt="{{ $item->name }} Image">
-
-                                          {{-- <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td> --}}
-                                          {{-- <img src="https://images.unsplash.com/photo-1682685797741-f0213d24418c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" srcset="" class="w-20"></td> --}}
+                                          @if ($item->images->isNotEmpty())
+                                          <div class="image-container inline-flex mx-4 mb-4">
+                                              @foreach ($item->images as $image)
+                                                  <img src="{{ asset('storage/children-images/' . $image->filename) }}"
+                                                      alt="{{ $image->filename }}"
+                                                      class="w-10 h-10 object-cover rounded-md">
+                                                  <div class="mx-2"></div>
+                                              @endforeach
+                                          </div>
+                                      @else
+                                          <p class="text-gray-400 dark:text-gray-600">No images available for this children
+                                          </p>
+                                      @endif
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/childrenedit/{{$item->id}}/edit">Edit</a> </button>
                                             <form action="/childrendestroy/{{$item->id}}" method="POST" class="inline-block">

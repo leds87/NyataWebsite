@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             admin::class,
             user::class,
             children::class,
-            school::class
+            school::class,
+            newsseed::class
         ]);
     }
 }

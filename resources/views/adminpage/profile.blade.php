@@ -1,32 +1,35 @@
 @extends('layout.default')
+@extends('adminpage.layoutadmin')
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
-    <div class="bg-white">
 
+
+<div class="bg-white py-20">
+        <div class="content">
         <div class=" py-9">
             <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Profile</h1>
         </div>
 
-
-            <div class="container  mx-auto mt-8 p-4  shadow-md rounded-md w-1/3 mb-4">
+            <div class=" mx-auto mt-8 p-4 shadow-md rounded-md w-1/3 mb-4 bg-zinc-100">
                 <h1 class="text-2xl text-black font-semibold mb-4">{{auth()->user()->name}}'s Profile</h1>
                 <div class="flex items-center space-x-4 mb-5">
                     <img src="" alt="User Avatar" class="w-12 h-12 rounded-full">
-                    <div>
-                        <p class="text-black font-semibold">{{auth()->user()->name}}</p>
-                        <p class="text-black">{{auth()->user()->email}}</p>
-                        <p class="text-black uppercase text-center">{{auth()->user()->log}}</p>
+                    <div class="mx-auto">
+                        <p class=" text-black font-semibold">{{auth()->user()->name}}</p>
+                        <p class=" text-black">{{auth()->user()->email}}</p>
+                        <p class=" text-black uppercase text-center">{{auth()->user()->log}}</p>
                     </div>
-                    <a href="/useredit/{{ auth()->user()->id }}/edit">
-                        <button class="bg-black px-5 py-5 text-white">Edit</button>
-                    </a>
+                    <div class="">
+                        <a href="/useredit/{{ auth()->user()->id }}/edit">
+                            <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>
+                        </a>
+                    </div>
                 </div>
-
             </div>
             <div class="flex">
-            <div class="mx-auto  shadow-lg text-left w-1/3 pt-3 mb-5 pl-5 ">
+            <div class="mx-auto shadow-lg text-left w-1/3 pt-3 mb-5 pl-5 ">
                 <div class="text-2xl text-black font-bold ">Details </div>
                     <div class="my-2 border-2 border-gray-300"></div>
                     @auth
@@ -52,6 +55,9 @@
                     @endif
             </div>
         </div>
+    </div>
+</div>
+
 
 {{-- <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white text-black antialiased">
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">

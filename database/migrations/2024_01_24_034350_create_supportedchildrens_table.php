@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contactadmin', function (Blueprint $table) {
-            $table->string('date');
+        Schema::create('supportedchildren', function (Blueprint $table) {
             $table->id();
-            $table->string('userid');
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('description');
+            $table->string('user_id')->nullable();
+            $table->string('childrendata_id')->nullable();
         });
     }
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contactadmins');
+        Schema::dropIfExists('supportedchildrens');
     }
 };
