@@ -33,7 +33,7 @@ class admindata_controller extends Controller
         $validatedData['log'] = 'admin';
         $validatedData['password'] = Hash::make($validatedData['password']);
         admindata::create($validatedData);
-        return redirect()->route('login')->with("success", "Your Data Has Been Input!");
+        return redirect()->route('adminshow')->with("success", "Your Data Has Been Input!");
     }
 
     public function showdata()

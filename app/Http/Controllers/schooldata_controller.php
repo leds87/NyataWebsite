@@ -32,7 +32,7 @@ class schooldata_controller extends Controller
     {
         $data = schooldata::find($id);
         $data->delete();
-        return view('adminpage.schoolshow')->with("success","Data Deleted!");
+        return redirect('schoolshow')->with("success","Data Deleted!");
     }
 
     public function update(Request $request, $id)

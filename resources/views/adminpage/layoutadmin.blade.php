@@ -83,7 +83,7 @@
                 <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
                 <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
                 <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
-                <a href='adminlog' class="p-4 block hover:bg-gray-600">Log</a>
+                <a href='adminlog' class="p-4 block hover:bg-gray-600">Admin Log</a>
                 <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
                 <a href='news' class="p-4 block hover:bg-gray-600">News</a>
                 <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
@@ -92,6 +92,7 @@
                 <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
                 <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>
                 <a href='usershow' class="p-4 block hover:bg-gray-600">User</a>
+                <a href='adminlog' class="p-4 block hover:bg-gray-600">UserLog</a>
             @endif
         @endauth
     @else

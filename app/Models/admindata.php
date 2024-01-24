@@ -20,16 +20,27 @@ class admindata extends Authenticatable
         // Listen for the created event and log the information
 
         static::created(function ($admin) {
-            $currentDate = now()->format('dmY');
+            $currentDate = now()->format('j F Y');
             $logData = [
-                'admin_id' => Auth::id(),
-                'name' => (Auth::user() ? Auth::user()->name: 'unknown'),
+                'admin_id' => (Auth::id() ? : null),
+                'name' => (Auth::user() ? Auth::user()->name : 'unknown'),
                 'log_id' => $currentDate.'_'.uniqid(),
                 'action' => (Auth::user() ? Auth::user()->name . '_created a record' : 'DB Seeder create a record'),
                 'data' => json_encode($admin->only(['name', 'address', 'phone','role','note'])),  
             ];
             logdata::create($logData);
         });
+
+        // static::created(function ($children) {
+        //     $currentDate = now()->format('j F Y');
+        //     $logData = [
+        //         'date' => $currentDate,
+        //         'typelog' => 'Children',
+        //         'personid' => (Auth::id() ? : null),
+        //         'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$children->name : 'DB Seeder created a record'),
+        //     ];
+        //     adminlog::create($logData);
+        // });
 
         static::updated(function ($admin) {
             $currentDate = now()->format('dmY');

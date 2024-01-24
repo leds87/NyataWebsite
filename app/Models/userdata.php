@@ -48,7 +48,7 @@ class userdata extends Authenticatable
                 implode(', ', $modifiedAttributes).' '.'to'. ' '.
                 implode(', ', $modifiedAttributes2)),
             ];
-            adminlog::create($logData);
+            userlog::create($logData);
         });
 
         static::deleted(function ($user) {

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('userlog', function (Blueprint $table) {
             $table->string('date',30);
             $table->id();
-            $table->string('typelog',10);
+            $table->string('typelog',255);
             $table->string('personid',4);
             $table->string('description',255);
         });
