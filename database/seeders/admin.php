@@ -26,6 +26,16 @@ class admin extends Seeder
                 'note' => '-',
                 'log' => 'admin'
             ]);
+            admindata::create([
+                'name' => 'admin',
+                'address' => '-',
+                'password' => bcrypt('admin'),
+                'email' => 'admin@mail.com',
+                'phone' => '088484',
+                'role' => 'Super',
+                'note' => '-',
+                'log' => 'admin'
+            ]);
         });
     }
 }

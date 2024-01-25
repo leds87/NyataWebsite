@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\admindata;
+use App\Models\adminlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -33,6 +34,31 @@ class admindata_controller extends Controller
         $validatedData['log'] = 'admin';
         $validatedData['password'] = Hash::make($validatedData['password']);
         admindata::create($validatedData);
+
+        // $auth = Auth::user();
+        // $authid = $auth->name;
+        // dd($authid);
+
+
+        //     //BECAUSE MODEL IS AUTHENTICABLE, SO NOW STORE LOG DATA STILL FROM CONTROLLER
+        //     $currentDate = now()->format('j F Y');
+        //     adminlog::create([
+        //         'date' => $currentDate,
+        //         'typelog' => 'Admin',
+        //         'personid' => Auth::user()->id ? : null,
+        //         'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$request->name : 'DB Seeder created a record'),
+        //     ]);
+
+
+            // $currentDate = now()->format('j F Y');
+            // $childrenname = $data->name;
+            //     userlog::create([
+            //         'date' => $currentDate,
+            //         'typelog' => 'Choose Child',
+            //         'personid' => Auth::id(),
+            //         'description' => (Auth::user()->name.' '.'unsupport children : '.$data->name),
+            //     ]);
+
         return redirect()->route('adminshow')->with("success", "Your Data Has Been Input!");
     }
 
@@ -59,7 +85,7 @@ class admindata_controller extends Controller
         $data = admindata::find($id);
 
         $data->name = $request->name;
-        $data->password = $request->password;
+        // $data->password = $request->password;
         $data->address = $request->address;
         $data->email = $request->email;
         $data->phone = $request->phone;

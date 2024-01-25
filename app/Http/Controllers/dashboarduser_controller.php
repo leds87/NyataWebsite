@@ -32,20 +32,19 @@ class dashboarduser_controller extends Controller
         }
         $data1 = news::whereIn('children_id',$filter)->get(); // CALL CHILD ID THAT SUPPOORTED
         $datanull = news::WhereNull('children_id','')->get(); // CALL NEWS THAT FOR ALL/NULL
+        $data3 = [];
+        $data3 = $datanull->merge($data1) ;
+        $datanews = $data3; // MERGE DATA!!
 
         
         //SUPPORTED KIDS
         $undersupportchild = count($child);// CALL SUPPORTED CHILD
-        $successchild =childrendata::where('support_by',Auth::id())->where('status','Success')->get(); //GET CHILDREN DATA BY SUPPORT SAME AS SUPPORTED CHILDREN
+        $successchild = childrendata::whereIn('id',$child)->where('status','Success')->get();//GET SUCCESS CHILD DATA
         $sc = [];
         foreach($successchild as $gc){
             $sc[] = $gc->id;
         }
         $graduatedchild = count($sc);
-
-        $data3 = [];
-        $data3 = $datanull->merge($data1) ;
-        $datanews = $data3; // MERGE DATA!!
 
         $datachildren = childrendata::get();
         

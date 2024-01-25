@@ -44,12 +44,9 @@ class schooldata_controller extends Controller
         $data->location = $request->location;
         $data->children = $request->children;
         $data->status = $request->status;
-    
 
         $data->save();
         return redirect('adminpage')->with("success","Data Updated");
-        
-
 
     }
     public function edit($id)

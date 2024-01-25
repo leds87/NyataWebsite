@@ -1,6 +1,6 @@
 @extends('layout.default')
-@extends('adminpage.layoutadmin')
-{{-- @section('title', __('AdminPage')) --}}
+{{-- @extends('adminpage.layoutadmin') --}}
+@section('title', __('AdminPage'))
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
     <div class="bg-white py-20">
@@ -12,7 +12,7 @@
                 @csrf
                 @method('PUT')
                 <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div class="w-full px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-first-name">
                             Name
@@ -22,7 +22,7 @@
                             id="name" name="name" type="text" value="{{ $data->name }}">
                         <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                     </div>
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    {{-- <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-first-name">
                             password
@@ -31,7 +31,7 @@
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                             id="password" name="password" type="text" value="{{ $data->password }}">
                         <p class="text-red-500 text-xs italic">Please fill out this field.</p>
-                    </div>
+                    </div> --}}
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             Email

@@ -39,16 +39,18 @@ class userdata extends Authenticatable
             $currentDate = now()->format('j F Y');
             $modifiedAttributes = array_keys($user->getDirty());
             $modifiedAttributes2 = $user->getDirty(); //get value of 
+
             $logData = [
                 'date' => $currentDate,
                 // 'id' => Auth::id(),
-                'typelog' => 'User',
+                'typelog' => 'Profile',
                 'personid' => Auth::id(),
-                'description' => (Auth::user()->name.' '.'updated a record of '.$user->name.' '.
+                'description' => (Auth::user()->name.' '.'edited a record '.
                 implode(', ', $modifiedAttributes).' '.'to'. ' '.
                 implode(', ', $modifiedAttributes2)),
             ];
             userlog::create($logData);
+            adminlog::create($logData);
         });
 
         static::deleted(function ($user) {

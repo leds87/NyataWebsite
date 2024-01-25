@@ -17,7 +17,7 @@ class newsseed extends Seeder
     {
         news::create(
             [
-                'title' => 'child1',
+                'title' => 'Child1',
                 'date' => '2024-01-01',
                 'description' => 'Child1',
                 'category' => 'Donation',

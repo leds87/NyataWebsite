@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\image;
 use App\Models\schooldata;
+use App\Models\supportedchildren;
 use App\Models\userdata;
+use App\Models\userlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -115,8 +117,17 @@ class childrendata_controller extends Controller
 
         // Many to Many
         $data->users()->delete([
-            'user_id' => null,
+            // 'user_id' => null,
         ]);
+            $currentDate = now()->format('j F Y');
+            $childrenname = $data->name;
+                userlog::create([
+                    'date' => $currentDate,
+                    'typelog' => 'Choose Child',
+                    'personid' => Auth::id(),
+                    'description' => (Auth::user()->name.' '.'unsupport children : '.$data->name),
+                ]);
+            
 
         return redirect('childrensupported')->with("success", "Data Updated");
     }

@@ -78,33 +78,4 @@ public function destroy($id)
         ]);
     }
     
-    // public function login(Request $request){
-      
-    //     $request->validate([
-    //         'email'=>'required',
-    //         'password'=>'required',
-    //     ], [
-    //         'email.required' => 'Email wajib diisi!',
-    //         'password.required' => 'Password wajib diisi',
-    //     ]);
-    //     $infologin = [
-    //         'email'=>$request->email,
-    //         'password'=>$request->password,
-    //     ];
-    //      if (Auth::attempt($infologin)) {
-    //         return redirect()->intended('/adminpage')->with("sukses","Berhasil Login!");
-    //     }
-    //     else{
-    //         return redirect()->route('login')->with("gagal", 'Username/Password salah');
-    //     }
-    // }
-    // public function logout(Request $request) 
-    // {
-    //     Auth::logout();
-    //     $request->session()->invalidate();
-    //     $request->session()->regenerateToken();
-    //     return redirect('/nyataadmin');
-    // }
-
-
 }

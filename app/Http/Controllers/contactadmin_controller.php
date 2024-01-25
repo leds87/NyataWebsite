@@ -23,6 +23,7 @@ class contactadmin_controller extends Controller
                 'name'=> 'required',
                 'email' => 'required',
                 'phone'=> 'required',
+                'subject'=> 'required',
                 'description'=> 'required',
             ]
             );
@@ -32,6 +33,7 @@ class contactadmin_controller extends Controller
                 'name'=>$data['name'],
                 'email' =>  $data['email'],
                 'phone'=>  $data['phone'],
+                'subject'=>  $data['subject'],
                 'description'=>  $data['description']
                 
                 ]

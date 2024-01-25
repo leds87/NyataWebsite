@@ -22,51 +22,41 @@ class admindata extends Authenticatable
         static::created(function ($admin) {
             $currentDate = now()->format('j F Y');
             $logData = [
-                'admin_id' => (Auth::id() ? : null),
-                'name' => (Auth::user() ? Auth::user()->name : 'unknown'),
-                'log_id' => $currentDate.'_'.uniqid(),
-                'action' => (Auth::user() ? Auth::user()->name . '_created a record' : 'DB Seeder create a record'),
-                'data' => json_encode($admin->only(['name', 'address', 'phone','role','note'])),  
+                'date' => $currentDate,
+                'typelog' => 'Admin',
+                'personid' => (Auth::id() ? : null),
+                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$admin->name : 'DB Seeder created a record'),
             ];
-            logdata::create($logData);
+            adminlog::create($logData);
         });
-
-        // static::created(function ($children) {
-        //     $currentDate = now()->format('j F Y');
-        //     $logData = [
-        //         'date' => $currentDate,
-        //         'typelog' => 'Children',
-        //         'personid' => (Auth::id() ? : null),
-        //         'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$children->name : 'DB Seeder created a record'),
-        //     ];
-        //     adminlog::create($logData);
-        // });
 
         static::updated(function ($admin) {
-            $currentDate = now()->format('dmY');
-            $modifiedAttributes = $admin->getDirty();
+            $currentDate = now()->format('j F Y');
+            $modifiedAttributes = array_keys($admin->getDirty());
+            $modifiedAttributes2 = $admin->getDirty(); //get value of 
             $logData = [
-                'admin_id' => Auth::id(),
-                'name' => (Auth::user() ? Auth::user()->name: 'unknown'),
-                'log_id' => $currentDate.'_'.uniqid(),
-                'action' => (Auth::user() ? Auth::user()->name . ' updated a record' : 'unknown updated a record'),
-                'data' => json_encode($modifiedAttributes),  
-                // 'data' => json_encode($admin->only(['name', 'address', 'phone','role','note'])),  
+                'date' => $currentDate,
+                'typelog' => 'Admin',
+                'personid' => Auth::id(),
+                'description' => (Auth::user()->name.' '.'updated a record of '.$admin->getOriginal('name').' '.
+                implode(', ', $modifiedAttributes).' '.'to'. ' '.
+                implode(', ', $modifiedAttributes2)),
             ];
-            logdata::create($logData);
+            adminlog::create($logData);
         });
 
+
         static::deleted(function ($admin) {
-            $currentDate = now()->format('dmY');
+            $currentDate = now()->format('j F Y');
             $logData = [
-                'admin_id' => Auth::id(),
-                'name' => (Auth::user() ? Auth::user()->name : 'unknown'),
-                'log_id' => $currentDate.'_'.uniqid(),
-                'action' => (Auth::user() ? Auth::user()->name . ' deleted a record' : 'unknown deleted a record'),
-                'data' => json_encode($admin->only(['name', 'address', 'phone','role','note'])),  
+                'date' => $currentDate,
+                'typelog' => 'Admin',
+                'personid' => Auth::id(),
+                'description' => (Auth::user()->name.' '.'deleted a record of '.$admin->name),
             ];
-            logdata::create($logData);
+            adminlog::create($logData);
         });
+
     }
     
 }

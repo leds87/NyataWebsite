@@ -47,7 +47,7 @@ class schooldata extends Model
             adminlog::create($logData);
         });
         static::deleted(function ($school) {
-            $currentDate = now()->format('dmY');
+            $currentDate = now()->format('j F Y');
             $logData = [
                 'date' => $currentDate,
                 // 'id' => Auth::id(),

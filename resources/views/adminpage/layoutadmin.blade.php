@@ -114,6 +114,7 @@
             <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
             <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a>
             <a href='contactadmin' class="p-4 block hover:bg-gray-600">Contact Admin</a>
+            <a href='userlog' class="p-4 block hover:bg-gray-600">User Log</a>
         @endif
         @endif
         <form id="logout-form" method="POST" action="/logout" role="">

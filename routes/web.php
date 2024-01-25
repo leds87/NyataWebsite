@@ -16,6 +16,7 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\news_controller;
 use App\Http\Controllers\schooldata_controller;
 use App\Http\Controllers\userdata_controller;
+use App\Http\Controllers\userlog_controller;
 use App\Models\admindata;
 use App\Models\news;
 use App\Models\userdata;
@@ -124,10 +125,10 @@ Route::put('/useredit/{id}',[userdata_controller::class,'update'])->middleware('
 Route::get('/usershow', [userdata_controller::class, 'showdata'])->middleware('auth:user,admin');
 
 Route::get('/inputadmin', function () { return view('adminpage.inputadmin'); })->name('inputadmin')->middleware('auth:admin');
-Route::post('/inputadmin', [admindata_controller::class, 'store']);
-Route::delete('/destroyadmin/{id}',[admindata_controller::class,'destroy'])->name('destroyadmin');
-Route::get('/adminedit/{id}/edit',[admindata_controller::class,'edit'])->name('adminedit');
-Route::put('/adminedit/{id}',[admindata_controller::class,'update'])->middleware('auth:user,admin');
+Route::post('/inputadmin', [admindata_controller::class, 'store'])->middleware('auth:admin');
+Route::delete('/destroyadmin/{id}',[admindata_controller::class,'destroy'])->name('destroyadmin')->middleware('auth:admin');
+Route::get('/adminedit/{id}/edit',[admindata_controller::class,'edit'])->name('adminedit')->middleware('auth:admin');
+Route::put('/adminedit/{id}',[admindata_controller::class,'update'])->middleware('auth:admin');
 Route::get('/adminshow', [admindata_controller::class, 'showdata'])->name('adminshow')->middleware('auth:user,admin');
 
 Route::get('/inputschool', function () { return view('adminpage.inputschool'); })->name('inputschool');
@@ -151,7 +152,8 @@ Route::post('/nyataadmin',[admindata_controller::class, 'login'])->name('login')
 Route::post('/logout',[admindata_controller::class, 'logout']);
 
 Route::get('/log', [LogController::class, 'index'])->name('log')->middleware('auth:user,admin');
-Route::get('/adminlog', [adminlog_controller::class, 'index'])->name('adminlog')->middleware('auth:user,admin');
+Route::get('/adminlog', [adminlog_controller::class, 'index'])->name('adminlog')->middleware('auth:admin');
+Route::get('/userlog', [userlog_controller::class, 'index'])->name('userlog')->middleware('auth:user');
 
 
 Route::get('/school', function () {
