@@ -1,70 +1,10 @@
 @extends('layout.default')
+@extends('adminpage.layoutadmin')
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
-    <div class="bg-white py-20">
-        <style>
-            body {
-                margin: 0;
-                font-family: 'Arial', sans-serif;
-                background-color: #f4f4f4;
-                display: block;
-            }
-
-            .sidebar {
-                width: 250px;
-                background-color: red;
-                color: #fff;
-                padding-top: 20px;
-                height: 300px;
-                position: fixed;
-                top: 200px;
-                left: 50px;
-                transition: width 0.3s;
-                border: rounded;
-                text-align: center;
-                border-style: solid;
-
-            }
-
-            .content {
-                margin-left: 400px;
-                padding: 20px;
-            }
-
-            .sidebar a {
-                padding: 15px;
-                text-decoration: none;
-                color: #fff;
-                display: block;
-                transition: background-color 0.3s;
-            }
-
-            .sidebar a:hover {
-                background-color: #555;
-            }
-
-            /* Adjustments for small screens */
-            @media (max-width: 768px) {
-                .sidebar {
-                    width: 0;
-                    display: none;
-                }
-
-                .content {
-                    margin-left: 0;
-                }
-            }
-        </style>
-
-        <div class="sidebar">
-            <a href='adminpage' class="p-4 block hover:bg-gray-600">Dashboard</a>
-            <a href='school' class="p-4 block hover:bg-gray-600">School</a>
-            <a href='children' class="p-4 block hover:bg-gray-600">Children</a>
-            <a href="#" class="p-4 block hover:bg-gray-600">User</a>
-            <a href='log' class="p-4 block hover:bg-gray-600">Log</a>
-        </div>
-
+  
+<div class="bg-white py-20">
         <div class="content">
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
@@ -72,7 +12,7 @@
             <form action="/inputusers" method="POST" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div class=" md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-first-name">
                             Name
@@ -82,7 +22,7 @@
                             id="name" name="name" type="text" placeholder="Jane">
                         <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                     </div>
-                    <div class="w-full md:w-1/2 px-3">
+                    <div class=" md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             Email
                         </label>
@@ -127,7 +67,7 @@
                 </div>
 
                 <div class="flex flex-wrap -mx-3 mb-2">
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
                             Tier
                         </label>
@@ -147,7 +87,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div class=" md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
                             Note
                         </label>
@@ -163,7 +103,7 @@
                             Since
                         </label>
                         <input datepicker datepicker-format="yyyy-mm-dd" type="text" id="since" name="since"
-                            class="bg-white border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-black border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Select date" autocomplete="off">
 
                     </div>
@@ -189,5 +129,5 @@
                 </div>
             </form>
         </div>
-    </div>
+</div>
 @endsection

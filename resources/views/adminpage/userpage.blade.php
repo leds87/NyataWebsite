@@ -47,7 +47,7 @@
 
                         <div class="w-1/4 flex flex-wrap ">
                             <div class="text-center">
-                                <a href='childrenshow' class="text-white text-md text-center  ">Details
+                                <a href='#' class="text-white text-md text-center  ">Details
                             </div>
                             <div class="pt-[1px] mx-auto ">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -117,7 +117,7 @@
 
                         <div class="w-1/4 flex flex-wrap ">
                             <div class="text-center">
-                                <a href='childrenshow' class="text-white text-md text-center  ">Details
+                                <a href='childrensupported' class="text-white text-md text-center  ">Details
                             </div>
                             <div class="pt-[1px] mx-auto ">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

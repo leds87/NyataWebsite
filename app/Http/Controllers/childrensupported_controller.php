@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\supportedchildren;
+use App\Models\userlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,15 +45,53 @@ class childrensupported_controller extends Controller
     public function index()
     {
         //CHILD HAS SUPPORT BY USER ID
-        $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
-        $child = [];
+        $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID FROM MANY TO MANY TABLE
+        $child = []; //GET ALL DATA, SAVE IN ONE ARRAY, DATA STILL FROM MANY TO MANY TABLE
         foreach ($datachildrenfilter as $dcf) {
             $child[] = $dcf->childrendata_id;
         }
-        $data = childrendata::whereIn('id', $child)->get(); //GETDATA CHILD
-        $uniqueschools = array_unique(array_column($data->toArray(), 'school'));
-        $uniqueslocations = array_unique(array_column($data->toArray(), 'location'));
+        $data = childrendata::whereIn('id', $child)->get(); //GETDATA ALL CHILD THAT SUPPORT BY ID 
+
+        $uniqueschools = array_unique(array_column($data->toArray(), 'school')); //TO SHOW What filter that can available for school filter.
+        $uniqueslocations = array_unique(array_column($data->toArray(), 'location')); //TO SHOW What filter that can available for location filter.
 
         return view('adminpage.childrensupported', compact('data', 'uniqueschools', 'uniqueslocations'));
+    }
+
+    public function updatesupport($id)
+    {
+        $data = childrendata::find($id);
+        // $data->support_by = Auth::id();
+        // $data->save();
+
+        // Many to Many
+        $data->users()->create([
+            'user_id' => Auth::id(),
+            ]
+        );
+
+        return redirect('childrensupported')->with("success", "Data Updated");
+    }
+
+    public function updateunsupport($id)
+    {
+        $data = childrendata::find($id);
+        // $data->support_by = null;
+        // $data->save();
+
+        // Many to Many
+        $data->users()->delete([
+            // 'user_id' => null,
+        ]);
+            $currentDate = now()->format('j F Y');
+                userlog::create([
+                    'date' => $currentDate,
+                    'typelog' => 'Choose Child',
+                    'personid' => Auth::id(),
+                    'description' => (Auth::user()->name.' '.'unsupport children : '.$data->name),
+                ]);
+            
+
+        return redirect('childrensupported')->with("Error", "Children ". $data->name . "not supported again..");
     }
 }

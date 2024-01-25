@@ -86,51 +86,11 @@ class childrendata_controller extends Controller
         $data->description = $request->description;
         $data->status = $request->status;
         $data->save();
-        $data->update([
-            'support_by' => $request->input('support_by'),
-        ]);
 
-        return redirect('childrenshow')->with("success", "Data Updated");
+        return redirect('adminpage')->with("success", "Data ".$data->name. ' has been updated.'.' ');
     }
 
 
-    public function updatesupport($id)
-    {
-        $data = childrendata::find($id);
-        // $data->support_by = Auth::id();
-        // $data->save();
-
-        // Many to Many
-        $data->users()->create([
-            'user_id' => Auth::id(),
-            ]
-        );
-
-        return redirect('childrensupported')->with("success", "Data Updated");
-    }
-
-    public function updateunsupport($id)
-    {
-        $data = childrendata::find($id);
-        // $data->support_by = null;
-        // $data->save();
-
-        // Many to Many
-        $data->users()->delete([
-            // 'user_id' => null,
-        ]);
-            $currentDate = now()->format('j F Y');
-            $childrenname = $data->name;
-                userlog::create([
-                    'date' => $currentDate,
-                    'typelog' => 'Choose Child',
-                    'personid' => Auth::id(),
-                    'description' => (Auth::user()->name.' '.'unsupport children : '.$data->name),
-                ]);
-            
-
-        return redirect('childrensupported')->with("success", "Data Updated");
-    }
     public function edit($id)
     {
         $data = childrendata::find($id);

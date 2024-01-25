@@ -33,7 +33,7 @@ public function store(Request $request)
         $data['log'] = 'user';
         $data['password'] = Hash::make($data['password']);
         userdata::create($data);
-        return redirect('/adminpage')->with("success","Your Data Has Been Input!");
+        return redirect('/adminpage')->with("success","Data ". $request->name. " Has been input." );
 }
 
 public function showdata(){

@@ -20,7 +20,7 @@
         background-color: red;
         color: #fff;
         padding-top: 20px;
-        height: 700px;
+        height: 600px;
         position: fixed;
         top: 200px;
         left: 50px;
@@ -87,7 +87,7 @@
                 <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
                 <a href='news' class="p-4 block hover:bg-gray-600">News</a>
                 <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
-                <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a>
+                {{-- <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a> --}}
             @elseif(auth()->user()->role === 'Admin')
                 <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a>
                 <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a>

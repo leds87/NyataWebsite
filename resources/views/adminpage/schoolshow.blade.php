@@ -42,7 +42,7 @@
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td>
                                         <td class="whitespace-nowrap px-6 py-4">
-                                          <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/schooledit/{{$item->id}}/edit">Edit</a> </button>
+                                          <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/schooledit%{{$item->id}}">Edit</a> </button>
                                             <form action="{{route('destroyschool',$item->id)}}" method="POST" class="inline-block">
                                               @csrf
                                               @method('DELETE')

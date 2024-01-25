@@ -42,7 +42,7 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['since']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
-                                          <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/useredit/{{$item->id}}/edit">Edit</a> </button>
+                                          <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/useredit%{{$item->id}}">Edit</a> </button>
                                             <form action="{{route('destroyuser',$item->id)}}" method="POST" class="inline-block">
                                               @csrf
                                               @method('DELETE')
