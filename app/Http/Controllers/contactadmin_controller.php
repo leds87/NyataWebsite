@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\contactadmin as contactadminmail;
 use App\Models\contactadmin;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class contactadmin_controller extends Controller
 {
@@ -38,6 +40,15 @@ class contactadmin_controller extends Controller
                 
                 ]
             );
+
+            $mailData = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone'=> $request->phone,
+                'subject'=> $request->subject,
+                'description'=> $request->description];
+                 Mail::to('raymondar80@gmail.com')->send(new contactadminmail($mailData));
+
             return redirect('/userpage')->with("success","Your Data Has Been Input!");
     }
 }

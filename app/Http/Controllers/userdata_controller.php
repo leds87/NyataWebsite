@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class userdata_controller extends Controller
 {
+
     public function index()
     {
         return view('adminpage.adminlogin');
@@ -77,5 +78,6 @@ public function destroy($id)
             'data'=>$data,
         ]);
     }
+
     
 }

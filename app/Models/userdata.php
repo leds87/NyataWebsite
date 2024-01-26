@@ -5,14 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 // use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 
 
 class userdata extends Authenticatable
 {
+
+    use Notifiable;
+
     protected $guarded=['id'];
     protected $table='userdata';
     public $timestamps=false;
+
 
     // public function childrens()
     // {

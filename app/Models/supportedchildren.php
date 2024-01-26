@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\Notifiable;
+
 
 class supportedchildren extends Model
 {
     protected $guarded=['id'];
     protected $table='supportedchildren';
     public $timestamps=false;
+
+    use Notifiable;
 
     
     protected static function boot()

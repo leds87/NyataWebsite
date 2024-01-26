@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\supportedchildren;
 use App\Models\userlog;
+use App\Notifications\NewNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class childrensupported_controller extends Controller
 {
@@ -65,12 +67,13 @@ class childrensupported_controller extends Controller
         // $data->save();
 
         // Many to Many
-        $data->users()->create([
-            'user_id' => Auth::id(),
+        $data->users()->create(
+            [
+                'user_id' => Auth::id(),
             ]
         );
 
-        return redirect('childrensupported')->with("success", "Data Updated");
+        return redirect('childrensupported')->with("success", 'Now you support ' . $data->name . ' ');
     }
 
     public function updateunsupport($id)
@@ -83,15 +86,19 @@ class childrensupported_controller extends Controller
         $data->users()->delete([
             // 'user_id' => null,
         ]);
-            $currentDate = now()->format('j F Y');
-                userlog::create([
-                    'date' => $currentDate,
-                    'typelog' => 'Choose Child',
-                    'personid' => Auth::id(),
-                    'description' => (Auth::user()->name.' '.'unsupport children : '.$data->name),
-                ]);
-            
+        $currentDate = now()->format('j F Y');
+        userlog::create([
+            'date' => $currentDate,
+            'typelog' => 'Choose Child',
+            'personid' => Auth::id(),
+            'description' => (Auth::user()->name . ' ' . 'unsupport children : ' . $data->name),
+        ]);
 
-        return redirect('childrensupported')->with("Error", "Children ". $data->name . "not supported again..");
+        $user = auth()->user(); // Assuming the user is authenticated
+        // $user->notify(new NewNotification());
+        Notification::send($user, new NewNotification());
+        //  return response()->json(['message' => 'Notification sent!']);
+        
+        return redirect('childrensupported')->with("Error", "Children " . $data->name . "not supported again..");
     }
 }

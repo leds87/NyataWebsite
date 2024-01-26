@@ -20,7 +20,7 @@
         background-color: red;
         color: #fff;
         padding-top: 20px;
-        height: 600px;
+        height: 650px;
         position: fixed;
         top: 200px;
         left: 50px;
@@ -86,6 +86,7 @@
                 <a href='adminlog' class="p-4 block hover:bg-gray-600">Admin Log</a>
                 <a href='adminshow' class="p-4 block hover:bg-gray-600">Admin</a>
                 <a href='news' class="p-4 block hover:bg-gray-600">News</a>
+                <a href='notification' class="p-4 block hover:bg-gray-600">Notification</a>
                 <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a>
                 {{-- <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a> --}}
             @elseif(auth()->user()->role === 'Admin')
@@ -115,6 +116,7 @@
             <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a>
             <a href='contactadmin' class="p-4 block hover:bg-gray-600">Contact Admin</a>
             <a href='userlog' class="p-4 block hover:bg-gray-600">User Log</a>
+            <a href='notificationusershow' class="p-4 block hover:bg-gray-600">Notification</a>
         @endif
         @endif
         <form id="logout-form" method="POST" action="/logout" role="">

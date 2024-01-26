@@ -14,6 +14,7 @@ use App\Http\Controllers\NyataController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\news_controller;
+use App\Http\Controllers\notification_controller;
 use App\Http\Controllers\schooldata_controller;
 use App\Http\Controllers\userdata_controller;
 use App\Http\Controllers\userlog_controller;
@@ -155,6 +156,15 @@ Route::get('/log', [LogController::class, 'index'])->name('log')->middleware('au
 Route::get('/adminlog', [adminlog_controller::class, 'index'])->name('adminlog')->middleware('auth:admin');
 Route::get('/userlog', [userlog_controller::class, 'index'])->name('userlog')->middleware('auth:user');
 
+
+Route::get('/notification', [notification_controller::class, 'index'])->middleware('auth:admin');
+Route::get('/notificationusershow', [notification_controller::class, 'notificationusershow'])->name('notificationusershow')->middleware('auth:user');
+Route::get('/inputnotification', [notification_controller::class, 'inputnotificationpage'])->middleware('auth:user,admin');
+Route::post('/inputnotification', [notification_controller::class, 'store'])->middleware('auth:user,admin');
+Route::delete('/destroynotification/{id}',[notification_controller::class,'destroy'])->name('destroynotification')->middleware('auth:user,admin');
+Route::get('/notificationedit%{id}',[notification_controller::class,'edit'])->name('notificationedit')->middleware('auth:user,admin');
+Route::put('/notificationedit/{id}',[notification_controller::class,'update'])->middleware('auth:user,admin');
+Route::get('/notificationshow/{title}', [notification_controller::class, 'show'])->middleware('auth:user,admin');
 
 Route::get('/school', function () {
     return view('adminpage.school');

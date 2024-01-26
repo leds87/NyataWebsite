@@ -100,10 +100,10 @@
                     <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                                <p>Name : {{ auth()->user()->name }} </p>
-                                <p>Address :{{ auth()->user()->address }} </p>
-                                <p>Contact No: {{ auth()->user()->phone }} </p>
-                                <p>Email : {{ auth()->user()->email }} </p>
+                                <p class="text-transform: capitalize">Name : {{ auth()->user()->name }} </p>
+                                <p class="text-transform: capitalize">Address : {{ auth()->user()->address }} </p>
+                                <p class="text-transform: capitalize">Contact No: {{ auth()->user()->phone }} </p>
+                                <p class="text-transform: none">Email : {{ auth()->user()->email }} </p>
                             </span>
                         </div>
                     </div>
