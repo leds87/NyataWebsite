@@ -76,7 +76,7 @@ class NewNotification extends Notification
     //    $child = toys::where('children_id', '1')->first(); // Fetching a single result
     //    $childName = $child ? $child->children->name : null; // Assuming there is a relationship
         return [
-            'message' => 'This is a new notification message that child play toys' . $child,
+            'message' => 'This is a new notification message that unsupported' . $child,
             // 'additionaldata' => 'name',
             // 'user' => $this->user,
             // 'data' => 'Notification Data You unsupport '

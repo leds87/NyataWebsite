@@ -14,7 +14,7 @@
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Notification List
                         </h2>
                         @foreach ($datanotification as $item)
-                            <div id="alert-additional-content-1"
+                            <div id="alert-additional-content-{{$item->id}}"
                                 class="p-4 mb-4 text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                                 role="alert">
                                 <div class="flex items-center">
@@ -23,12 +23,16 @@
                                         <path
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                     </svg>
-                                    <span class="sr-only">Info</span>
-                                    <h3 class="text-lg font-medium">This is a info alert</h3>
+                                    <span
+                                     class="sr-only">Info</span>
+                                    <h3 class="text-lg font-medium">A New Notification from {{ $item['from'] }} </h3>
                                 </div>
                                 <div class="mt-2 mb-4 text-sm">
-                                    More info about this info alert goes here. This example text is going to run a bit
-                                    longer so that you can see how spacing within an alert works with this kind of content.
+                                    <p class="">TITLE :{{ $item['title'] }}</p>
+                                    <p class="">DESCRIPTION : {{ $item['description'] }}</p>
+                                    <span class="font-medium">Date {{ $item['date'] }}</span>
+                                    <p class="">TO : {{ $item['to'] }}</p>
+
                                 </div>
                                 <div class="flex">
                                     <button type="button"
@@ -40,16 +44,20 @@
                                         </svg>
                                         View more
                                     </button>
-                                    <button type="button"
-                                        class="text-blue-800 bg-transparent border border-blue-800 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-blue-600 dark:border-blue-600 dark:text-blue-400 dark:hover:text-white dark:focus:ring-blue-800"
-                                        data-dismiss-target="#alert-additional-content-1" aria-label="Close">
-                                        Dismiss
-                                    </button>
+                                    {{-- <a href="/notifreadupdate/{{$item->id}}">AAAAAAAA</a> --}}
+
+                                    <form action="/notifreadupdate/{{$item->id}}" method="POST">
+                                        @csrf
+                                            <button type="submit"
+                                            class="text-blue-800 bg-transparent border border-blue-800 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-blue-600 dark:border-blue-600 dark:text-blue-400 dark:hover:text-white dark:focus:ring-blue-800"
+                                            aria-label="Close" data-dismiss-target="#alert-additional-content-{{$item->id}}">
+                                            Dismiss </button>
+                                </form>
                                 </div>
                             </div>
 
 
-                            <div class="flex items-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+                            {{-- <div class="flex items-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                                 role="alert">
                                 <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -65,14 +73,12 @@
                                     <p class="">TITLE :{{ $item['title'] }}</p>
                                     <p class="">DESCRIPTION : {{ $item['description'] }}</p>
                                 </div>
-                            </div>
+                            </div> --}}
                         @endforeach
                     </div>
                 </section>
             </section>
-            @foreach (Auth::user()->unreadnotifications as $notification)
-                {{-- <div class="text-black">
-                    {{ $notification->data['data'] }}</div> --}}
+            {{-- @foreach (Auth::user()->unreadnotifications as $notification) <!-- THIS IS FOR DEFAULT NOTIFICATION FROM LARAVEL -->
                 <div class="flex items-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                     role="alert">
                     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +97,7 @@
                       </form>
                     </div>
                 </div>
-            @endforeach
+            @endforeach --}}
         </div>
     </div>
 @endsection

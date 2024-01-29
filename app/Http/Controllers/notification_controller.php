@@ -16,12 +16,20 @@ use Illuminate\Notifications\Notifiable;
 class notification_controller extends Controller
 {
     public function notificationusershow(){
-        $datanotification = notification::where('to',Auth::user()->id)->paginate(10);
-        
-        $datauser = userdata::get();
-        // $notifications = Auth::user()->unreadNotifications;
+        $datanotification1 = notification::where('to',Auth::user()->id)->paginate(10);
+        $datanotification2 = notification::whereNull('to')->paginate(10);
 
+        $data3 = [];
+        $data3 = $datanotification1->merge($datanotification2) ;
+        $data4 = $data3; // MERGE DATA!!
+        $datanotification = $data4->where('read_at', null);
+
+
+        $datauser = userdata::get();
+        
+        // $notifications = Auth::user()->unreadNotifications;
         // return response()->json(['notifications' => $notifications]);
+
         return view('adminpage.notificationusershow', compact('datanotification','datauser'));
     }
 
@@ -47,6 +55,24 @@ class notification_controller extends Controller
             notification::create($data);
             return redirect('/adminpage')->with("success","Your Data Has Been Input!");
     }
+
+//     public function send($notifiable, Notification $notification)
+// {
+//     $data = $notification->toDatabase($notifiable);
+
+//     // Set custom message in another variable and unset it from the default array.
+//     $msg = $data['message_text'];
+//     unset($data['message_text']);
+
+//     // Create a DB row with our custom field message text and other data.
+//     return $notifiable->routeNotificationFor('database')->create([
+//         'message_text' => $msg, // <-- Your custom message
+//         'type' => get_class($notification),
+//         'data' => $data,
+//         'read_at' => null,
+//     ]);
+// }
+
 
     public function destroy($id)
     {
@@ -83,6 +109,16 @@ class notification_controller extends Controller
         $data->description = $request->description;
         $data->save();
         return redirect('adminpage')->with("success", "Data Notification" . $data->id . ' Updated');
+    }
+    public function updatereadnotification($id)
+    {
+        $currentDate = now()->format('Y-m-d H:i:s');
+        $notification = notification::find($id);
+        if ($notification && is_null($notification->read_at)) {
+
+            $notification->update(['read_at' => $currentDate]);
+        }
+        return back();
     }
     public function edit($id)
     {

@@ -167,6 +167,8 @@ Route::get('/notificationedit%{id}',[notification_controller::class,'edit'])->na
 Route::put('/notificationedit/{id}',[notification_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/notificationshow/{title}', [notification_controller::class, 'show'])->middleware('auth:user,admin');
 
+Route::post('/notifreadupdate/{id}',[notification_controller::class,'updatereadnotification'])->middleware('auth:user,admin');
+
 Route::get('/school', function () {
     return view('adminpage.school');
 })->name('school');

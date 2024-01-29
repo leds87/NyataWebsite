@@ -47,7 +47,7 @@
                                             <td class="whitespace-nowrap px-6 py-4">{{$item['title']}}</td>
                                             <td class="whitespace-nowrap px-6 py-4">{{$item['description']}}</td>
                                             <td class="whitespace-nowrap px-6 py-4">
-                                              <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/notificationedit%{{$item->id}}">Edit</a> </button>
+                                              {{-- <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/notificationedit%{{$item->id}}">Edit</a> </button> --}}
                                                 <form action="{{route('destroynotification',$item->id)}}" method="POST" class="inline-block">
                                                   @csrf
                                                   @method('DELETE')
