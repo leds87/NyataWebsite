@@ -95,9 +95,12 @@ class childrensupported_controller extends Controller
         ]);
 
         $user = auth()->user(); // Assuming the user is authenticated
-        // $user->notify(new NewNotification());
+        // $user->notify(new NewNotification($user));
+        $additionaldata = [
+            'date' => $currentDate,
+            'description' => (Auth::user()->name . ' ' . 'unsupport children' . $data->name),
+        ];
         Notification::send($user, new NewNotification());
-        //  return response()->json(['message' => 'Notification sent!']);
         
         return redirect('childrensupported')->with("Error", "Children " . $data->name . "not supported again..");
     }

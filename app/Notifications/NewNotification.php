@@ -13,6 +13,10 @@ class NewNotification extends Notification
     use Queueable;
 
 
+    // public $user;
+    // public $additionaldata;
+
+
     /**
      * Create a new notification instance.
      *
@@ -21,6 +25,8 @@ class NewNotification extends Notification
     public function __construct()
     {
     //    $user = $this->$user;
+    // $additionaldata = $this->$additionaldata;
+    
     }
 
     /**
@@ -57,19 +63,23 @@ class NewNotification extends Notification
     public function toArray($notifiable)
     {
         return [
+            // 'name' => $this->additionaldata->name,
             // 'name' => $this->user->name,
             // 'email' => $this->user->email,
         ];
     }
 
-    // In App\Notifications\NewNotification.php
 
     public function toDatabase($notifiable)
     {
-        $child = childrendata::where('children_id','1');
+       $child = childrendata::where('id','1')->value('name');
+    //    $child = toys::where('children_id', '1')->first(); // Fetching a single result
+    //    $childName = $child ? $child->children->name : null; // Assuming there is a relationship
         return [
-            'data' => 'Notification Data You unsupport '
-            // 'message' => 'This is a new notification message.',
+            'message' => 'This is a new notification message that child play toys' . $child,
+            // 'additionaldata' => 'name',
+            // 'user' => $this->user,
+            // 'data' => 'Notification Data You unsupport '
         ];
     }
 }

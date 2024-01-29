@@ -7,19 +7,24 @@ use App\Models\admindata;
 use App\Models\childrendata;
 use App\Models\notification;
 use App\Models\userdata;
+use App\Notifications\NewNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\Notifiable;
+
 
 class notification_controller extends Controller
 {
     public function notificationusershow(){
         $datanotification = notification::where('to',Auth::user()->id)->paginate(10);
+        
         $datauser = userdata::get();
         // $notifications = Auth::user()->unreadNotifications;
 
         // return response()->json(['notifications' => $notifications]);
         return view('adminpage.notificationusershow', compact('datanotification','datauser'));
     }
+
     public function index(){
         $datanotification = notification::get();
         $datachildren = childrendata::get();
@@ -85,5 +90,21 @@ class notification_controller extends Controller
         $datauser = userdata::all();
         return view('adminpage.notificationedit', compact('datanotification','datauser'));
     }
+
+    // public function notify(){
+    //     if(auth()->user()){
+    //         $user = userdata::whereId(7)->first();
+    //         auth()->user()->notify(new NewNotification($user));
+    //     }
+    // }
+
+    public function markasread($id){
+        if($id){
+            auth()->user()->unreadNotifications->where('id',$id)->markasread();
+        }
+        return back();
+    }
+
+
     
 }

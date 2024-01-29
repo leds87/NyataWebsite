@@ -158,6 +158,7 @@ Route::get('/userlog', [userlog_controller::class, 'index'])->name('userlog')->m
 
 
 Route::get('/notification', [notification_controller::class, 'index'])->middleware('auth:admin');
+Route::post('/markasread_{id}', [notification_controller::class, 'markasread'])->middleware('auth:user,admin');
 Route::get('/notificationusershow', [notification_controller::class, 'notificationusershow'])->name('notificationusershow')->middleware('auth:user');
 Route::get('/inputnotification', [notification_controller::class, 'inputnotificationpage'])->middleware('auth:user,admin');
 Route::post('/inputnotification', [notification_controller::class, 'store'])->middleware('auth:user,admin');
