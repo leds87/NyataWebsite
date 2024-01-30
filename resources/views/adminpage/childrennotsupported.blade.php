@@ -1,5 +1,8 @@
 @extends('layout.default')
 @extends('adminpage.layoutadmin')
+@php
+app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
+@endphp
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">
@@ -121,10 +124,10 @@
                                         <div class="flex">
                                             <div>
                                                 <p class="mb-3 text-left font-normal text-gray-800">
-                                                    Description{{ $items['description'] }}</p>
-                                                <p class="mb-3 text-left font-normal text-gray-800">Story
+                                                    Description : {{ $items['description'] }}</p>
+                                                <p class="mb-3 text-left font-normal text-gray-800">Story :
                                                     {{ $items['story'] }}</p>
-                                                <p class="mb-3 text-left font-normal text-gray-800">Status
+                                                <p class="mb-3 text-left font-normal text-gray-800">Status :
                                                     {{ $items['status'] }}</p>
                                             </div>
                                             <div class="justify-items-center ml-10 ">

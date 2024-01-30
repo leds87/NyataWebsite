@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\image;
+use App\Models\notification;
 use App\Models\schooldata;
 use App\Models\supportedchildren;
 use App\Models\userdata;
@@ -86,9 +87,40 @@ class childrendata_controller extends Controller
         $data->description = $request->description;
         $data->status = $request->status;
         $data->save();
+        $savedChanges = $data->getChanges();
 
-        return redirect('adminpage')->with("success", "Data ".$data->name. ' has been updated.'.' ');
+        $datasend = $request->has('sendnotif');
+        
+        //IF TRUE SEND TO KAKAK ASUH
+        if($datasend=="true"){
+        $data3 = supportedchildren::where('childrendata_id',$id)->get();
+
+        //DAPETIN USER ID BRP YANG SUPPORT
+        $userid = [];
+        foreach ($data3 as $dcf) {
+            $userid[] = $dcf->user_id;
+        }         
+
+        $currentDate = now()->format('Y-m-d');
+        foreach ($userid as $uid) {
+            $modifiedAttributes = array_keys($savedChanges); //columns that affected
+            $modifiedAttributes2 = $savedChanges; //get value of 
+            $data = 
+                [
+                    'date'=> $currentDate,
+                    'from' => Auth::user()->name.' [Administrator]',
+                    'to'=> $uid,
+                    'title'=> ('Updated a record of '. $request->name ),
+                    'description'=> (Auth::user()->name.' '.'updated a record of '.$request->name.' '.
+                    implode(', ', $modifiedAttributes).' '.'to'. ' '.
+                    implode(', ', $modifiedAttributes2)),
+                ];
+            notification::create($data);
+        }
     }
+        return redirect('adminpage')->with("success", "Data ".$request->name. ' has been updated.'.' ');
+
+}
 
 
     public function edit($id)

@@ -42,7 +42,7 @@ class childrendata extends Model
 
         static::updated(function ($children) {
             $currentDate = now()->format('j F Y');
-            $modifiedAttributes = array_keys($children->getDirty());
+            $modifiedAttributes = array_keys($children->getDirty()); //columns that affected
             $modifiedAttributes2 = $children->getDirty(); //get value of 
             $logData = [
                 'date' => $currentDate,
@@ -54,6 +54,7 @@ class childrendata extends Model
             ];
             adminlog::create($logData);
         });
+        
         static::deleted(function ($children) {
             $currentDate = now()->format('j F Y');
             $logData = [

@@ -1,5 +1,8 @@
 @extends('layout.default')
 @extends('adminpage.layoutadmin')
+@php
+app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
+@endphp
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">

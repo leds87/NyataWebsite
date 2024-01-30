@@ -1,5 +1,8 @@
 @extends('layout.default')
 @extends('adminpage.layoutadmin')
+@php
+app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
+@endphp
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">
@@ -142,7 +145,7 @@
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                                             {{ $items['name'] }}</h5>
-                                        <div class="flex justify-center ">
+                                        <div class="flex justify-center flex-wrap">
                                             <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 inline-flex">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -161,7 +164,7 @@
                                                 </svg>
                                                 {{ $items['location'] }}
                                             </p>
-                                            <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
+                                            <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 inline-flex">
                                                 Age {{ $items['age'] }}
                                             </p>
                                         </div>
@@ -174,13 +177,13 @@
                                                 <p class="mb-3 text-left font-normal text-gray-800">Status
                                                     {{ $items['status'] }}</p>
                                             </div>
-                                            <div class="justify-items-center ml-10 ">
+                                            <div class="justify-items-center ">
                                                 @if ($items->images->isNotEmpty())
                                                     <div class="image-container inline-flex mx-4 mb-4">
                                                         @php $firstImage = $items->images->first(); @endphp
                                                         <img src="{{ asset('storage/children-images/' . $firstImage->filename) }}"
                                                             alt="{{ $firstImage->filename }}"
-                                                            class="w-16 object-cover rounded-md">
+                                                            class="w-36 object-cover rounded-md">
                                                     </div>
                                                 @else
                                                     <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -252,7 +255,13 @@
                                 </svg>
                                 {{ $items['location'] }}
                             </p>
-                            <p class="text-gray-600 mr-3 "> Age {{ $items['age'] }} </p>
+                            <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-0 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                                  </svg>
+                                  
+                                Age {{ $items['age'] }}
+                            </p>
                             <p class="mb-3 font-normal text-gray-800">Description {{ $items['description'] }}</p>
                             <p class="mb-3 font-normal text-gray-800">Story {{ $items['story'] }}</p>
                             <p class="mb-3 font-normal text-gray-800">Status {{ $items['status'] }}</p>
@@ -265,7 +274,7 @@
                                     @foreach ($items->images as $image)
                                         <img src="{{ asset('storage/children-images/' . $image->filename) }}"
                                             alt="{{ $image->filename }}"
-                                            class="w-24 object-cover rounded-md">
+                                            class="w-36 object-cover rounded-md">
                                         <div class="mx-2"></div>
                                     @endforeach
                                 </div>

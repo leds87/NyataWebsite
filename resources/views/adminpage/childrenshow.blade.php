@@ -11,7 +11,7 @@
             <h2 class="mb-4 text-4xl justify-center tracking-tight font-extrabold text-center text-gray-900 ">Children List</h2>
             <section class=""> <!-- Contact Us lg:py-16 -->
                 <section class=" text-gray-900">
-                    <div class="py-8 mx-24 lg:max-w-screen-2xl md:max-w-screen-md">
+                    <div class="py-8 ">
                       
                         <div class="flex flex-col">
                             <div class="sm:-mx-6 lg:-mx-8">
@@ -56,7 +56,7 @@
                                               @endforeach
                                           </div>
                                       @else
-                                          <p class="text-gray-400 dark:text-gray-600">No images available for this children
+                                          <p class="text-gray-400 dark:text-gray-600">No images available
                                           </p>
                                       @endif
                                         <td class="whitespace-nowrap px-6 py-4">

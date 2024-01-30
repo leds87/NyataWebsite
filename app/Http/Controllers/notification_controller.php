@@ -24,13 +24,15 @@ class notification_controller extends Controller
         $data4 = $data3; // MERGE DATA!!
         $datanotification = $data4->where('read_at', null);
 
+        $notificationCount = count($datanotification);
+
 
         $datauser = userdata::get();
         
         // $notifications = Auth::user()->unreadNotifications;
         // return response()->json(['notifications' => $notifications]);
 
-        return view('adminpage.notificationusershow', compact('datanotification','datauser'));
+        return view('adminpage.notificationusershow', compact('datanotification','datauser','notificationCount'));
     }
 
     public function index(){
@@ -92,7 +94,6 @@ class notification_controller extends Controller
 
     public function inputnotificationpage()
     {
-        // $data = childrendata::all();
         $datauser = userdata::all();
         $datanotification = notification::all();
         return view('adminpage.inputnotification',  compact('datanotification','datauser'));

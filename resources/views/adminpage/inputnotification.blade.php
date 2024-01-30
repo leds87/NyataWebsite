@@ -16,9 +16,13 @@
                             for="grid-first-name">
                             From
                         </label>
-                        <input
+                        <select name="from" id="from" class="text-gray-400 font-normal capitalize focus:text-gray-700 w-full px-2 py-2 bg-gray-200 focus:bg-white border-none">
+                            {{-- <option value="{{$user}}">Administrator</option> --}}
+                            <option value="{{ auth()->user()->name }} [Administrator]">{{ auth()->user()->name }} [Administrator]</option>
+                        </select>
+                        {{-- <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                            id="from" name="from" type="text" placeholder="Admin">
+                            id="from" name="from" type="text" placeholder="Admin"> --}}
                         <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                     </div>
                     <div class="w-1/2 px-3">

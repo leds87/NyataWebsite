@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\childrendata;
 use App\Models\news;
+use App\Models\notification;
 use App\Models\userdata;
 use App\Models\schooldata;
 use App\Models\supportedchildren;
@@ -47,6 +48,20 @@ class dashboarduser_controller extends Controller
         $graduatedchild = count($sc);
 
         $datachildren = childrendata::get();
+
+
+        // //DATA NOTIFIKASI 
+        // $datanotification1 = notification::where('to',Auth::user()->id)->paginate(10);
+        // $datanotification2 = notification::whereNull('to')->paginate(10);
+
+        // $data3 = [];
+        // $data3 = $datanotification1->merge($datanotification2) ;
+        // $data4 = $data3; // MERGE DATA!!
+        // $datanotification = $data4->where('read_at', null);
+
+        // $notificationCount = count($datanotification);
+
+        
         
         return view('adminpage.userpage', compact('datanews','datachildren','undersupportchild','graduatedchild')
     );

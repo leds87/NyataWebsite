@@ -1,5 +1,8 @@
 @extends('layout.default')
 @extends('adminpage.layoutadmin')
+@php
+app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
+@endphp
 @section('page-content')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 

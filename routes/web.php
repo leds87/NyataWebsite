@@ -142,7 +142,7 @@ Route::get('/schoolshow', [schooldata_controller::class, 'showdata'])->middlewar
 Route::get('/inputchildren', [childrendata_controller::class, 'getstore'])->middleware('auth:user,admin')->name('inputchildren');
 Route::post('/inputchildren', [childrendata_controller::class, 'store'])->middleware('auth:user,admin');
 Route::delete('/childrendestroy/{id}',[childrendata_controller::class,'destroy'])->name('childrendestroy')->middleware('auth:user,admin');
-Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit');
+Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit')->middleware('auth:user,admin');
 Route::put('/childrenedit/{id}',[childrendata_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/childrenshow', [childrendata_controller::class, 'showdata'])->middleware('auth:user,admin');
 Route::put('/childrenupdatesupport/{id}',[childrensupported_controller::class,'updatesupport'])->middleware('auth:user')->name('updatesupport');
