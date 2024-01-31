@@ -84,13 +84,16 @@
                             {{$data->description}}</textarea>
                     </div>
                     <div class="relative">
-                        <label for="projectdesc" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Status</label>
+                        <label class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                            Status
+                            <span>Current : {{ $data->status }}</span>
+                        </label>
                         <select
                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="status" name="status" >
-                            <option value="Active" {{ $data == 'Active' ? 'selected' : '' }}>Active</option>
-                            <option value="Educated" {{ $data == 'Educated' ? 'selected' : '' }}>Educated</option>
-                            <option value="Success" {{ $data == 'Success' ? 'selected' : '' }}>Success</option>
+                            <option value="Active">Active</option>
+                            <option value="Educated">Educated</option>
+                            <option value="Success">Success</option>
                             {{-- <option>Educated</option>
                             <option>Success</option> --}}
                         </select>

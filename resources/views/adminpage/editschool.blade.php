@@ -13,16 +13,10 @@
             <form action="/schooledit%{{ $data->id }}" method="POST" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 @method('PUT')
-                <div class="flex flex-wrap">
-                    <div class=" px-3 mb-6 md:mb-0">
-                        <label class="block  tracking-wide text-gray-700 text-xl font-bold mb-2" for="grid-first-name">
-                            School ID </label>
-                    </div>
-                    <label class="uppercase tracking-wide text-gray-700 text-xl font-bold mb-2" for="grid-first-name">
-                        {{ $data->id }} </label>
-                </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <label class="uppercase tracking-wide text-gray-700 text-xl font-normal  my-2" for="grid-first-name">
+                    School ID <span class="font-bold">{{ $data->id }}</span> </label>
 
+                <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-first-name">
@@ -65,9 +59,22 @@
                             id="children" name="children"type="number" value="{{ $data->children }}" maxlength="3">
                     </div>
                 </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-password">
+                            Required Donation
+                        </label>
+                        <input
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="children" name="children"type="number" value="{{ $data->required_donation }}"
+                            maxlength="3">
+                    </div>
+                </div>
                 <div class="w-full mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                    <label class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                         Status
+                        <span>Current : {{ $data->status }}</span>
                     </label>
                     <div class="relative">
                         <select

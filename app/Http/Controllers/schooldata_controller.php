@@ -20,6 +20,7 @@ class schooldata_controller extends Controller
                 'status' => 'required',
             ]
         );
+
         schooldata::create($data);
         return redirect('/adminpage')->with("success", "Your Data Has Been Input!");
     }
@@ -65,7 +66,7 @@ class schooldata_controller extends Controller
             return redirect('adminpage')->withErrors(["error" => "An error occurred: " . $e->getMessage()]);
         }
 
-        return redirect('adminpage')->with("success",'Data '.$data->school_name . ' has been updated');
+        return redirect('adminpage')->with("success", 'Data ' . $data->school_name . ' has been updated');
 
         // $data->school_name = $request->school_name;
         // $data->address = $request->address;
@@ -82,14 +83,7 @@ class schooldata_controller extends Controller
     }
     public function edit($id)
     {
-        // dd($id);
         $data = schooldata::find($id);
-        $laststatus = schooldata::find($id, 'status');
-        $data2 = $data->value('school_name');
-        // dd($laststatus);
-        return view('adminpage.editschool', [
-            'data' => $data,
-            // 'laststatus' => $data->value('schoolname'), 
-        ]);
+        return view('adminpage.editschool', compact('data'));
     }
 }

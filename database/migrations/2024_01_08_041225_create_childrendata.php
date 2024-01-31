@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('story');
             $table->string('description');
             $table->string('status');
-            $table->string('image')->nullable();
-            $table->foreignId('support_by')->nullable();
+            $table->integer('required_donation')->nullable();
+            // $table->foreignId('support_by')->nullable();
             // $table->foreign('support_by')->references('id')->on('userdata')->onDelete('SET NULL'); 
         });
     }

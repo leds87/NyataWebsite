@@ -21,7 +21,8 @@ class school extends Seeder
                 'location' => 'Bandung',
                 'address' => '-',
                 'children' => '100',
-                'status' => 'Active'
+                'status' => 'Active',
+                'required_donation' => '50000'
             ]);
         schooldata::create(
             [
@@ -29,7 +30,8 @@ class school extends Seeder
                 'location' => 'Bandung',
                 'address' => '-',
                 'children' => '150',
-                'status' => 'Inactive'
+                'status' => 'Inactive',
+                'required_donation' => '125000'
             ]);
         schooldata::create(
             [
@@ -37,7 +39,8 @@ class school extends Seeder
                 'location' => 'Jakarta',
                 'address' => '-',
                 'children' => '150',
-                'status' => 'Active'
+                'status' => 'Active',
+                'required_donation' => '75000'
             ]);
         schooldata::create(
             [
@@ -45,7 +48,8 @@ class school extends Seeder
                 'location' => 'Jakarta',
                 'address' => '-',
                 'children' => '150',
-                'status' => 'Inactive'
+                'status' => 'Inactive',
+                'required_donation' => '25000'
             ]);
     }
 }

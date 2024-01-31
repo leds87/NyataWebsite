@@ -37,6 +37,14 @@ class dashboarduser_controller extends Controller
         $data3 = $datanull->merge($data1) ;
         $datanews = $data3; // MERGE DATA!!
 
+        //EXPECTED SUPPORT BALANCE
+        $a2 = []; //GET Required Donation from every child
+        foreach ($childrendata as $a3) {
+            $a2[] = $a3->required_donation;
+        }
+        $expectedsupport = array_sum($a2);
+ 
+
         
         //SUPPORTED KIDS
         $undersupportchild = count($child);// CALL SUPPORTED CHILD
@@ -62,8 +70,10 @@ class dashboarduser_controller extends Controller
         // $notificationCount = count($datanotification);
 
         
+
         
-        return view('adminpage.userpage', compact('datanews','datachildren','undersupportchild','graduatedchild')
+        
+        return view('adminpage.userpage', compact('datanews','datachildren','undersupportchild','graduatedchild','expectedsupport')
     );
     }
 }

@@ -18,6 +18,10 @@ class childrendata_controller extends Controller
 {
     public function store(Request $request)
     {
+        //INPUT CHILDREN MINIMUM REQUIRED DONATION
+        $schooldata = $request->school;
+        $required_donation = schooldata::where('school_name', $schooldata)->value('required_donation'); //GET School Required Minimum Donation
+
         $data = $request->validate([
             'name' => 'required|max:100',
             'school' => 'required',
@@ -27,6 +31,7 @@ class childrendata_controller extends Controller
             'description' => 'required',
             'status' => 'required',
             'Images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+ 
         ]);
         // Create the child without images
         $child = childrendata::create([
@@ -37,6 +42,7 @@ class childrendata_controller extends Controller
             'story' => $data['story'],
             'description' => $data['description'],
             'status' => $data['status'],
+            'required_donation' => $required_donation,
         ]);
 
         // Upload and associate multiple images
@@ -79,6 +85,10 @@ class childrendata_controller extends Controller
     {
         $data = childrendata::find($id);
 
+        //INPUT CHILDREN MINIMUM REQUIRED DONATION
+        $schooldata = $request->school;
+        $required_donation = schooldata::where('school_name', $schooldata)->value('required_donation'); //GET School Required Minimum Donation
+
         $data->name = $request->name;
         $data->school = $request->school;
         $data->location = $request->location;
@@ -86,41 +96,43 @@ class childrendata_controller extends Controller
         $data->story = $request->story;
         $data->description = $request->description;
         $data->status = $request->status;
+        $data->required_donation = $required_donation;
+
+
         $data->save();
         $savedChanges = $data->getChanges();
 
         $datasend = $request->has('sendnotif');
-        
+
         //IF TRUE SEND TO KAKAK ASUH
-        if($datasend=="true"){
-        $data3 = supportedchildren::where('childrendata_id',$id)->get();
+        if ($datasend == "true") {
+            $data3 = supportedchildren::where('childrendata_id', $id)->get();
 
-        //DAPETIN USER ID BRP YANG SUPPORT
-        $userid = [];
-        foreach ($data3 as $dcf) {
-            $userid[] = $dcf->user_id;
-        }         
+            //DAPETIN USER ID BRP YANG SUPPORT
+            $userid = [];
+            foreach ($data3 as $dcf) {
+                $userid[] = $dcf->user_id;
+            }
 
-        $currentDate = now()->format('Y-m-d');
-        foreach ($userid as $uid) {
-            $modifiedAttributes = array_keys($savedChanges); //columns that affected
-            $modifiedAttributes2 = $savedChanges; //get value of 
-            $data = 
-                [
-                    'date'=> $currentDate,
-                    'from' => Auth::user()->name.' [Administrator]',
-                    'to'=> $uid,
-                    'title'=> ('Updated a record of '. $request->name ),
-                    'description'=> (Auth::user()->name.' '.'updated a record of '.$request->name.' '.
-                    implode(', ', $modifiedAttributes).' '.'to'. ' '.
-                    implode(', ', $modifiedAttributes2)),
-                ];
-            notification::create($data);
+            $currentDate = now()->format('Y-m-d');
+            foreach ($userid as $uid) {
+                $modifiedAttributes = array_keys($savedChanges); //columns that affected
+                $modifiedAttributes2 = $savedChanges; //get value of 
+                $data =
+                    [
+                        'date' => $currentDate,
+                        'from' => Auth::user()->name . ' [Administrator]',
+                        'to' => $uid,
+                        'title' => ('Updated a record of ' . $request->name),
+                        'description' => (Auth::user()->name . ' ' . 'updated a record of ' . $request->name . ' ' .
+                            implode(', ', $modifiedAttributes) . ' ' . 'to' . ' ' .
+                            implode(', ', $modifiedAttributes2)),
+                    ];
+                notification::create($data);
+            }
         }
+        return redirect('adminpage')->with("success", "Data " . $request->name . ' has been updated.' . ' ');
     }
-        return redirect('adminpage')->with("success", "Data ".$request->name. ' has been updated.'.' ');
-
-}
 
 
     public function edit($id)

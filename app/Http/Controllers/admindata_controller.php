@@ -20,6 +20,15 @@ class admindata_controller extends Controller
 
     public function store(Request $request)
     {
+        // //CREATE CUSTOM ID
+        // $prefix = "A";
+        // $count = admindata::count() + 1;
+
+        // // Create a formatted ID with a prefix and padded count
+        // $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
+        // $customId = $prefix . $formattedCount;
+        // dd($customId);
+
         $validatedData = $request->validate(
             [
                 'name' => 'required|max:100',
@@ -32,6 +41,7 @@ class admindata_controller extends Controller
             ]
         );
         $validatedData['log'] = 'admin';
+        // $validatedData['admin_id'] = $customId;
         $validatedData['password'] = Hash::make($validatedData['password']);
         admindata::create($validatedData);
 
@@ -50,14 +60,14 @@ class admindata_controller extends Controller
         //     ]);
 
 
-            // $currentDate = now()->format('j F Y');
-            // $childrenname = $data->name;
-            //     userlog::create([
-            //         'date' => $currentDate,
-            //         'typelog' => 'Choose Child',
-            //         'personid' => Auth::id(),
-            //         'description' => (Auth::user()->name.' '.'unsupport children : '.$data->name),
-            //     ]);
+        // $currentDate = now()->format('j F Y');
+        // $childrenname = $data->name;
+        //     userlog::create([
+        //         'date' => $currentDate,
+        //         'typelog' => 'Choose Child',
+        //         'personid' => Auth::id(),
+        //         'description' => (Auth::user()->name.' '.'unsupport children : '.$data->name),
+        //     ]);
 
         return redirect()->route('adminshow')->with("success", "Your Data Has Been Input!");
     }
@@ -98,7 +108,7 @@ class admindata_controller extends Controller
     {
         // dd($id);
         $data = admindata::find($id);
-        $lastRoleFromDatabase = admindata::orderBy('id','desc')->value('role');
+        $lastRoleFromDatabase = admindata::orderBy('id', 'desc')->value('role');
         return view('adminpage.adminedit', [
             'data' => $data,
             'lastRoleFromDatabase' => $lastRoleFromDatabase
@@ -123,9 +133,8 @@ class admindata_controller extends Controller
         if (Auth::guard('admin')->attempt($infologin)) {
             $request->session()->regenerate();
             return redirect()->intended('/adminpage')->with("sukses", "Berhasil Login!");
-        } 
-        if (Auth::guard('user')->attempt($infologin)) 
-        {
+        }
+        if (Auth::guard('user')->attempt($infologin)) {
             $request->session()->regenerate();
             return redirect()->intended('/userpage')->with("sukses", "Berhasil Login!");
         }

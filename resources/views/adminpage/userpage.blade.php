@@ -62,16 +62,17 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                         </div>
                     </div>
 
-                    <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
+                    <div class=" items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4">
                             <div class="mb-3 text-xl font-normal text-gray-900 ">
                                 <p>Balance: 600K</p>
                                 <p>Last Month Support = 200k</p>
-                                <p>Expected Support Next Month = 250k (*50k per child*)</p>
                             </div>
-                            <div class="flex items-center p-4 md:p-5">
-                                <button data-modal-hide="static-modal" type="button"
-                                class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-24 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">Support
+                            <p class="text-xl font-normal text-gray-200">Expected Support Next Month Rp {{$expectedsupport}}</p>
+                            <div class=" flex justify-items-center p-4 md:p-5">
+                                <button type="button"
+                                class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-24 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                                Support More!
                                 </button>
                             </div>
                         </div>

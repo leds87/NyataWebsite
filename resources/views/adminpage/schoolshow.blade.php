@@ -24,6 +24,7 @@
                                         <th scope="col" class="px-6 py-4">Location</th>
                                         <th scope="col" class="px-6 py-4">Total of children</th>
                                         <th scope="col" class="px-6 py-4">School Status</th>
+                                        <th scope="col" class="px-6 py-4">Required Donation</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -39,8 +40,7 @@
                                         @else
                                         <td class="whitespace-nowrap px-6 py-4 bg-red-400">{{$item['status']}}</td>
                                         @endif
-                                        <td class="whitespace-nowrap px-6 py-4">
-                                          <img src="{{asset('storage/post-images/'.$item->image)}}" alt="" srcset="" class="w-20"></td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$item['required_donation']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/schooledit%{{$item->id}}">Edit</a> </button>
                                             <form action="{{route('destroyschool',$item->id)}}" method="POST" class="inline-block">

@@ -68,7 +68,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
             <form action="{{ route('childrensupported.filter') }}" method="POST">
                 @csrf
                 <div class="grid grid-cols-4 grid-flow-col gap-2 pb-2">
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown5" data-dropdown-trigger="hover">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown5" type="button">
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">School Name</div>
                     </button>
                     <div id="dropdown5" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
@@ -93,7 +93,8 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                         @endforeach --}}
                         </ul>
                     </div>
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" data-dropdown-trigger="hover">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" type="button">
+                        {{-- data-dropdown-trigger="hover" --}}
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Location</div>
                     </button>
                     <div id="dropdown6" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
@@ -124,9 +125,9 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                     <a href='childrennotsupported'>
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Support More Children</div>
                     </a>
-                    {{-- <button type="submit">
+                    <button type="submit">
                         <div class="bg-red-900 py-3 px-3 rounded-lg text-center text-lg">Filter</div>
-                    </button> --}}
+                    </button>
                     <a href='childrensupported'>
                         <div class="bg-red-900 py-3 px-3 rounded-lg text-center text-lg">Reset Filter</div>
                     </a>
@@ -138,7 +139,8 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                 <div class="inline-grid lg:grid-cols-4 gap-10 sm:grid-cols-1 sm:gap-4 ml-5">
                     @foreach ($data as $items)
                         <div>
-                            <!-- Modal toggle --><button data-modal-target="static-modal{{$items->id}}" data-modal-toggle="static-modal{{$items->id}}"
+                            <!-- Modal toggle -->
+                            <button data-modal-target="static-modal{{$items->id}}" data-modal-toggle="static-modal{{$items->id}}"
                                 class="" type="button">
                                 <div
                                     class="sm:ml-1 lg:ml-3 max-w-xl h-auto my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
@@ -168,7 +170,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                                                 Age {{ $items['age'] }}
                                             </p>
                                         </div>
-                                        <div class="flex">
+                                        <div class="grid grid-cols-2 gap-4">
                                             <div>
                                                 <p class="mb-3 text-left font-normal text-gray-800">Description
                                                     {{ $items['description'] }}</p>
@@ -177,7 +179,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                                                 <p class="mb-3 text-left font-normal text-gray-800">Status
                                                     {{ $items['status'] }}</p>
                                             </div>
-                                            <div class="justify-items-center ">
+                                            <div class="justify-items-center mx-auto">
                                                 @if ($items->images->isNotEmpty())
                                                     <div class="image-container inline-flex mx-4 mb-4">
                                                         @php $firstImage = $items->images->first(); @endphp
@@ -233,7 +235,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                 </div>
                 <!-- Modal body -->
                 <div class="p-5">
-                    <div class="flex">
+                    <div class="grid grid-cols-2 gap-4">
                         <div>
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
                                 {{ $items['name'] }}</h5>
@@ -265,8 +267,9 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                             <p class="mb-3 font-normal text-gray-800">Description {{ $items['description'] }}</p>
                             <p class="mb-3 font-normal text-gray-800">Story {{ $items['story'] }}</p>
                             <p class="mb-3 font-normal text-gray-800">Status {{ $items['status'] }}</p>
+                            <p class="mb-3 font-normal text-gray-800">Required Donation Rp{{ $items['required_donation'] }}</p>
                         </div>
-                        <div class="justify-items-center ml-10 ">
+                        <div class="justify-items-center mx-auto ">
                             {{-- <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 alt="" srcset="" class="w-36"> --}}
                                 @if ($items->images->isNotEmpty())

@@ -156,6 +156,9 @@ Route::get('/log', [LogController::class, 'index'])->name('log')->middleware('au
 Route::get('/adminlog', [adminlog_controller::class, 'index'])->name('adminlog')->middleware('auth:admin');
 Route::get('/userlog', [userlog_controller::class, 'index'])->name('userlog')->middleware('auth:user');
 
+Route::put('/changepassworduser%{id}', [userdata_controller::class, 'changePassword'])->name('changepassworduser')->middleware('auth:user');
+Route::put('/changepasswordadmin%{id}', [admindata_controller::class, 'changePassword'])->name('changepasswordadmin')->middleware('auth:admin');
+
 
 Route::get('/notification', [notification_controller::class, 'index'])->middleware('auth:admin');
 Route::post('/markasread_{id}', [notification_controller::class, 'markasread'])->middleware('auth:user,admin');

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address');
             $table->integer('children');
             $table->string('status');
+            $table->integer('required_donation')->nullable();
         });
     }
 

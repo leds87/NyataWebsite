@@ -28,7 +28,7 @@
                                         <th scope="col" class="px-6 py-4">story</th>
                                         <th scope="col" class="px-6 py-4">Description</th>
                                         <th scope="col" class="px-6 py-4">Status</th>
-                                        <th scope="col" class="px-6 py-4">SupportBy</th>
+                                        <th scope="col" class="px-6 py-4">Required Donation</th>
                                         <th scope="col" class="px-24 py-4">Photo</th>
                                         <th scope="col" class=" px-6 py-4">Action</th>
                                       </tr>
@@ -44,7 +44,7 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['story']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['description']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['support_by']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$item['required_donation']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                           @if ($item->images->isNotEmpty())
                                           <div class="image-container inline-flex mx-4 mb-4">

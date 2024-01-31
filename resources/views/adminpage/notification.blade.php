@@ -10,7 +10,7 @@
                 <a href='inputnotification' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input notification</a>
                 <section class=""> <!-- Contact Us-->
                     <section class=" text-gray-900">
-                        <div class="py-8 lg:py-16 max-w-screen-md md:mx-0 lg:mx-auto">
+                        <div class="py-8 lg:py-16 max-w-screen-xl md:mx-0 lg:mx-auto">
                             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Notification List</h2>
                             <div class="flex flex-col">
                                 <div class="sm:-mx-6 lg:-mx-8">
