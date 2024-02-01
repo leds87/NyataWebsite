@@ -28,7 +28,7 @@
                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="school" name="school">
                             @foreach ($dataschool as $du)
-                                <option value="{{ $du->id }}">{{ $du->school_name }}</option>
+                                <option value="{{ $du->school_name }}">{{ $du->school_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -41,8 +41,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="age" name="age"type="number" placeholder="12" maxlength="2">
-                        {{-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> --}}
+                            id="age" name="age"type="number" min="1" placeholder="12" maxlength="2">
                     </div>
                     <div class="">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -86,10 +85,9 @@
                 </div>
 
                 <div class="relative">
-                    <
                     <div> <!-- Upload Image -->
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file</label>
-                        <input name="Images[]" id="Images[]" type="file" multiple
+                        <input name="Images[]" id="Images[]" type="file" 
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
                     </div>
                 </div>

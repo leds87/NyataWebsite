@@ -32,13 +32,17 @@
 
                     </div>
                     <div class="w-full md:w-1/2 px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
+                        {{-- <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             school
+                        </label> --}}
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                            School
+                            <span>Current : {{ $data->school }}</span>
                         </label>
                         <select
                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="school" name="school" place >
-                            {{-- <option value="{{$data->school}}">{{$data->school}}</option> --}}
+                            id="school" name="school">
+                            <option value="{{$data->school}}">{{$data->school}}</option>
                             @foreach($dataschool as $du)
                             <option value="{{$du->school_name}}">{{$du->school_name}}</option>
                             @endforeach
@@ -77,13 +81,13 @@
                             id="story" name="story" type="text" value="{{$data->story}}">
                     </div>
                 </div>
-                    <div class="w-full flex flex-wrap px-3 -mx-3 mb-6">
+                    <div class="mb-6">
                         <label for="projectdesc" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description</label>
                         <textarea id="description" name="description" 
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                             {{$data->description}}</textarea>
                     </div>
-                    <div class="relative">
+                    <div class="mb-4">
                         <label class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                             Status
                             <span>Current : {{ $data->status }}</span>
@@ -99,6 +103,33 @@
                         </select>
                         {{-- <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"> </div> --}}
                     </div>
+                    <div class="grid grid-cols-2 gap-4">
+                    <div class="relative">
+                        <div> <!-- Upload Image -->
+                            <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file</label>
+                            <input name="Images[]" id="Images[]" type="file" 
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div> <!-- Current Image -->
+                            <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Current Image file</label>
+                            @if ($data->images->isNotEmpty())
+                            <div class="image-container inline-flex mx-4 mb-4">
+                                @foreach ($data->images as $image)
+                                    <img src="{{ asset('storage/children-images/' . $image->filename) }}"
+                                        alt="{{ $image->filename }}"
+                                        class="w-24  object-cover rounded-md">
+                                    <div class="mx-2"></div>
+                                @endforeach
+                            </div>
+                        @else
+                            <p class="text-gray-400 dark:text-gray-600">No images available
+                            </p>
+                        @endif
+                        </div>
+                    </div>
+                </div>
                     {{-- <div class="relative">
                         <label for="projectdesc" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">support_by</label>
                         <select
@@ -118,7 +149,7 @@
                     
                     <div class="flex">
                         <button type="submit"
-                        class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                        class="py-2 px-10 mx-auto bg-slate-300 my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Submit</button>
                     </div>
             </form>

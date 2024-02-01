@@ -13,6 +13,7 @@ use App\Models\userlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Termwind\Components\Dd;
 
 class childrendata_controller extends Controller
 {
@@ -48,7 +49,8 @@ class childrendata_controller extends Controller
         // Upload and associate multiple images
         if ($request->hasFile('Images')) {
             foreach ($request->file('Images') as $image) {
-                $filename = date('Y-m-d') . $image->getClientOriginalName();
+                // $filename = date('Y-m-d') . $image->getClientOriginalName();
+                $filename = date('Y-m-d') . $request->name . '_child image';
                 $path = $image->storeAs('children-images', $filename, 'public');
 
                 // Associate the image with the child
@@ -97,10 +99,29 @@ class childrendata_controller extends Controller
         $data->description = $request->description;
         $data->status = $request->status;
         $data->required_donation = $required_donation;
-
-
+        // $data->Images = $request->Images;
+        // dd($request);
         $data->save();
         $savedChanges = $data->getChanges();
+
+        // Upload and associate multiple images
+        if ($request->hasFile('Images')) {
+            foreach ($request->file('Images') as $image) {
+                // $filename = date('Y-m-d') . $image->getClientOriginalName();
+                $filename = date('Y-m-d') . $request->name . '_child image';
+                $path = $image->storeAs('children-images', $filename, 'public');
+
+                // Associate the image with the child
+                $data->images()->updateOrCreate([
+                    'filename' => $filename,
+                    'path' => $path,
+                ]);
+            }
+        }
+        // dd($data);
+
+
+
 
         $datasend = $request->has('sendnotif');
 
@@ -140,10 +161,9 @@ class childrendata_controller extends Controller
         $data = childrendata::find($id);
         $datauser = userdata::all();
         $dataschool = schooldata::all();
-        return view('adminpage.childrenedit', [
-            'data' => $data,
-            'datauser' => $datauser,
-            'dataschool' => $dataschool,
-        ]);
+        // $dataimages = $id;
+        $imagedata = image::where('childrendata_id',$id)->get();
+        // dd($imagedata);
+        return view('adminpage.childrenedit', compact('imagedata','data','datauser','dataschool'));
     }
 }

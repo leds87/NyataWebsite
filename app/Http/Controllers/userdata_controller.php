@@ -80,28 +80,33 @@ class userdata_controller extends Controller
     }
 
 
-    public function changePassword(Request $request)
+    public function changePassword(Request $request, $id)
     {
-        $user = Auth::user()->id;
-        $userupdate = userdata::where('id', $user);
-        dd($userupdate);
+        // $user = Auth::user()->id;
+        // $userupdate = userdata::where('id', $user)->get();
 
-        $data = $request->validate([
-            'current_password' => 'required',
-            'new_password' => 'required|min:8|different:current_password',
-            'confirm_password' => 'required|same:new_password',
-        ]);
+        $data = userdata::find($id);
+        $data->password = $request->password;
+        // $data = $request->validate([
+        //     'current_password' => 'required',
+        //     'new_password' => 'required|min:8|different:current_password',
+        //     'confirm_password' => 'required|same:new_password',
+        // ]);
 
+        // dd($data);
 
+        // $userupdate->password = $request->password;
+        $data['password'] = Hash::make($data['password']);
+        // $password = Hash::make($request->new_password);
+        $data->save();
 
+        // // Check if the current password matches the one in the database
+        // if (!Hash::check($request->current_password, $userupdate->password)) {
+        //     return back()->withErrors(['current_password' => 'The current password is incorrect.']);
+        // }
 
-        // Check if the current password matches the one in the database
-        if (!Hash::check($request->current_password, $userupdate->password)) {
-            return back()->withErrors(['current_password' => 'The current password is incorrect.']);
-        }
-
-        // Update the password
-        $userupdate->update(['password' => Hash::make($request->new_password)]);
+        // // Update the password
+        // $userupdate->update(['password' => Hash::make($request->new_password)]);
 
         return redirect()->route('profile')->with('success', 'Password changed successfully!');
     }
@@ -109,7 +114,6 @@ class userdata_controller extends Controller
 
     public function edit($id)
     {
-        // dd($id);
         $data = userdata::find($id);
         return view('adminpage.useredit', [
             'data' => $data,

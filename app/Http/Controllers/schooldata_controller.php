@@ -18,9 +18,9 @@ class schooldata_controller extends Controller
                 'location' => 'required',
                 'children' => 'required',
                 'status' => 'required',
+                'required_donation' => 'required',
             ]
         );
-
         schooldata::create($data);
         return redirect('/adminpage')->with("success", "Your Data Has Been Input!");
     }
