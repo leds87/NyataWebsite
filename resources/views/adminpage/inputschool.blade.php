@@ -17,17 +17,30 @@
                             School Name
                         </label>
                         <input
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                            id="school_name" name="school_name" type="text" placeholder="School Name">
-                        <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 
+                            rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                            @error('school_name') is-invalid @enderror"
+                            id="school_name" name="school_name" type="text" placeholder="School Name" required value="{{old('school_name')}}">
+                        @error('school_name')
+                            <p class="text-red-500 text-xs italic">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             Location
                         </label>
                         <input
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="location" name="location" type="text" placeholder="Bandung / Jakarta">
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 
+                            rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
+                            @error('location') is-invalid @enderror"
+                            id="location" name="location" type="text" required placeholder="Bandung / Jakarta">
+                            @error('location')
+                            <p class="text-red-500 text-xs italic">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -38,7 +51,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="address" name="address" type="text" placeholder="Jl. Banda">
+                            id="address" name="address" type="text" required placeholder="Jl. Banda">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -49,7 +62,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="children" name="children"type="number" placeholder="200" maxlength="4">
+                            id="children" name="children"type="number" required placeholder="200" maxlength="4">
                         {{-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> --}}
                     </div>
                 </div>
@@ -61,7 +74,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="required_donation" name="required_donation"type="number" placeholder="200" maxlength="4">
+                            id="required_donation" name="required_donation"type="number" required placeholder="200" maxlength="4">
                         {{-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> --}}
                     </div>
                 </div>

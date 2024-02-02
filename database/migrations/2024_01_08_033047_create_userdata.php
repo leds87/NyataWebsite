@@ -26,6 +26,7 @@ return new class extends Migration
             $table->date('since');
             $table->string('status')->nullable();
             $table->string('log');
+            $table->string('image')->nullable();
 
         });
     }

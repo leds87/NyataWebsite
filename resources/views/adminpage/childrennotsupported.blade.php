@@ -89,7 +89,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                             <!-- Modal toggle --><button data-modal-target="static-modal_{{ $items->id }}"
                                 data-modal-toggle="static-modal_{{ $items->id }}" class="" type="button">
                                 <div
-                                    class="sm:ml-1 lg:ml-3 w-72 h-56 my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
+                                    class="sm:ml-1 lg:ml-3 w-80 h-64 my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                                             {{ $items['name'] }}</h5>
@@ -136,11 +136,11 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                                                         @php $firstImage = $items->images->first(); @endphp
                                                         <img src="{{ asset('storage/children-images/' . $firstImage->filename) }}"
                                                             alt="{{ $firstImage->filename }}"
-                                                            class="w-16 object-cover rounded-md">
+                                                            class="w-28 object-cover rounded-md">
                                                     </div>
                                                 @else
                                                     <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                        class="w-16">
+                                                        class="w-24">
                                                         @endif
                                             </div>
                                         </div>

@@ -42,6 +42,21 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['since']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{$item['status']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
+                                          @if ($item->image)
+                                          <div class="image-container inline-flex mx-4 mb-4">
+                                                  <img src="{{ asset('storage/' . $item->image) }}"
+                                                      alt="{{ $item->image }}"
+                                                      class="w-10 h-10 object-cover rounded-md">
+                                                  <div class="mx-2"></div>
+                                              
+                                          </div>
+                                      @else
+                                          <p class="text-gray-400 dark:text-gray-600">No images available
+                                          </p>
+                                      @endif
+                                        </td>
+                                        
+                                        <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/useredit%{{$item->id}}">Edit</a> </button>
                                             <form action="{{route('destroyuser',$item->id)}}" method="POST" class="inline-block">
                                               @csrf

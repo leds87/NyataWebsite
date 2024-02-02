@@ -11,7 +11,7 @@
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Children Edit</h1>
                 
-            <form action="/childrenedit/{{ $data->id }}" method="POST" class="w-full max-w-lg py-5 mx-auto">
+            <form action="/childrenedit/{{ $data->id }}" method="POST" class="w-full max-w-lg py-5 mx-auto" enctype="multipart/form-data">
                 @csrf
                 @method("PUT")
                 <label class="relative inline-flex items-center cursor-pointer pb-4">
@@ -107,7 +107,8 @@
                     <div class="relative">
                         <div> <!-- Upload Image -->
                             <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file</label>
-                            <input name="Images[]" id="Images[]" type="file" 
+                            <input type="hidden" name="oldImages" value="{{$data->images}}">
+                            <input name="Images[]" id="Images[]" type="file" multiple
                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
                         </div>
                     </div>

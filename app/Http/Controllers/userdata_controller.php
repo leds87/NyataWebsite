@@ -7,6 +7,7 @@ use App\Models\userdata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class userdata_controller extends Controller
 {
@@ -26,6 +27,8 @@ class userdata_controller extends Controller
         // $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
         // $customId = $prefix . $formattedCount;
         // // dd($customId);
+        // ddd($request);
+
 
         $data = $request->validate(
             [
@@ -38,12 +41,25 @@ class userdata_controller extends Controller
                 'note' => 'required',
                 'since' => 'required',
                 'status' => 'required',
+                'image' => 'image|file|max:2048'
             ]
         );
+
         $data['log'] = 'user';
         // $data['user_id'] = $customId;
         $data['password'] = Hash::make($data['password']);
+
+
+        if ($request->image) {
+            $image = $request->file('image');
+            $imagename = $request->name . '_picture_' . time() . '_' . $image->getClientOriginalName();
+            $path = $image->storeAs('user-image', $imagename, 'public');
+            $data['image'] = $path;
+            // Storage::disk('public')->move($image, $path);
+        }
         userdata::create($data);
+
+
         return redirect('/adminpage')->with("success", "Data " . $request->name . " Has been input.");
     }
 
@@ -73,6 +89,20 @@ class userdata_controller extends Controller
         $data->note = $request->note;
         $data->since = $request->since;
         $data->status = $request->status;
+        // $data->image = $request->image;
+
+        if ($request->image) {
+            $image = $request->file('image');
+            $imagename = $data->name . '_picture_' . time() . '_' . $image->getClientOriginalName();
+            $path = $image->storeAs('user-image', $imagename, 'public');
+            // Storage::disk('public')->put($image, 'user-image');
+            $data['image'] = $path;
+            // Delete current images 
+            if ($request->oldimage) {
+                $filename =   $request->oldimage;
+                Storage::disk('public')->delete($filename);
+            }
+        }
 
         // $data['password'] = Hash::make($data['password']);
         $data->save();
@@ -80,43 +110,49 @@ class userdata_controller extends Controller
     }
 
 
-    public function changePassword(Request $request, $id)
+    public function changePassword(Request $request)
     {
         // $user = Auth::user()->id;
         // $userupdate = userdata::where('id', $user)->get();
 
-        $data = userdata::find($id);
-        $data->password = $request->password;
-        // $data = $request->validate([
+        // $data = userdata::find($id);
+        // $data->password = $request->password;
+        // dd($request);
+
+        // $request->validate([
         //     'current_password' => 'required',
         //     'new_password' => 'required|min:8|different:current_password',
         //     'confirm_password' => 'required|same:new_password',
         // ]);
+        // $userdata = auth()->user();
 
-        // dd($data);
+        // if (!Hash::check($request->current_password, $user->password)) {
+        //     return back()->withErrors(['current_password' => 'The current password is incorrect.']);
+        // }
+        // $userdata->update(['password' => Hash::make($request->new_password)]);
+        // return redirect()->route('profile')->with('success', 'Password changed successfully!');
+
 
         // $userupdate->password = $request->password;
-        $data['password'] = Hash::make($data['password']);
+        // $data['password'] = Hash::make($data['new_password']);
         // $password = Hash::make($request->new_password);
-        $data->save();
+        // $data->save();
 
-        // // Check if the current password matches the one in the database
-        // if (!Hash::check($request->current_password, $userupdate->password)) {
+        // Check if the current password matches the one in the database
+        // if (!Hash::check($request->current_password)) {
         //     return back()->withErrors(['current_password' => 'The current password is incorrect.']);
         // }
 
-        // // Update the password
-        // $userupdate->update(['password' => Hash::make($request->new_password)]);
+        // Update the password
+        // $data->update(['password' => Hash::make($request->new_password)]);
 
-        return redirect()->route('profile')->with('success', 'Password changed successfully!');
+
     }
 
 
     public function edit($id)
     {
         $data = userdata::find($id);
-        return view('adminpage.useredit', [
-            'data' => $data,
-        ]);
+        return view('adminpage.useredit', compact('data'));
     }
 }

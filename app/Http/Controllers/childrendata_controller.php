@@ -32,7 +32,7 @@ class childrendata_controller extends Controller
             'description' => 'required',
             'status' => 'required',
             'Images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
- 
+
         ]);
         // Create the child without images
         $child = childrendata::create([
@@ -80,6 +80,10 @@ class childrendata_controller extends Controller
     {
         $data = childrendata::find($id);
         $data->delete();
+
+        $data->images()->delete([
+        ]);
+
         return redirect('childrenshow')->with("success", "Data Deleted!");
     }
 
@@ -99,17 +103,29 @@ class childrendata_controller extends Controller
         $data->description = $request->description;
         $data->status = $request->status;
         $data->required_donation = $required_donation;
-        // $data->Images = $request->Images;
-        // dd($request);
+
+        // dd($request->oldImage);
+
         $data->save();
         $savedChanges = $data->getChanges();
 
-        // Upload and associate multiple images
+        // Delete current images MULTIPLE
+        $filenames =   $data->images->pluck('filename')->toArray();
+        if ($request->oldImages) {
+            $data->images()->delete([
+            ]);
+
+            foreach ($filenames as $filename) {
+            Storage::disk('public')->delete('children-images/' . $filename); 
+            }
+        }
+
         if ($request->hasFile('Images')) {
             foreach ($request->file('Images') as $image) {
                 // $filename = date('Y-m-d') . $image->getClientOriginalName();
-                $filename = date('Y-m-d') . $request->name . '_child image';
+                $filename = date('Y-m-d') . $request->name . '_child image' . $image->getClientOriginalName();
                 $path = $image->storeAs('children-images', $filename, 'public');
+   
 
                 // Associate the image with the child
                 $data->images()->updateOrCreate([
@@ -118,9 +134,6 @@ class childrendata_controller extends Controller
                 ]);
             }
         }
-        // dd($data);
-
-
 
 
         $datasend = $request->has('sendnotif');
@@ -162,8 +175,8 @@ class childrendata_controller extends Controller
         $datauser = userdata::all();
         $dataschool = schooldata::all();
         // $dataimages = $id;
-        $imagedata = image::where('childrendata_id',$id)->get();
+        $imagedata = image::where('childrendata_id', $id)->get();
         // dd($imagedata);
-        return view('adminpage.childrenedit', compact('imagedata','data','datauser','dataschool'));
+        return view('adminpage.childrenedit', compact('imagedata', 'data', 'datauser', 'dataschool'));
     }
 }

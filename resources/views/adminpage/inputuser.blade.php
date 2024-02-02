@@ -3,13 +3,12 @@
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
-  
-<div class="bg-white py-20">
+    <div class="bg-white py-20">
         <div class="content">
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 User Input</h1>
-            <form action="/inputusers" method="POST" class="w-full max-w-lg py-5 mx-auto">
+            <form action="/inputusers" method="POST" class="w-full max-w-lg py-5 mx-auto" enctype="multipart/form-data">
                 @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class=" md:w-1/2 px-3 mb-6 md:mb-0">
@@ -19,7 +18,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                            id="name" name="name" type="text" placeholder="Jane">
+                            id="name" name="name" type="text" required placeholder="Jane">
                         <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                     </div>
                     <div class=" md:w-1/2 px-3">
@@ -28,7 +27,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="email" name="email" type="email" placeholder="Doe@mail.com" autocomplete="off">
+                            id="email" name="email" type="email" required placeholder="Doe@mail.com" autocomplete="off">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -39,7 +38,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="password" name="password" type="password" placeholder="Password">
+                            id="password" name="password" type="password" required placeholder="Password">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -50,7 +49,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="address" name="address" type="text" placeholder="Bandung/Jakarta/etc">
+                            id="address" name="address" type="text" required placeholder="Bandung/Jakarta/etc">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -61,7 +60,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="phone" name="phone"type="phonenumber" placeholder="08xxx" maxlength="14">
+                            id="phone" name="phone"type="phonenumber" required placeholder="08xxx" maxlength="14">
                         {{-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> --}}
                     </div>
                 </div>
@@ -79,12 +78,7 @@
                                 <option>Supporter</option>
                                 <option>Helper</option>
                             </select>
-                            <div
-                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                </svg>
-                            </div>
+
                         </div>
                     </div>
                     <div class=" md:w-1/2 px-3 mb-6 md:mb-0">
@@ -93,7 +87,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="note" name="note" type="text" placeholder="desc/note personal">
+                            id="note" name="note" type="text" required placeholder="desc/note personal">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -104,11 +98,11 @@
                         </label>
                         <input datepicker datepicker-format="yyyy-mm-dd" type="text" id="since" name="since"
                             class="bg-black border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date" autocomplete="off">
+                            required placeholder="Select date" autocomplete="off">
 
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="-mx-3 mb-6">
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-password">
@@ -122,12 +116,25 @@
                             <option>Postpone</option>
                         </select>
                     </div>
-                    
+                </div>
+                <div class="mt-3"> <!-- Upload Image -->
+                    <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file Profile Picture</label>
+                    {{-- <input type="hidden" name="oldImages" value="{{$data->images}}"> --}}
+                    <input name="image" id="image" type="file"
+                        class="form-control @error('image') is-invalid @enderror block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
+                        @error('image')
+                        <div class="text-red-500">
+                            
+                            {{$message}}
+                        </div>
+                        @enderror
+                </div>
+                <div class="flex">
                     <button type="submit"
                         class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Submit</button>
                 </div>
             </form>
         </div>
-</div>
+    </div>
 @endsection

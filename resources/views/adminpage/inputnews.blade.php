@@ -18,7 +18,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                            id="title" name="title" type="text" placeholder="Support 300 New Students">
+                            id="title" name="title" type="text" required placeholder="Support 300 New Students">
                         <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             date
                         </label>
-                        <input datepicker datepicker-format="yyyy-mm-dd" type="text" id="date" name="date" autocomplete="off" class="bg-gray-200 border focus:bg-white border-gray-300 mb-4 p-3 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                        <input datepicker datepicker-format="yyyy-mm-dd" type="text" id="date" required name="date" autocomplete="off" class="bg-gray-200 border focus:bg-white border-gray-300 mb-4 p-3 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                     </div>
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -36,14 +36,14 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="description" name="description" type="text" placeholder="This requires economy attention...">
+                            id="description" name="description" type="text" required placeholder="This requires economy attention...">
                     </div>
                     <div class="w-full px-3 mb-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-password">
                             category
                         </label>
-                            <select name="category" id="category" placeholder="Donation/Support" class="text-gray-400 font-normal focus:text-gray-700 mb-2 w-full px-2 py-2 bg-gray-200 focus:bg-white border-none">
+                            <select name="category" id="category" required placeholder="Donation/Support" class="text-gray-400 font-normal focus:text-gray-700 mb-2 w-full px-2 py-2 bg-gray-200 focus:bg-white border-none">
                                 <option value="Donation">Donation</option>
                                 <option value="Support">Support</option>
                             </select>
@@ -53,7 +53,7 @@
                             for="grid-password">
                             children name
                         </label>
-                        <select name="children_id" id="children_id" class="text-gray-400 font-normal focus:text-gray-700 w-full px-2 py-2 bg-gray-200 focus:bg-white border-none">
+                        <select name="children_id" id="children_id" required class="text-gray-400 font-normal focus:text-gray-700 w-full px-2 py-2 bg-gray-200 focus:bg-white border-none">
                             @foreach ($data as $child)
                                 <option value="{{ $child->id }}">{{ $child->name }}</option>
                             @endforeach
