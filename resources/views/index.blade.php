@@ -200,12 +200,19 @@
                 </h1>
                 <h2 class="title-body text-black mx-auto px-8 uppercase">{{ __('messages.Schools') }}</h2>
             </div>
+            <div class="flex flex-col justify-center pb-8 px-5 max-w-xl basis-full sm:basis-1/2">
+                <h1 class="text-red text-[70px] font-extrabold">
+                    <span class="font-['Book']" id="KakahAsuhMember">0</span>
+                </h1>
+                <h2 class="title-body text-black mx-auto px-8 uppercase">{{ __('messages.KakakAsuh') }}</h2>
+            </div>
         </div>
     </section>
 
     <script>
-        countUp('AdikAsuhMember', 1788, true);
+        countUp('AdikAsuhMember', 2011, true);
         countUp('SekolahMember', 35, false);
+        countUp('KakahAsuhMember', 723, true);
     </script>
 
     {{-- OUR SOLUTIONS --}}

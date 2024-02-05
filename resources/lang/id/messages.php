@@ -50,6 +50,7 @@ return [
     "LearnMore" => "Learn More",
     'OurSolution' => 'Our Solution',
     'AdikAsuh' => 'Adik Asuh',
+    'KakakAsuh' => 'Kakak Asuh',
     'TravelCharity' => 'Travel Charity',
     'ActOfKindness' => 'Act Of Kindness',
     'EducationHeart' => 'EDUCATION IS THE HEART',
