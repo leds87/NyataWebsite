@@ -1,5 +1,6 @@
 @extends('layout.default')
 @extends('adminpage.layoutadmin')
+
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">

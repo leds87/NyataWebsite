@@ -118,7 +118,7 @@
             <a href='userlog' class="p-4 block hover:bg-gray-600">User Log</a>
             <a href='notificationusershow' class="p-4 block hover:bg-gray-600">
                 <div class="flex">
-                    @if ($notificationCount > 0)
+                    @if ($notificationCount >= 0)
                         <span class="justify-items-center mx-auto pl-6 ">Notification</span>
                         <button class="relative">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
