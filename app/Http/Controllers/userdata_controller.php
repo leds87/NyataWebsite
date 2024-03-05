@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class userdata_controller extends Controller
 {
@@ -19,13 +20,13 @@ class userdata_controller extends Controller
 
     public function store(Request $request)
     {
-        // //CREATE CUSTOM ID
-        // $prefix = "U";
-        // $count = userdata::count() + 1;
+        //CREATE CUSTOM ID
+        $prefix = "U";
+        $count = userdata::count() + 1;
 
-        // // Create a formatted ID with a prefix and padded count
-        // $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
-        // $customId = $prefix . $formattedCount;
+        // Create a formatted ID with a prefix and padded count
+        $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
+        $customId = $prefix . $formattedCount;
         // // dd($customId);
         // ddd($request);
 
@@ -46,6 +47,8 @@ class userdata_controller extends Controller
         );
 
         $data['log'] = 'user';
+        $data['slug'] = $request->name.'_'.$customId;
+
         // $data['user_id'] = $customId;
         $data['password'] = Hash::make($data['password']);
 
@@ -104,33 +107,81 @@ class userdata_controller extends Controller
             }
         }
 
-        // $data['password'] = Hash::make($data['password']);
+        $data['password'] = Hash::make($data['password']);
         $data->save();
         return redirect('profile')->with("success", "Data Updated");
     }
 
-
-    public function changePassword(Request $request)
+    public function changePassword(Request $request, $id)
     {
-        // $user = Auth::user()->id;
-        // $userupdate = userdata::where('id', $user)->get();
-
-        // $data = userdata::find($id);
-        // $data->password = $request->password;
-        // dd($request);
-
         // $request->validate([
-        //     'current_password' => 'required',
-        //     'new_password' => 'required|min:8|different:current_password',
-        //     'confirm_password' => 'required|same:new_password',
+        //     'current_password' => ['required'],
+        //     'password' => ['required','min:6','confirmed'],
+        //     'password_confirmation' => ['required'],
         // ]);
+        // if (Hash::check($request->current_password,auth()->user()->password)){
+        // };
+        // return back()->with('message','Your password has been updated');
+
+
+        // throw ValidationException::withMessages([
+        //     'current_password'=>'Your Current Password Doesnt Match with our record'
+        // ]);
+        $request->validate([
+            'password' => ['required','confirmed'],
+            'password_confirmation' => ['required'],
+        ]);
+        $data = userdata::find($id);
+        $data->password = $request->password;
+        $data['password'] = Hash::make($data['password']);
+        $data->save();
+        return redirect('profile')->with("success", "Password Updated");
+
+    }
+
+    public function XchangePassword(Request $request)
+    {
+        // $request->validate([
+        //     'current_password' => ['required'],
+        //     'password' => ['required','min:6','confirmed'],
+        // ]);
+        // dd(auth()->user());
+        // dd($request->all());
+        // if (Hash::check($request->current_password,auth()->user()->password)){
+        //     auth()->user->update($request->has('new_password'));
+
+        //     // auth()->user()->update($request->only('password'))
+        //     // return back()->with('message','Your password has been updated');
+        // };
+        // return back()->with('message','Your password has been updated');
+
+
+        // throw ValidationException::withMessages([
+        //     'current_password'=>'Your Current Password Doesnt Match with our record'
+        // ]);
+
+        $user = Auth::user()->id;
+        $userupdate = userdata::where('id', $user)->get(); //GET ALL DATA FROM USER
+
+
+
+        // dd($data);
+        // $data->password = $request->password;
+
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|different:current_password|confirmed',
+            'password_confirmation' => 'required|same:new_password',
+        ]);
         // $userdata = auth()->user();
 
-        // if (!Hash::check($request->current_password, $user->password)) {
-        //     return back()->withErrors(['current_password' => 'The current password is incorrect.']);
-        // }
-        // $userdata->update(['password' => Hash::make($request->new_password)]);
-        // return redirect()->route('profile')->with('success', 'Password changed successfully!');
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'The current password is incorrect.']);
+        }
+        $test = $userupdate->update(['password' => Hash::make($request->new_password)]);
+        $data = userdata::find($user); // SAMA AJA KEK USER UPDATE
+        dd($data);
+        return redirect()->route('profile')->with('success', 'Password changed successfully!');
 
 
         // $userupdate->password = $request->password;

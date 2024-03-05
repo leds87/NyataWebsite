@@ -10,8 +10,8 @@
         <div class="content">
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-                User Edit</h1>
-            <form action="/useredit%{{ $data->id }}" enctype="multipart/form-data" method="POST" class="w-full max-w-lg py-5 mx-auto">
+                User Person Edit</h1>
+            <form action="/useredit%{{ auth()->user()->id }}" enctype="multipart/form-data" method="POST" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 @method('PUT')
                 <div class="w-full my-4 px-3 mb-6 md:mb-0 grid grid-cols-2 gap-4">
@@ -33,14 +33,14 @@
                             id="email" name="email" type="email" value="{{ $data->email }}">
                     </div>
                 </div>
-                {{-- <div class="w-full my-4 md:w-1/2 px-3">
+                <div class="w-full my-4 md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             Password
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="password" name="password" type="password" value="{{$data->password}}">
-                    </div> --}}
+                    </div>
                 <div class="w-full my-4 px-3 ">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                         Address

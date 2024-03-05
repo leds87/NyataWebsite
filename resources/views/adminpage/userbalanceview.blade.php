@@ -10,10 +10,8 @@
         <div class="content">
             <div class=" py-9">
                 <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-                    Profile</h1>
+                    User Balance</h1>
             </div>
-
-
             {{-- ERROR MESSAGES --}}
             @if (session('success'))
                 <div id="alert-3"
@@ -42,11 +40,6 @@
             @endif
 
             @if ($errors->any())
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
                 <div id="alert-2"
                     class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                     role="alert">
@@ -57,7 +50,7 @@
                     </svg>
                     <span class="sr-only">Info</span>
                     <div class="ms-3 text-sm font-medium">
-                        {{ session('error') }} 
+                        {{ session('error') }}
                         {{-- <strong>{{ $message }}</strong> --}}
                     </div>
                     <button type="button"
@@ -72,11 +65,8 @@
                     </button>
                 </div>
             @endif
-
-
-
             <div class=" mx-auto mt-8 p-4 shadow-md rounded-md w-1/3 mb-4 bg-zinc-100">
-                <h1 class="text-2xl text-black font-semibold mb-4">{{ auth()->user()->name }}'s Profile</h1>
+                <h1 class="text-2xl text-black font-semibold mb-4 capitalize">{{ auth()->user()->name }}'s Balance</h1>
                 <div class="flex items-center space-x-4 mb-5">
                     @if (auth()->user()->image)
                         <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="User Avatar"
@@ -87,20 +77,20 @@
                     <div class="mx-auto">
                         <p class=" text-black font-semibold">{{ auth()->user()->name }}</p>
                         <p class=" text-black">{{ auth()->user()->email }}</p>
-                        <p class=" text-black uppercase text-center">{{ auth()->user()->log }}</p>
+                        <p class=" text-black capitalized text-center">Current Log : {{ auth()->user()->log }}</p>
                     </div>
-                    <div class="">
+                    {{-- <div class="">
                         @if (auth()->user()->log == 'admin')
-                            <a href="/adminedit/{{ auth()->user()->slug }}/edit">
+                            <a href="/adminedit/{{ auth()->user()->id }}/edit">
                                 <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>
                             </a>
                         @else
-                            <a href="/useredit%{{ auth()->user()->slug }}">
+                            <a href="/useredit%{{ auth()->user()->id }}">
                                 <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>
                             </a>
                         @endif
-                    </div>
-                    <div class="">
+                    </div> --}}
+                    {{-- <div class="">
                         @if (auth()->user()->log == 'admin')
                             <a href="changepassword">
                                 <button class="bg-black px-3 py-2 rounded-xl text-white">Change Password</button>
@@ -109,9 +99,10 @@
                             <button class="bg-black px-3 py-2 rounded-xl text-white" data-modal-target="static-modal1"
                                 data-modal-toggle="static-modal1">Change Password</button>
 
-                            <form action="/changepassworduser%{{ auth()->user()->id }}" method="POST" class="">
-                                @csrf
-                                @method('PUT')
+
+                                <form action="/changepassworduser%id }}" method="POST" class="">
+                                    @csrf
+                                    @method('PUT')
 
                                 <div id="static-modal1" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -139,7 +130,7 @@
                                             </div>
                                             <!-- Modal body -->
                                             <div class="p-5">
-                                                {{-- <div class="">
+                                                <div class="">
                                                     <label for="current_password"
                                                         class="block mb-2 text-sm font-medium text-gray-900 ">Current
                                                         Password</label>
@@ -152,33 +143,33 @@
                                                             {{ $message }}
                                                         </p>
                                                     @enderror
-                                                </div> --}}
+                                                </div>
                                                 <div>
-                                                    <label for="password"
+
+                                                    <label for="new_password"
                                                         class="block mb-2 text-sm font-medium text-gray-900 
                                                         ">New
                                                         password</label>
-                                                    <input type="password" name="password" id="password"
+                                                    <input type="password" name="new_password" id="new_password"
                                                         placeholder="••••••••"
-                                                        class="bg-gray-50 border my-3 border-gray-300 text-gray-900 @error('password') is-invalid @enderror
+                                                        class="bg-gray-50 border my-3 border-gray-300 text-gray-900 @error('new_password') is-invalid @enderror
                                                         sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                         required>
-                                                    @error('password')
+                                                    @error('new_password')
                                                         <p class="text-red-500 text-xs italic">
                                                             {{ $message }}
                                                         </p>
                                                     @enderror
                                                 </div>
                                                 <div>
-                                                    <label for="password_confirmation"
+                                                    <label for="confirm_password"
                                                         class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
                                                         password</label>
-                                                    <input type="password" name="password_confirmation"
-                                                        id="password_confirmation" placeholder="••••••••"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg 
-                                                        @error('password_confirmation') is-invalid @enderror focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    <input type="password" name="confirm_password" id="confirm_password"
+                                                        placeholder="••••••••"
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg @error('confirm_password') is-invalid @enderror focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                         required="">
-                                                    @error('password_confirmation')
+                                                    @error('confirm_password')
                                                         <p class="text-red-500 text-xs italic">
                                                             {{ $message }}
                                                         </p>
@@ -197,7 +188,7 @@
                                 </div>
                             </form>
                         @endif
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="flex">
@@ -206,52 +197,31 @@
                     <div class="my-2 border-2 border-gray-300"></div>
                     @auth
                         @if (auth()->user()->log == 'admin')
-                            <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
-                            </h1>
-                            <h1 class="text-sm text-black mb-2">Name : <span
-                                    class="text-lg">{{ auth()->user()->name }}</span>
-                            </h1>
-                            <h1 class="text-sm text-black mb-2">address : <span
-                                    class="text-lg">{{ auth()->user()->address }}</span>
-                            </h1>
-                            <h1 class="text-sm text-black mb-2">email : <span
-                                    class="text-lg">{{ auth()->user()->email }}</span></h1>
-                            <h1 class="text-sm text-black mb-2">phone : <span
-                                    class="text-lg">{{ auth()->user()->phone }}</span></h1>
-                            <h1 class="text-sm text-black mb-2">tier : <span
-                                    class="text-lg">{{ auth()->user()->role }}</span>
-                            </h1>
-                            <h1 class="text-sm text-black mb-2">note : <span
-                                    class="text-lg">{{ auth()->user()->note }}</span>
-                            </h1>
-                        @else
                             {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
                             </h1> --}}
                             <h1 class="text-sm text-black mb-2">Name : <span
                                     class="text-lg">{{ auth()->user()->name }}</span>
                             </h1>
-                            <h1 class="text-sm text-black mb-2">address : <span
-                                    class="text-lg">{{ auth()->user()->address }}</span>
+                        @else
+                            {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
+                            </h1> --}}
+                            <h1 class="text-sm text-black mb-2 capitalize"> balance : 
+                                <span class="text-lg">Rp </span>
                             </h1>
-                            <h1 class="text-sm text-black mb-2">email : <span
-                                    class="text-lg">{{ auth()->user()->email }}</span></h1>
-                            <h1 class="text-sm text-black mb-2">phone : <span
-                                    class="text-lg">{{ auth()->user()->phone }}</span></h1>
-                            <h1 class="text-sm text-black mb-2">tier : <span
-                                    class="text-lg">{{ auth()->user()->tier }}</span>
+                            <h1 class="text-sm text-black mb-2 capitalize"> last month support : 
+                                <span class="text-lg">Rp </span>
                             </h1>
-                            <h1 class="text-sm text-black mb-2">note : <span
-                                    class="text-lg">{{ auth()->user()->note }}</span>
+                            <h1 class="text-sm text-black mb-2 capitalize"> Current Supported Child : 
+                                <span class="text-lg">{{$countchildren}} </span>
                             </h1>
-                            <h1 class="text-sm text-black mb-2">since : <span
-                                    class="text-lg">{{ auth()->user()->since }}</span></h1>
-                            <h1 class="text-sm text-black mb-2">status : <span
-                                    class="text-lg">{{ auth()->user()->status }}</span>
+                            <h1 class="text-sm text-black mb-2 capitalize">expected support : 
+                                <span class="text-lg">Rp {{$expectedsupport}}</span>
                             </h1>
                         @endauth
                     @endif
                 </div>
             </div>
+            
         </div>
     </div>
 

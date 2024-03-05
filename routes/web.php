@@ -16,6 +16,7 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\news_controller;
 use App\Http\Controllers\notification_controller;
 use App\Http\Controllers\schooldata_controller;
+use App\Http\Controllers\userbalance_controller;
 use App\Http\Controllers\userdata_controller;
 use App\Http\Controllers\userlog_controller;
 use App\Models\admindata;
@@ -171,6 +172,8 @@ Route::put('/notificationedit/{id}',[notification_controller::class,'update'])->
 Route::get('/notificationshow/{title}', [notification_controller::class, 'show'])->middleware('auth:user,admin');
 
 Route::post('/notifreadupdate/{id}',[notification_controller::class,'updatereadnotification'])->middleware('auth:user,admin');
+
+Route::get('/userbalance', [userbalance_controller::class, 'index'])->middleware('auth:user,admin')->name('userbalance');
 
 Route::get('/school', function () {
     return view('adminpage.school');

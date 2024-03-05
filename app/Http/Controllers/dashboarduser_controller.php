@@ -69,10 +69,6 @@ class dashboarduser_controller extends Controller
 
         // $notificationCount = count($datanotification);
 
-        
-
-        
-        
         return view('adminpage.userpage', compact('datanews','datachildren','undersupportchild','graduatedchild','expectedsupport')
     );
     }
