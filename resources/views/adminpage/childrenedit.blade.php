@@ -43,10 +43,10 @@
                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="school" name="school">
                             <option value="{{$data->school}}">{{$data->school}}</option>
+                            <option value="" class="font-light italic">empty</option>
                             @foreach($dataschool as $du)
                             <option value="{{$du->school_name}}">{{$du->school_name}}</option>
                             @endforeach
-                            <option value="">empty</option>
                         </select>
                     </div>
                 </div>

@@ -95,7 +95,7 @@
                                 <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>
                             </a>
                         @else
-                            <a href="/useredit%{{ auth()->user()->slug }}">
+                            <a href="/profileedit%{{ auth()->user()->slug }}">
                                 <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>
                             </a>
                         @endif

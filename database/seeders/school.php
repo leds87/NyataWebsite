@@ -17,39 +17,111 @@ class school extends Seeder
     {
         schooldata::create(
             [
-                'school_name' => 'school1',
-                'location' => 'Bandung',
+                'school_name' => 'TK Alor',
+                'location' => 'Nusa Tenggara Timur',
                 'address' => '-',
-                'children' => '100',
+                'children' => '15',
                 'status' => 'Active',
-                'required_donation' => '50000'
+                'required_donation' => '130000'
             ]);
         schooldata::create(
             [
-                'school_name' => 'school2',
-                'location' => 'Bandung',
+                'school_name' => 'TK Batu Karang',
+                'location' => 'Jakarta Timur',
                 'address' => '-',
-                'children' => '150',
-                'status' => 'Inactive',
-                'required_donation' => '125000'
-            ]);
-        schooldata::create(
-            [
-                'school_name' => 'school3',
-                'location' => 'Jakarta',
-                'address' => '-',
-                'children' => '150',
+                'children' => '14',
                 'status' => 'Active',
-                'required_donation' => '75000'
+                'required_donation' => '130000'
             ]);
         schooldata::create(
             [
-                'school_name' => 'school4',
-                'location' => 'Jakarta',
+                'school_name' => 'TK Santa Lucia II',
+                'location' => 'Papua Selatan',
+                'address' => 'Kecamatan Kurik,Kabupaten Merauke,Papua Selatan',
+                'children' => '16',
+                'status' => 'Active',
+                'required_donation' => '130000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'Sakola Adat Nias',
+                'location' => 'Sumatera Utara',
                 'address' => '-',
-                'children' => '150',
-                'status' => 'Inactive',
-                'required_donation' => '25000'
+                'children' => '1',
+                'status' => 'Active',
+                'required_donation' => '90000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'SD Koa Papua',
+                'location' => 'Papua',
+                'address' => '-',
+                'children' => '2',
+                'status' => 'Active',
+                'required_donation' => '105000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'SMTK Alor',
+                'location' => 'Nusa Tenggara Timur',
+                'address' => '-',
+                'children' => '22',
+                'status' => 'Active',
+                'required_donation' => '250000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'Sakola Adat Arus Kualan',
+                'location' => 'Kalimantan Barat',
+                'address' => '-',
+                'children' => '1',
+                'status' => 'Active',
+                'required_donation' => '70000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'Sakola Adat Dayak Lebang',
+                'location' => 'Kalimantan',
+                'address' => '-',
+                'children' => '1',
+                'status' => 'Active',
+                'required_donation' => '70000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'Via Suster Hillari',
+                'location' => '-',
+                'address' => '-',
+                'children' => '1',
+                'status' => 'Active',
+                'required_donation' => '105000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'Sumba',
+                'location' => 'Sumatra Barat',
+                'address' => '-',
+                'children' => '9',
+                'status' => 'Active',
+                'required_donation' => '130000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'Kumbe',
+                'location' => 'Papua Selatan',
+                'address' => 'Jl. Ahmad Yani Kumbe, Kumbe, Kec. Malind, Kab. Merauke Prov. Papua Selatan ',
+                'children' => '2',
+                'status' => 'Active',
+                'required_donation' => '250000'
+            ]);
+        schooldata::create(
+            [
+                'school_name' => 'SMP Flores',
+                'location' => 'Nusa Tenggara Timur',
+                'address' => '-',
+                'children' => '1',
+                'status' => 'Active',
+                'required_donation' => '120000'
             ]);
     }
 }

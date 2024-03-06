@@ -206,4 +206,10 @@ class userdata_controller extends Controller
         $data = userdata::find($id);
         return view('adminpage.useredit', compact('data'));
     }
+
+    public function editprofile($slug)
+    {
+        $data = userdata::find($slug);
+        return view('adminpage.profileedit', compact('data'));
+    }
 }

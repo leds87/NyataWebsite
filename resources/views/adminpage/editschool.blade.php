@@ -56,7 +56,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="children" name="children"type="number" value="{{ $data->children }}" maxlength="3">
+                            id="children" name="children"type="text" value="{{ $data->children }}" maxlength="3">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -67,7 +67,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="children" name="children"type="number" value="{{ $data->required_donation }}"
+                            id="required_donation" name="required_donation"type="number" value="{{ $data->required_donation }}"
                             maxlength="3">
                     </div>
                 </div>

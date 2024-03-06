@@ -5,6 +5,7 @@
 @endphp
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
+
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
@@ -79,116 +80,7 @@
                         <p class=" text-black">{{ auth()->user()->email }}</p>
                         <p class=" text-black capitalized text-center">Current Log : {{ auth()->user()->log }}</p>
                     </div>
-                    {{-- <div class="">
-                        @if (auth()->user()->log == 'admin')
-                            <a href="/adminedit/{{ auth()->user()->id }}/edit">
-                                <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>
-                            </a>
-                        @else
-                            <a href="/useredit%{{ auth()->user()->id }}">
-                                <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>
-                            </a>
-                        @endif
-                    </div> --}}
-                    {{-- <div class="">
-                        @if (auth()->user()->log == 'admin')
-                            <a href="changepassword">
-                                <button class="bg-black px-3 py-2 rounded-xl text-white">Change Password</button>
-                            </a>
-                        @else
-                            <button class="bg-black px-3 py-2 rounded-xl text-white" data-modal-target="static-modal1"
-                                data-modal-toggle="static-modal1">Change Password</button>
 
-
-                                <form action="/changepassworduser%id }}" method="POST" class="">
-                                    @csrf
-                                    @method('PUT')
-
-                                <div id="static-modal1" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-                                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                                        <!-- Modal content -->
-                                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                            <!-- Modal header -->
-                                            <div
-                                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                                    Change Password
-                                                </h3>
-                                                <button type="button"
-                                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-hide="static-modal1">
-                                                    <svg class="w-3 h-3" aria-hidden="true"
-                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 14 14">
-                                                        <path stroke="currentColor" stroke-linecap="round"
-                                                            stroke-linejoin="round" stroke-width="2"
-                                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                    </svg>
-                                                    <span class="sr-only">Close modal</span>
-                                                </button>
-                                            </div>
-                                            <!-- Modal body -->
-                                            <div class="p-5">
-                                                <div class="">
-                                                    <label for="current_password"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 ">Current
-                                                        Password</label>
-                                                    <input type="password" name="current_password" id="current_password"
-                                                        placeholder="••••••••"
-                                                        class="bg-gray-50 border @error('current_password') is-invalid @enderror border-gray-300 my-3 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                        required>
-                                                    @error('current_password')
-                                                        <p class="text-red-500 text-xs italic">
-                                                            {{ $message }}
-                                                        </p>
-                                                    @enderror
-                                                </div>
-                                                <div>
-
-                                                    <label for="new_password"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 
-                                                        ">New
-                                                        password</label>
-                                                    <input type="password" name="new_password" id="new_password"
-                                                        placeholder="••••••••"
-                                                        class="bg-gray-50 border my-3 border-gray-300 text-gray-900 @error('new_password') is-invalid @enderror
-                                                        sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                        required>
-                                                    @error('new_password')
-                                                        <p class="text-red-500 text-xs italic">
-                                                            {{ $message }}
-                                                        </p>
-                                                    @enderror
-                                                </div>
-                                                <div>
-                                                    <label for="confirm_password"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
-                                                        password</label>
-                                                    <input type="password" name="confirm_password" id="confirm_password"
-                                                        placeholder="••••••••"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg @error('confirm_password') is-invalid @enderror focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                        required="">
-                                                    @error('confirm_password')
-                                                        <p class="text-red-500 text-xs italic">
-                                                            {{ $message }}
-                                                        </p>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <!-- Modal footer -->
-                                            <div
-                                                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                                <button type="submit"
-                                                    class="text-white mx-auto bg-blue-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
-                                                    Change Password</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        @endif
-                    </div> --}}
                 </div>
             </div>
             <div class="flex">
@@ -199,119 +91,54 @@
                         @if (auth()->user()->log == 'admin')
                             {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
                             </h1> --}}
-                            <h1 class="text-sm text-black mb-2">Name : <span
-                                    class="text-lg">{{ auth()->user()->name }}</span>
+                            <h1 class="text-sm text-black mb-2">Name : <span class="text-lg">{{ auth()->user()->name }}</span>
                             </h1>
                         @else
                             {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
                             </h1> --}}
-                            <h1 class="text-sm text-black mb-2 capitalize"> balance : 
+                            <h1 class="text-sm text-black mb-2 capitalize"> balance :
                                 <span class="text-lg">Rp </span>
                             </h1>
-                            <h1 class="text-sm text-black mb-2 capitalize"> last month support : 
+                            <h1 class="text-sm text-black mb-2 capitalize"> last month support :
                                 <span class="text-lg">Rp </span>
                             </h1>
-                            <h1 class="text-sm text-black mb-2 capitalize"> Current Supported Child : 
-                                <span class="text-lg">{{$countchildren}} </span>
+                            <h1 class="text-sm text-black mb-2 capitalize"> Current Supported Child :
+                                <span class="text-lg">{{ $countchildren }} </span>
                             </h1>
-                            <h1 class="text-sm text-black mb-2 capitalize">expected support : 
-                                <span class="text-lg">Rp {{$expectedsupport}}</span>
+                            <h1 class="text-sm text-black mb-2 capitalize">expected support :
+                                <span class="text-lg">Rp {{ $expectedsupport }}</span>
                             </h1>
                         @endauth
                     @endif
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-
-    {{-- <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white text-black antialiased">
-    <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
-        <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-            <header class="mb-4 lg:mb-6 not-format">
-                <address class="flex items-center mb-6 not-italic">
-                    <div class="inline-flex items-center mr-3 text-sm text-gray-900 ">
-                        <img class="mr-4 w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
-                        <div>
-                            <a href="#" rel="author" class="text-xl font-bold text-gray-900 ">Admin</a>
-                            <p class="text-base text-gray-500 dark:text-gray-400">Graphic Designer, educator & CEO Flowbite</p>
-                            <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">{{$datanews->date}}</time></p>
+                    <a href="paydonation">
+                        <div class=" flex justify-items-center p-4 md:p-5">
+                            <button type="button" id="donate-button" name="donate-button"
+                                class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-24 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                                Donate Now
+                            </button>
                         </div>
-                    </div>
-                </address>
-                <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl ">{{$datanews->title}}</h1>
-                <p class="">Children ID <span class=" bg-black text-white rounded-md px-2 py-2">{{$datanews->children_id}}</span> </p>
-            </header>
-            <p class="border-4 border-gray-50 pb-10 mb-10">{{$datanews->description}}</p>
+                    </a>
+                    {{-- <button id="pay-button" class="bg-black px-5 py-5">Pay!</button>
+
+                    <!-- @TODO: You can add the desired ID as a reference for the embedId parameter. -->
+                    <div id="snap-container"></div>
             
-            <section class="not-format">
-                <form class="mb-6">
-                    <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
-                        <label for="comment" class="sr-only">Your comment</label>
-                        <textarea id="comment" rows="6"
-                            class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0  dark:placeholder-gray-400 "
-                            placeholder="Write a comment..." required></textarea>
-                    </div>
-                </form>
-            </section>
-        </article>
-    </div>
-  </main>
-  
-  <aside aria-label="Related articles" class="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
-    <div class="px-4 mx-auto max-w-screen-xl">
-        <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related articles</h2>
-        <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-            <article class="max-w-xs">
-                <a href="#">
-                    <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-1.png" class="mb-5 rounded-lg" alt="Image 1">
-                </a>
-                <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                    <a href="#">Our first office</a>
-                </h2>
-                <p class="mb-4 text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone many changes! After months of preparation.</p>
-                <a href="#" class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                    Read in 2 minutes
-                </a>
-            </article>
-            <article class="max-w-xs">
-                <a href="#">
-                    <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-2.png" class="mb-5 rounded-lg" alt="Image 2">
-                </a>
-                <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                    <a href="#">Enterprise design tips</a>
-                </h2>
-                <p class="mb-4  text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone many changes! After months of preparation.</p>
-                <a href="#" class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                    Read in 12 minutes
-                </a>
-            </article>
-            <article class="max-w-xs">
-                <a href="#">
-                    <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-3.png" class="mb-5 rounded-lg" alt="Image 3">
-                </a>
-                <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                    <a href="#">We partnered with Google</a>
-                </h2>
-                <p class="mb-4  text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone many changes! After months of preparation.</p>
-                <a href="#" class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                    Read in 8 minutes
-                </a>
-            </article>
-            <article class="max-w-xs">
-                <a href="#">
-                    <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-4.png" class="mb-5 rounded-lg" alt="Image 4">
-                </a>
-                <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                    <a href="#">Our first project with React</a>
-                </h2>
-                <p class="mb-4  text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone many changes! After months of preparation.</p>
-                <a href="#" class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                    Read in 4 minutes
-                </a>
-            </article>
+                    <script type="text/javascript">
+                        // For example trigger on button clicked, or any time you need
+                        var payButton = document.getElementById('pay-button');
+                        payButton.addEventListener('click', function() {
+                            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token.
+                            // Also, use the embedId that you defined in the div above, here.
+                            window.snap.embed('$snapToken', {
+                                embedId: 'snap-container'
+                            });
+                        });
+                    </script> --}}
+                </div>
+
+            </div>
+
         </div>
     </div>
-  </aside> --}}
+
 @endsection

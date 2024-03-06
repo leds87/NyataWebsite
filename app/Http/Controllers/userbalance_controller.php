@@ -29,4 +29,35 @@ class userbalance_controller extends Controller
         return view('adminpage.userbalanceview', compact('expectedsupport', 'countchildren'));
     }
 
+    public function paydonation()
+    {
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => 10000,
+            ),
+            // 'item_details' => json_decode($_POST['items'], true),
+
+            'customer_details' => array(
+                'first_name' => 'budi',
+                'email' => 'budi@mail.com',
+                'phone' => '0848468464',
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        //  dd($snapToken);
+
+        return view('adminpage.paydonation', compact('snapToken'));
+
+    }
 }

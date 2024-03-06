@@ -41,6 +41,7 @@ class schooldata_controller extends Controller
     public function update(Request $request, $id)
     {
         $data = schooldata::find($id);
+        // dd($request);
 
         try {
             // $validator = Validator::make($request->all(), [
@@ -58,6 +59,7 @@ class schooldata_controller extends Controller
             $data->address = $request->address;
             $data->location = $request->location;
             $data->children = $request->children;
+            $data->required_donation = $request->required_donation;
             $data->status = $request->status;
 
             $data->save();
