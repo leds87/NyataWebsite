@@ -12,7 +12,7 @@
 
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-                User Overview</h1>
+                User Page Overview</h1>
 
             <div class="flex flex-wrap py-2">
                 <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">

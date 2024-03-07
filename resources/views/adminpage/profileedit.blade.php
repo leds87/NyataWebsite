@@ -11,7 +11,7 @@
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                Profile Edit</h1>
-            <form action="/useredit%{{ auth()->user()->id }}" enctype="multipart/form-data" method="POST" class="w-full max-w-lg py-5 mx-auto">
+            <form action="profileedit%{{ auth()->user()->slug }}" enctype="multipart/form-data" method="POST" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 @method('PUT')
                 <div class="w-full my-4 px-3 mb-6 md:mb-0 grid grid-cols-2 gap-4">

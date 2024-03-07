@@ -99,13 +99,15 @@ Route::get('language/{locale?}', function ($locale) {
 
 
 Route::get('/adminpage', [dashboard_controller::class, 'index'])->middleware('auth:admin'); //:user
-Route::get('/userpage', [dashboarduser_controller::class, 'index'])->middleware('auth:user');
+Route::get('/userpage', [dashboarduser_controller::class, 'index'])->name('userpage')->middleware('auth:user');
 Route::post('/childrensupportedfilter',[childrensupported_controller::class,'filter'])->name('childrensupported.filter')->middleware('auth:user');
 Route::get('/childrensupported', [childrensupported_controller::class, 'index'])->middleware('auth:user')->name('childrensupported');
 Route::get('/childrennotsupported', [childrennotsupported_controller::class, 'index'])->middleware('auth:user')->name('childrennotsupported');
 Route::post('/childrennotsupportedfilter',[childrennotsupported_controller::class,'filter'])->name('childrennotsupported.filter')->middleware('auth:user');
 
 Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth:user,admin');
+Route::get('/profileedit%{slug}',[userdata_controller::class,'profileedit'])->name('profileedit')->middleware('auth:user,admin');
+Route::put('/profileedit%{slug}',[userdata_controller::class,'profileupdate'])->middleware('auth:user,admin');
 
 Route::get('/contactadmin', [contactadmin_controller::class, 'index'])->middleware('auth:user,admin');
 Route::post('/contactadmin',[contactadmin_controller::class,'store'])->middleware('auth:user,admin');
@@ -174,6 +176,7 @@ Route::get('/notificationshow/{title}', [notification_controller::class, 'show']
 Route::post('/notifreadupdate/{id}',[notification_controller::class,'updatereadnotification'])->middleware('auth:user,admin');
 
 Route::get('/userbalance', [userbalance_controller::class, 'index'])->middleware('auth:user,admin')->name('userbalance');
+Route::post('/userbalance', [userbalance_controller::class, 'postpayment'])->middleware('auth:user,admin')->name('userbalance');
 
 Route::get('/school', function () {
     return view('adminpage.school');

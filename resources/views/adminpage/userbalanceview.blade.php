@@ -5,6 +5,11 @@
 @endphp
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
+<script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+    data-client-key="SB-Mid-client-_wxRytc85Z3IwRI6"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 @section('page-content')
     <div class="bg-white py-20">
@@ -110,35 +115,55 @@
                             </h1>
                         @endauth
                     @endif
-                    <a href="paydonation">
-                        <div class=" flex justify-items-center p-4 md:p-5">
-                            <button type="button" id="donate-button" name="donate-button"
-                                class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-24 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
-                                Donate Now
-                            </button>
-                        </div>
-                    </a>
-                    {{-- <button id="pay-button" class="bg-black px-5 py-5">Pay!</button>
 
-                    <!-- @TODO: You can add the desired ID as a reference for the embedId parameter. -->
-                    <div id="snap-container"></div>
-            
+                    <form action="" method="POST" id="submit_form">
+                        @csrf
+                        <input type="hidden" name="json" id="json_callback">
+                    </form>
+
+                    <div class=" flex justify-items-center p-4 md:p-5">
+                        <button type="button" id="pay-button" name="pay-button"
+                            class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-24 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                            Donate Now
+                        </button>
+                    </div>
                     <script type="text/javascript">
                         // For example trigger on button clicked, or any time you need
                         var payButton = document.getElementById('pay-button');
                         payButton.addEventListener('click', function() {
-                            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token.
-                            // Also, use the embedId that you defined in the div above, here.
-                            window.snap.embed('$snapToken', {
-                                embedId: 'snap-container'
-                            });
+                            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+                            window.snap.pay('{{ $snapToken }}', {
+                                onSuccess: function(result) {
+                                    /* You may add your own implementation here */
+                                    alert("payment success!");
+                                    //console.log(result);
+                                    send_response_to_form(result);
+                                },
+                                onPending: function(result) {
+                                    /* You may add your own implementation here */
+                                    alert("wating your payment!");
+                                    send_response_to_form(result);
+                                },
+                                onError: function(result) {
+                                    /* You may add your own implementation here */
+                                    alert("payment failed!");
+                                    send_response_to_form(result);
+                                },
+                                onClose: function() {
+                                    /* You may add your own implementation here */
+                                    alert('you closed the popup without finishing the payment');
+                                    send_response_to_form(result);
+                                }
+                            })
                         });
-                    </script> --}}
+
+                        function send_response_to_form(result){
+                            document.getElementById('json_callback').value = JSON.stringify(result);
+                            $('#submit_form').submit();
+                        }
+                    </script>
                 </div>
-
             </div>
-
         </div>
     </div>
-
 @endsection

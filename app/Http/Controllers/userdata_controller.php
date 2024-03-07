@@ -27,9 +27,6 @@ class userdata_controller extends Controller
         // Create a formatted ID with a prefix and padded count
         $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
         $customId = $prefix . $formattedCount;
-        // // dd($customId);
-        // ddd($request);
-
 
         $data = $request->validate(
             [
@@ -61,8 +58,6 @@ class userdata_controller extends Controller
             // Storage::disk('public')->move($image, $path);
         }
         userdata::create($data);
-
-
         return redirect('/adminpage')->with("success", "Data " . $request->name . " Has been input.");
     }
 
@@ -207,9 +202,41 @@ class userdata_controller extends Controller
         return view('adminpage.useredit', compact('data'));
     }
 
-    public function editprofile($slug)
+
+    public function profileedit($slug)
     {
         $data = userdata::find($slug);
         return view('adminpage.profileedit', compact('data'));
+    }
+
+    public function profileupdate(Request $request)
+    {
+        $data = userdata::find(auth()->user()->id);
+
+        $data->name = $request->name;
+        $data->address = $request->address;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->tier = $request->tier;
+        $data->note = $request->note;
+        $data->since = $request->since;
+        $data->status = $request->status;
+        // $data->image = $request->image;
+
+        if ($request->image) {
+            $image = $request->file('image');
+            $imagename = $data->name . '_picture_' . time() . '_' . $image->getClientOriginalName();
+            $path = $image->storeAs('user-image', $imagename, 'public');
+            // Storage::disk('public')->put($image, 'user-image');
+            $data['image'] = $path;
+            // Delete current images 
+            if ($request->oldimage) {
+                $filename =   $request->oldimage;
+                Storage::disk('public')->delete($filename);
+            }
+        }
+
+        $data->save();
+        return redirect('profile')->with("success", "Data".' '.auth()->user()->name.' '.'updated');
     }
 }

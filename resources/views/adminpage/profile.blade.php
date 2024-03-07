@@ -89,7 +89,7 @@
                         <p class=" text-black">{{ auth()->user()->email }}</p>
                         <p class=" text-black uppercase text-center">{{ auth()->user()->log }}</p>
                     </div>
-                    <div class="">
+                    <div class="pb-4">
                         @if (auth()->user()->log == 'admin')
                             <a href="/adminedit/{{ auth()->user()->slug }}/edit">
                                 <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>

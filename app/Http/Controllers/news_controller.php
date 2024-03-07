@@ -45,7 +45,7 @@ class news_controller extends Controller
     public function show($id)
     {
         $datanews = news::find($id);
-        $datachildren = childrendata::find($id);
+        $datachildren = childrendata::find($datanews->children_id);
         return view('adminpage.newsshow', [
             'datanews' => $datanews,
             'datachildren' => $datachildren,
