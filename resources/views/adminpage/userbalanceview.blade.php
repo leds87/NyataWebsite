@@ -101,11 +101,11 @@
                         @else
                             {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
                             </h1> --}}
-                            <h1 class="text-sm text-black mb-2 capitalize"> balance :
-                                <span class="text-lg">Rp </span>
+                            <h1 class="text-sm text-black mb-2 capitalize"> Total Support :
+                                <span class="text-lg">Rp {{$totaldonation}} </span>
                             </h1>
                             <h1 class="text-sm text-black mb-2 capitalize"> last month support :
-                                <span class="text-lg">Rp </span>
+                                <span class="text-lg">Rp {{$lastmonthsupport}} </span>
                             </h1>
                             <h1 class="text-sm text-black mb-2 capitalize"> Current Supported Child :
                                 <span class="text-lg">{{ $countchildren }} </span>

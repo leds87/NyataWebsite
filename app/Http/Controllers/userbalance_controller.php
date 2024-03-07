@@ -29,6 +29,7 @@ class userbalance_controller extends Controller
         $expectedsupport = array_sum($a2);
 
         //FOR PAYMENT!//
+
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -65,7 +66,41 @@ class userbalance_controller extends Controller
 
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        return view('adminpage.userbalanceview', compact('expectedsupport', 'countchildren', 'snapToken'));
+    
+
+        //Total AMOUNT of donation
+        $userdata = userbalance::where('user_id', auth()->user()->id)->where('status','LIKE','%'.'Success'.'%')->get(); //TOTAL AMOUNT OF DONATION
+        $amount = [];
+        foreach ($userdata as $ud) {
+            $amount[] = $ud->amount;
+        }
+        $totaldonation = array_sum($amount);
+
+
+        //LAST MONTH SUPPORT
+        $currentMonth = now()->format('m');
+
+        if ($currentMonth == 1) {
+            // If the current month is January, set $previousMonth to December and decrement the year
+            $previousMonth = 12;
+            $currentYear = now()->format('Y');
+            $previousYear = $currentYear - 1;
+        } else {
+            // For other months, simply subtract 1 from the current month
+            $previousMonth = $currentMonth - 1;
+            $previousYear = now()->format('Y');
+        }
+
+        // Now you have $currentMonth, $previousMonth, $currentYear, and $previousYear
+
+        $lastmonthvalue = userbalance::where('user_id', auth()->user()->id)->where('month', $previousMonth)->get(); //SUPPORT FOR LAST MONTH
+        $lastmonth = [];
+        foreach ($lastmonthvalue as $lmv) {
+            $lastmonth[] = $lmv->amount;
+        }
+        $lastmonthsupport = array_sum($lastmonth);
+        // dd($lastmonthsupport);
+        return view('adminpage.userbalanceview', compact('expectedsupport', 'countchildren', 'snapToken', 'totaldonation','lastmonthsupport'));
     }
     public function postpayment(Request $request)
     {
@@ -94,7 +129,7 @@ class userbalance_controller extends Controller
                 'totalsupportedchild' => $countchildren,
             ]
         );
-        dd($data);
         userbalance::create($data);
+        return redirect('userbalance');
     }
 }

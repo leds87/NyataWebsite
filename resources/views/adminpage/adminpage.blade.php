@@ -200,7 +200,8 @@
                     <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4 w-2/3">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                                <p>Total Balance : </p>
+                                <p>Total Donation : Rp {{$totaldonation}} </p>
+                                <p>Total Supported Child : {{$totalsupportedchildren}} children</p>
                             </span>
                         </div>
                         <canvas id="userPieChart" width="200" height="200"></canvas>

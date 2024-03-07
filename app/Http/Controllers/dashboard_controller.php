@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\childrendata;
 use App\Models\userdata;
 use App\Models\schooldata;
+use App\Models\supportedchildren;
+use App\Models\userbalance;
 use Illuminate\Http\Request;
 
 class dashboard_controller extends Controller
 {
-    public function index (){
+    public function index()
+    {
         $activeschool = schooldata::where('status', 'active')->count();
         $inactiveschool = schooldata::where('status', 'inactive')->count();
         $activechildren = childrendata::where('status', 'active')->count();
@@ -18,6 +21,20 @@ class dashboard_controller extends Controller
         $activeusers = userdata::where('status', 'active')->count();
         $inactiveusers = userdata::where('status', 'inactive')->count();
         $postponeusers = userdata::where('status', 'postpone')->count();
+
+        //Total AMOUNT of donation
+        $userbalance2 = userbalance::all(); //TOTAL AMOUNT OF DONATION
+        $amount = [];
+        foreach ($userbalance2 as $ud) {
+            $amount[] = $ud->amount;
+        }
+        $totaldonation = array_sum($amount);
+
+        //SUPPORTED CHILDREN
+        $totalsupportedchildren = supportedchildren::all()->count();
+
+
+
 
         return view('adminpage.adminpage', [
 
@@ -29,16 +46,15 @@ class dashboard_controller extends Controller
             'schoolcount' => $activeschool + $inactiveschool,
             'activeschool' => $activeschool,
             'inactiveschool' => $inactiveschool,
-            
+
             'childrencount' => $activechildren + $educatedchildren + $successchildren,
             'activechildren' => $activechildren,
             'educatedchildren' => $educatedchildren,
             'successchildren' => $successchildren,
 
+            'totaldonation' => $totaldonation,
+            'totalsupportedchildren' => $totalsupportedchildren,
+
         ]);
     }
-
-
-
-
 }

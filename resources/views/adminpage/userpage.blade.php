@@ -50,15 +50,21 @@
 
                         <div class="w-1/4 flex flex-wrap ">
                             <div class="text-center">
-                                <a href='userbalance' class="text-white text-md text-center  ">Details
+                                @if ($expectedsupport == 0)
+                                    
+                                @else
+                                    <a href='userbalance' class="text-white text-md text-center  ">Details
+                                        <div class="pt-[1px] mx-auto ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                @endif
                             </div>
-                            <div class="pt-[1px] mx-auto ">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </div>
-                            </a>
+
                         </div>
                     </div>
 
