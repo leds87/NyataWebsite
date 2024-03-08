@@ -18,6 +18,7 @@ return new class extends Migration
             // $table->string('admin_id');
             $table->string('name');
             $table->string('address');
+            $table->string('slug')->nullable();
             $table->string('password');
             $table->string('email');
             $table->bigInteger('phone');

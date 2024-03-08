@@ -8,6 +8,7 @@ use App\Models\adminlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 class admindata_controller extends Controller
@@ -19,15 +20,15 @@ class admindata_controller extends Controller
 
 
     public function store(Request $request)
+    
     {
         // //CREATE CUSTOM ID
-        // $prefix = "A";
-        // $count = admindata::count() + 1;
+        $prefix = "A";
+        $count = admindata::count() + 1;
 
-        // // Create a formatted ID with a prefix and padded count
-        // $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
-        // $customId = $prefix . $formattedCount;
-        // dd($customId);
+        // Create a formatted ID with a prefix and padded count
+        $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
+        $customId = $prefix . $formattedCount;
 
         $validatedData = $request->validate(
             [
@@ -40,10 +41,15 @@ class admindata_controller extends Controller
                 'note' => 'required',
             ]
         );
+        
+        $validatedData['slug'] = $request->name.'%'.$customId;
+
         $validatedData['log'] = 'admin';
-        // $validatedData['admin_id'] = $customId;
         $validatedData['password'] = Hash::make($validatedData['password']);
         admindata::create($validatedData);
+
+
+
 
         // $auth = Auth::user();
         // $authid = $auth->name;
@@ -148,5 +154,43 @@ class admindata_controller extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/nyataadmin');
+    }
+
+    public function profileadminedit($slug)
+    {
+        dd($slug);
+        $data = admindata::find($slug);
+        return view('adminpage.profileeditadmin', compact('data'));
+    }
+
+    public function profileadminupdate(Request $request)
+    {
+        $data = admindata::find(auth()->user()->id);
+
+        $data->name = $request->name;
+        $data->address = $request->address;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->tier = $request->tier;
+        $data->note = $request->note;
+        $data->since = $request->since;
+        $data->status = $request->status;
+        // $data->image = $request->image;
+
+        if ($request->image) {
+            $image = $request->file('image');
+            $imagename = $data->name . '_picture_' . time() . '_' . $image->getClientOriginalName();
+            $path = $image->storeAs('user-image', $imagename, 'public');
+            // Storage::disk('public')->put($image, 'user-image');
+            $data['image'] = $path;
+            // Delete current images 
+            if ($request->oldimage) {
+                $filename =   $request->oldimage;
+                Storage::disk('public')->delete($filename);
+            }
+        }
+
+        $data->save();
+        return redirect('profile')->with("success", "Data".' '.auth()->user()->name.' '.'updated');
     }
 }

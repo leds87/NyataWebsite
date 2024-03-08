@@ -44,7 +44,7 @@ class userdata_controller extends Controller
         );
 
         $data['log'] = 'user';
-        $data['slug'] = $request->name.'_'.$customId;
+        $data['slug'] = $request->name.'%'.$customId;
 
         // $data['user_id'] = $customId;
         $data['password'] = Hash::make($data['password']);

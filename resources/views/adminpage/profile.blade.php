@@ -91,7 +91,7 @@
                     </div>
                     <div class="pb-4">
                         @if (auth()->user()->log == 'admin')
-                            <a href="/adminedit/{{ auth()->user()->slug }}/edit">
+                            <a href="/profileadminedit%{{auth()->user()->slug}}">
                                 <button class="bg-black px-3 py-2 rounded-xl text-white">Edit</button>
                             </a>
                         @else

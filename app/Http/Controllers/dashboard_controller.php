@@ -30,6 +30,13 @@ class dashboard_controller extends Controller
         }
         $totaldonation = array_sum($amount);
 
+        $user1 = [];
+        foreach ($userbalance2 as $us) {
+            $user1[] = $us->user_id;
+        }
+        $totaluserdonated = count(array_unique($user1));
+        
+
         //SUPPORTED CHILDREN
         $totalsupportedchildren = supportedchildren::all()->count();
 
@@ -54,6 +61,7 @@ class dashboard_controller extends Controller
 
             'totaldonation' => $totaldonation,
             'totalsupportedchildren' => $totalsupportedchildren,
+            'totaluserdonated' => $totaluserdonated,
 
         ]);
     }
