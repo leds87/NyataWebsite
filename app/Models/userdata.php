@@ -50,7 +50,7 @@ class userdata extends Authenticatable
                 // 'id' => Auth::id(),
                 'typelog' => 'Profile',
                 'personid' => Auth::id(),
-                'description' => (Auth::user()->name.' '.'edited a record '.
+                'description' => (Auth::user()->name.' '.'edited a record of '.$user->name .':'.
                 implode(', ', $modifiedAttributes).' '.'to'. ' '.
                 implode(', ', $modifiedAttributes2)),
             ];

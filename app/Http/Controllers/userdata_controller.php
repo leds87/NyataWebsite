@@ -103,6 +103,7 @@ class userdata_controller extends Controller
         }
 
         $data['password'] = Hash::make($data['password']);
+        // dd($data);
         $data->save();
         return redirect('profile')->with("success", "Data Updated");
     }

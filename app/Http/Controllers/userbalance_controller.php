@@ -31,7 +31,8 @@ class userbalance_controller extends Controller
         //FOR PAYMENT!//
 
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R';
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        // \Midtrans\Config::$serverKey = 'SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
