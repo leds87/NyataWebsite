@@ -328,7 +328,7 @@
                             <button class="bg-black px-3 py-2 rounded-xl text-white" data-modal-target="2"
                                 data-modal-toggle="static-modal1">Change Password</button>
 
-                            <form action="/changepassworduser%{{ auth()->user()->id }}" method="POST" class="">
+                            <form action="/changepassworduserprofile%{{ auth()->user()->id }}" method="POST" class="">
                                 @csrf
                                 @method('PUT')
 
