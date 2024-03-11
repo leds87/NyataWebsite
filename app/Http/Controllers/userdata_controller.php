@@ -135,6 +135,34 @@ class userdata_controller extends Controller
 
     }
 
+    public function changePasswordviaadmin(Request $request, $id)
+    {
+        // $request->validate([
+        //     'current_password' => ['required'],
+        //     'password' => ['required','min:6','confirmed'],
+        //     'password_confirmation' => ['required'],
+        // ]);
+        // if (Hash::check($request->current_password,auth()->user()->password)){
+        // };
+        // return back()->with('message','Your password has been updated');
+
+
+        // throw ValidationException::withMessages([
+        //     'current_password'=>'Your Current Password Doesnt Match with our record'
+        // ]);
+        $request->validate([
+            'password' => ['required','confirmed'],
+            'password_confirmation' => ['required'],
+        ]);
+        $data = userdata::find($id);
+        // dd($data);
+        $data->password = $request->password;
+        $data['password'] = Hash::make($data['password']);
+        $data->save();
+        return redirect('usershow')->with("success", "Password Updated");
+
+    }
+
     public function XchangePassword(Request $request)
     {
         // $request->validate([

@@ -15,33 +15,33 @@
                         <div class="flex flex-col">
                             <div class="sm:-mx-6 lg:-mx-8">
                               <div class="inline-block  py-2 sm:px-6 lg:px-8">
-                                <div class="overflow-hidden">
+                                <div class="overflow-x-auto">
                                   <table class="min-w-full text-left text-gray-900 text-sm font-light">
                                     <thead class="border-b font-medium dark:border-neutral-500">
                                       <tr>
-                                        <th scope="col" class="px-6 py-4">ID</th>
-                                        <th scope="col" class="px-6 py-4">School Name</th>
-                                        <th scope="col" class="px-6 py-4">Address</th>
-                                        <th scope="col" class="px-6 py-4">Location</th>
-                                        <th scope="col" class="px-6 py-4">Total of children</th>
-                                        <th scope="col" class="px-6 py-4">School Status</th>
-                                        <th scope="col" class="px-6 py-4">Required Donation</th>
+                                        <th scope="col" class="px-6 py-4 w-1/2">ID</th>
+                                        <th scope="col" class="px-6 py-4 w-1/2">School Name</th>
+                                        {{-- <th scope="col" class="px-6 py-4 w-1/4">Address</th> --}}
+                                        <th scope="col" class="px-6 py-4 w-1/2">Location</th>
+                                        <th scope="col" class="px-6 py-4 w-1/2">Total of children</th>
+                                        <th scope="col" class="px-6 py-4 w-1/2">School Status</th>
+                                        <th scope="col" class="px-6 py-4 w-1/2">Required Donation</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       @foreach($data as $item)
                                       <tr class="border-b dark:border-neutral-500">
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['id']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['school_name']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['address']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['location']}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['children']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4  w-1/2">{{$item['id']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4  w-1/2">{{$item['school_name']}}</td>
+                                        {{-- <td class="whitespace-nowrap px-6 py-4  w-1/2">{{$item['address']}}</td> --}}
+                                        <td class="whitespace-nowrap px-6 py-4  w-1/2">{{$item['location']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4  w-1/2">{{$item['children']}}</td>
                                         @if($item['status'] === 'Active')
-                                        <td class="whitespace-nowrap px-6 py-4 bg-green-400">{{$item['status']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4  w-1/2 bg-green-400">{{$item['status']}}</td>
                                         @else
-                                        <td class="whitespace-nowrap px-6 py-4 bg-red-400">{{$item['status']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4  w-1/2 bg-red-400">{{$item['status']}}</td>
                                         @endif
-                                        <td class="whitespace-nowrap px-6 py-4">{{$item['required_donation']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4  w-1/2">{{$item['required_donation']}}</td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/schooledit%{{$item->id}}">Edit</a> </button>
                                             <form action="{{route('destroyschool',$item->id)}}" method="POST" class="inline-block">

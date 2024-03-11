@@ -293,6 +293,46 @@
                                                 alt="{{ $image->filename }}" class="w-36 object-cover rounded-md">
                                             <div class="mx-2"></div>
                                         @endforeach
+
+                                        {{-- <div id="photo-slider" class="overflow-hidden">
+                                            <div class="flex transition-transform duration-300 ease-in-out">
+                                              @foreach ($items->images as $image)
+                                                <div class="w-full h-full object-cover mx-2">
+                                                  <img src="{{ asset('storage/children-images/' . $image->filename) }}" alt="{{ $image->filename }}">
+                                                </div>
+                                              @endforeach
+                                            </div>
+                                          </div>
+                                          
+                                          <script>
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                              const slider = document.getElementById("photo-slider");
+                                              const images = slider.querySelectorAll(".w-full");
+                                          
+                                              let currentIndex = 0;
+                                          
+                                              function updateSlider() {
+                                                const translateValue = -currentIndex * 100 + "%";
+                                                slider.querySelector(".flex").style.transform = "translateX(" + translateValue + ")";
+                                              }
+                                          
+                                              function nextSlide() {
+                                                currentIndex = (currentIndex + 1) % images.length;
+                                                updateSlider();
+                                              }
+                                          
+                                              function prevSlide() {
+                                                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                                                updateSlider();
+                                              }
+                                          
+                                              setInterval(nextSlide, 3000); // Auto-slide every 3 seconds (adjust as needed)
+                                            });
+                                          </script> --}}
+                                          
+                                          
+                                          
+                                        
                                         {{-- <div id="default-carousel{{ $items->id }}" class="relative w-full"
                                             data-carousel="slide">
                                             <!-- Carousel wrapper -->
@@ -341,8 +381,8 @@
                                                     <span class="sr-only">Next</span>
                                                 </span>
                                             </button>
-                                        </div> --}}
-                                    </div>
+                                        </div>
+                                    </div> --}}
                                     </div>
                                 @else
                                     <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
