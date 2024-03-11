@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('role');
             $table->string('note');
             $table->string('log');
+            $table->string('image')->nullable();
         });
     }
 

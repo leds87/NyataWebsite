@@ -108,8 +108,7 @@ Route::post('/childrennotsupportedfilter',[childrennotsupported_controller::clas
 Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth:user,admin');
 Route::get('/profileedit%{slug}',[userdata_controller::class,'profileedit'])->name('profileedit')->middleware('auth:user');
 Route::put('/profileedit%{slug}',[userdata_controller::class,'profileupdate'])->middleware('auth:user');
-Route::get('/profileadminedit%{slug}',[admindata_controller::class,'profileadminedit'])->name('profileadminedit')->middleware('auth:admin');
-Route::put('/profileadminedit%{slug}',[admindata_controller::class,'profileadminupdate'])->middleware('auth:admin');
+Route::put('/profileadminupdate%{id}',[admindata_controller::class,'profileadminupdate'])->middleware('auth:admin');
 
 Route::get('/contactadmin', [contactadmin_controller::class, 'index'])->middleware('auth:user,admin');
 Route::post('/contactadmin',[contactadmin_controller::class,'store'])->middleware('auth:user,admin');

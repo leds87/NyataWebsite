@@ -156,31 +156,32 @@ class admindata_controller extends Controller
         return redirect('/nyataadmin');
     }
 
-    public function profileadminedit($slug)
-    {
-        dd($slug);
-        $data = admindata::find($slug);
-        return view('adminpage.profileeditadmin', compact('data'));
-    }
+    // public function profileadminedit($slug)
+    // {
+    //     dd($slug);
+    //     $data = admindata::find($slug);
+    //     // return view('adminpage.profileeditadmin', compact('data'));
+    //     return view('adminpage.adminpage');
+    // }
 
     public function profileadminupdate(Request $request)
     {
         $data = admindata::find(auth()->user()->id);
-
+        // dd($data);
         $data->name = $request->name;
         $data->address = $request->address;
         $data->email = $request->email;
         $data->phone = $request->phone;
-        $data->tier = $request->tier;
+        $data->role = $request->role;
         $data->note = $request->note;
-        $data->since = $request->since;
-        $data->status = $request->status;
+
+        // dd($data);
         // $data->image = $request->image;
 
         if ($request->image) {
             $image = $request->file('image');
             $imagename = $data->name . '_picture_' . time() . '_' . $image->getClientOriginalName();
-            $path = $image->storeAs('user-image', $imagename, 'public');
+            $path = $image->storeAs('admin-image', $imagename, 'public');
             // Storage::disk('public')->put($image, 'user-image');
             $data['image'] = $path;
             // Delete current images 
@@ -192,5 +193,32 @@ class admindata_controller extends Controller
 
         $data->save();
         return redirect('profile')->with("success", "Data".' '.auth()->user()->name.' '.'updated');
+    }
+
+    public function changePassword(Request $request, $id)
+    {
+        // $request->validate([
+        //     'current_password' => ['required'],
+        //     'password' => ['required','min:6','confirmed'],
+        //     'password_confirmation' => ['required'],
+        // ]);
+        // if (Hash::check($request->current_password,auth()->user()->password)){
+        // };
+        // return back()->with('message','Your password has been updated');
+
+
+        // throw ValidationException::withMessages([
+        //     'current_password'=>'Your Current Password Doesnt Match with our record'
+        // ]);
+        $request->validate([
+            'password' => ['required','confirmed'],
+            'password_confirmation' => ['required'],
+        ]);
+        $data = admindata::find($id);
+        $data->password = $request->password;
+        $data['password'] = Hash::make($data['password']);
+        $data->save();
+        return redirect('profile')->with("success", "Password Updated");
+
     }
 }
