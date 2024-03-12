@@ -73,7 +73,7 @@
             @endif
             <div class=" mx-auto mt-8 p-4 shadow-md rounded-md w-1/3 mb-4 bg-zinc-100">
                 <h1 class="text-2xl text-black font-semibold mb-4 capitalize">{{ auth()->user()->name }}'s Balance</h1>
-                <div class="flex items-center space-x-4 mb-5">
+                <div class="flex items-center space-x-2 mb-5">
                     @if (auth()->user()->image)
                         <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="User Avatar"
                             class="w-12 h-12 rounded-full object-cover">
@@ -86,7 +86,92 @@
                         <p class=" text-black capitalized text-center">Current Log : {{ auth()->user()->log }}</p>
                     </div>
 
+                    {{-- <div class="">
+                        <a href="/profileedit%{{ auth()->user()->slug }}">
+                            <button class="bg-blue-900 px-3 py-2 rounded-xl text-white">Transaction Status</button>
+                        </a>
+                    </div> --}}
+                    <div class="">
+                        <button class="bg-black px-2 py-2 rounded-xl text-white mt-4"
+                            data-modal-target="static-transaction-history"
+                            data-modal-toggle="static-transaction-history">Transaction History</button>
+                        <div id="static-transaction-history" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <!-- Modal header -->
+                                    <div
+                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                            Transasction History
+                                        </h3>
+                                        <button type="button"
+                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                            data-modal-hide="static-transaction-history">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="p-5">
+                                        @foreach ($transactionhistory as $item)
+                                        <div id="alert-additional-content-1"
+                                            class="p-4 mb-4 text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+                                            role="alert">
+                                            <div class="flex items-center">
+                                                <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                                </svg>
+                                                <span class="sr-only">Info</span>
+                                                <h3 class="text-lg font-medium">Donation ID#{{ $item['order_id'] }}</h3>
+                                            </div>
+                                            <div class="mt-2 mb-4 text-sm">
+                                                <p>payment method:</p>
+                                                <p>transaction status:</p>
+                                                <p>date:</p>
+                                                <p>totalchildsupported:</p>
+                                            </div>
+                                            <div class="flex">
+                                                <button type="button"
+                                                    class="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                    <svg class="me-2 h-3 w-3" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                        viewBox="0 0 20 14">
+                                                        <path
+                                                            d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                                                    </svg>
+                                                    View more
+                                                </button>
+                                                {{-- <button type="button"
+                                                    class="text-blue-800 bg-transparent border border-blue-800 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-blue-600 dark:border-blue-600 dark:text-blue-400 dark:hover:text-white dark:focus:ring-blue-800"
+                                                    data-dismiss-target="#alert-additional-content-1" aria-label="Close">
+                                                    Dismiss
+                                                </button> --}}
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <!-- Modal footer -->
+                                    {{-- <div
+                                        class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                        <button type="submit"
+                                            class="text-white mx-auto bg-blue-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                                            Submit</button>
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
             <div class="flex">
                 <div class="mx-auto shadow-lg text-left w-1/3 pt-3 mb-5 pl-5 ">
@@ -102,10 +187,10 @@
                             {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
                             </h1> --}}
                             <h1 class="text-sm text-black mb-2 capitalize"> Total Support :
-                                <span class="text-lg">Rp {{$totaldonation}} </span>
+                                <span class="text-lg">Rp {{ $totaldonation }} </span>
                             </h1>
                             <h1 class="text-sm text-black mb-2 capitalize"> last month support :
-                                <span class="text-lg">Rp {{$lastmonthsupport}} </span>
+                                <span class="text-lg">Rp {{ $lastmonthsupport }} </span>
                             </h1>
                             <h1 class="text-sm text-black mb-2 capitalize"> Current Supported Child :
                                 <span class="text-lg">{{ $countchildren }} </span>
@@ -157,7 +242,7 @@
                             })
                         });
 
-                        function send_response_to_form(result){
+                        function send_response_to_form(result) {
                             document.getElementById('json_callback').value = JSON.stringify(result);
                             $('#submit_form').submit();
                         }

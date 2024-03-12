@@ -18,6 +18,10 @@ class userdata extends Authenticatable
     protected $table='userdata';
     public $timestamps=false;
 
+    public function userdata(){
+        return $this->belongsTo(userbalance::class);
+    }
+
 
     // public function childrens()
     // {

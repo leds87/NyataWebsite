@@ -102,7 +102,9 @@ class userbalance_controller extends Controller
         $lastmonthsupport = array_sum($lastmonth);
 
         // dd($lastmonthsupport);
-        return view('adminpage.userbalanceview', compact('expectedsupport', 'countchildren', 'snapToken', 'totaldonation', 'lastmonthsupport'));
+
+        $transactionhistory = userbalance::where('user_id',auth()->user()->id);
+        return view('adminpage.userbalanceview', compact('transactionhistory','expectedsupport', 'countchildren', 'snapToken', 'totaldonation', 'lastmonthsupport'));
     }
 
     public function postpayment(Request $request)
@@ -143,13 +145,19 @@ class userbalance_controller extends Controller
         //SUM amount of donation
         $userbalance2 = userbalance::where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
         $userbalance = userbalance::all(); //data
+        
         $data = userbalance::all(); //data
+        // $data = userbalance::with('users')->get(); //data
+        // dd($data);
+        // $data = userbalance::join('userdata', 'id', '=', 'userbalance.user_id')            
+        // ->select('userdata.name as userdata_name')->get(); //data
 
-        $nameuser = userdata::join('userbalance', 'user_id', '=', 'userdata.id')
-            ->select('userdata.name as userdata_name')->get();
+        // $nameuser = userdata::join('userbalance', 'user_id', '=', 'userdata.id')
+        //     ->select('userdata.name as userdata_name')->get();
 
-        // dd($nameuser);
+        // dd($data);
 
+        $transactionhistory = userbalance::where('user_id',auth()->user()->id);
 
         $amount = [];
         foreach ($userbalance2 as $ud) {
@@ -212,6 +220,10 @@ class userbalance_controller extends Controller
 
         $currentMonthlocalized = now()->format('F');
 
-        return view('adminpage.moneyinformationdata', compact('data', 'currentMonthlocalized', 'totallastmonthsupport', 'totalchildren', 'totaluser', 'totaluserdoesntdoanted', 'totaldonationneed', 'totaldonation', 'totaluserdonated', 'totalsupportedchildren', 'totalchildren', 'notsupportedchildren'));
+
+
+        return view('adminpage.moneyinformationdata', compact('data', 'transactionhistory','currentMonthlocalized', 'totallastmonthsupport', 'totalchildren', 'totaluser', 'totaluserdoesntdoanted', 'totaldonationneed', 'totaldonation', 'totaluserdonated', 'totalsupportedchildren', 'totalchildren', 'notsupportedchildren'));
     }
+
+
 }

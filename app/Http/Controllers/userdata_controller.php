@@ -268,4 +268,10 @@ class userdata_controller extends Controller
         $data->save();
         return redirect('profile')->with("success", "Data".' '.auth()->user()->name.' '.'updated');
     }
+
+    public function userinformationdata(){
+        $data = userdata::all();
+
+        return view('adminpage.userinformationdata',compact('data'));
+    }
 }

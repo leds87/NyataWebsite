@@ -81,8 +81,7 @@ class childrendata_controller extends Controller
         $data = childrendata::find($id);
         $data->delete();
 
-        $data->images()->delete([
-        ]);
+        $data->images()->delete([]);
 
         return redirect('childrenshow')->with("success", "Data Deleted!");
     }
@@ -112,11 +111,10 @@ class childrendata_controller extends Controller
         // Delete current images MULTIPLE
         $filenames =   $data->images->pluck('filename')->toArray();
         if ($request->oldImages) {
-            $data->images()->delete([
-            ]);
+            $data->images()->delete([]);
 
             foreach ($filenames as $filename) {
-            Storage::disk('public')->delete('children-images/' . $filename); 
+                Storage::disk('public')->delete('children-images/' . $filename);
             }
         }
 
@@ -125,7 +123,7 @@ class childrendata_controller extends Controller
                 // $filename = date('Y-m-d') . $image->getClientOriginalName();
                 $filename = date('Y-m-d') . $request->name . '_child image' . $image->getClientOriginalName();
                 $path = $image->storeAs('children-images', $filename, 'public');
-   
+
 
                 // Associate the image with the child
                 $data->images()->updateOrCreate([
@@ -178,5 +176,28 @@ class childrendata_controller extends Controller
         $imagedata = image::where('childrendata_id', $id)->get();
         // dd($imagedata);
         return view('adminpage.childrenedit', compact('imagedata', 'data', 'datauser', 'dataschool'));
+    }
+
+
+    public function childinformationdata()
+    {
+        $data = childrendata::all();
+        $activechildren = childrendata::where('status', 'active')->count();
+        $educatedchildren = childrendata::where('status', 'educated')->count();
+        $successchildren = childrendata::where('status', 'success')->count();
+        $childrencount = childrendata::count();
+
+        //SUPPORTED CHILDREN
+        $totalsc1 = supportedchildren::all();
+        $totalsc2 = array_unique(array_column($totalsc1->toArray(), 'childrendata_id'));
+        $totalsupportedchildren = count($totalsc2);
+
+        //NOT SUPPORTED CHILDREN
+        $notsupportedchildren = $childrencount - $totalsupportedchildren;
+        // dd($notsupportedchildren);
+
+
+
+        return view('adminpage.childinformationdata', compact('notsupportedchildren','totalsupportedchildren','data', 'childrencount', 'activechildren', 'educatedchildren', 'successchildren'));
     }
 }

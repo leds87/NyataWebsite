@@ -10,4 +10,8 @@ class userbalance extends Model
     protected $guarded=['id'];
     protected $table='userbalance';
     public $timestamps=false;
+
+    public function users(){
+        return $this->hasMany(userdata::class);
+    }
 }

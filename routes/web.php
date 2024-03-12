@@ -180,6 +180,8 @@ Route::post('/notifreadupdate/{id}',[notification_controller::class,'updatereadn
 Route::get('/userbalance', [userbalance_controller::class, 'index'])->middleware('auth:user,admin')->name('userbalance');
 Route::post('/userbalance', [userbalance_controller::class, 'postpayment'])->middleware('auth:user,admin')->name('userbalance');
 Route::get('/moneyinformationdata',[userbalance_controller::class,'moneyinformationdata'])->middleware('auth:admin')->name('moneyinformationdata');
+Route::get('/childinformationdata',[childrendata_controller::class,'childinformationdata'])->middleware('auth:admin')->name('childinformationdata');
+Route::get('/userinformationdata',[userdata_controller::class,'userinformationdata'])->middleware('auth:admin')->name('userinformationdata');
 
 Route::get('/school', function () {
     return view('adminpage.school');

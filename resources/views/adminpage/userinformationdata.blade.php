@@ -7,7 +7,7 @@
         <div class="content">
             <div class=" py-9">
                 <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-                    Money Information Data</h1>
+                    User Information Data</h1>
             </div>
 
             {{-- SUCCESS MESSAGES --}}
@@ -72,41 +72,15 @@
 
 
             {{-- SECTION BOX 1 ADMIN PROFILE MESSAGES --}}
-            <div class="lg:grid grid-cols-3 lg:gap-4  ">
+            <div class="lg:grid grid-cols-2 lg:gap-4  ">
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
-                    <h1 class="text-2xl text-black font-semibold mb-4">Money Information </h1>
+                    <h1 class="text-2xl text-black font-semibold mb-4">Children Information </h1>
                     <div class="mx-auto">
-                        <p class=" text-black font-semibold"> Total Donation :
-                            @php
-                                $amount = $totaldonation;
-                                $formattedAmount = number_format($amount, 0, ',', '.');
-                            @endphp
-                            Rp {{ $formattedAmount }}
-                        </p>
-                        <p class=" text-black font-semibold">Last Month Support :
-                            @php
-                                $amount = $totallastmonthsupport;
-                                $formattedAmount = number_format($amount, 0, ',', '.');
-                            @endphp
-                            Rp {{ $formattedAmount }}</p>
-                        <p class=" text-black font-semibold">Total Donation Needed :
-                            @php
-                                $amount = $totaldonationneed;
-                                $formattedAmount = number_format($amount, 0, ',', '.');
-                            @endphp
-                            Rp {{ $formattedAmount }}</p>
+                        <p class="font-semibold text-black">Total Child: {{ $childrencount }}</p>
+                        <p class="font-semibold text-black">Child Active: {{ $activechildren }}</p>
+                        <p class="font-semibold text-black">Child Educated: {{ $educatedchildren }}</p>
+                        <p class="font-semibold text-black">Child Success: {{ $successchildren }}</p>
 
-                    </div>
-                    <div class="pb-4">
-                    </div>
-                </div>
-                <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
-                    <h1 class="text-2xl text-black font-semibold mb-4">User Donated </h1>
-                    <div class="mx-auto">
-                        <p class="text-black font-semibold">Total User Who Donated : {{ $totaluserdonated }} person </p>
-                        <p class=" text-black font-semibold">Total User Who Hasn't Donated : {{ $totaluserdoesntdoanted }}
-                            person</p>
-                        <p class=" text-black font-semibold">Total User : {{ $totaluser }} person</p>
                     </div>
                     <div class="pb-4">
                     </div>
@@ -114,12 +88,12 @@
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
                     <h1 class="text-2xl text-black font-semibold mb-4">Supported Child</h1>
                     <div class="mx-auto">
-                        <p class=" text-black font-semibold"> Total Supported Child : {{ $totalsupportedchildren }} child
+                        <p class=" text-black font-semibold"> Total Supported Child : {{$notsupportedchildren}} child
                         </p>
-                        <p class=" text-black font-semibold"> Total Child Not Supported : {{ $totalsupportedchildren }}
+                        <p class=" text-black font-semibold"> Total Child Not Supported :{{$notsupportedchildren}} 
                             child
                         </p>
-                        <p class=" text-black font-semibold">Total Children : {{ $totalchildren }} child</p>
+                        <p class=" text-black font-semibold">Total Children : {{$childrencount}} child</p>
                     </div>
                     <div class="pb-4">
                     </div>
@@ -132,46 +106,62 @@
                 <div class="text-2xl text-black font-bold ">Details </div>
                 <div class="my-2 border-2 border-gray-300"></div>
                 <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
-                    <div class="flex flex-col">
-                        <div class="inline-block  py-2 sm:px-6 lg:px-8">
-                            <div class="overflow-x-auto">
-                                <table class="min-w-full text-left text-gray-900 text-sm font-light">
-                                    <thead class="border-b font-medium dark:border-neutral-500">
-                                        <tr>
-                                            <th scope="col" class="px-6 py-4">ID</th>
-                                            <th scope="col" class="px-6 py-4">UserID</th>
-                                            <th scope="col" class="px-6 py-4">Status</th>
-                                            <th scope="col" class="px-6 py-4">Date</th>
-                                            <th scope="col" class="px-6 py-4">Required Donation</th>
-                                            <th scope="col" class="px-6 py-4">Total Supported Child</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="">
-                                        @foreach ($data as $item)
-                                            {{-- @foreach ($data->users as $item2) --}}
+                    <div class="mx-auto">
+                        <div class="sm:-mx-6 lg:-mx-8">
+                            <div class="inline-block  py-2 sm:px-6 lg:px-8">
+                                <div class="overflow-hidden">
+                                    <table class="min-w-full text-left text-gray-900 text-sm font-light">
+                                        <thead class="border-b font-medium dark:border-neutral-500">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-4">ID</th>
+                                                <th scope="col" class="px-6 py-4">Name</th>
+                                                <th scope="col" class="px-6 py-4">school</th>
+                                                <th scope="col" class="px-6 py-4">Location</th>
+                                                <th scope="col" class="px-6 py-4">age</th>
+                                                <th scope="col" class="px-6 py-4">Status</th>
+                                                <th scope="col" class="px-6 py-4">Required Donation</th>
+                                                <th scope="col" class=" px-6 py-4">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data as $item)
                                                 <tr class="border-b dark:border-neutral-500">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['user_id'] }}</td>
-                                                    {{-- <td class="whitespace-nowrap px-6 py-4">{{ $item2['name'] }}</td> --}}
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['name'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['school'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['location'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['age'] }}</td>
+                                                    </td>
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['date'] }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4  w-1/2">
                                                         @php
-                                                            $amount = $item['amount'];
+                                                            $amount = $item['required_donation'];
                                                             $formattedAmount = number_format($amount, 0, ',', '.');
                                                         @endphp
                                                         <p class="">Rp {{ $formattedAmount }}</p>
                                                     </td>
-                                                    <td d class="whitespace-nowrap px-6 py-4">
-                                                        {{ $item['totalsupportedchild'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">
+                                                        <button type="button"
+                                                            class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a
+                                                                href="/childrenedit/{{ $item->id }}/edit">Edit</a>
+                                                        </button>
+                                                        <form action="/childrendestroy/{{ $item->id }}"
+                                                            method="POST" class="inline-block">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                class="bg-red-600 text-white px-2 py-2 rounded-lg"
+                                                                onclick="return confirm('Are You Sure?')"> HAPUS
+                                                            </button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
-                                            {{-- @endforeach --}}
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

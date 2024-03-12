@@ -126,7 +126,7 @@
 
                         <div class="w-1/4 flex ">
                             <div class="">
-                                <a href='childrenshow' class="text-white text-md ">Details
+                                <a href='childinformationdata' class="text-white text-md ">Details
                             </div>
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
