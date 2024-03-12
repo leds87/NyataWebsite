@@ -184,7 +184,7 @@
                         <div class="w-1/4 flex ">
                             <div class="">
 
-                                <a href='' class="text-white text-md ">Details
+                                <a href='moneyinformationdata' class="text-white text-md ">Details
                             </div>
                             <div class="">
 
@@ -200,7 +200,14 @@
                     <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4 w-2/3">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                                <p>Total Donation : Rp {{$totaldonation}} </p>
+                                <p>Total Donation :                                          
+                                    @php
+                                    $amount = ($totaldonation);
+                                    $formattedAmount = number_format($amount, 0, ',', '.');
+                                @endphp
+                                
+                                Rp {{ $formattedAmount }}
+                             </p>
                                 <p>Total User Who Donated :  {{$totaluserdonated}} person </p>
                                 <p>Total Supported Child : {{$totalsupportedchildren}} children</p>
                             </span>

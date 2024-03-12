@@ -5,7 +5,7 @@
 
     <div class="pt-52 text-4xl text-center text-black tracking-widest block font-bold">NYATA
     </div>
-    <div class="text-2xl tracking-wider text-center mt-4 text-black  ">ADMIN LOGIN</div>
+    <div class="text-2xl tracking-wider text-center mt-4 text-black  ">LOGIN</div>
     
     <form action="{{ route('login') }}" method="POST">
         <div class="max-w-lg my-10 border-2 border-slate-800 rounded-xl mx-auto p-5 shadow-md">  

@@ -23,7 +23,7 @@ class dashboard_controller extends Controller
         $postponeusers = userdata::where('status', 'postpone')->count();
 
         //Total AMOUNT of donation
-        $userbalance2 = userbalance::all(); //TOTAL AMOUNT OF DONATION
+        $userbalance2 = userbalance::where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
         $amount = [];
         foreach ($userbalance2 as $ud) {
             $amount[] = $ud->amount;
@@ -38,7 +38,9 @@ class dashboard_controller extends Controller
         
 
         //SUPPORTED CHILDREN
-        $totalsupportedchildren = supportedchildren::all()->count();
+        $totalsc1 = supportedchildren::all();
+        $totalsc2 = array_unique(array_column($totalsc1->toArray(), 'childrendata_id'));
+        $totalsupportedchildren = count($totalsc2);
 
 
 

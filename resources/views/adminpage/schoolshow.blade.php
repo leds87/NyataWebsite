@@ -41,7 +41,15 @@
                                         @else
                                         <td class="whitespace-nowrap px-6 py-4  w-1/2 bg-red-400">{{$item['status']}}</td>
                                         @endif
-                                        <td class="whitespace-nowrap px-6 py-4  w-1/2">{{$item['required_donation']}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4  w-1/2">
+                                          @php
+                                          $amount = ($item['required_donation']);
+                                          $formattedAmount = number_format($amount, 0, ',', '.');
+                                      @endphp
+                                      
+                                      <p class="">Rp {{ $formattedAmount }}</p>
+                                      
+                                    </td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                           <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a href="/schooledit%{{$item->id}}">Edit</a> </button>
                                             <form action="{{route('destroyschool',$item->id)}}" method="POST" class="inline-block">
