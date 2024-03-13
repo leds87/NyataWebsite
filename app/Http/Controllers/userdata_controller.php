@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\userbalance;
 use App\Models\userdata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +45,7 @@ class userdata_controller extends Controller
         );
 
         $data['log'] = 'user';
-        $data['slug'] = $request->name.'%'.$customId;
+        $data['slug'] = $request->name . '%' . $customId;
 
         // $data['user_id'] = $customId;
         $data['password'] = Hash::make($data['password']);
@@ -124,7 +125,7 @@ class userdata_controller extends Controller
         //     'current_password'=>'Your Current Password Doesnt Match with our record'
         // ]);
         $request->validate([
-            'password' => ['required','confirmed'],
+            'password' => ['required', 'confirmed'],
             'password_confirmation' => ['required'],
         ]);
         $data = userdata::find($id);
@@ -132,7 +133,6 @@ class userdata_controller extends Controller
         $data['password'] = Hash::make($data['password']);
         $data->save();
         return redirect('profile')->with("success", "Password Updated");
-
     }
 
     public function changePasswordviaadmin(Request $request, $id)
@@ -151,7 +151,7 @@ class userdata_controller extends Controller
         //     'current_password'=>'Your Current Password Doesnt Match with our record'
         // ]);
         $request->validate([
-            'password' => ['required','confirmed'],
+            'password' => ['required', 'confirmed'],
             'password_confirmation' => ['required'],
         ]);
         $data = userdata::find($id);
@@ -160,7 +160,6 @@ class userdata_controller extends Controller
         $data['password'] = Hash::make($data['password']);
         $data->save();
         return redirect('usershow')->with("success", "Password Updated");
-
     }
 
     public function XchangePassword(Request $request)
@@ -266,12 +265,29 @@ class userdata_controller extends Controller
         }
 
         $data->save();
-        return redirect('profile')->with("success", "Data".' '.auth()->user()->name.' '.'updated');
+        return redirect('profile')->with("success", "Data" . ' ' . auth()->user()->name . ' ' . 'updated');
     }
 
-    public function userinformationdata(){
+    public function userinformationdata()
+    {
         $data = userdata::all();
+        $activeusers = userdata::where('status', 'active')->count();
+        $inactiveusers = userdata::where('status', 'inactive')->count();
+        $postponeusers = userdata::where('status', 'postpone')->count();
+        $usercount = userdata::count();
 
-        return view('adminpage.userinformationdata',compact('data'));
+        //TOTALUSERDONATED
+        $userbalance = userbalance::all();
+        $user1 = [];
+        foreach ($userbalance as $us) {
+            $user1[] = $us->user_id;
+        }
+        $totaluserdonated = count(array_unique($user1));
+
+        //TOTALUSERDOESNTDONATED
+        $totaluser = userdata::count();
+        $totaluserdoesntdoanted = $totaluser - $totaluserdonated;
+
+        return view('adminpage.userinformationdata', compact('totaluser','totaluserdoesntdoanted','totaluserdonated','data', 'activeusers', 'inactiveusers', 'postponeusers', 'usercount'));
     }
 }

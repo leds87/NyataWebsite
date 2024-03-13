@@ -103,7 +103,10 @@ class userbalance_controller extends Controller
 
         // dd($lastmonthsupport);
 
-        $transactionhistory = userbalance::where('user_id',auth()->user()->id);
+        $transactionhistory = userbalance::orderBy('date','desc')
+        ->where('user_id',auth()->user()->id)
+        ->get();
+        // dd($transactionhistory);
         return view('adminpage.userbalanceview', compact('transactionhistory','expectedsupport', 'countchildren', 'snapToken', 'totaldonation', 'lastmonthsupport'));
     }
 
@@ -129,8 +132,7 @@ class userbalance_controller extends Controller
                 'email' => auth()->user()->email,
                 'amount' => $json->gross_amount,
                 'payment_type' => $json->payment_type,
-                // 'date' => now()->format('d-m-Y H:i:s'),
-                'date' => now()->format('d-m-Y'),
+                'date' => now()->format('d-m-Y H:i:s'),
                 'month' => now()->format('m-Y'),
                 'totalsupportedchild' => $countchildren,
             ]
@@ -223,6 +225,14 @@ class userbalance_controller extends Controller
 
 
         return view('adminpage.moneyinformationdata', compact('data', 'transactionhistory','currentMonthlocalized', 'totallastmonthsupport', 'totalchildren', 'totaluser', 'totaluserdoesntdoanted', 'totaldonationneed', 'totaldonation', 'totaluserdonated', 'totalsupportedchildren', 'totalchildren', 'notsupportedchildren'));
+    }
+
+    public function userbalancehistory(){
+        $transactionhistory = userbalance::orderBy('date','desc')
+        ->where('user_id',auth()->user()->id)
+        ->get();
+
+        return view('adminpage.userbalancehistory',compact('transactionhistory'));
     }
 
 

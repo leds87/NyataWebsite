@@ -7,7 +7,7 @@
         <div class="content">
             <div class=" py-9">
                 <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-                    Child Information Data</h1>
+                    School Information Data</h1>
             </div>
 
             {{-- SUCCESS MESSAGES --}}
@@ -74,19 +74,20 @@
             {{-- SECTION BOX 1 ADMIN PROFILE MESSAGES --}}
             <div class="lg:grid grid-cols-2 lg:gap-4  ">
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
-                    <h1 class="text-2xl text-black font-semibold mb-4">Children Information </h1>
+                    <h1 class="text-2xl text-black font-semibold mb-4">School Information </h1>
                     <div class="mx-auto">
-                        <p class="font-semibold text-black">Child Active: {{ $activechildren }} child</p>
-                        <p class="font-semibold text-black">Child Educated: {{ $educatedchildren }} child</p>
-                        <p class="font-semibold text-black">Child Success: {{ $successchildren }} child</p>
-                        <p class="font-semibold text-black">Total Child: {{ $childrencount }} child</p>
+                        <p class="font-semibold text-black">School Active : {{ $activeschool }}</p>
+                        <p class="font-semibold text-black">School Inactive : {{ $inactiveschool }}</p>
+                        <p class="font-semibold text-black">Total School : {{ $totalschool }}</p>
+                        {{-- <p class="font-semibold text-black">Child Educated: {{ $educatedchildren }}</p>
+                        <p class="font-semibold text-black">Child Success: {{ $successchildren }}</p> --}}
 
                     </div>
                     <div class="pb-4">
                     </div>
                 </div>
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
-                    <h1 class="text-2xl text-black font-semibold mb-4">Supported Child</h1>
+                    <h1 class="text-2xl text-black font-semibold mb-4">Supported Child [indatabase]</h1>
                     <div class="mx-auto">
                         <p class=" text-black font-semibold"> Total Supported Child : {{$notsupportedchildren}} child
                         </p>
@@ -115,9 +116,9 @@
                                             <tr>
                                                 <th scope="col" class="px-6 py-4">ID</th>
                                                 <th scope="col" class="px-6 py-4">Name</th>
-                                                <th scope="col" class="px-6 py-4">school</th>
+                                                {{-- <th scope="col" class="px-6 py-4">school</th> --}}
                                                 <th scope="col" class="px-6 py-4">Location</th>
-                                                <th scope="col" class="px-6 py-4">age</th>
+                                                <th scope="col" class="px-6 py-4">Total Children</th>
                                                 <th scope="col" class="px-6 py-4">Status</th>
                                                 <th scope="col" class="px-6 py-4">Required Donation</th>
                                             </tr>
@@ -126,10 +127,10 @@
                                             @foreach ($data as $item)
                                                 <tr class="border-b dark:border-neutral-500">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['name'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['school'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['school_name'] }}</td>
+                                                    {{-- <td class="whitespace-nowrap px-6 py-4">{{ $item['school'] }}</td> --}}
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['location'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['age'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['children'] }}</td>
                                                     </td>
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4  w-1/2">

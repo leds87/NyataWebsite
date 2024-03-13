@@ -51,28 +51,29 @@
                         <div class="w-1/4 flex flex-wrap ">
                             <div class="text-center">
                                 @if ($expectedsupport == 0)
-                                    
                                 @else
-                                    <a href='userbalance' class="text-white text-md text-center  ">Details
-                                        <div class="pt-[1px] mx-auto ">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                            </svg>
-                                        </div>
+                                <div class="flex flex-wrap ">
+                                    <div class="text-center">
+                                        <a href='userbalance' class="text-white text-md text-center  ">Details
+                                    </div>
+                                    <div class="pt-[1px] mx-auto ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                        </svg>
+                                    </div>
                                     </a>
+                                </div>
                                 @endif
                             </div>
-
                         </div>
                     </div>
 
                     <div class=" items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4">
                             <div class="mb-3 text-xl font-normal text-gray-900 ">
-                                <p>Balance: 0</p>
-                                <p>Last Month Support = 0K</p>
+                                {{-- <p class="text-xl font-normal text-gray-200">Balance: {{}}</p> --}}
+                                <p class="text-xl font-normal text-gray-200">Last Month Support Rp {{ $totallastmonthsupport }} </p>
                             </div>
                             <p class="text-xl font-normal text-gray-200">Expected Support Next Month Rp
                                 {{ $expectedsupport }}</p>

@@ -73,7 +73,7 @@
 
                         <div class="w-1/4 flex ">
                             <div>
-                                <a href='usershow' class="text-white text-md ">Details
+                                <a href='userinformationdata' class="text-white text-md ">Details
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -245,7 +245,7 @@
 
                         <div class="w-1/4 flex ">
                             <div class="">
-                                <a href='schoolshow' class="text-white text-md ">Details
+                                <a href='schoolinformationdata' class="text-white text-md ">Details
                             </div>
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

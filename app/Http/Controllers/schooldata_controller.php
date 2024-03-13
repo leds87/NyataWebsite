@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\childrendata;
 use App\Models\schooldata;
+use App\Models\supportedchildren;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -87,5 +89,25 @@ class schooldata_controller extends Controller
     {
         $data = schooldata::find($id);
         return view('adminpage.editschool', compact('data'));
+    }
+
+    public function schoolinformationdata()
+    {
+        $data = schooldata::all();
+        $totalschool = schooldata::count();
+        $activeschool = schooldata::where('status', 'active')->count();
+        $inactiveschool = schooldata::where('status', 'inactive')->count();
+
+        $childrencount = childrendata::count();
+
+        //SUPPORTED CHILDREN
+        $totalsc1 = supportedchildren::all();
+        $totalsc2 = array_unique(array_column($totalsc1->toArray(), 'childrendata_id'));
+        $totalsupportedchildren = count($totalsc2);
+
+        //NOT SUPPORTED CHILDREN
+        $notsupportedchildren = $childrencount - $totalsupportedchildren;
+        
+        return view('adminpage.schoolinformationdata', compact('notsupportedchildren','totalsupportedchildren','childrencount','totalschool','activeschool','inactiveschool','data'));
     }
 }

@@ -74,26 +74,23 @@
             {{-- SECTION BOX 1 ADMIN PROFILE MESSAGES --}}
             <div class="lg:grid grid-cols-2 lg:gap-4  ">
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
-                    <h1 class="text-2xl text-black font-semibold mb-4">Children Information </h1>
+                    <h1 class="text-2xl text-black font-semibold mb-4">User Information </h1>
                     <div class="mx-auto">
-                        <p class="font-semibold text-black">Total Child: {{ $childrencount }}</p>
-                        <p class="font-semibold text-black">Child Active: {{ $activechildren }}</p>
-                        <p class="font-semibold text-black">Child Educated: {{ $educatedchildren }}</p>
-                        <p class="font-semibold text-black">Child Success: {{ $successchildren }}</p>
-
+                        <p class="font-semibold text-black">Total Users: {{ $usercount }} user</p>
+                        <p class="font-semibold text-black">User Active: {{ $activeusers }} user</p>
+                        <p class="font-semibold text-black">User Postpone: {{ $postponeusers }} user</p>
+                        <p class="font-semibold text-black">User Inactive: {{ $inactiveusers }} user</p>
                     </div>
                     <div class="pb-4">
                     </div>
                 </div>
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
-                    <h1 class="text-2xl text-black font-semibold mb-4">Supported Child</h1>
+                    <h1 class="text-2xl text-black font-semibold mb-4">User Supported </h1>
                     <div class="mx-auto">
-                        <p class=" text-black font-semibold"> Total Supported Child : {{$notsupportedchildren}} child
-                        </p>
-                        <p class=" text-black font-semibold"> Total Child Not Supported :{{$notsupportedchildren}} 
-                            child
-                        </p>
-                        <p class=" text-black font-semibold">Total Children : {{$childrencount}} child</p>
+                        <p class="text-black font-semibold">Total User Who Donated : {{ $totaluserdonated }} user </p>
+                        <p class=" text-black font-semibold">Total User Who Hasn't Donated : {{ $totaluserdoesntdoanted }}
+                            user</p>
+                        <p class=" text-black font-semibold">Total User : {{ $totaluser }} user</p>
                     </div>
                     <div class="pb-4">
                     </div>
@@ -115,12 +112,11 @@
                                             <tr>
                                                 <th scope="col" class="px-6 py-4">ID</th>
                                                 <th scope="col" class="px-6 py-4">Name</th>
-                                                <th scope="col" class="px-6 py-4">school</th>
-                                                <th scope="col" class="px-6 py-4">Location</th>
-                                                <th scope="col" class="px-6 py-4">age</th>
+                                                <th scope="col" class="px-6 py-4">email</th>
+                                                <th scope="col" class="px-6 py-4">phone</th>
+                                                <th scope="col" class="px-6 py-4">tier</th>
                                                 <th scope="col" class="px-6 py-4">Status</th>
-                                                <th scope="col" class="px-6 py-4">Required Donation</th>
-                                                <th scope="col" class=" px-6 py-4">Action</th>
+                                                <th scope="col" class="px-6 py-4">since</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -128,33 +124,12 @@
                                                 <tr class="border-b dark:border-neutral-500">
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['name'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['school'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['location'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['age'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['email'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['phone'] }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['tier'] }}</td>
                                                     </td>
                                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4  w-1/2">
-                                                        @php
-                                                            $amount = $item['required_donation'];
-                                                            $formattedAmount = number_format($amount, 0, ',', '.');
-                                                        @endphp
-                                                        <p class="">Rp {{ $formattedAmount }}</p>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4">
-                                                        <button type="button"
-                                                            class="bg-green-600 text-white px-2 py-2 rounded-lg"> <a
-                                                                href="/childrenedit/{{ $item->id }}/edit">Edit</a>
-                                                        </button>
-                                                        <form action="/childrendestroy/{{ $item->id }}"
-                                                            method="POST" class="inline-block">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                class="bg-red-600 text-white px-2 py-2 rounded-lg"
-                                                                onclick="return confirm('Are You Sure?')"> HAPUS
-                                                            </button>
-                                                        </form>
-                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['since'] }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
