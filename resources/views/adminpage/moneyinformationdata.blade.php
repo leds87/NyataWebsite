@@ -75,6 +75,7 @@
             <div class="lg:grid grid-cols-3 lg:gap-4  ">
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
                     <h1 class="text-2xl text-black font-semibold mb-4">Money Information </h1>
+
                     <div class="mx-auto">
                         <p class=" text-black font-semibold"> Total Donation :
                             @php
@@ -148,24 +149,28 @@
                                     </thead>
                                     <tbody class="">
                                         @foreach ($data as $item)
-                                            {{-- @foreach ($data->users as $item2) --}}
-                                                <tr class="border-b dark:border-neutral-500">
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['user_id'] }}</td>
-                                                    {{-- <td class="whitespace-nowrap px-6 py-4">{{ $item2['name'] }}</td> --}}
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['date'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4  w-1/2">
-                                                        @php
-                                                            $amount = $item['amount'];
-                                                            $formattedAmount = number_format($amount, 0, ',', '.');
-                                                        @endphp
-                                                        <p class="">Rp {{ $formattedAmount }}</p>
-                                                    </td>
-                                                    <td d class="whitespace-nowrap px-6 py-4">
-                                                        {{ $item['totalsupportedchild'] }}</td>
-                                                </tr>
-                                            {{-- @endforeach --}}
+                                            <tr class="border-b dark:border-neutral-500">
+                                                <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
+                                                <td class="whitespace-nowrap px-6 py-4">{{ $item->user_id }}
+                                                </td>
+                                                {{-- <td class="whitespace-nowrap px-6 py-4">{{ $username }}</td> --}}
+                                                {{-- <td class="whitespace-nowrap px-6 py-4 text-black">{{ $datauser->name }}</td> --}}
+                                                {{-- @foreach ($datauser as $item2)
+                                                     {{ $item2->name }}
+                                                @endforeach --}}
+
+                                                <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
+                                                <td class="whitespace-nowrap px-6 py-4">{{ $item['date'] }}</td>
+                                                <td class="whitespace-nowrap px-6 py-4  w-1/2">
+                                                    @php
+                                                        $amount = $item['amount'];
+                                                        $formattedAmount = number_format($amount, 0, ',', '.');
+                                                    @endphp
+                                                    <p class="">Rp {{ $formattedAmount }}</p>
+                                                </td>
+                                                <td d class="whitespace-nowrap px-6 py-4">
+                                                    {{ $item['totalsupportedchild'] }}</td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

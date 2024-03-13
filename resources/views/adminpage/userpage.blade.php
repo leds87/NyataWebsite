@@ -14,14 +14,14 @@
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 User Page Overview</h1>
 
-            <div class="flex flex-wrap py-2">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
+            <div class="lg:grid grid-cols-2 gap-8 sm:grid-cols-1 mb-4">
+                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
                     <!-- User Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">News </div>
                     </div>
 
-                    <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
+                    <div class="flex flex-col rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4 ">
                             <span class="mb-3 text-lg font-normal dark:text-gray-100">
                                 {{-- <p> *This news is related to the supported children only and admin news*</p>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
+                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
                     <!-- Child Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">Balance </div>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class=" items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
+                    <div class="  rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4">
                             <div class="mb-3 text-xl font-normal text-gray-900 ">
                                 {{-- <p class="text-xl font-normal text-gray-200">Balance: {{}}</p> --}}
@@ -90,8 +90,8 @@
                 </div>
             </div>
 
-            <div class="flex flex-wrap py-2">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
+            <div class="lg:grid grid-cols-2 gap-8 sm:grid-cols-1 mb-4">
+                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
                     <!-- Money Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">Profile </div>
@@ -111,7 +111,7 @@
                     </div>
 
 
-                    <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
+                    <div class="flex flex-col  rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
                                 <p class="text-transform: capitalize">Name : {{ auth()->user()->name }} </p>
@@ -124,7 +124,7 @@
 
                 </div>
 
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
+                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
                     <!-- Child Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">Supported Kids </div>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
+                    <div class="flex flex-col  rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
                                 <p>Under Support Child : {{ $undersupportchild }}

@@ -75,7 +75,7 @@
 
 
                         {{-- SECTION BOX 1 ADMIN PROFILE MESSAGES --}}
-            <div class=" mx-auto mt-8 p-4 shadow-md rounded-md w-1/3 mb-4 bg-zinc-100">
+            <div class=" mx-auto mt-8 p-4 shadow-md rounded-md lg:w-1/3 sm:max-w-full mb-4 bg-zinc-100">
                 <h1 class="text-2xl text-black font-semibold mb-4">{{ auth()->user()->name }}'s Profile</h1>
                 <div class="flex items-center space-x-4 mb-5">
                     @if (auth()->user()->image)
@@ -422,7 +422,7 @@
 
             {{-- SECTION BOX 2 ADMIN DETAILS  --}}
             <div class="flex">
-                <div class="mx-auto shadow-lg text-left w-1/3 pt-3 mb-5 pl-5 ">
+                <div class="mx-auto shadow-lg text-left lg:w-1/3 sm:w-screen pt-3 mb-5 pl-5 ">
                     <div class="text-2xl text-black font-bold ">Details </div>
                     <div class="my-2 border-2 border-gray-300"></div>
                     @auth

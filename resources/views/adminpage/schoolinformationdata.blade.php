@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
-                    <h1 class="text-2xl text-black font-semibold mb-4">Supported Child [indatabase]</h1>
+                    <h1 class="text-2xl text-black font-semibold mb-4">Supported Child</h1>
                     <div class="mx-auto">
                         <p class=" text-black font-semibold"> Total Supported Child : {{$notsupportedchildren}} child
                         </p>

@@ -13,8 +13,8 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
 
             <form action="{{ route('childrennotsupported.filter') }}" method="POST">
                 @csrf
-                <div class="grid grid-cols-4 grid-flow-col gap-2 pb-2">
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown5" data-dropdown-trigger="hover">
+                <div class=" lg:grid grid-cols-4 grid-flow-col gap-2 pb-2 ">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown5" data-dropdown-trigger="hover" class="w-full mb-1">
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">School Name</div>
                     </button>
                     <div id="dropdown5" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
@@ -28,31 +28,13 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                                         class="ml-2 text-sm font-medium text-white dark:text-gray-100">{{ $items }}</label>
                                 </li>
                             @endforeach
-                            {{-- @foreach ($data as $items)
-                            <li class=" flex items-center">
-                                <input id="location_{{ $items['school'] }}" type="checkbox" name="location_filters[]"
-                                    value="{{ $items['school'] }}"
-                                    class="filter filter-location w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                <label for="location_{{ $items['school'] }}"
-                                    class="ml-2 text-sm font-medium text-white dark:text-gray-100">{{ $items['school'] }}</label>
-                            </li>
-                        @endforeach --}}
                         </ul>
                     </div>
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" data-dropdown-trigger="hover">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" data-dropdown-trigger="hover" class="w-full mb-1">
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Location</div>
                     </button>
                     <div id="dropdown6" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
                         <ul id="dropdown6" class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
-                            {{-- @foreach ($data as $items)
-                            <li class=" flex items-center">
-                                <input id="location_{{ $items['location'] }}" type="checkbox" name="location_filters[]"
-                                    value="{{ $items['location'] }}"
-                                    class="filter filter-location w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-                                <label for="location_{{ $items['location'] }}"
-                                    class="ml-2 text-sm font-medium text-white dark:text-gray-100">{{ $items['location'] }}</label>
-                            </li>
-                        @endforeach --}}
                             @foreach ($uniqueslocations as $items)
                                 <li class="flex items-center">
                                     <input id="location_{{ $items }}" type="checkbox" name="location_filters[]"
@@ -64,19 +46,18 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                             @endforeach
                         </ul>
                     </div>
-                    <button>
+                    <button class="w-full mb-1">
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Setting</div>
                     </button>
                     <a href='childrensupported'>
-                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Supported Children</div>
+                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg mb-1">Supported Children</div>
                     </a>
-                    <button type="submit">
+                    <button type="submit" class="w-full mb-1">
                         <div class="bg-red-900 py-3 px-3 rounded-lg text-center text-lg">Filter</div>
                     </button>
                     <a href='childrennotsupported'>
                         <div class="bg-red-900 py-3 px-3 rounded-lg text-center text-lg">Reset Filter</div>
                     </a>
-
                 </div>
             </form>
 

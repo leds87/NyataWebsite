@@ -66,7 +66,7 @@
                 Admin Overview</h1>
 
             <div class="flex flex-wrap py-2">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
+                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:w-3/5 shadow mb-5 py-5">
                     <!-- User Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> User Information Data</div>

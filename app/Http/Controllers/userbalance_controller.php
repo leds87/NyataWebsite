@@ -103,11 +103,11 @@ class userbalance_controller extends Controller
 
         // dd($lastmonthsupport);
 
-        $transactionhistory = userbalance::orderBy('date','desc')
-        ->where('user_id',auth()->user()->id)
-        ->get();
+        $transactionhistory = userbalance::orderBy('date', 'desc')
+            ->where('user_id', auth()->user()->id)
+            ->get();
         // dd($transactionhistory);
-        return view('adminpage.userbalanceview', compact('transactionhistory','expectedsupport', 'countchildren', 'snapToken', 'totaldonation', 'lastmonthsupport'));
+        return view('adminpage.userbalanceview', compact('transactionhistory', 'expectedsupport', 'countchildren', 'snapToken', 'totaldonation', 'lastmonthsupport'));
     }
 
     public function postpayment(Request $request)
@@ -147,7 +147,7 @@ class userbalance_controller extends Controller
         //SUM amount of donation
         $userbalance2 = userbalance::where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
         $userbalance = userbalance::all(); //data
-        
+
         $data = userbalance::all(); //data
         // $data = userbalance::with('users')->get(); //data
         // dd($data);
@@ -159,7 +159,10 @@ class userbalance_controller extends Controller
 
         // dd($data);
 
-        $transactionhistory = userbalance::where('user_id',auth()->user()->id);
+
+
+
+        $transactionhistory = userbalance::where('user_id', auth()->user()->id);
 
         $amount = [];
         foreach ($userbalance2 as $ud) {
@@ -222,18 +225,24 @@ class userbalance_controller extends Controller
 
         $currentMonthlocalized = now()->format('F');
 
+        $users = userdata::all();
+        $uid = $userbalance->pluck('user_id');
+        $datauser = userdata::whereIn('id',$uid)->get(['id','name']);
+        // $datauser = userdata::whereIn('id',$uid)->pluck('name');
+        
+        $ub = userbalance::first();
+        // $datauser = json_encode($ub ? userdata::find($ub->user_id)->name : 'Unknown');
+        // dd($datauser);
 
-
-        return view('adminpage.moneyinformationdata', compact('data', 'transactionhistory','currentMonthlocalized', 'totallastmonthsupport', 'totalchildren', 'totaluser', 'totaluserdoesntdoanted', 'totaldonationneed', 'totaldonation', 'totaluserdonated', 'totalsupportedchildren', 'totalchildren', 'notsupportedchildren'));
+        return view('adminpage.moneyinformationdata', compact('users','datauser', 'data', 'transactionhistory', 'currentMonthlocalized', 'totallastmonthsupport', 'totalchildren', 'totaluser', 'totaluserdoesntdoanted', 'totaldonationneed', 'totaldonation', 'totaluserdonated', 'totalsupportedchildren', 'totalchildren', 'notsupportedchildren'));
     }
 
-    public function userbalancehistory(){
-        $transactionhistory = userbalance::orderBy('date','desc')
-        ->where('user_id',auth()->user()->id)
-        ->get();
+    public function userbalancehistory()
+    {
+        $transactionhistory = userbalance::orderBy('date', 'desc')
+            ->where('user_id', auth()->user()->id)
+            ->get();
 
-        return view('adminpage.userbalancehistory',compact('transactionhistory'));
+        return view('adminpage.userbalancehistory', compact('transactionhistory'));
     }
-
-
 }

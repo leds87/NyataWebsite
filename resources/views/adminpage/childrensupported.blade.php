@@ -68,8 +68,8 @@
 
             <form action="{{ route('childrensupported.filter') }}" method="POST">
                 @csrf
-                <div class="grid grid-cols-4 grid-flow-col gap-2 pb-2">
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown5" type="button">
+                <div class="lg:grid grid-cols-4 grid-flow-col gap-2 pb-2 sm:grid-cols-1 sm:gap-3">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown5" type="button" class="w-full mb-1">
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">School Name</div>
                     </button>
                     <div id="dropdown5" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
@@ -94,9 +94,9 @@
                         @endforeach --}}
                         </ul>
                     </div>
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" type="button">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" type="button" class="w-full mb-1">
                         {{-- data-dropdown-trigger="hover" --}}
-                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Location</div>
+                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg ">Location</div>
                     </button>
                     <div id="dropdown6" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
                         <ul id="dropdown6" class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
@@ -120,19 +120,18 @@
                             @endforeach
                         </ul>
                     </div>
-                    <button>
+                    <button class="w-full mb-1">
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Setting</div>
                     </button>
                     <a href='childrennotsupported'>
-                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Support More Children</div>
+                        <div class="bg-red-700 py-3 rounded-lg text-center text-lg mb-1">Support More Children</div>
                     </a>
-                    <button type="submit">
+                    <button type="submit" class="w-full mb-1">
                         <div class="bg-red-900 py-3 px-3 rounded-lg text-center text-lg">Filter</div>
                     </button>
                     <a href='childrensupported'>
                         <div class="bg-red-900 py-3 px-3 rounded-lg text-center text-lg">Reset Filter</div>
                     </a>
-
                 </div>
             </form>
 
@@ -144,7 +143,7 @@
                             <button data-modal-target="static-modal{{ $items->id }}"
                                 data-modal-toggle="static-modal{{ $items->id }}" class="" type="button">
                                 <div
-                                    class="sm:ml-1 lg:ml-3 w-80 h-64 my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
+                                    class="sm:ml-1 lg:ml-3 lg:w-80 sm:min-w-full sm:h-auto lg:h-64 my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                                             {{ $items['name'] }}</h5>
@@ -179,7 +178,8 @@
                                                     {{ $items['description'] }}</p>
                                                 <p class="mb-3 text-left font-normal text-gray-800">Story
                                                     {{ $items['story'] }}</p>
-                                                <p class="mb-3 text-left font-normal text-gray-800">Status {{ $items['status'] }}
+                                                <p class="mb-3 text-left font-normal text-gray-800">Status
+                                                    {{ $items['status'] }}
                                                 </p>
                                             </div>
                                             <div class="justify-items-center mx-auto">
@@ -192,7 +192,7 @@
                                                     </div>
                                                 @else
                                                     <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                        class="w-[92px]">
+                                                        class="lg:w-[92px] sm:w-36">
                                                 @endif
                                             </div>
                                         </div>
@@ -272,7 +272,8 @@
                                 <p class="mb-3 font-normal text-gray-800">Description {{ $items['description'] }}</p>
                                 <p class="mb-3 font-normal text-gray-800">Story {{ $items['story'] }}</p>
                                 <p class="mb-3 font-normal text-gray-800">Status {{ $items['status'] }}</p>
-                                <p class="mb-3 font-normal text-gray-800">Required Donation {{ $items['required_donation'] }}</p>
+                                <p class="mb-3 font-normal text-gray-800">Required Donation
+                                    {{ $items['required_donation'] }}</p>
                                 {{-- <p class="mb-3 font-normal text-gray-800">Required Donation
                                     <script>
                                         const amount{{ $items->id }} = {{ $items['required_donation'] }};
@@ -329,10 +330,10 @@
                                               setInterval(nextSlide, 3000); // Auto-slide every 3 seconds (adjust as needed)
                                             });
                                           </script> --}}
-                                          
-                                          
-                                          
-                                        
+
+
+
+
                                         {{-- <div id="default-carousel{{ $items->id }}" class="relative w-full"
                                             data-carousel="slide">
                                             <!-- Carousel wrapper -->
