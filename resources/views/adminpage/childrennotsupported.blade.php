@@ -70,12 +70,12 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                             <!-- Modal toggle --><button data-modal-target="static-modal_{{ $items->id }}"
                                 data-modal-toggle="static-modal_{{ $items->id }}" class="" type="button">
                                 <div
-                                    class="sm:ml-1 lg:ml-3 w-80 h-64 my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
-                                    <div class="p-5">
+                                    class="sm:ml-1 lg:ml-3 w-80 h-72 my-4  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
+                                    <div class="p-5 my-6">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                                             {{ $items['name'] }}</h5>
                                         <div class="flex justify-center ">
-                                            <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 inline-flex">
+                                            <p class="text-gray-600 dark:text-gray-400 mb-2 inline-flex">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -83,7 +83,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                                                 </svg>
                                                 {{ $items['school'] }}
                                             </p>
-                                            <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
+                                            <p class="text-gray-600 dark:text-gray-400 mb-2  mr-1 inline-flex">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -93,7 +93,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                                                 </svg>
                                                 {{ $items['location'] }}
                                             </p>
-                                            <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
+                                            <p class="text-gray-600 dark:text-gray-400 mb-2  mr-1 inline-flex">
                                                 {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round"

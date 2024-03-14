@@ -12,6 +12,6 @@ class userbalance extends Model
     public $timestamps=false;
 
     public function users(){
-        return $this->hasMany(userdata::class);
+        return $this->belongsTo(userdata::class);
     }
 }

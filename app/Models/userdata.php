@@ -14,12 +14,13 @@ class userdata extends Authenticatable
 
     use Notifiable;
 
-    protected $guarded=['id'];
-    protected $table='userdata';
-    public $timestamps=false;
+    protected $guarded = ['id'];
+    protected $table = 'userdata';
+    public $timestamps = false;
 
-    public function userdata(){
-        return $this->belongsTo(userbalance::class);
+    public function userdata()
+    {
+        return $this->belongsTo(\App\Models\userdata::class);
     }
 
 
@@ -27,7 +28,7 @@ class userdata extends Authenticatable
     // {
     //     return $this->belongsTo(childrendata::class);
     // }
-    
+
     protected static function boot()
     {
         parent::boot();
@@ -39,7 +40,7 @@ class userdata extends Authenticatable
                 // 'id' => Auth::id(),
                 'typelog' => 'User',
                 'personid' => Auth::user()->id,
-                'description' => (Auth::user() ? Auth::user()->name.' '.'created a record of '.$user->name : 'DB Seeder created a record'),
+                'description' => (Auth::user() ? Auth::user()->name . ' ' . 'created a record of ' . $user->name : 'DB Seeder created a record'),
             ];
             adminlog::create($logData);
         });
@@ -54,9 +55,9 @@ class userdata extends Authenticatable
                 // 'id' => Auth::id(),
                 'typelog' => 'Profile',
                 'personid' => Auth::id(),
-                'description' => (Auth::user()->name.' '.'edited a record of '.$user->name .':'.
-                implode(', ', $modifiedAttributes).' '.'to'. ' '.
-                implode(', ', $modifiedAttributes2)),
+                'description' => (Auth::user()->name . ' ' . 'edited a record of ' . $user->name . ':' .
+                    implode(', ', $modifiedAttributes) . ' ' . 'to' . ' ' .
+                    implode(', ', $modifiedAttributes2)),
             ];
             userlog::create($logData);
             adminlog::create($logData);
@@ -69,7 +70,7 @@ class userdata extends Authenticatable
                 // 'id' => Auth::id(),
                 'typelog' => 'User',
                 'personid' => Auth::id(),
-                'description' => (Auth::user()->name.' '.'deleted a record of '.$user->name),
+                'description' => (Auth::user()->name . ' ' . 'deleted a record of ' . $user->name),
             ];
             adminlog::create($logData);
         });

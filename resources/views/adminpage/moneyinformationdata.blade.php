@@ -132,52 +132,59 @@
             <div class="shadow-lg text-left w-full pt-3 mb-5 pl-5 ">
                 <div class="text-2xl text-black font-bold ">Details </div>
                 <div class="my-2 border-2 border-gray-300"></div>
-                <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
-                    <div class="flex flex-col">
-                        <div class="inline-block  py-2 sm:px-6 lg:px-8">
-                            <div class="overflow-x-auto">
-                                <table class="min-w-full text-left text-gray-900 text-sm font-light">
-                                    <thead class="border-b font-medium dark:border-neutral-500">
-                                        <tr>
-                                            <th scope="col" class="px-6 py-4">ID</th>
-                                            <th scope="col" class="px-6 py-4">UserID</th>
-                                            <th scope="col" class="px-6 py-4">Status</th>
-                                            <th scope="col" class="px-6 py-4">Date</th>
-                                            <th scope="col" class="px-6 py-4">Required Donation</th>
-                                            <th scope="col" class="px-6 py-4">Total Supported Child</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="">
-                                        @foreach ($data as $item)
-                                            <tr class="border-b dark:border-neutral-500">
-                                                <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
-                                                <td class="whitespace-nowrap px-6 py-4">{{ $item->user_id }}
-                                                </td>
-                                                {{-- <td class="whitespace-nowrap px-6 py-4">{{ $username }}</td> --}}
-                                                {{-- <td class="whitespace-nowrap px-6 py-4 text-black">{{ $datauser->name }}</td> --}}
-                                                {{-- @foreach ($datauser as $item2)
-                                                     {{ $item2->name }}
-                                                @endforeach --}}
 
-                                                <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
-                                                <td class="whitespace-nowrap px-6 py-4">{{ $item['date'] }}</td>
-                                                <td class="whitespace-nowrap px-6 py-4  w-1/2">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-left text-gray-900 text-sm font-light">
+                        <thead class="border-b font-medium dark:border-neutral-500">
+                            <tr>
+                                <th scope="col" class="px-6 py-4">ID</th>
+                                <th scope="col" class="px-6 py-4">UserID</th>
+                                <th scope="col" class="px-6 py-4">Status</th>
+                                <th scope="col" class="px-6 py-4">Date</th>
+                                <th scope="col" class="px-6 py-4">Required Donation</th>
+                                <th scope="col" class="px-6 py-4">Total Supported Child</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            @foreach ($data as $item)
+                                <tr class="border-b dark:border-neutral-500">
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
+                                    {{-- <td class="whitespace-nowrap px-6 py-4">{{ $item->user_id }}</td> --}}
+                                    {{-- <td class="whitespace-nowrap px-6 py-4">{{ $item->users->name }}</td> --}}
+                                    <td class="whitespace-nowrap px-6 py-4">
+                                        @php
+                                        $user = $item->user_id;
+                                        $username = $user ? \App\Models\userdata::find($user)->name : 'Unknown';
+                                    @endphp
+                                    {{ $username }}
+                                </td>
+                                    {{-- <td class="whitespace-nowrap px-6 py-4">                                              
                                                     @php
-                                                        $amount = $item['amount'];
-                                                        $formattedAmount = number_format($amount, 0, ',', '.');
-                                                    @endphp
-                                                    <p class="">Rp {{ $formattedAmount }}</p>
-                                                </td>
-                                                <td d class="whitespace-nowrap px-6 py-4">
-                                                    {{ $item['totalsupportedchild'] }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                                    $item5 = $item->user_id;
+                                                    $item2 = $datauser->get($item5);
+                                                    echo($item2);
+                                                    $item3 = $item2 ? $item2->name : null;
+                                                @endphp
+                                                      @if ($item3) {{ $item2->name }}
+                                                  @else
+                                                      null
+                                                  @endif </td> --}}
 
-                    </div>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['date'] }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4  w-1/2">
+                                        @php
+                                            $amount = $item['amount'];
+                                            $formattedAmount = number_format($amount, 0, ',', '.');
+                                        @endphp
+                                        <p class="">Rp {{ $formattedAmount }}</p>
+                                    </td>
+                                    <td d class="whitespace-nowrap px-6 py-4">
+                                        {{ $item['totalsupportedchild'] }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

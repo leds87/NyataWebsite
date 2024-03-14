@@ -143,11 +143,11 @@
                             <button data-modal-target="static-modal{{ $items->id }}"
                                 data-modal-toggle="static-modal{{ $items->id }}" class="" type="button">
                                 <div
-                                    class="sm:ml-1 lg:ml-3 lg:w-80 sm:min-w-full sm:h-auto lg:h-64 my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
+                                    class="sm:ml-1 lg:ml-3 lg:w-80 sm:min-w-full sm:h-auto lg:h-72 my-2  border-gray-200  bg-gray-50 rounded-lg shadow-md ">
                                     <div class="p-5">
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                                             {{ $items['name'] }}</h5>
-                                        <div class="flex justify-center flex-wrap">
+                                        <div class="flex justify-center flex-wrap mb-2">
                                             <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 inline-flex">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -172,7 +172,7 @@
                                                 Age {{ $items['age'] }}
                                             </p>
                                         </div>
-                                        <div class="grid grid-cols-2 gap-2">
+                                        <div class="grid grid-cols-2 gap-2 mt-2">
                                             <div class="">
                                                 <p class="mb-3 text-left font-normal text-gray-800">Description
                                                     {{ $items['description'] }}</p>

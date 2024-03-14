@@ -102,42 +102,34 @@
             <div class="shadow-lg text-left w-full pt-3 mb-5 pl-5 ">
                 <div class="text-2xl text-black font-bold ">Details </div>
                 <div class="my-2 border-2 border-gray-300"></div>
-                <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
-                    <div class="mx-auto">
-                        <div class="sm:-mx-6 lg:-mx-8">
-                            <div class="inline-block  py-2 sm:px-6 lg:px-8">
-                                <div class="overflow-hidden">
-                                    <table class="min-w-full text-left text-gray-900 text-sm font-light">
-                                        <thead class="border-b font-medium dark:border-neutral-500">
-                                            <tr>
-                                                <th scope="col" class="px-6 py-4">ID</th>
-                                                <th scope="col" class="px-6 py-4">Name</th>
-                                                <th scope="col" class="px-6 py-4">email</th>
-                                                <th scope="col" class="px-6 py-4">phone</th>
-                                                <th scope="col" class="px-6 py-4">tier</th>
-                                                <th scope="col" class="px-6 py-4">Status</th>
-                                                <th scope="col" class="px-6 py-4">since</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($data as $item)
-                                                <tr class="border-b dark:border-neutral-500">
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['name'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['email'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['phone'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['tier'] }}</td>
-                                                    </td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
-                                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['since'] }}</td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-left text-gray-900 text-sm font-light">
+                        <thead class="border-b font-medium dark:border-neutral-500">
+                            <tr>
+                                <th scope="col" class="px-6 py-4">ID</th>
+                                <th scope="col" class="px-6 py-4">Name</th>
+                                <th scope="col" class="px-6 py-4">email</th>
+                                <th scope="col" class="px-6 py-4">phone</th>
+                                <th scope="col" class="px-6 py-4">tier</th>
+                                <th scope="col" class="px-6 py-4">Status</th>
+                                <th scope="col" class="px-6 py-4">since</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $item)
+                                <tr class="border-b dark:border-neutral-500">
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['name'] }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['email'] }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['phone'] }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['tier'] }}</td>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['since'] }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

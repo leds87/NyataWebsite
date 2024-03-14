@@ -225,12 +225,13 @@ class userbalance_controller extends Controller
 
         $currentMonthlocalized = now()->format('F');
 
+        $datauser = userdata::all();
         $users = userdata::all();
-        $uid = $userbalance->pluck('user_id');
-        $datauser = userdata::whereIn('id',$uid)->get(['id','name']);
+        // $uid = $userbalance->pluck('user_id');
+        // $datauser = userdata::whereIn('id',$uid)->get(['id','name']);
         // $datauser = userdata::whereIn('id',$uid)->pluck('name');
         
-        $ub = userbalance::first();
+        // $ub = userbalance::first();
         // $datauser = json_encode($ub ? userdata::find($ub->user_id)->name : 'Unknown');
         // dd($datauser);
 
