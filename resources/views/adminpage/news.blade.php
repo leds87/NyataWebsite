@@ -16,13 +16,14 @@
                         <div class="overflow-x-auto">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light">
                                 <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr>
+                                    <tr class="bg-gray-100">
                                         <th scope="col" class="px-6 py-4">ID</th>
                                         <th scope="col" class="px-6 py-4">Title</th>
                                         <th scope="col" class="px-6 py-4">date</th>
                                         <th scope="col" class="px-6 py-4">description</th>
                                         <th scope="col" class="px-6 py-4">category</th>
                                         <th scope="col" class="px-6 py-4">children_id</th>
+                                        <th scope="col" class="px-6 py-4">action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -68,6 +68,9 @@ class userbalance_controller extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
+    
+            // dd($snapToken);
+
 
         //Total amount donation in 1 ID
         $userdata = userbalance::where('user_id', auth()->user()->id)->where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
@@ -113,6 +116,7 @@ class userbalance_controller extends Controller
     public function postpayment(Request $request)
     {
         $json = json_decode($request->get('json'));
+        // dd($json);
         //CHILD HAS SUPPORT BY USER ID
         $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
         $child = [];
@@ -128,10 +132,13 @@ class userbalance_controller extends Controller
                 'transaction_id' => $json->transaction_id,
                 'order_id' => $json->order_id,
                 'status' => $json->status_message,
+                'status_code' => $json->status_code,
                 'user_id' => auth()->user()->id,
                 'email' => auth()->user()->email,
-                'amount' => $json->gross_amount,
+                'amount' => $json->gross_amount, 
                 'payment_type' => $json->payment_type,
+                'payment_code' => optional($json)->payment_code ?? null,
+                'pdf_url' => optional($json)->pdf_url ?? null,
                 'date' => now()->format('d-m-Y H:i:s'),
                 'month' => now()->format('m-Y'),
                 'totalsupportedchild' => $countchildren,
@@ -148,7 +155,7 @@ class userbalance_controller extends Controller
         $userbalance2 = userbalance::where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
         $userbalance = userbalance::all(); //data
 
-        $data = userbalance::all(); //data
+        $data = userbalance::orderBy('date','desc')->get(); //data
         // $data = userbalance::with('users')->get(); //data
         // dd($data);
         // $data = userbalance::join('userdata', 'id', '=', 'userbalance.user_id')            

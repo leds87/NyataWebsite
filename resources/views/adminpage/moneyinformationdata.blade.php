@@ -136,9 +136,9 @@
                 <div class="overflow-x-auto">
                     <table class="min-w-full text-left text-gray-900 text-sm font-light">
                         <thead class="border-b font-medium dark:border-neutral-500">
-                            <tr>
-                                <th scope="col" class="px-6 py-4">ID</th>
-                                <th scope="col" class="px-6 py-4">UserID</th>
+                            <tr class="bg-gray-200">
+                                <th scope="col" class="px-6 py-4">Order ID</th>
+                                <th scope="col" class="px-6 py-4">User Name</th>
                                 <th scope="col" class="px-6 py-4">Status</th>
                                 <th scope="col" class="px-6 py-4">Date</th>
                                 <th scope="col" class="px-6 py-4">Required Donation</th>
@@ -148,7 +148,7 @@
                         <tbody class="">
                             @foreach ($data as $item)
                                 <tr class="border-b dark:border-neutral-500">
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['id'] }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $item['order_id'] }}</td>
                                     {{-- <td class="whitespace-nowrap px-6 py-4">{{ $item->user_id }}</td> --}}
                                     {{-- <td class="whitespace-nowrap px-6 py-4">{{ $item->users->name }}</td> --}}
                                     <td class="whitespace-nowrap px-6 py-4">
@@ -172,14 +172,14 @@
 
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['status'] }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $item['date'] }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4  w-1/2">
+                                    <td class="whitespace-nowrap px-6 py-4">
                                         @php
                                             $amount = $item['amount'];
                                             $formattedAmount = number_format($amount, 0, ',', '.');
                                         @endphp
                                         <p class="">Rp {{ $formattedAmount }}</p>
                                     </td>
-                                    <td d class="whitespace-nowrap px-6 py-4">
+                                    <td class="whitespace-nowrap px-6 py-4">
                                         {{ $item['totalsupportedchild'] }}</td>
                                 </tr>
                             @endforeach

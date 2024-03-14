@@ -14,19 +14,18 @@
                     <div class="py-8 lg:py-16 max-w-screen-lg">
                         <h2 class="mb-4 text-4xl mx-auto tracking-tight font-extrabold text-center text-gray-900 ">School
                             List</h2>
-
-
                         <div class="overflow-x-auto">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light">
                                 <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-4 w-1/2">ID</th>
-                                        <th scope="col" class="px-6 py-4 w-1/2">School Name</th>
-                                        {{-- <th scope="col" class="px-6 py-4 w-1/4">Address</th> --}}
-                                        <th scope="col" class="px-6 py-4 w-1/2">Location</th>
-                                        <th scope="col" class="px-6 py-4 w-1/2">Total of children</th>
-                                        <th scope="col" class="px-6 py-4 w-1/2">School Status</th>
-                                        <th scope="col" class="px-6 py-4 w-1/2">Required Donation</th>
+                                    <tr class="bg-gray-200">
+                                        <th scope="col" class="px-6 py-2 w-1/2">ID</th>
+                                        <th scope="col" class="px-6 py-2 w-1/2">School Name</th>
+                                        {{-- <th scope="col" class="px-6 py-2 w-1/4">Address</th> --}}
+                                        <th scope="col" class="px-6 py-2 w-1/2">Location</th>
+                                        <th scope="col" class="px-6 py-2 w-1/2">Total of children</th>
+                                        <th scope="col" class="px-6 py-2 w-1/2">School Status</th>
+                                        <th scope="col" class="px-6 py-2 w-1/2">Required Donation</th>
+                                        <th scope="col" class="px-6 py-2 w-1/2 text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

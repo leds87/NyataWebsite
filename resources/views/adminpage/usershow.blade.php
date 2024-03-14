@@ -17,7 +17,7 @@
                         <div class="overflow-x-auto">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light">
                                 <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr>
+                                    <tr class="bg-gray-200">
                                         <th scope="col" class="px-6 py-4">ID</th>
                                         <th scope="col" class="px-6 py-4">Name</th>
                                         {{-- <th scope="col" class="px-6 py-4">Address</th> --}}
@@ -27,6 +27,9 @@
                                         <th scope="col" class="px-6 py-4">Note</th>
                                         <th scope="col" class="px-6 py-4">Since</th>
                                         <th scope="col" class="px-6 py-4">Status</th>
+                                        <th scope="col" class="px-6 py-4 text-center">Photo</th>
+                                        <th scope="col" class="px-6 py-4 text-center">Action</th>
+                                        <th scope="col" class="">Reset Password</th>
                                     </tr>
                                 </thead>
                                 <tbody>

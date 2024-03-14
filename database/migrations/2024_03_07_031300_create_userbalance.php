@@ -18,10 +18,13 @@ return new class extends Migration
             $table->string('transaction_id');
             $table->string('order_id');
             $table->string('status');
+            $table->string('status_code');
             $table->string('user_id');
             $table->string('email');
             $table->integer('amount');
             $table->string('payment_type');
+            $table->string('payment_code')->nullable();
+            $table->string('pdf_url')->nullable();
             $table->string('date');
             $table->string('month');
             $table->integer('totalsupportedchild');

@@ -17,14 +17,15 @@
                         <div class="overflow-x-auto">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light table-fixed">
                                 <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-4 w-1/6">date</th>
-                                        <th scope="col" class="px-6 py-4 w-1/6">ID</th>
-                                        <th scope="col" class="px-6 py-4 w-1/6">from</th>
-                                        <th scope="col" class="px-6 py-4 w-1/6">to</th>
-                                        <th scope="col" class="px-6 py-4 w-1/6">title</th>
-                                        {{-- <th scope="col" class="px-6 py-4 w-1/6">description</th> --}}
-                                        <th scope="col" class="px-6 py-4 w-1/6">Read at</th>
+                                    <tr class="bg-gray-100">
+                                        <th scope="col" class="px-6 py-4 ">date</th>
+                                        <th scope="col" class="px-6 py-4 ">ID</th>
+                                        <th scope="col" class="px-6 py-4 ">from</th>
+                                        <th scope="col" class="px-6 py-4 ">to</th>
+                                        <th scope="col" class="px-6 py-4 ">title</th>
+                                        {{-- <th scope="col" class="px-6 py-4 ">description</th> --}}
+                                        <th scope="col" class="px-6 py-4 ">Read at</th>
+                                        <th scope="col" class="px-6 py-4 ">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +52,7 @@
                                                 Everyone
                                             @endif </td> --}}
                                             <td class="whitespace-nowrap px-6 py-4">{{ $item['title'] }}</td>
-                                            <td class="whitespace-nowrap px-6 py-4">{{$item['read_at']}}</td>
+                                            {{-- <td class="whitespace-nowrap px-6 py-4">{{$item['read_at']}}</td> --}}
                                             <td class="whitespace-nowrap px-6 py-4">
                                                 @php
                                                 $dataread = $item->to !== null ?  $item['read_at'] : 'null' ;

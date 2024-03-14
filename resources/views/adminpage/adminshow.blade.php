@@ -16,10 +16,10 @@
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Admin List</h2>
 
 
-                        <div class="overflow-x-auto">
+                        <div class="overflow-x-scroll">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light">
                                 <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr>
+                                    <tr class="bg-gray-200">
                                         <th scope="col" class="px-6 py-4">ID</th>
                                         <th scope="col" class="px-6 py-4">Name</th>
                                         <th scope="col" class="px-6 py-4">Address</th>
@@ -27,6 +27,7 @@
                                         <th scope="col" class="px-6 py-4">Phone</th>
                                         <th scope="col" class="px-6 py-4">role</th>
                                         <th scope="col" class="px-6 py-4">Note</th>
+                                        <th scope="col" class="px-6 py-4 text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
