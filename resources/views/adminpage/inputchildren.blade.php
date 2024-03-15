@@ -1,4 +1,5 @@
 @extends('layout.default')
+@extends('adminpage.layoutadmin')
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')

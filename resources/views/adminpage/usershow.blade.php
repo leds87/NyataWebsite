@@ -10,7 +10,7 @@
             <a href='inputuser' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input user</a>
             <section class=""> <!-- Contact Us-->
                 <section class=" text-gray-900">
-                    <div class="py-8 lg:py-16 max-w-screen-2xl">
+                    <div class="py-8 lg:py-16">
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">User List</h2>
 
 

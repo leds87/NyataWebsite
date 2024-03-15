@@ -16,7 +16,7 @@
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Admin List</h2>
 
 
-                        <div class="overflow-x-scroll">
+                        <div class="overflow-x-auto">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light">
                                 <thead class="border-b font-medium dark:border-neutral-500">
                                     <tr class="bg-gray-200">

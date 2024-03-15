@@ -27,8 +27,8 @@
     <header class="fixed w-full bg-[#ff0000] top-0 z-50 h-18 md:h-24 xl:h-20">
         @include('layout.header')
     </header>
-
     <main class="pt-16 md:pt-20 w-full">
+        @yield('admin-menu')
         @yield('page-content')
     </main>
 
