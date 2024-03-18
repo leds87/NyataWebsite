@@ -33,9 +33,9 @@
     </form>
     
     
-    <div class="text-lg text-center hover:text-red">
+    {{-- <div class="text-lg text-center hover:text-red">
         <a href='inputadmin' class="hover:underline hover:font-bold text-black">Create an Account</a>
-    </div>
+    </div> --}}
     <div class="text-lg text-center py-48 hover:text-red">
     </div>
 </div>

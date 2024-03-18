@@ -9,14 +9,15 @@
     <div class="bg-white py-20">
         <div class="content">
             <div class=" py-9">
-                <h1 class="lg:text-2xl rounded-xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                <h1
+                    class="lg:text-2xl rounded-xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                     Profile</h1>
             </div>
 
             {{-- SUCCESS MESSAGES --}}
             @if (session('success'))
                 <div id="alert-3"
-                    class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+                    class="flex mx-auto w-1/3 items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
                     role="alert">
                     <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" viewBox="0 0 20 20">
@@ -28,7 +29,7 @@
                         {{ session('success') }}
                     </div>
                     <button type="button"
-                        class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700"
+                        class="-my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700"
                         data-dismiss-target="#alert-3" aria-label="Close">
                         <span class="sr-only">Close</span>
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -42,34 +43,42 @@
 
             {{-- ERROR MESSAGES --}}
             @if ($errors->any())
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <div id="alert-2"
-                    class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                    role="alert">
-                    <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                    </svg>
-                    <span class="sr-only">Info</span>
-                    <div class="ms-3 text-sm font-medium">
-                        {{ session('error') }}
-                        {{-- <strong>{{ $message }}</strong> --}}
-                    </div>
-                    <button type="button"
-                        class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
-                        data-dismiss-target="#alert-2" aria-label="Close">
-                        <span class="sr-only">Close</span>
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                <div class="flex">
+                    <div id="alert-2"
+                        class="flex mx-auto w-1/3 items-center p-2 mb-4 text-red-800 rounded-lg bg-red-600 dark:text-red-400"
+                        role="alert">
+                        <svg class=" w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                         </svg>
-                    </button>
+                        <span class="sr-only">Info</span>
+                        <div class="ms-3 text-sm tracking-wide font-medium text-white">
+                            Error Message!
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li class="text-white text-xs ">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            {{-- {{ session('error') }} --}}
+                            {{-- <strong>{{ $message }}</strong> --}}
+                            @error('password_confirmation')
+                                <p class="text-red-500 text-xs italic">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                        </div>
+                        <button type="button"
+                            class=" inset-y-0 left-52 -my-1.5 bg-gray-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8  dark:text-red-400 dark:hover:bg-gray-700"
+                            data-dismiss-target="#alert-2" aria-label="Close">
+                            <span class="sr-only">Close</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             @endif
 
@@ -301,37 +310,70 @@
                                                 </p>
                                             @enderror
                                         </div> --}}
-                                                <div>
+                                                <div class="relative">
                                                     <label for="password"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 
-                                                ">New
-                                                        password</label>
+                                                        class="block mb-2 text-sm font-medium text-gray-900">
+                                                        New password</label>
                                                     <input type="password" name="password" id="password"
                                                         placeholder="••••••••"
-                                                        class="bg-gray-50 border my-3 border-gray-300 text-gray-900 @error('password') is-invalid @enderror
-                                                sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                        class="bg-gray-50 form-control border my-3 border-gray-300 text-gray-900 
+                                                sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                         required>
                                                     @error('password')
                                                         <p class="text-red-500 text-xs italic">
                                                             {{ $message }}
                                                         </p>
                                                     @enderror
+
+                                                    <button id="togglePassword1" type="button"
+                                                        class="absolute right-0 inset-y-10 py-1 px-2 text-black">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                                        </svg>
+                                                    </button>
+
                                                 </div>
-                                                <div>
+                                                <div class="relative">
                                                     <label for="password_confirmation"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
+                                                        class="block mb-2 text-sm font-medium text-gray-900 ">A Confirm
                                                         password</label>
                                                     <input type="password" name="password_confirmation"
                                                         id="password_confirmation" placeholder="••••••••"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg 
-                                                @error('password_confirmation') is-invalid @enderror focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                        class="bg-gray-50 border form-control border-gray-300 text-gray-900 sm:text-sm rounded-lg 
+                                                 focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                         required="">
-                                                    @error('password_confirmation')
-                                                        <p class="text-red-500 text-xs italic">
-                                                            {{ $message }}
-                                                        </p>
-                                                    @enderror
+
+
+                                                    <button id="togglePassword2" type="button"
+                                                        class="absolute inset-y-7 right-0 px-3 py-2 text-black">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                                        </svg>
+                                                    </button>
+                                                    <script>
+                                                        const togglePassword1 = document.getElementById('togglePassword1');
+                                                        const togglePassword2 = document.getElementById('togglePassword2');
+                                                        const passwordInput = document.getElementById('password');
+                                                        const password_confirmationInput = document.getElementById('password_confirmation');
+
+                                                        togglePassword1.addEventListener('click', function() {
+                                                            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                                            passwordInput.setAttribute('type', type);
+                                                        });
+
+                                                        togglePassword2.addEventListener('click', function() {
+                                                            const type = password_confirmationInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                                            password_confirmationInput.setAttribute('type', type);
+                                                        });
+                                                    </script>
                                                 </div>
+
                                             </div>
                                             <!-- Modal footer -->
                                             <div
@@ -393,7 +435,7 @@
                                                         </p>
                                                     @enderror
                                                 </div> --}}
-                                                <div>
+                                                <div class="relative">
                                                     <label for="password"
                                                         class="block mb-2 text-sm font-medium text-gray-900 
                                                         ">New
@@ -408,8 +450,20 @@
                                                             {{ $message }}
                                                         </p>
                                                     @enderror
+
+                                                    <button id="togglePassword3" type="button"
+                                                        class="absolute inset-y-8 right-0 px-3 py-2 text-black">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                                        </svg>
+
+                                                    </button>
+
                                                 </div>
-                                                <div>
+                                                <div class="relative">
                                                     <label for="password_confirmation"
                                                         class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
                                                         password</label>
@@ -423,6 +477,16 @@
                                                             {{ $message }}
                                                         </p>
                                                     @enderror
+                                                    <button id="togglePassword4" type="button"
+                                                        class="absolute inset-y-0 right-0 px-3 py-2 font-bold text-black">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                                        </svg>
+
+                                                    </button>
                                                 </div>
                                             </div>
                                             <!-- Modal footer -->
@@ -432,6 +496,22 @@
                                                     class="text-white mx-auto bg-blue-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
                                                     Change Password</button>
                                             </div>
+                                            <script>
+                                                const togglePassword3 = document.getElementById('togglePassword3');
+                                                const togglePassword4 = document.getElementById('togglePassword4');
+                                                const passwordInput = document.getElementById('password');
+                                                const password_confirmation = document.getElementById('password_confirmation');
+
+                                                togglePassword3.addEventListener('click', function() {
+                                                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                                    passwordInput.setAttribute('type', type);
+                                                });
+
+                                                togglePassword4.addEventListener('click', function() {
+                                                    const type = password_confirmation.getAttribute('type') === 'password' ? 'text' : 'password';
+                                                    password_confirmation.setAttribute('type', type);
+                                                });
+                                            </script>
                                         </div>
                                     </div>
                                 </div>

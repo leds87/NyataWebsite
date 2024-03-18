@@ -35,15 +35,16 @@ class admindata_controller extends Controller
                 'name' => 'required|max:100',
                 'password' => 'required',
                 'address' => 'required',
-                'email' => 'required',
+                'email' => 'required|email|unique:admindata,email',
                 'phone' => 'required',
                 'role' => 'required',
                 'note' => 'required',
+            ],[
+                'email.unique' => 'Email telah digunakan! Silakan gunakan email yang lain.'
             ]
         );
         
         $validatedData['slug'] = $request->name.'%'.$customId;
-
         $validatedData['log'] = 'admin';
         $validatedData['password'] = Hash::make($validatedData['password']);
         admindata::create($validatedData);
@@ -156,14 +157,6 @@ class admindata_controller extends Controller
         return redirect('/nyataadmin');
     }
 
-    // public function profileadminedit($slug)
-    // {
-    //     dd($slug);
-    //     $data = admindata::find($slug);
-    //     // return view('adminpage.profileeditadmin', compact('data'));
-    //     return view('adminpage.adminpage');
-    // }
-
     public function profileadminupdate(Request $request)
     {
         $data = admindata::find(auth()->user()->id);
@@ -195,7 +188,7 @@ class admindata_controller extends Controller
         return redirect('profile')->with("success", "Data".' '.auth()->user()->name.' '.'updated');
     }
 
-    public function changePassword(Request $request, $id)
+    public function aa(Request $request, $id)
     {
         // $request->validate([
         //     'current_password' => ['required'],
@@ -218,7 +211,30 @@ class admindata_controller extends Controller
         $data->password = $request->password;
         $data['password'] = Hash::make($data['password']);
         $data->save();
-        return redirect('profile')->with("success", "Password Updated");
+        if($data->save()){
+            return redirect('profile')->with('success', "Password Updated");
+        }else{
+            return redirect()->back()->withErrors(['error' => 'Failed to save data']);
+        }
+    }
 
+    public function changePassword(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'password' => 'required|min:6|confirmed',
+        ],[
+            'password.required' => 'The password field required',
+            'password.min' => 'The password must be at least :min characters.',
+            'password.confirmed' => 'The password confirmation does not match.',
+        ]
+    );
+
+        $data = admindata::find($id);
+        $data->password = $request->password;
+        // $data['password'] = Hash::make($data['password']);
+        $data->password = bcrypt($validatedData['password']);
+        $data->save();
+        return redirect('profile')->with('success','Password' . ' '. auth()->user()->name .' '. 'updated');
+        //  response()->json(['message' => 'Password' . ' '. auth()->user()->name .' '. 'Updated'], 200);
     }
 }
