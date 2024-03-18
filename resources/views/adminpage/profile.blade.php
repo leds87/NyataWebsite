@@ -338,7 +338,7 @@
                                                 </div>
                                                 <div class="relative">
                                                     <label for="password_confirmation"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 ">A Confirm
+                                                        class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
                                                         password</label>
                                                     <input type="password" name="password_confirmation"
                                                         id="password_confirmation" placeholder="••••••••"
@@ -478,7 +478,7 @@
                                                         </p>
                                                     @enderror
                                                     <button id="togglePassword4" type="button"
-                                                        class="absolute inset-y-0 right-0 px-3 py-2 font-bold text-black">
+                                                        class="absolute inset-y-7 right-0 px-3 py-2 font-bold text-black">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">

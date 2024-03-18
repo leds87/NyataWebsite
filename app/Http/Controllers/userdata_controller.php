@@ -8,8 +8,11 @@ use App\Models\userdata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
+use App\Mail\register as registermail;
+use App\Mail\register;
 
 class userdata_controller extends Controller
 {
@@ -59,6 +62,16 @@ class userdata_controller extends Controller
             // Storage::disk('public')->move($image, $path);
         }
         userdata::create($data);
+
+        $mailData = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone'=> $request->phone,
+            'subject'=> $request->subject,
+            'description'=> $request->description];
+             Mail::to($request->email)->send(new register($mailData));
+
+
         return redirect('/adminpage')->with("success", "Data " . $request->name . " Has been input.");
     }
 
@@ -124,15 +137,35 @@ class userdata_controller extends Controller
         // throw ValidationException::withMessages([
         //     'current_password'=>'Your Current Password Doesnt Match with our record'
         // ]);
-        $request->validate([
-            'password' => ['required', 'confirmed'],
-            'password_confirmation' => ['required'],
-        ]);
+        $validatedData = $request->validate(
+            [
+                'password' => 'required|min:6|confirmed',
+            ],
+            [
+                'password.required' => 'The password field required',
+                'password.min' => 'The password must be at least :min characters.',
+                'password.confirmed' => 'The password confirmation does not match.',
+            ]
+        );
+
         $data = userdata::find($id);
+        // dd($data);
         $data->password = $request->password;
-        $data['password'] = Hash::make($data['password']);
+        $data->password = bcrypt($validatedData['password']);
         $data->save();
-        return redirect('profile')->with("success", "Password Updated");
+
+
+            $mailData = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone'=> $request->phone,
+                'subject'=> $request->subject,
+                'description'=> $request->description];
+                 Mail::to($request->email)->send(new register($mailData));
+
+
+
+        return redirect('profile')->with("success", "Your Password has been updated!");
     }
 
     public function changePasswordviaadmin(Request $request, $id)
@@ -150,14 +183,22 @@ class userdata_controller extends Controller
         // throw ValidationException::withMessages([
         //     'current_password'=>'Your Current Password Doesnt Match with our record'
         // ]);
-        $request->validate([
-            'password' => ['required', 'confirmed'],
-            'password_confirmation' => ['required'],
-        ]);
+        
+        $validatedData = $request->validate(
+            [
+                'password' => 'required|min:6|confirmed',
+            ],
+            [
+                'password.required' => 'The password field required',
+                'password.min' => 'The password must be at least :min characters.',
+                'password.confirmed' => 'The password confirmation does not match.',
+            ]
+        );
+
         $data = userdata::find($id);
         // dd($data);
         $data->password = $request->password;
-        $data['password'] = Hash::make($data['password']);
+        $data->password = bcrypt($validatedData['password']);
         $data->save();
         return redirect('usershow')->with("success", "Password Updated");
     }
@@ -288,6 +329,6 @@ class userdata_controller extends Controller
         $totaluser = userdata::count();
         $totaluserdoesntdoanted = $totaluser - $totaluserdonated;
 
-        return view('adminpage.userinformationdata', compact('totaluser','totaluserdoesntdoanted','totaluserdonated','data', 'activeusers', 'inactiveusers', 'postponeusers', 'usercount'));
+        return view('adminpage.userinformationdata', compact('totaluser', 'totaluserdoesntdoanted', 'totaluserdonated', 'data', 'activeusers', 'inactiveusers', 'postponeusers', 'usercount'));
     }
 }

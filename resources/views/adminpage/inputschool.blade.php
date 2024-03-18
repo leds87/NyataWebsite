@@ -18,7 +18,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 
-                            rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                            rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white placeholder-slate-400 placeholder-opacity-80 
                             @error('school_name') is-invalid @enderror"
                             id="school_name" name="school_name" type="text" placeholder="School Name" required value="{{old('school_name')}}">
                         @error('school_name')
@@ -33,7 +33,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 
-                            rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
+                            rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-slate-400 placeholder-opacity-80
                             @error('location') is-invalid @enderror"
                             id="location" name="location" type="text" required placeholder="Bandung / Jakarta">
                             @error('location')
@@ -50,7 +50,7 @@
                             Address
                         </label>
                         <input
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            class="appearance-none block w-full placeholder-slate-400 placeholder-opacity-80 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="address" name="address" type="text" required placeholder="Jl. Banda">
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                             Number Total of Children
                         </label>
                         <input
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            class="appearance-none placeholder-slate-400 placeholder-opacity-80 block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="children" name="children"type="number" required placeholder="200" maxlength="4">
                         {{-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> --}}
                     </div>
@@ -73,8 +73,8 @@
                             Required Donation
                         </label>
                         <input
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="required_donation" name="required_donation"type="number" required placeholder="200" maxlength="4">
+                            class="appearance-none placeholder-slate-400 placeholder-opacity-80 block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="required_donation" name="required_donation"type="number" required placeholder="Rp 500.000" maxlength="4">
                         {{-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> --}}
                     </div>
                 </div>
