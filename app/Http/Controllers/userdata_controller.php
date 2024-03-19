@@ -35,8 +35,8 @@ class userdata_controller extends Controller
         $data = $request->validate(
             [
                 'name' => 'required|max:100',
-                'email' => 'required',
-                'password' => 'required',
+                'email' => 'required|unique:userdata,email',
+                'password' => 'required|confirmed',
                 'address' => 'required',
                 'phone' => 'required',
                 'tier' => 'required',
@@ -44,6 +44,9 @@ class userdata_controller extends Controller
                 'since' => 'required',
                 'status' => 'required',
                 'image' => 'image|file|max:2048'
+            ],[
+                'email.unique' => 'Email telah digunakan, silakan gunakan email lain!',
+                'password.confirmed' => 'Password Confirmation doesnt match!'
             ]
         );
 
@@ -153,17 +156,6 @@ class userdata_controller extends Controller
         $data->password = $request->password;
         $data->password = bcrypt($validatedData['password']);
         $data->save();
-
-
-            $mailData = [
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone'=> $request->phone,
-                'subject'=> $request->subject,
-                'description'=> $request->description];
-                 Mail::to($request->email)->send(new register($mailData));
-
-
 
         return redirect('profile')->with("success", "Your Password has been updated!");
     }

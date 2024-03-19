@@ -120,7 +120,7 @@ Route::post('/inputnews', [news_controller::class, 'store'])->middleware('auth:u
 Route::delete('/destroynews/{id}',[news_controller::class,'destroy'])->name('destroynews')->middleware('auth:user,admin');
 Route::get('/newsedit/{id}/edit',[news_controller::class,'edit'])->name('newsedit')->middleware('auth:user,admin');
 Route::put('/newsedit/{id}',[news_controller::class,'update'])->middleware('auth:user,admin');
-Route::get('/newsshow/{title}', [news_controller::class, 'show'])->middleware('auth:user,admin');
+Route::get('/newsshow/{id}', [news_controller::class, 'show'])->middleware('auth:user,admin');
 
 Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser')->middleware('auth:admin');
 Route::post('/inputusers', [userdata_controller::class, 'store'])->middleware('auth:user,admin');
@@ -184,6 +184,10 @@ Route::get('/moneyinformationdata',[userbalance_controller::class,'moneyinformat
 Route::get('/childinformationdata',[childrendata_controller::class,'childinformationdata'])->middleware('auth:admin')->name('childinformationdata');
 Route::get('/userinformationdata',[userdata_controller::class,'userinformationdata'])->middleware('auth:admin')->name('userinformationdata');
 Route::get('/schoolinformationdata',[schooldata_controller::class,'schoolinformationdata'])->middleware('auth:admin')->name('schoolinformationdata');
+
+Route::get('/registeremailview', function () {
+    return view('adminpage.registeremailview');
+})->name('registeremailview');
 
 Route::get('/school', function () {
     return view('adminpage.school');

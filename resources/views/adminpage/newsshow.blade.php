@@ -1,11 +1,15 @@
 @extends('layout.default')
+{{-- @extends('adminpage.layoutadmin') --}}
+@php
+    app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
+@endphp
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
-    <div class="bg-white">
+    <div class="bg-white content">
 
         <div class=" py-9">
-            <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+            <h1 class="lg:text-2xl text-center text-white rounded-xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 News Show</h1>
         </div>
 

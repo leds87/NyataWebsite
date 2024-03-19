@@ -19,6 +19,7 @@ class newsseed extends Seeder
             [
                 'title' => 'Child1',
                 'date' => '2024-01-01',
+                'slug' => 'child1%N001',
                 'description' => 'Child1',
                 'category' => 'Donation',
                 'children_id' => '1',
@@ -28,6 +29,7 @@ class newsseed extends Seeder
             [
                 'title' => 'Child2',
                 'date' => '2024-01-01',
+                'slug' => 'child2%N002',
                 'description' => 'Child2',
                 'category' => 'Donation',
                 'children_id' => '2',
@@ -37,6 +39,7 @@ class newsseed extends Seeder
             [
                 'title' => 'Child3',
                 'date' => '2024-01-01',
+                'slug' => 'child3%N003',
                 'description' => 'Child3',
                 'category' => 'Donation',
                 'children_id' => '3',
@@ -46,6 +49,7 @@ class newsseed extends Seeder
             [
                 'title' => 'Child4',
                 'date' => '2024-01-01',
+                'slug' => 'child4%N004',
                 'description' => 'Child4',
                 'category' => 'Donation',
                 'children_id' => '4',
@@ -55,6 +59,7 @@ class newsseed extends Seeder
             [
                 'title' => 'FOR ALL',
                 'date' => '2024-01-01',
+                'slug' => 'forall%N005',
                 'description' => 'ALL',
                 'category' => 'Donation',
                 'children_id' => null,

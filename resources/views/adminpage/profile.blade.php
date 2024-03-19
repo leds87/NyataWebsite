@@ -6,7 +6,7 @@
 {{-- @section('title', __('Profile')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
-    <div class="bg-white py-20">
+    <div class="bg-white py-10">
         <div class="content">
             <div class=" py-9">
                 <h1
@@ -263,7 +263,7 @@
                     </div>
                     <div class="">
                         @if (auth()->user()->log == 'admin')
-                            <button class="bg-black px-2 py-2 rounded-xl text-white" data-modal-target="static-modal2"
+                            <button class="bg-black px-1 py-2 rounded-xl text-white" data-modal-target="static-modal2"
                                 data-modal-toggle="static-modal2">Change Password</button>
 
                             <form action="/changepasswordadmin%{{ auth()->user()->id }}" method="POST" class="">
@@ -326,7 +326,7 @@
                                                     @enderror
 
                                                     <button id="togglePassword1" type="button"
-                                                        class="absolute right-0 inset-y-10 py-1 px-2 text-black">
+                                                        class="absolute right-0 inset-y-10 py-1 px-2 text-black" tabindex="-1">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">
@@ -347,7 +347,7 @@
                                                         required="">
 
 
-                                                    <button id="togglePassword2" type="button"
+                                                    <button id="togglePassword2" tabindex="-1" type="button"
                                                         class="absolute inset-y-7 right-0 px-3 py-2 text-black">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -452,7 +452,7 @@
                                                     @enderror
 
                                                     <button id="togglePassword3" type="button"
-                                                        class="absolute inset-y-8 right-0 px-3 py-2 text-black">
+                                                        class="absolute inset-y-8 right-0 px-3 py-2 text-black" tabindex="-1">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">
@@ -478,7 +478,7 @@
                                                         </p>
                                                     @enderror
                                                     <button id="togglePassword4" type="button"
-                                                        class="absolute inset-y-7 right-0 px-3 py-2 font-bold text-black">
+                                                        class="absolute inset-y-7 right-0 px-3 py-2 font-bold text-black" tabindex="-1">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">
