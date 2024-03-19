@@ -1,5 +1,5 @@
 @extends('layout.default')
-{{-- @extends('adminpage.layoutadmin') --}}
+@extends('adminpage.layoutadmin')
 @php
     app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
 @endphp
@@ -23,8 +23,9 @@
                                 <img class="mr-4 w-16 h-16 rounded-full"
                                     src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
                                 <div>
-                                    <a href="#" rel="author" class="text-xl font-bold text-gray-900 ">Admin</a>
-                                    <p class="text-base text-gray-500 dark:text-gray-400">NYATA Admin Author</p>
+                                    <div href="#" rel="author" class="text-xl font-bold text-gray-900 capitalize">{{$datanews->from}}
+                                    <span class="capitalize font-semibold text-sm">[{{$datanews->role}}]</span></div>
+                                    <p class="text-base text-gray-500 dark:text-gray-400">NYATA! {{$datanews->role}}</p>
                                     <p class="text-base text-gray-500 dark:text-gray-400">
                                         <time>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $datanews->date)->format('F jS, Y') }}</time>
                                     </p>
@@ -42,11 +43,21 @@
                         </p>
                     </header>
                     <p class="pb-10 mb-10">{{ $datanews->description }}</p>
-                    <div class="flex">
+                    <div class="flex justify-center items-center">
                         <div class="mx-auto">
-                            <a href=" {{ route('userpage') }}">
-                                <button class="bg-black px-5 py-5 text-white rounded-lg ">
+                            <a href=" {{ route('newsusershow') }}">
+                                <button class="bg-green-700 px-2 py-2 text-white rounded-lg ">
                                     Back
+                                </button>
+                            </a>
+                            <a href=" {{ route('userpage') }}">
+                                <button class="bg-red-700 px-2 py-2 text-white rounded-lg ">
+                                    Dashboard User
+                                </button>
+                            </a>
+                            <a href="{{ route('newsusershow') }}">
+                                <button class="bg-blue-700 px-2 py-2 text-white rounded-lg ">
+                                    News List
                                 </button>
                             </a>
                         </div>

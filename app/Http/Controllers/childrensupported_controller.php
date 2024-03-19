@@ -102,6 +102,7 @@ class childrensupported_controller extends Controller
         ];
         Notification::send($user, new NewNotification());
         
-        return redirect('childrensupported')->with("Error", "Children " . $data->name . "not supported again..");
+        return redirect()->back()->with('success', "Now you not supported " . $data->name);
+        // return redirect('childrensupported')->with('success', "You not supported " . $data->name . "again..");
     }
 }

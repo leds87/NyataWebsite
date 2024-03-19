@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\news;
+use App\Models\supportedchildren;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,14 @@ class news_controller extends Controller
                 'children_id'=> 'max:100',
             ]
             );
+            $data['from'] = auth()->user()->name;
+            $data['role'] = auth()->user()->role.' '.auth()->user()->log;
+            
             news::create($data);
+
+            
+            
+
             return redirect('/adminpage')->with("success","Your Data Has Been Input!");
     }
 
@@ -54,6 +62,31 @@ class news_controller extends Controller
             'datanews' => $datanews,
             'datachildren' => $datachildren,
         ]);
+    }
+
+    public function newsusershow()
+    {
+        //CHILD HAS SUPPORT BY USER ID
+        $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
+        $child = [];
+        foreach ($datachildrenfilter as $dcf) {
+            $child[] = $dcf->childrendata_id;
+        }
+        $newschildren = news::whereIn('id', $child)->get(); //GETDATA CHILD
+        
+        $datanull = news::WhereNull('children_id', '')->get(); // CALL NEWS THAT FOR ALL/NULL
+        $data3 = [];
+        $data3 = $datanull->merge($newschildren);
+        $datanews = $data3; // MERGE DATA!!
+        // dd($datanews);
+
+        // $datanews = news::find($id);
+        // $slug = $datanews->slug;
+        // $datanews2 = news::find($slug);
+        // dd($datanews2);
+        // $datachildren = childrendata::find($datanews->children_id);
+
+        return view('adminpage.newsusershow', compact('datanews'));
     }
 
     public function showchildrenid()

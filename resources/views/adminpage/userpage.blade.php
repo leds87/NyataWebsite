@@ -15,10 +15,21 @@
                 User Page Overview</h1>
 
             <div class="lg:grid grid-cols-2 gap-8 sm:grid-cols-1 mb-4">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
+                <div
+                    class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
                     <!-- User Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">News </div>
+                        <div class="flex flex-wrap ">
+                            <div class="text-center">
+                                <a href='newsusershow' class="text-white text-md text-center  ">Details
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="flex flex-col rounded-lg shadow md:flex-row h-auto max-w-4xl ">
@@ -43,7 +54,8 @@
                     </div>
                 </div>
 
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
+                <div
+                    class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
                     <!-- Child Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">Balance </div>
@@ -52,18 +64,19 @@
                             <div class="text-center">
                                 @if ($expectedsupport == 0)
                                 @else
-                                <div class="flex flex-wrap ">
-                                    <div class="text-center">
-                                        <a href='userbalance' class="text-white text-md text-center  ">Details
+                                    <div class="flex flex-wrap ">
+                                        <div class="text-center">
+                                            <a href='userbalance' class="text-white text-md text-center  ">Details
+                                        </div>
+                                        <div class="pt-[1px] mx-auto ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                            </svg>
+                                        </div>
+                                        </a>
                                     </div>
-                                    <div class="pt-[1px] mx-auto ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                        </svg>
-                                    </div>
-                                    </a>
-                                </div>
                                 @endif
                             </div>
                         </div>
@@ -73,7 +86,8 @@
                         <div class="p-4">
                             <div class="mb-3 text-xl font-normal text-gray-900 ">
                                 {{-- <p class="text-xl font-normal text-gray-200">Balance: {{}}</p> --}}
-                                <p class="text-xl font-normal text-gray-200">Last Month Support Rp {{ $totallastmonthsupport }} </p>
+                                <p class="text-xl font-normal text-gray-200">Last Month Support Rp
+                                    {{ $totallastmonthsupport }} </p>
                             </div>
                             <p class="text-xl font-normal text-gray-200">Expected Support Next Month Rp
                                 {{ $expectedsupport }}</p>
@@ -91,7 +105,8 @@
             </div>
 
             <div class="lg:grid grid-cols-2 gap-8 sm:grid-cols-1 mb-4">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
+                <div
+                    class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
                     <!-- Money Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">Profile </div>
@@ -124,7 +139,8 @@
 
                 </div>
 
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
+                <div
+                    class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
                     <!-- Child Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4">Supported Kids </div>

@@ -72,7 +72,7 @@
                 </div>
             @endif
             <div class=" mx-auto mt-8 p-4 shadow-md rounded-md w-1/3 mb-4 bg-zinc-100">
-                <h1 class="text-2xl text-black font-semibold mb-4 capitalize">{{ auth()->user()->name }}'s Balance</h1>
+                <h1 class="text-xl text-black font-semibold  mb-4 ">{{ auth()->user()->name }}'s balance</h1>
                 <div class="flex items-center space-x-2 mb-5">
                     @if (auth()->user()->image)
                         <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="User Avatar"

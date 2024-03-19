@@ -105,12 +105,12 @@ Route::get('/childrensupported', [childrensupported_controller::class, 'index'])
 Route::get('/childrennotsupported', [childrennotsupported_controller::class, 'index'])->middleware('auth:user')->name('childrennotsupported');
 Route::post('/childrennotsupportedfilter',[childrennotsupported_controller::class,'filter'])->name('childrennotsupported.filter')->middleware('auth:user');
 
-Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth:user,admin');
+Route::get('/profile', [admindata_controller::class, 'showprofile'])->middleware('auth:user,admin')->name('profile');
 Route::get('/profileedit%{slug}',[userdata_controller::class,'profileedit'])->name('profileedit')->middleware('auth:user');
 Route::put('/profileedit%{slug}',[userdata_controller::class,'profileupdate'])->middleware('auth:user');
 Route::put('/profileadminupdate%{id}',[admindata_controller::class,'profileadminupdate'])->middleware('auth:admin');
 
-Route::get('/contactadmin', [contactadmin_controller::class, 'index'])->middleware('auth:user,admin');
+Route::get('/contactadmin', [contactadmin_controller::class, 'index'])->middleware('auth:user,admin')->name('contactadmin');
 Route::post('/contactadmin',[contactadmin_controller::class,'store'])->middleware('auth:user,admin');
 
 Route::get('/news', [news_controller::class, 'index'])->middleware('auth:admin');
@@ -121,6 +121,7 @@ Route::delete('/destroynews/{id}',[news_controller::class,'destroy'])->name('des
 Route::get('/newsedit/{id}/edit',[news_controller::class,'edit'])->name('newsedit')->middleware('auth:user,admin');
 Route::put('/newsedit/{id}',[news_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/newsshow/{id}', [news_controller::class, 'show'])->middleware('auth:user,admin');
+Route::get('/newsusershow', [news_controller::class, 'newsusershow'])->middleware('auth:user,admin')->name('newsusershow');
 
 Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser')->middleware('auth:admin');
 Route::post('/inputusers', [userdata_controller::class, 'store'])->middleware('auth:user,admin');

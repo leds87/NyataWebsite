@@ -80,8 +80,8 @@
 
             <form action="/inputusers" method="POST" class="w-full max-w-lg py-5 mx-auto" enctype="multipart/form-data">
                 @csrf
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class=" md:w-1/2 px-3 mb-6 md:mb-0">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class=" mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-first-name">
                             Name
@@ -89,9 +89,9 @@
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                             id="name" name="name" type="text" required placeholder="Jane">
-                        <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                        {{-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> --}}
                     </div>
-                    <div class=" md:w-1/2 px-3">
+                    <div class=" ">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             Email
                         </label>
@@ -101,8 +101,8 @@
                             autocomplete="off">
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3 relative">
+                <div class="flex flex-wrap -mx-3">
+                    <div class="w-full px-3 relative mb-2">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-password">
                             New password
@@ -126,7 +126,7 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="password_confirmation" name="password_confirmation" type="password" required placeholder="Password">
+                            id="password_confirmation" name="password_confirmation" type="password" required placeholder="Confirm Password">
                         <button id="togglePassword2" type="button"
                             class="absolute right-0 inset-y-0 py-8 px-6 text-black" tabindex="-1">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -153,7 +153,7 @@
                         </script>
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap -mx-3 mb-2">
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-password">
@@ -164,8 +164,8 @@
                             id="address" name="address" type="text" required placeholder="Bandung/Jakarta/etc">
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
+                <div class="">
+                    <div class="">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-password">
                             Phone
@@ -177,8 +177,8 @@
                     </div>
                 </div>
 
-                <div class="flex flex-wrap -mx-3 mb-2">
-                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                <div class="grid grid-cols-2 gap-4 mb-3">
+                    <div class="">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-state">
                             Tier
@@ -194,7 +194,7 @@
 
                         </div>
                     </div>
-                    <div class=" md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div class="">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
                             Note
                         </label>
@@ -203,8 +203,8 @@
                             id="note" name="note" type="text" required placeholder="desc/note personal">
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
+                <div class="mb-3">
+                    <div class="w-full ">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-password">
                             Since

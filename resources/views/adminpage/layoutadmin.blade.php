@@ -305,7 +305,7 @@
                         <ul class="space-y-2 font-medium">
                             {{-- <a href='userpage' class="p-4 block hover:bg-gray-600">Dashboard User</a> --}}
                             <li>
-                                <a href="userpage"
+                                <a href="{{ route('userpage') }}"
                                     class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group mt-5">
                                     <svg class="w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -322,7 +322,7 @@
 
                             {{-- <a href='profile' class="p-4 block hover:bg-gray-600">Profile</a> --}}
                             <li>
-                                <a href="profile"
+                                <a href="{{ route('profile') }}"
                                     class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-5 h-5">
@@ -337,7 +337,7 @@
 
                             {{-- <a href='childrensupported' class="p-4 block hover:bg-gray-600">Children Supported</a> --}}
                             <li>
-                                <a href="childrensupported"
+                                <a href="{{ route('childrensupported') }}"
                                     class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-5 h-5">
@@ -353,7 +353,7 @@
                             </li>
                             {{-- <a href='contactadmin' class="p-4 block hover:bg-gray-600">Contact Admin</a> --}}
                             <li>
-                                <a href="contactadmin"
+                                <a href="{{ route('contactadmin') }}"
                                     class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-5 h-5">
@@ -368,7 +368,7 @@
                             </li>
                             {{-- <a href='userlog' class="p-4 block hover:bg-gray-600">User Log</a> --}}
                             <li>
-                                <a href="userlog"
+                                <a href="{{ route('userlog') }}"
                                     class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                     <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -379,7 +379,8 @@
                                     <span class="ms-3 hover:text-gray-700 hover:font-semibold">User Log</span>
                                 </a>
                             </li>
-                            <a href="notificationusershow"
+                            
+                            <a href=" {{ route('notificationusershow') }}"
                                 class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 {{-- <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
