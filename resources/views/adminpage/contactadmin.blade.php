@@ -23,16 +23,23 @@
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
                             Name</label>
+                        {{-- <label for="name" name="name" id="name"
+                            class="block mb-2  p-3 bg-gray-300 text-sm font-medium text-gray-900 dark:text-gray-300">
+                            {{ auth()->user()->name }}</label> --}}
+
                         <input type="text" id="name" name="name"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="John Doe" required>
+                            class="shadow-sm bg-gray-300 cursor-not-allowed border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            placeholder="John Doe" value="{{auth()->user()->name}}" tabindex="-1" >
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
                             email</label>
+                        {{-- <label for="email" id="email" name="email"
+                            class="block rounded-lg mb-2 p-3 bg-gray-300 text-sm font-medium text-gray-900 dark:text-gray-300">
+                            {{ auth()->user()->email }}</label> --}}
                         <input type="email" id="email" name="email"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="name@mail.com" required>
+                            class="shadow-sm bg-gray-300 cursor-not-allowed border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            placeholder="name@mail.com" value="{{auth()->user()->email}}" tabindex="-1">
                     </div>
                 </div>
 
@@ -40,9 +47,11 @@
                 <div>
                     <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone
                         Number</label>
-                    <input type="tel" id="phone" name="phone" maxlength=13
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="08xxx"required>
+                    {{-- <label for="phone" id="phone" name="phone"
+                        class="block mb-2 rounded-lg p-3 bg-gray-300 text-sm font-medium text-gray-900 dark:text-gray-300">{{ auth()->user()->phone }}</label> --}}
+                    <input type="number" id="phone" name="phone" maxlength="15"
+                        class="bg-gray-300 cursor-not-allowed border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="08xxx"value="{{ auth()->user()->phone }}" tabindex="-1">
                 </div>
 
                 <div>

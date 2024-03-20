@@ -17,7 +17,7 @@ class contactadmin_controller extends Controller
     }
 
     public function store(Request $request){
-
+        // dd($request);
         $data2 = Auth::id();
         $date = Carbon::now()->format('Y-m-d');
         $data = $request->validate(
@@ -49,6 +49,6 @@ class contactadmin_controller extends Controller
                 'description'=> $request->description];
                  Mail::to('raymondar80@gmail.com')->send(new contactadminmail($mailData));
 
-            return redirect('/userpage')->with("success","Your Data Has Been Input!");
+            return redirect('/userpage')->with("success","Your Request will be processed 2-3 working days.");
     }
 }

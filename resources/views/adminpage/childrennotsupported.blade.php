@@ -14,7 +14,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
             <form action="{{ route('childrennotsupported.filter') }}" method="POST">
                 @csrf
                 <div class=" lg:grid grid-cols-4 grid-flow-col gap-2 pb-2 ">
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown5" data-dropdown-trigger="hover" class="w-full mb-1">
+                    <button type="button" id="dropdownDefault" data-dropdown-toggle="dropdown5"  class="w-full mb-1">
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">School Name</div>
                     </button>
                     <div id="dropdown5" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
@@ -30,7 +30,7 @@ app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
                             @endforeach
                         </ul>
                     </div>
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" data-dropdown-trigger="hover" class="w-full mb-1">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown6" type="button"  class="w-full mb-1">
                         <div class="bg-red-700 py-3 rounded-lg text-center text-lg">Location</div>
                     </button>
                     <div id="dropdown6" class="z-10 hidden w-1/6 p-3 bg-[#212228] rounded-lg">
