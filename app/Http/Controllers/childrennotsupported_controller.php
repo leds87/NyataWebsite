@@ -13,15 +13,26 @@ class childrennotsupported_controller extends Controller
 
     public function filter(Request $request)
     {
-        $data = childrendata::all();
+        //CHILD HAS NOT SUPPORT BY USER ID MANY TO MANY
+        $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
+        $child = [];
+        foreach ($datachildrenfilter as $dcf) {
+            $child[] = $dcf->childrendata_id;
+        }
+
+        // $data = childrendata::whereNotIn('id', $child)->get(); //GETDATA Not Supported CHILD
+
+        $data = childrendata::whereNotIn('id', $child)->get();
         $school = $request->input('school_filters', []);
         $location = $request->input('location_filters', []);
         $uniqueschools = array_unique(array_column($data->toArray(), 'school'));
         $uniqueslocations = array_unique(array_column($data->toArray(), 'location'));
 
-        $data = childrendata::when(count($school) > 0, function ($query) use ($school) {
-            $query->whereIn('school', $school);
-        })
+        $data = childrendata::whereNotIn('id', $child)
+
+            ->when(count($school) > 0, function ($query) use ($school) {
+                $query->whereIn('school', $school);
+            })
             ->when(count($location) > 0, function ($query) use ($location) {
                 $query->whereIn('location', $location);
             })

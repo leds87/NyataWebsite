@@ -17,13 +17,26 @@ class childrensupported_controller extends Controller
 
     public function filter(Request $request)
     {
-        $data = childrendata::all();
+        //CHILD HAS SUPPORT BY USER ID
+        $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID FROM MANY TO MANY TABLE
+        $child = []; //GET ALL DATA, SAVE IN ONE ARRAY, DATA STILL FROM MANY TO MANY TABLE
+        foreach ($datachildrenfilter as $dcf) {
+            $child[] = $dcf->childrendata_id;
+        }
+
+
+
+        $data = childrendata::whereIn('id', $child)->get(); //GETDATA ALL CHILD THAT SUPPORT BY ID 
+
+
+        // $data = childrendata::all();
         $school = $request->input('school_filters', []);
         $location = $request->input('location_filters', []);
         $uniqueschools = array_unique(array_column($data->toArray(), 'school'));
         $uniqueslocations = array_unique(array_column($data->toArray(), 'location'));
 
-        $data = childrendata::when(count($school) > 0, function ($query) use ($school) {
+        $data = childrendata::whereIn('id', $child)
+        ->when(count($school) > 0, function ($query) use ($school) {
             $query->whereIn('school', $school);
         })
             ->when(count($location) > 0, function ($query) use ($location) {
