@@ -4,12 +4,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
     <div class="bg-white py-20">
-
-
         <div class="content">
+            
+            <!-- TITLE  -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 School Edit</h1>
+
+
+            <!-- FORM DATA  -->
             <form action="/schooledit%{{ $data->id }}" method="POST" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 @method('PUT')
@@ -67,8 +70,8 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="required_donation" name="required_donation"type="number" value="{{ $data->required_donation }}"
-                            maxlength="3">
+                            id="required_donation" name="required_donation"type="number"
+                            value="{{ $data->required_donation }}" maxlength="3">
                     </div>
                 </div>
                 <div class="w-full mb-6 md:mb-0">
@@ -92,6 +95,7 @@
                         Submit</button>
                 </div>
             </form>
+
         </div>
     </div>
 @endsection

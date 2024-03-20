@@ -6,14 +6,14 @@
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">
-
-
         <div class="content">
-
+            {{-- TITLE --}}
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 User Page Overview</h1>
 
+
+            {{-- NEWS & BALANCE --}}
             <div class="lg:grid grid-cols-2 gap-8 sm:grid-cols-1 mb-4">
                 <div
                     class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">
@@ -104,6 +104,7 @@
                 </div>
             </div>
 
+            {{-- PROFILE & DETAILS --}}
             <div class="lg:grid grid-cols-2 gap-8 sm:grid-cols-1 mb-4">
                 <div
                     class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:min-w-full shadow mb-5 py-5">

@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>Contact Admin Form</h1>
-    <h2>Name: {{ $mailData['name'] }}</h2>
+    <p>There's user that ask to contact Admin via Nyata Contact Admin Form.</p>
+    <h4>Name: {{ $mailData['name'] }}</h4>
     <p>Email: {{ $mailData['email'] }}</p>
     <p>Phone: {{ $mailData['phone'] }}</p>
     <p>Subject: {{ $mailData['subject'] }}</p>

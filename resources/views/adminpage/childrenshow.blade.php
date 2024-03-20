@@ -3,15 +3,17 @@
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">
-
-
         <div class="content">
+
+            <!-- TITLE  -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Children Overview</h1>
             <a href='/inputchildren' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input Children</a>
             <h2 class="mb-4 text-4xl justify-center tracking-tight font-extrabold text-center text-gray-900 ">Children List
             </h2>
+
+
             <!-- TABLE -->
             <div class="overflow-x-auto">
                 <table class="min-w-full text-left text-gray-900 text-sm font-light">

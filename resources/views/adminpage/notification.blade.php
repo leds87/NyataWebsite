@@ -4,11 +4,17 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+
+            <!-- TITLE  -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Notification Overview</h1>
             <a href='inputnotification' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input notification</a>
-            <section class=""> <!-- Contact Us-->
+
+
+            <!-- TABLE CONTENTS  -->
+            <section class="">
                 <section class=" text-gray-900">
                     <div class="py-8 lg:py-16 max-w-screen-xl md:mx-0 lg:mx-auto">
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Notification List
@@ -37,11 +43,13 @@
                                             {{-- <td class="whitespace-nowrap px-6 py-4 w-1/6">{{ $item['to'] }}</td> --}}
                                             <td class="whitespace-nowrap px-6 py-4">
                                                 @php
-                                                $user = $item->to;
-                                                $username = $user ? \App\Models\userdata::find($user)->name : 'Everyone';
-                                            @endphp
-                                            {{ $username }}
-                                        </td>
+                                                    $user = $item->to;
+                                                    $username = $user
+                                                        ? \App\Models\userdata::find($user)->name
+                                                        : 'Everyone';
+                                                @endphp
+                                                {{ $username }}
+                                            </td>
                                             {{-- <td class="whitespace-nowrap px-6 py-4">                                              
                                               @php
                                               $item2 = $datauser->get($item['to']);
@@ -55,11 +63,11 @@
                                             {{-- <td class="whitespace-nowrap px-6 py-4">{{$item['read_at']}}</td> --}}
                                             <td class="whitespace-nowrap px-6 py-4">
                                                 @php
-                                                $dataread = $item->to !== null ?  $item['read_at'] : 'null' ;
+                                                    $dataread = $item->to !== null ? $item['read_at'] : 'null';
                                                 @endphp
-                                                {{$dataread ?? $item['read_at']}}
+                                                {{ $dataread ?? $item['read_at'] }}
                                             </td>
-                                                {{-- @if($item->to == 'Everyone')
+                                            {{-- @if ($item->to == 'Everyone')
                                                 
                                                 @else
                                                 {{ $item['read_at'] }}</td>
@@ -83,6 +91,7 @@
                     </div>
                 </section>
             </section>
+
         </div>
     </div>
 @endsection

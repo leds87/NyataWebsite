@@ -5,9 +5,13 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+
+            <!-- TITLE  -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 User Input</h1>
+
             {{-- SUCCESS MESSAGES --}}
             @if (session('success'))
                 <div id="alert-3"
@@ -78,6 +82,7 @@
 
 
 
+            <!-- FORM INPUT  -->
             <form action="/inputusers" method="POST" class="w-full max-w-lg py-5 mx-auto" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-2 gap-4">
@@ -110,8 +115,8 @@
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="password" name="password" type="password" required placeholder="Password">
-                        <button id="togglePassword1" type="button"
-                            class="absolute right-0 inset-y-0 py-8 px-6 text-black" tabindex="-1">
+                        <button id="togglePassword1" type="button" class="absolute right-0 inset-y-0 py-8 px-6 text-black"
+                            tabindex="-1">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -126,11 +131,12 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="password_confirmation" name="password_confirmation" type="password" required placeholder="Confirm Password">
+                            id="password_confirmation" name="password_confirmation" type="password" required
+                            placeholder="Confirm Password">
                         <button id="togglePassword2" type="button"
                             class="absolute right-0 inset-y-0 py-8 px-6 text-black" tabindex="-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
                             </svg>
@@ -140,12 +146,12 @@
                             const togglePassword2 = document.getElementById('togglePassword2');
                             const passwordInput = document.getElementById('password');
                             const password_confirmationInput = document.getElementById('password_confirmation');
-    
+
                             togglePassword1.addEventListener('click', function() {
                                 const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
                                 passwordInput.setAttribute('type', type);
                             });
-    
+
                             togglePassword2.addEventListener('click', function() {
                                 const type = password_confirmationInput.getAttribute('type') === 'password' ? 'text' : 'password';
                                 password_confirmationInput.setAttribute('type', type);
@@ -249,6 +255,7 @@
                         Submit</button>
                 </div>
             </form>
+
         </div>
     </div>
 @endsection

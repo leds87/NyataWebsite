@@ -83,18 +83,19 @@
             aria-label="Sidebar">
             <div class="h-full px-3 py-6 overflow-y-auto bg-red-600  ">
                 @if (auth()->user()->log == 'admin')
-                <a href="adminpage" class="flex items-center ps-2.5 mb-5">
-                    {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 me-3 sm:h-7" alt="Flowbite Logo" /> --}}
-                    <span
-                        class="self-center text-xl mx-auto font-semibold whitespace-nowrap hover:text-gray-700 hover:font-semibold dark:text-white">Admin
-                        Page Menu</span>
-                </a>
+                    <a href="{{ route('adminpage') }}" class="flex items-center ps-2.5 mb-5">
+                        {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 me-3 sm:h-7" alt="Flowbite Logo" /> --}}
+                        <span
+                            class="self-center text-xl mx-auto font-semibold whitespace-nowrap hover:text-gray-700 hover:font-semibold dark:text-white">Admin
+                            Page Menu</span>
+                    </a>
                 @else
-                <a href="userpage" class="flex items-center ps-2.5 mb-5">
-                    {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 me-3 sm:h-7" alt="Flowbite Logo" /> --}}
-                    <span
-                        class="self-center text-xl mx-auto font-semibold whitespace-nowrap hover:text-gray-700 hover:font-semibold dark:text-white">User Page Menu</span>
-                </a>
+                    <a href="{{ route('userpage') }}" class="flex items-center ps-2.5 mb-5">
+                        {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 me-3 sm:h-7" alt="Flowbite Logo" /> --}}
+                        <span
+                            class="self-center text-xl mx-auto font-semibold whitespace-nowrap hover:text-gray-700 hover:font-semibold dark:text-white">User
+                            Page Menu</span>
+                    </a>
                 @endif
 
 
@@ -117,7 +118,7 @@
                         @if (auth()->user()->role === 'Super')
                             <ul class="space-y-2 font-medium"> <!-- List -->
                                 <li class="mt-5">
-                                    <a href="adminpage"
+                                    <a href="{{ route('adminpage') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <svg class="w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -135,9 +136,12 @@
                                         data-dropdown-placement="right-start" type="button"
                                         class="flex items-center w-full  hover:bg-gray-100 rounded-lg  dark:hover:text-gray-700 hover:font-semibold">
                                         <div class="text-center flex hover:text-gray-700 p-2 ">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                                <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
-                                              </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="w-5 h-5">
+                                                <path fill-rule="evenodd"
+                                                    d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
                                             <span class="hover:text-gray-700 hover:font-semibold ms-3">Admin</span>
                                         </div>
                                     </button>
@@ -146,15 +150,15 @@
                                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                             aria-labelledby="doubleDropdownButton">
                                             <li>
-                                                <a href="profile"
+                                                <a href="{{ route('profile') }}"
                                                     class="block px-4 py-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-600">Profile</a>
                                             </li>
                                             <li>
-                                                <a href="adminlog"
+                                                <a href="{{ route('adminlog') }}"
                                                     class="block px-4 py-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-600">Log</a>
                                             </li>
                                             <li>
-                                                <a href="adminshow"
+                                                <a href="{{ route('adminshow') }}"
                                                     class="block px-4 py-2 rounded-lg text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-gray-600">Show
                                                     All Admin</a>
                                             </li>
@@ -164,26 +168,34 @@
 
                                 {{-- <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a> --}}
                                 <li>
-                                    <a href="schoolshow"
+                                    <a href="{{ route('schoolshow') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                            <path d="M11.584 2.376a.75.75 0 0 1 .832 0l9 6a.75.75 0 1 1-.832 1.248L12 3.901 3.416 9.624a.75.75 0 0 1-.832-1.248l9-6Z" />
-                                            <path fill-rule="evenodd" d="M20.25 10.332v9.918H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h.75v-9.918a.75.75 0 0 1 .634-.74A49.109 49.109 0 0 1 12 9c2.59 0 5.134.202 7.616.592a.75.75 0 0 1 .634.74Zm-7.5 2.418a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Zm3-.75a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0v-6.75a.75.75 0 0 1 .75-.75ZM9 12.75a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Z" clip-rule="evenodd" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-5 h-5">
+                                            <path
+                                                d="M11.584 2.376a.75.75 0 0 1 .832 0l9 6a.75.75 0 1 1-.832 1.248L12 3.901 3.416 9.624a.75.75 0 0 1-.832-1.248l9-6Z" />
+                                            <path fill-rule="evenodd"
+                                                d="M20.25 10.332v9.918H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h.75v-9.918a.75.75 0 0 1 .634-.74A49.109 49.109 0 0 1 12 9c2.59 0 5.134.202 7.616.592a.75.75 0 0 1 .634.74Zm-7.5 2.418a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Zm3-.75a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0v-6.75a.75.75 0 0 1 .75-.75ZM9 12.75a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Z"
+                                                clip-rule="evenodd" />
                                             <path d="M12 7.875a1.125 1.125 0 1 0 0-2.25 1.125 1.125 0 0 0 0 2.25Z" />
-                                          </svg>                                          
+                                        </svg>
                                         <span
                                             class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">School</span>
                                     </a>
                                 </li>
                                 {{-- <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a> --}}
                                 <li>
-                                    <a href="childrenshow"
+                                    <a href="{{ route('childrenshow') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                            <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
-                                            <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
-                                          </svg>
-                                          
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-5 h-5">
+                                            <path fill-rule="evenodd"
+                                                d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z"
+                                                clip-rule="evenodd" />
+                                            <path
+                                                d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                                        </svg>
+
                                         <span
                                             class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">Children</span>
                                         {{-- <span
@@ -192,7 +204,7 @@
                                 </li>
                                 {{-- <a href='usershow' class="p-4 block hover:bg-gray-600">User</a> --}}
                                 <li>
-                                    <a href="usershow"
+                                    <a href="{{ route('usershow') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -206,27 +218,31 @@
                                 </li>
                                 {{-- <a href='news' class="p-4 block hover:bg-gray-600">News</a> --}}
                                 <li>
-                                    <a href="news"
+                                    <a href="{{ route('news') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                            <path fill-rule="evenodd" d="M4.125 3C3.089 3 2.25 3.84 2.25 4.875V18a3 3 0 0 0 3 3h15a3 3 0 0 1-3-3V4.875C17.25 3.839 16.41 3 15.375 3H4.125ZM12 9.75a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H12Zm-.75-2.25a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75ZM6 12.75a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5H6Zm-.75 3.75a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75ZM6 6.75a.75.75 0 0 0-.75.75v3c0 .414.336.75.75.75h3a.75.75 0 0 0 .75-.75v-3A.75.75 0 0 0 9 6.75H6Z" clip-rule="evenodd" />
-                                            <path d="M18.75 6.75h1.875c.621 0 1.125.504 1.125 1.125V18a1.5 1.5 0 0 1-3 0V6.75Z" />
-                                          </svg>
-                                          
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-6 h-6">
+                                            <path fill-rule="evenodd"
+                                                d="M4.125 3C3.089 3 2.25 3.84 2.25 4.875V18a3 3 0 0 0 3 3h15a3 3 0 0 1-3-3V4.875C17.25 3.839 16.41 3 15.375 3H4.125ZM12 9.75a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H12Zm-.75-2.25a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75ZM6 12.75a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5H6Zm-.75 3.75a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75ZM6 6.75a.75.75 0 0 0-.75.75v3c0 .414.336.75.75.75h3a.75.75 0 0 0 .75-.75v-3A.75.75 0 0 0 9 6.75H6Z"
+                                                clip-rule="evenodd" />
+                                            <path
+                                                d="M18.75 6.75h1.875c.621 0 1.125.504 1.125 1.125V18a1.5 1.5 0 0 1-3 0V6.75Z" />
+                                        </svg>
+
                                         <span
                                             class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">News</span>
                                     </a>
                                 </li>
                                 {{-- <a href='notification' class="p-4 block hover:bg-gray-600">Notification</a> --}}
                                 <li>
-                                    <a href="notification"
+                                    <a href="{{ route('notification') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor"
-                                        class="w-6 h-6  transition-transform duration-300 transform hover:scale-110  ">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
-                                    </svg>
+                                            stroke-width="1.5" stroke="currentColor"
+                                            class="w-6 h-6  transition-transform duration-300 transform hover:scale-110  ">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
+                                        </svg>
                                         <span
                                             class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">Notification</span>
                                     </a>
@@ -236,50 +252,63 @@
                             {{-- <a href='schoolshow' class="p-4 block hover:bg-gray-600">School</a> --}}
                             <ul class="space-y-2 font-medium">
                                 <li class="mt-3">
-                                    <a href="schoolshow"
+                                    <a href="{{ route('schoolshow') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                            <path d="M11.584 2.376a.75.75 0 0 1 .832 0l9 6a.75.75 0 1 1-.832 1.248L12 3.901 3.416 9.624a.75.75 0 0 1-.832-1.248l9-6Z" />
-                                            <path fill-rule="evenodd" d="M20.25 10.332v9.918H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h.75v-9.918a.75.75 0 0 1 .634-.74A49.109 49.109 0 0 1 12 9c2.59 0 5.134.202 7.616.592a.75.75 0 0 1 .634.74Zm-7.5 2.418a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Zm3-.75a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0v-6.75a.75.75 0 0 1 .75-.75ZM9 12.75a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Z" clip-rule="evenodd" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-5 h-5">
+                                            <path
+                                                d="M11.584 2.376a.75.75 0 0 1 .832 0l9 6a.75.75 0 1 1-.832 1.248L12 3.901 3.416 9.624a.75.75 0 0 1-.832-1.248l9-6Z" />
+                                            <path fill-rule="evenodd"
+                                                d="M20.25 10.332v9.918H21a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1 0-1.5h.75v-9.918a.75.75 0 0 1 .634-.74A49.109 49.109 0 0 1 12 9c2.59 0 5.134.202 7.616.592a.75.75 0 0 1 .634.74Zm-7.5 2.418a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Zm3-.75a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0v-6.75a.75.75 0 0 1 .75-.75ZM9 12.75a.75.75 0 0 0-1.5 0v6.75a.75.75 0 0 0 1.5 0v-6.75Z"
+                                                clip-rule="evenodd" />
                                             <path d="M12 7.875a1.125 1.125 0 1 0 0-2.25 1.125 1.125 0 0 0 0 2.25Z" />
-                                          </svg>
-                                          
+                                        </svg>
+
                                         <span
                                             class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">School</span>
                                     </a>
                                 </li>
                                 {{-- <a href='childrenshow' class="p-4 block hover:bg-gray-600">Children</a> --}}
                                 <li>
-                                    <a href="childrenshow"
+                                    <a href="{{ route('childrenshow') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                            <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
-                                            <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
-                                          </svg>                                          
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-5 h-5">
+                                            <path fill-rule="evenodd"
+                                                d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z"
+                                                clip-rule="evenodd" />
+                                            <path
+                                                d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                                        </svg>
                                         <span
                                             class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">Children</span>
                                     </a>
                                 </li>
                                 {{-- <a href='usershow' class="p-4 block hover:bg-gray-600">User</a> --}}
                                 <li>
-                                    <a href="usershow"
+                                    <a href="{{ route('usershow') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                            <path d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
-                                          </svg>
-                                          
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-5 h-5">
+                                            <path
+                                                d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+                                        </svg>
+
                                         <span
                                             class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">User</span>
                                     </a>
                                 </li>
                                 {{-- <a href='adminlog' class="p-4 block hover:bg-gray-600">MyLog</a> --}}
                                 <li>
-                                    <a href="adminlog"
+                                    <a href="{{ route('adminlog') }}"
                                         class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
-                                          </svg>
-                                          
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-5 h-5">
+                                            <path fill-rule="evenodd"
+                                                d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+
                                         <span
                                             class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">MyLog</span>
                                     </a>
@@ -379,7 +408,7 @@
                                     <span class="ms-3 hover:text-gray-700 hover:font-semibold">User Log</span>
                                 </a>
                             </li>
-                            
+
                             <a href=" {{ route('notificationusershow') }}"
                                 class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 {{-- <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
@@ -401,9 +430,9 @@
                                         class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">{{ $notificationCount }}</span>
                                 @endif
                             </a>
+                        </ul>
                     @endif
                     @endif
-
                     <form id="logout-form" method="POST" action="/logout" role="">
                         @csrf
                         <a href="#" onclick="document.getElementById('logout-form').submit()"
@@ -417,71 +446,6 @@
                                 Out</span>
                         </a>
                     </form>
-                    {{-- <form id="logout-form" method="POST" action="/logout" role="">
-                        @csrf
-                        <div
-                            class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                            <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
-                            </svg>
-                            <a href="#" onclick="document.getElementById('logout-form').submit()"
-                                class=" ms-3 block hover:bg-gray-600">Logout</a>
-                        </div>
-                    </form> --}}
-                    {{-- SIGN IN LOGO  
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
-                                </svg> --}}
-
-
-
-
-
-                    {{-- <li>
-                        <a href="news"
-                            class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                            <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 18 20">
-                                <path
-                                    d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
-                            </svg>
-                            <span class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">News</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                            <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
-                            </svg>
-                            <span class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">Sign
-                                In</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center p-2 text-white rounded-lg hover:text-gray-700 hover:font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                            <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75  group-hover:text-gray-900 dark:group-hover:text-white"
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
-                                <path
-                                    d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
-                                <path
-                                    d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
-                            </svg>
-                            <span class="flex-1 ms-3 whitespace-nowrap hover:text-gray-700 hover:font-semibold">Sign
-                                Up</span>
-                        </a>
-                    </li> --}}
-                    </ul>
                 </div>
             </aside>
         </section>

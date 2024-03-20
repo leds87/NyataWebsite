@@ -5,6 +5,7 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+            
             <div class=" py-9">
                 <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                     User Information Data</h1>
@@ -98,7 +99,6 @@
             </div>
 
             {{-- SECTION BOX 2 DETAILS  --}}
-
             <div class="shadow-lg text-left w-full pt-3 mb-5 pl-5 ">
                 <div class="text-2xl text-black font-bold ">Details </div>
                 <div class="my-2 border-2 border-gray-300"></div>
@@ -132,6 +132,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
 

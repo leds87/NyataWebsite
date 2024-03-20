@@ -14,11 +14,13 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+            <!-- TITLE -->
             <div class=" py-9">
                 <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                     Transaction History</h1>
             </div>
-            {{-- ERROR MESSAGES --}}
+            {{-- SUCCESS MESSAGES --}}
             @if (session('success'))
                 <div id="alert-3"
                     class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
@@ -45,6 +47,7 @@
                 </div>
             @endif
 
+            {{-- ERROR MESSAGES --}}
             @if ($errors->any())
                 <div id="alert-2"
                     class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
@@ -61,12 +64,15 @@
                     </div>
                 </div>
             @endif
+
+
+            <!-- TITLE -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                     Transasction History
                 </h3>
             </div>
-            <!-- Modal body -->
+            <!-- Modal Body Trigger -->
             <div class="p-5">
                 @foreach ($transactionhistory as $item)
                     @if (stripos($item['status'], 'Success') !== false)
@@ -162,6 +168,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Body  -->
     @foreach ($transactionhistory as $item)
         <div id="viewmoremodal{{ $item->id }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -212,13 +220,14 @@
                                 <p class="capitalize text-black">transaction status:{{ $item['status'] }}
 
                             </div>
-                            @if($item->status_code == '200')
-                            {{-- <img src="" class="hidden" alt=""> --}}
+                            @if ($item->status_code == '200')
+                                {{-- <img src="" class="hidden" alt=""> --}}
                             @else
-                            @if($item->payment_type == 'qris')
-                            <img src="https://api.sandbox.midtrans.com/v2/qris/{{ $item['transaction_id'] }}/qr-code" alt="" class="w-48 mx-auto">
-                            @else
-                            @endif
+                                @if ($item->payment_type == 'qris')
+                                    <img src="https://api.sandbox.midtrans.com/v2/qris/{{ $item['transaction_id'] }}/qr-code"
+                                        alt="" class="w-48 mx-auto">
+                                @else
+                                @endif
                             @endif
                         </div>
                     </div>
@@ -226,21 +235,22 @@
                     <div class="flex border-t border-gray-200  dark:border-gray-600 border-5">
                         @if ($item->status_code == '200')
                         @else
-                        <div class="mx-auto mt-4">
-                            @if($item->payment_type == 'qris')
-                            <a href="https://api.sandbox.midtrans.com/v2/qris/{{ $item['transaction_id'] }}/qr-code">
-                                <button type="button"
-                                    class="text-white mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
-                                    Payment Link</button>
-                            </a>
-                            @else
-                            <a href="{{ $item['pdf_url'] }}">
-                                <button type="button"
-                                    class="text-white mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
-                                    Payment Link</button>
-                            </a>
-                            @endif
-                        </div>
+                            <div class="mx-auto mt-4">
+                                @if ($item->payment_type == 'qris')
+                                    <a
+                                        href="https://api.sandbox.midtrans.com/v2/qris/{{ $item['transaction_id'] }}/qr-code">
+                                        <button type="button"
+                                            class="text-white mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                                            Payment Link</button>
+                                    </a>
+                                @else
+                                    <a href="{{ $item['pdf_url'] }}">
+                                        <button type="button"
+                                            class="text-white mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                                            Payment Link</button>
+                                    </a>
+                                @endif
+                            </div>
                         @endif
                     </div>
                     <div class="flex items-center  p-4 md:p-5 ">
@@ -253,4 +263,5 @@
             </div>
         </div>
     @endforeach
-@endsection
+
+    @endsection

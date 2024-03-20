@@ -5,9 +5,15 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+
+            <!-- TITLE  -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Children Input</h1>
+
+
+            <!-- FORM  -->
             <form action="/inputchildren" method="POST" enctype="multipart/form-data" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -62,7 +68,8 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="story" name="story" type="text" placeholder="He skip the childhood due to the missing of education from parent.">
+                            id="story" name="story" type="text"
+                            placeholder="He skip the childhood due to the missing of education from parent.">
                     </div>
                 </div>
                 <div class="w-full flex flex-wrap mb-6">
@@ -88,7 +95,7 @@
                 <div class="relative">
                     <div> <!-- Upload Image -->
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Upload file</label>
-                        <input name="Images[]" id="Images[]" type="file" 
+                        <input name="Images[]" id="Images[]" type="file"
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
                     </div>
                 </div>
@@ -99,6 +106,7 @@
                         Submit</button>
                 </div>
             </form>
+            
         </div>
     </div>
 @endsection

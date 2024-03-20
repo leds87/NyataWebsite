@@ -1,5 +1,8 @@
 @extends('layout.default')
 @extends('adminpage.layoutadmin')
+@php
+    app(\App\Http\Controllers\sidebar_controller::class)->getNotificationCount();
+@endphp
 {{-- @section('title', __('AdminPage')) --}}
 @section('page-content')
     <div class="bg-white py-20">
@@ -12,8 +15,8 @@
                 <div id="alert-3"
                     class="flex mx-auto w-1/3 items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
                     role="alert">
-                    <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 20 20">
                         <path
                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                     </svg>
@@ -76,7 +79,7 @@
             @endif
 
 
-
+            {{-- NEWS & BALANCE --}}
             <a href='inputuser' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input user</a>
             <section class=""> <!-- Contact Us-->
                 <section class=" text-gray-900">
@@ -131,7 +134,8 @@
                                             </td>
 
                                             <td class="whitespace-nowrap px-6 py-4">
-                                                <button type="button" class="bg-green-600 text-white px-2 py-2 rounded-lg">
+                                                <button type="button"
+                                                    class="bg-green-600 text-white px-2 py-2 rounded-lg">
                                                     <a href="/useredit%{{ $item->id }}">Edit</a> </button>
                                                 <form action="{{ route('destroyuser', $item->id) }}" method="POST"
                                                     class="inline-block">
@@ -154,8 +158,8 @@
                                                     @csrf
                                                     @method('PUT')
 
-                                                    <div id="static-modal{{ $item->id }}" data-modal-backdrop="static"
-                                                        tabindex="-1" aria-hidden="true"
+                                                    <div id="static-modal{{ $item->id }}"
+                                                        data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
                                                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                                         <div class="relative p-4 w-full max-w-2xl max-h-full">
                                                             <!-- Modal content -->
@@ -217,7 +221,8 @@
                                                                         <label for="password_confirmation"
                                                                             class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
                                                                             password</label>
-                                                                        <input type="password" name="password_confirmation"
+                                                                        <input type="password"
+                                                                            name="password_confirmation"
                                                                             id="password_confirmation"
                                                                             placeholder="••••••••"
                                                                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg 

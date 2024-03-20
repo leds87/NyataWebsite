@@ -7,7 +7,7 @@
 
         <div class="content">
 
-            {{-- ERROR MESSAGES --}}
+            {{-- SUCCESS MESSAGES --}}
             @if (session('success'))
                 <div id="alert-3"
                     class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
@@ -32,8 +32,10 @@
                         </svg>
                     </button>
                 </div>
-                @endif
-            @if($errors->any())
+            @endif
+
+            {{-- ERROR MESSAGES --}}
+            @if ($errors->any())
                 <div id="alert-2"
                     class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                     role="alert">
@@ -60,13 +62,17 @@
             @endif
 
 
-
+            {{-- TITLE --}}
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Admin Overview</h1>
 
+
+
+            {{-- DASHBOARD USER INFORMATION & CHILD INFORMATION --}}
             <div class="flex flex-wrap py-2">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:w-3/5 shadow mb-5 py-5">
+                <div
+                    class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:w-3/5 shadow mb-5 py-5">
                     <!-- User Data -->
                     <div class="flex flex-row w-full bg-black p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> User Information Data</div>
@@ -175,6 +181,7 @@
                 </script>
             </div>
 
+            {{-- DASHBOARD MONEY INFORMATION & SCHOOL INFORMATION --}}
             <div class="flex flex-wrap py-2">
                 <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
                     <!-- Money Data -->
@@ -200,16 +207,16 @@
                     <div class="flex flex-col items-center rounded-lg shadow md:flex-row h-auto max-w-4xl ">
                         <div class="p-4 w-2/3">
                             <span class="mb-3 text-xl font-normal dark:text-gray-100">
-                                <p>Total Donation :                                          
+                                <p>Total Donation :
                                     @php
-                                    $amount = ($totaldonation);
-                                    $formattedAmount = number_format($amount, 0, ',', '.');
-                                @endphp
-                                
-                                Rp {{ $formattedAmount }}
-                             </p>
-                                <p>Total User Who Donated :  {{$totaluserdonated}} person </p>
-                                <p>Total Supported Child : {{$totalsupportedchildren}} children</p>
+                                        $amount = $totaldonation;
+                                        $formattedAmount = number_format($amount, 0, ',', '.');
+                                    @endphp
+
+                                    Rp {{ $formattedAmount }}
+                                </p>
+                                <p>Total User Who Donated : {{ $totaluserdonated }} person </p>
+                                <p>Total Supported Child : {{ $totalsupportedchildren }} children</p>
                             </span>
                         </div>
                         <canvas id="userPieChart" width="200" height="200"></canvas>

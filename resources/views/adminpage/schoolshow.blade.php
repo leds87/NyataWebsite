@@ -5,10 +5,14 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+            <!-- TITLE -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 School Overview</h1>
             <a href='inputschool' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input School</a>
+
+            <!-- CONTENT -->
             <section class="">
                 <section class=" text-gray-900">
                     <div class="py-8 lg:py-16 ">
@@ -73,6 +77,8 @@
                     </div>
                 </section>
             </section>
+
+            
         </div>
     </div>
 @endsection

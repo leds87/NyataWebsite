@@ -8,9 +8,13 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+            <!-- TITLE -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                Profile Edit</h1>
+
+               <!-- CONTENT -->
             <form action="profileedit%{{ auth()->user()->slug }}" enctype="multipart/form-data" method="POST" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 @method('PUT')

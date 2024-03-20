@@ -5,9 +5,14 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+            <!-- TITLE  -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 School Input</h1>
+
+
+            <!-- FORM   -->
             <form action="/inputschool" method="POST" class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -20,7 +25,8 @@
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 
                             rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white placeholder-slate-400 placeholder-opacity-80 
                             @error('school_name') is-invalid @enderror"
-                            id="school_name" name="school_name" type="text" placeholder="School Name" required value="{{old('school_name')}}">
+                            id="school_name" name="school_name" type="text" placeholder="School Name" required
+                            value="{{ old('school_name') }}">
                         @error('school_name')
                             <p class="text-red-500 text-xs italic">
                                 {{ $message }}
@@ -36,7 +42,7 @@
                             rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-slate-400 placeholder-opacity-80
                             @error('location') is-invalid @enderror"
                             id="location" name="location" type="text" required placeholder="Bandung / Jakarta">
-                            @error('location')
+                        @error('location')
                             <p class="text-red-500 text-xs italic">
                                 {{ $message }}
                             </p>
@@ -74,7 +80,8 @@
                         </label>
                         <input
                             class="appearance-none placeholder-slate-400 placeholder-opacity-80 block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="required_donation" name="required_donation"type="number" required placeholder="Rp 500.000" maxlength="4">
+                            id="required_donation" name="required_donation"type="number" required placeholder="Rp 500.000"
+                            maxlength="4">
                         {{-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> --}}
                     </div>
                 </div>
@@ -103,6 +110,7 @@
                         Submit</button>
                 </div>
             </form>
+            
         </div>
     </div>
 @endsection

@@ -7,12 +7,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
 @section('page-content')
     <div class="bg-white content">
-
         <div class=" py-9">
-            <h1 class="lg:text-2xl text-center text-white rounded-xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+
+            <!-- TITLE  -->
+            <h1
+                class="lg:text-2xl text-center text-white rounded-xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 News Show</h1>
         </div>
 
+        <!-- CONTENT  -->
         <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white text-black antialiased">
             <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
                 <article
@@ -23,9 +26,11 @@
                                 <img class="mr-4 w-16 h-16 rounded-full"
                                     src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
                                 <div>
-                                    <div href="#" rel="author" class="text-xl font-bold text-gray-900 capitalize">{{$datanews->from}}
-                                    <span class="capitalize font-semibold text-sm">[{{$datanews->role}}]</span></div>
-                                    <p class="text-base text-gray-500 dark:text-gray-400">NYATA! {{$datanews->role}}</p>
+                                    <div href="#" rel="author" class="text-xl font-bold text-gray-900 capitalize">
+                                        {{ $datanews->from }}
+                                        <span class="capitalize font-semibold text-sm">[{{ $datanews->role }}]</span>
+                                    </div>
+                                    <p class="text-base text-gray-500 dark:text-gray-400">NYATA! {{ $datanews->role }}</p>
                                     <p class="text-base text-gray-500 dark:text-gray-400">
                                         <time>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $datanews->date)->format('F jS, Y') }}</time>
                                     </p>

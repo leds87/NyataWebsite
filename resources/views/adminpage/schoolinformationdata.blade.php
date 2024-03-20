@@ -102,7 +102,6 @@
             </div>
 
             {{-- SECTION BOX 2 DETAILS  --}}
-
             <div class="shadow-lg text-left w-full pt-3 mb-5 pl-5 ">
                 <div class="text-2xl text-black font-bold ">Details </div>
                 <div class="my-2 border-2 border-gray-300"></div>
@@ -143,8 +142,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
-
-
 @endsection

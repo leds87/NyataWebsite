@@ -9,6 +9,7 @@ use App\Models\userdata;
 use App\Models\schooldata;
 use App\Models\supportedchildren;
 use App\Models\userbalance;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,7 +38,10 @@ class dashboarduser_controller extends Controller
         $datanull = news::WhereNull('children_id', '')->get(); // CALL NEWS THAT FOR ALL/NULL
         $data3 = [];
         $data3 = $datanull->merge($data1);
-        $datanews = $data3; // MERGE DATA!!
+        // $datanews = $data3; // MERGE DATA!!
+
+        $collection = new Collection($data3);
+        $datanews = $collection->sortByDesc('date');
 
         //EXPECTED SUPPORT BALANCE
         $a2 = []; //GET Required Donation from every child

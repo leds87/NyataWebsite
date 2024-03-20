@@ -4,9 +4,15 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+
+            <!-- TITLE  -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Log Overview</h1>
+
+
+            <!-- FORM TABLE  -->
             <section class="">
                 <section class=" text-gray-900">
                     <div class="py-8 lg:py-16 mx-auto max-w-screen-lg">

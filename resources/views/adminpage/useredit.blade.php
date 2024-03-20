@@ -8,10 +8,15 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+            {{-- TITLE --}}
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 User Person Edit</h1>
-            <form action="/useredit%{{ $data->id }}" enctype="multipart/form-data" method="POST" class="w-full max-w-lg py-5 mx-auto">
+
+            {{-- CONTENT --}}
+            <form action="/useredit%{{ $data->id }}" enctype="multipart/form-data" method="POST"
+                class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 @method('PUT')
                 <div class="w-full my-4 px-3 mb-6 md:mb-0 grid grid-cols-2 gap-4">
@@ -33,7 +38,7 @@
                             id="email" name="email" type="email" value="{{ $data->email }}">
                     </div>
                 </div>
-                 {{-- <div class="w-full my-4 md:w-1/2 px-3">
+                {{-- <div class="w-full my-4 md:w-1/2 px-3">
                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
                             Password
                         </label>
@@ -113,34 +118,35 @@
                 <div class="flex px-3">
                     <div class="mt-3"> <!-- Upload Image -->
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="image">Upload file</label>
-                        <input type="hidden" name="oldimage" value="{{$data->image}}">
+                        <input type="hidden" name="oldimage" value="{{ $data->image }}">
                         <input name="image" id="image" type="file"
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
                     </div>
                     <div class="relative">
                         <div> <!-- Current Image -->
-                            <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Current Image file</label>
+                            <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Current Image
+                                file</label>
                             @if ($data->image)
-                            <div class="image-container inline-flex mx-4 mb-4">
-                                    <img src="{{ asset('storage/' . $data->image) }}"
-                                        alt="{{ $data->image }}"
+                                <div class="image-container inline-flex mx-4 mb-4">
+                                    <img src="{{ asset('storage/' . $data->image) }}" alt="{{ $data->image }}"
                                         class="w-24  object-cover rounded-md" name="oldImage">
                                     <div class="mx-2"></div>
-                            </div>
-                        @else
-                            <p class="text-gray-400 dark:text-gray-600">No images available
-                            </p>
-                        @endif
+                                </div>
+                            @else
+                                <p class="text-gray-400 dark:text-gray-600">No images available
+                                </p>
+                            @endif
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="flex">
                     <button type="submit"
-                    class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                    Submit</button>
+                        class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                        Submit</button>
                 </div>
-                </form>
+            </form>
+            
         </div>
     </div>
 @endsection

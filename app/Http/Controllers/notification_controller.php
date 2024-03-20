@@ -23,15 +23,12 @@ class notification_controller extends Controller
         $data3 = $datanotification1->merge($datanotification2) ;
         $data4 = $data3; // MERGE DATA!!
         $datanotification = $data4->where('read_at', null);
+        // $datanotification = $data4;
 
         $notificationCount = count($datanotification);
 
 
         $datauser = userdata::get();
-        
-        // $notifications = Auth::user()->unreadNotifications;
-        // return response()->json(['notifications' => $notifications]);
-
         return view('adminpage.notificationusershow', compact('datanotification','datauser','notificationCount'));
     }
 
@@ -57,24 +54,6 @@ class notification_controller extends Controller
             notification::create($data);
             return redirect('/adminpage')->with("success","Your Data Has Been Input!");
     }
-
-//     public function send($notifiable, Notification $notification)
-// {
-//     $data = $notification->toDatabase($notifiable);
-
-//     // Set custom message in another variable and unset it from the default array.
-//     $msg = $data['message_text'];
-//     unset($data['message_text']);
-
-//     // Create a DB row with our custom field message text and other data.
-//     return $notifiable->routeNotificationFor('database')->create([
-//         'message_text' => $msg, // <-- Your custom message
-//         'type' => get_class($notification),
-//         'data' => $data,
-//         'read_at' => null,
-//     ]);
-// }
-
 
     public function destroy($id)
     {
@@ -127,13 +106,6 @@ class notification_controller extends Controller
         $datauser = userdata::all();
         return view('adminpage.notificationedit', compact('datanotification','datauser'));
     }
-
-    // public function notify(){
-    //     if(auth()->user()){
-    //         $user = userdata::whereId(7)->first();
-    //         auth()->user()->notify(new NewNotification($user));
-    //     }
-    // }
 
     public function markasread($id){
         if($id){

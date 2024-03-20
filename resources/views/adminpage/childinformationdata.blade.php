@@ -5,7 +5,11 @@
 @section('page-content')
     <div class="bg-white py-20">
         <div class="content">
+
+
             <div class=" py-9">
+
+                <!-- TITLE -->
                 <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                     Child Information Data</h1>
             </div>
@@ -71,7 +75,7 @@
             @endif
 
 
-            {{-- SECTION BOX 1 ADMIN PROFILE MESSAGES --}}
+            {{-- SECTION BOX 1 OVERVIEW --}}
             <div class="lg:grid grid-cols-2 lg:gap-4  ">
                 <div class="mt-8 p-4 shadow-md rounded-md  mb-4 bg-zinc-100">
                     <h1 class="text-2xl text-black font-semibold mb-4">Children Information </h1>
@@ -100,7 +104,7 @@
                 </div>
             </div>
 
-            {{-- SECTION BOX 2 DETAILS  --}}
+            {{-- SECTION BOX 2 TABLE DETAILS  --}}
 
             <div class="shadow-lg text-left w-full pt-3 mb-5 pl-5 ">
                 <div class="text-2xl text-black font-bold ">Details </div>
@@ -141,8 +145,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
-
-
 @endsection
