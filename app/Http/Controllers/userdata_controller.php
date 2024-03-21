@@ -44,7 +44,8 @@ class userdata_controller extends Controller
                 'since' => 'required',
                 'status' => 'required',
                 'image' => 'image|file|max:2048'
-            ],[
+            ],
+            [
                 'email.unique' => 'Email telah digunakan, silakan gunakan email lain!',
                 'password.confirmed' => 'Password Confirmation doesnt match!'
             ]
@@ -69,10 +70,11 @@ class userdata_controller extends Controller
         $mailData = [
             'name' => $request->name,
             'email' => $request->email,
-            'phone'=> $request->phone,
-            'subject'=> $request->subject,
-            'description'=> $request->description];
-             Mail::to($request->email)->send(new register($mailData));
+            'phone' => $request->phone,
+            'subject' => $request->subject,
+            'description' => $request->description
+        ];
+        Mail::to($request->email)->send(new register($mailData));
 
 
         return redirect('/adminpage')->with("success", "Data " . $request->name . " Has been input.");
@@ -175,7 +177,7 @@ class userdata_controller extends Controller
         // throw ValidationException::withMessages([
         //     'current_password'=>'Your Current Password Doesnt Match with our record'
         // ]);
-        
+
         $validatedData = $request->validate(
             [
                 'password' => 'required|min:6|confirmed',
@@ -322,5 +324,16 @@ class userdata_controller extends Controller
         $totaluserdoesntdoanted = $totaluser - $totaluserdonated;
 
         return view('adminpage.userinformationdata', compact('totaluser', 'totaluserdoesntdoanted', 'totaluserdonated', 'data', 'activeusers', 'inactiveusers', 'postponeusers', 'usercount'));
+    }
+
+    public function deleteuserphoto()
+    {
+        $data = userdata::findorFail(auth()->user()->id);
+        $data->image = null;
+        $data->save();
+        // dd($data);
+        $filename =   auth()->user()->image;
+        Storage::disk('public')->delete($filename);
+        return back()->with('Success', 'Photo Deleted');
     }
 }

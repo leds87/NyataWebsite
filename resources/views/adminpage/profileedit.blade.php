@@ -12,10 +12,11 @@
             <!-- TITLE -->
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-               Profile Edit</h1>
+                Profile Edit</h1>
 
-               <!-- CONTENT -->
-            <form action="profileedit%{{ auth()->user()->slug }}" enctype="multipart/form-data" method="POST" class="w-full max-w-lg py-5 mx-auto">
+            <!-- CONTENT -->
+            <form action="profileedit%{{ auth()->user()->slug }}" enctype="multipart/form-data" method="POST"
+                class="w-full max-w-lg py-5 mx-auto">
                 @csrf
                 @method('PUT')
                 <div class="w-full my-4 px-3 mb-6 md:mb-0 grid grid-cols-2 gap-4">
@@ -79,7 +80,8 @@
                         </label>
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="phone" name="phone"type="phonenumber" value="{{ auth()->user()->phone }}" maxlength="14">
+                            id="phone" name="phone"type="phonenumber" value="{{ auth()->user()->phone }}"
+                            maxlength="14">
                     </div>
                     {{-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> --}}
                     <div class="">
@@ -116,34 +118,57 @@
                 <div class="flex px-3">
                     <div class="mt-3"> <!-- Upload Image -->
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="image">Upload file</label>
-                        <input type="hidden" name="oldimage" value="{{auth()->user()->image}}">
+                        <input type="hidden" name="oldimage" value="{{ auth()->user()->image }}">
+
                         <input name="image" id="image" type="file"
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none  dark:border-gray-600 dark:placeholder-gray-400">
                     </div>
+
                     <div class="relative">
                         <div> <!-- Current Image -->
-                            <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Current Image file</label>
-                            @if (auth()->user()->image)
-                            <div class="image-container inline-flex mx-4 mb-4">
+                            <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Current Image
+                                file</label>
+                            @if (auth()->user()->image !=="null")
+                                <div class="image-container inline-flex mx-4 mb-4">
                                     <img src="{{ asset('storage/' . auth()->user()->image) }}"
-                                        alt="{{ auth()->user()->image }}"
-                                        class="w-24  object-cover rounded-md" name="oldImage">
+                                        alt="{{ auth()->user()->image }}" class="w-24  object-cover rounded-md"
+                                        name="oldImage">
                                     <div class="mx-2"></div>
-                            </div>
-                        @else
-                            <p class="text-gray-400 dark:text-gray-600">No images available
-                            </p>
-                        @endif
+                                </div>
+                            @else
+                                <p class="text-gray-400 dark:text-gray-600">No images available
+                                </p>
+                            @endif
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="flex">
                     <button type="submit"
-                    class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                    Submit</button>
+                        class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                        Submit</button>
                 </div>
-                </form>
+            </form>
+            {{-- <div class="text-black">{{auth()->user()->image}}</div> --}}
+            <div class="flex">
+                    @if (auth()->user()->image !== "null")
+                    <div class="mx-auto">
+                        <form id="deleteimage" action="{{ route('deleteuserphoto') }}" method="POST"
+                            class="inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button id="deleteimage" name="deleteimage" type="submit"
+                                class="bg-red-600 text-sm text-white px-2 py-2 rounded-lg"
+                                onclick="return confirm('Are You Sure?')">
+                                Delete Image
+                            </button>
+                        </form>
+                    </div>
+                    @else
+                        <p class="text-gray-400 dark:text-gray-600"></p>
+                    @endif
+            </div>
+            
         </div>
     </div>
 @endsection

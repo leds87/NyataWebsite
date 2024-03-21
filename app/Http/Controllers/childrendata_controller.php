@@ -88,6 +88,7 @@ class childrendata_controller extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request);
         $data = childrendata::find($id);
 
         //INPUT CHILDREN MINIMUM REQUIRED DONATION
@@ -108,17 +109,17 @@ class childrendata_controller extends Controller
         $data->save();
         $savedChanges = $data->getChanges();
 
-        // Delete current images MULTIPLE
-        $filenames =   $data->images->pluck('filename')->toArray();
-        if ($request->oldImages) {
-            $data->images()->delete([]);
-
-            foreach ($filenames as $filename) {
-                Storage::disk('public')->delete('children-images/' . $filename);
-            }
-        }
-
         if ($request->hasFile('Images')) {
+            // Delete current images MULTIPLE
+            $filenames =   $data->images->pluck('filename')->toArray();
+            if ($request->oldImages) {
+                $data->images()->delete([]);
+
+                foreach ($filenames as $filename) {
+                    Storage::disk('public')->delete('children-images/' . $filename);
+                }
+            }
+
             foreach ($request->file('Images') as $image) {
                 // $filename = date('Y-m-d') . $image->getClientOriginalName();
                 $filename = date('Y-m-d') . $request->name . '_child image' . $image->getClientOriginalName();
@@ -132,7 +133,6 @@ class childrendata_controller extends Controller
                 ]);
             }
         }
-
 
         $datasend = $request->has('sendnotif');
 
@@ -198,6 +198,6 @@ class childrendata_controller extends Controller
 
 
 
-        return view('adminpage.childinformationdata', compact('notsupportedchildren','totalsupportedchildren','data', 'childrencount', 'activechildren', 'educatedchildren', 'successchildren'));
+        return view('adminpage.childinformationdata', compact('notsupportedchildren', 'totalsupportedchildren', 'data', 'childrencount', 'activechildren', 'educatedchildren', 'successchildren'));
     }
 }

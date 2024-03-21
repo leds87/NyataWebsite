@@ -129,6 +129,7 @@ Route::delete('/destroyuser/{id}',[userdata_controller::class,'destroy'])->name(
 Route::get('/useredit%{id}',[userdata_controller::class,'edit'])->name('useredit')->middleware('auth:user,admin');
 Route::put('/useredit%{id}',[userdata_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/usershow', [userdata_controller::class, 'showdata'])->middleware('auth:admin')->name('usershow');
+Route::delete('/deleteuserphoto', [userdata_controller::class, 'deleteuserphoto'])->middleware('auth:admin,user')->name('deleteuserphoto');
 
 Route::get('/inputadmin', function () { return view('adminpage.inputadmin'); })->name('inputadmin')->middleware('auth:admin');
 Route::post('/inputadmin', [admindata_controller::class, 'store'])->middleware('auth:admin');
