@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\API_controller' => $baseDir . '/app/Http/Controllers/API_controller.php',
     'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmablePasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmablePasswordController.php',
     'App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController' => $baseDir . '/app/Http/Controllers/Auth/EmailVerificationNotificationController.php',
@@ -49,6 +50,7 @@ return array(
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
     'App\\Mail\\contactadmin' => $baseDir . '/app/Mail/contactadmin.php',
+    'App\\Mail\\register' => $baseDir . '/app/Mail/register.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\admindata' => $baseDir . '/app/Models/admindata.php',
     'App\\Models\\adminlog' => $baseDir . '/app/Models/adminlog.php',
@@ -60,6 +62,7 @@ return array(
     'App\\Models\\notification' => $baseDir . '/app/Models/notification.php',
     'App\\Models\\schooldata' => $baseDir . '/app/Models/schooldata.php',
     'App\\Models\\supportedchildren' => $baseDir . '/app/Models/supportedchildren.php',
+    'App\\Models\\userbalance' => $baseDir . '/app/Models/userbalance.php',
     'App\\Models\\userdata' => $baseDir . '/app/Models/userdata.php',
     'App\\Models\\userlog' => $baseDir . '/app/Models/userlog.php',
     'App\\Notifications\\NewNotification' => $baseDir . '/app/Notifications/NewNotification.php',

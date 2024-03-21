@@ -283,22 +283,25 @@
                                 onSuccess: function(result) {
                                     /* You may add your own implementation here */
                                     alert("payment success!");
-                                    //console.log(result);
+                                    console.log(result);
                                     send_response_to_form(result);
                                 },
                                 onPending: function(result) {
                                     /* You may add your own implementation here */
                                     alert("wating your payment!");
+                                    console.log(result);
                                     send_response_to_form(result);
                                 },
                                 onError: function(result) {
                                     /* You may add your own implementation here */
                                     alert("payment failed!");
+                                    console.log(result);
                                     send_response_to_form(result);
                                 },
                                 onClose: function() {
                                     /* You may add your own implementation here */
                                     alert('you closed the popup without finishing the payment');
+                                    console.log(result);
                                     send_response_to_form(result);
                                 }
                             })

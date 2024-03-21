@@ -542,6 +542,7 @@ class ComposerStaticInit4ed2425e8632d964ef4d6b719ba8432b
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\API_controller' => __DIR__ . '/../..' . '/app/Http/Controllers/API_controller.php',
         'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmablePasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmablePasswordController.php',
         'App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/EmailVerificationNotificationController.php',
@@ -583,6 +584,7 @@ class ComposerStaticInit4ed2425e8632d964ef4d6b719ba8432b
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
         'App\\Mail\\contactadmin' => __DIR__ . '/../..' . '/app/Mail/contactadmin.php',
+        'App\\Mail\\register' => __DIR__ . '/../..' . '/app/Mail/register.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\admindata' => __DIR__ . '/../..' . '/app/Models/admindata.php',
         'App\\Models\\adminlog' => __DIR__ . '/../..' . '/app/Models/adminlog.php',
@@ -594,6 +596,7 @@ class ComposerStaticInit4ed2425e8632d964ef4d6b719ba8432b
         'App\\Models\\notification' => __DIR__ . '/../..' . '/app/Models/notification.php',
         'App\\Models\\schooldata' => __DIR__ . '/../..' . '/app/Models/schooldata.php',
         'App\\Models\\supportedchildren' => __DIR__ . '/../..' . '/app/Models/supportedchildren.php',
+        'App\\Models\\userbalance' => __DIR__ . '/../..' . '/app/Models/userbalance.php',
         'App\\Models\\userdata' => __DIR__ . '/../..' . '/app/Models/userdata.php',
         'App\\Models\\userlog' => __DIR__ . '/../..' . '/app/Models/userlog.php',
         'App\\Notifications\\NewNotification' => __DIR__ . '/../..' . '/app/Notifications/NewNotification.php',

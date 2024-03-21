@@ -116,6 +116,7 @@ class userbalance_controller extends Controller
     public function postpayment(Request $request)
     {
         $json = json_decode($request->get('json'));
+        // return $request;
         // dd($json);
         //CHILD HAS SUPPORT BY USER ID
         $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
@@ -145,7 +146,8 @@ class userbalance_controller extends Controller
             ]
         );
         userbalance::create($data);
-        return redirect('userbalance');
+        return $request;
+        // redirect('userbalance');
     }
 
     public function moneyinformationdata()
