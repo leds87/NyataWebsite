@@ -237,4 +237,15 @@ class admindata_controller extends Controller
         return redirect('profile')->with('success','Password' . ' '. auth()->user()->name .' '. 'updated');
         //  response()->json(['message' => 'Password' . ' '. auth()->user()->name .' '. 'Updated'], 200);
     }
+
+    public function deleteadminphoto()
+    {
+        $data = admindata::findorFail(auth()->user()->id);
+        $data->image = null;
+        $data->save();
+        // dd($data);
+        $filename =   auth()->user()->image;
+        Storage::disk('public')->delete($filename);
+        return back()->with('Success', 'Photo Deleted');
+    }
 }

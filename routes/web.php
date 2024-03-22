@@ -137,6 +137,7 @@ Route::delete('/destroyadmin/{id}',[admindata_controller::class,'destroy'])->nam
 Route::get('/adminedit/{id}/edit',[admindata_controller::class,'edit'])->name('adminedit')->middleware('auth:admin');
 Route::put('/adminedit/{id}',[admindata_controller::class,'update'])->middleware('auth:admin');
 Route::get('/adminshow', [admindata_controller::class, 'showdata'])->name('adminshow')->middleware('auth:user,admin');
+Route::delete('/deleteadminphoto', [admindata_controller::class, 'deleteadminphoto'])->middleware('auth:admin')->name('deleteadminphoto');
 
 Route::get('/inputschool', function () { return view('adminpage.inputschool'); })->name('inputschool')->middleware('auth:admin');
 Route::post('/inputschool', [schooldata_controller::class, 'store'])->middleware('auth:user,admin');
@@ -150,7 +151,7 @@ Route::post('/inputchildren', [childrendata_controller::class, 'store'])->middle
 Route::delete('/childrendestroy/{id}',[childrendata_controller::class,'destroy'])->name('childrendestroy')->middleware('auth:user,admin');
 Route::get('/childrenedit/{id}/edit',[childrendata_controller::class,'edit'])->name('childrenedit')->middleware('auth:user,admin');
 Route::put('/childrenedit/{id}',[childrendata_controller::class,'update'])->middleware('auth:user,admin');
-Route::get('/childrenshow', [childrendata_controller::class, 'showdata'])->middleware('auth:user,admin')->name('childrenshow');
+Route::get('/childrenshow', [childrendata_controller::class, 'showdata'])->middleware('auth:admin')->name('childrenshow');
 Route::put('/childrenupdatesupport/{id}',[childrensupported_controller::class,'updatesupport'])->middleware('auth:user')->name('updatesupport');
 Route::put('/childrenupdateunsupport/{id}',[childrensupported_controller::class,'updateunsupport'])->middleware('auth:user')->name('updateunsupport');
 
@@ -187,9 +188,9 @@ Route::get('/childinformationdata',[childrendata_controller::class,'childinforma
 Route::get('/userinformationdata',[userdata_controller::class,'userinformationdata'])->middleware('auth:admin')->name('userinformationdata');
 Route::get('/schoolinformationdata',[schooldata_controller::class,'schoolinformationdata'])->middleware('auth:admin')->name('schoolinformationdata');
 
-Route::get('/registeremailview', function () {
-    return view('adminpage.registeremailview');
-})->name('registeremailview');
+// Route::get('/registeremailview', function () {
+//     return view('adminpage.registeremailview');
+// })->name('registeremailview');
 
 
 

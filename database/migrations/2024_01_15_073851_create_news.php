@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('category');
             $table->string('children_id')->nullable();
             $table->string('from')->nullable();
+            $table->string('from_id')->nullable();
             $table->string('role')->nullable();
         });
     }

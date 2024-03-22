@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\admindata;
 use App\Models\childrendata;
 use App\Models\news;
 use App\Models\supportedchildren;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +35,7 @@ class news_controller extends Controller
             ]
         );
         $data['from'] = auth()->user()->name;
+        $data['from_id'] = auth()->user()->id;
         $data['role'] = auth()->user()->role . ' ' . auth()->user()->log;
 
         news::create($data);
@@ -57,10 +60,12 @@ class news_controller extends Controller
         // $datanews2 = news::find($slug);
         // dd($datanews2);
         $datachildren = childrendata::find($datanews->children_id);
+        $dataadmin = admindata::find($datanews->from_id);
 
         return view('adminpage.newsshow', [
             'datanews' => $datanews,
             'datachildren' => $datachildren,
+            'dataadmin' => $dataadmin,
         ]);
     }
 
@@ -96,7 +101,8 @@ class news_controller extends Controller
     public function showchildrenid()
     {
         $data = childrendata::all();
-        return view('adminpage.inputnews', ['data' => $data]);
+        $date = Carbon::now()->format('Y-m-d');
+        return view('adminpage.inputnews', compact('data','date'));
     }
 
     public function update(Request $request, $id)

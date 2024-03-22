@@ -326,7 +326,8 @@
                                                     @enderror
 
                                                     <button id="togglePassword1" type="button"
-                                                        class="absolute right-0 inset-y-10 py-1 px-2 text-black" tabindex="-1">
+                                                        class="absolute right-0 inset-y-10 py-1 px-2 text-black"
+                                                        tabindex="-1">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">
@@ -452,7 +453,8 @@
                                                     @enderror
 
                                                     <button id="togglePassword3" type="button"
-                                                        class="absolute inset-y-8 right-0 px-3 py-2 text-black" tabindex="-1">
+                                                        class="absolute inset-y-8 right-0 px-3 py-2 text-black"
+                                                        tabindex="-1">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">
@@ -478,7 +480,8 @@
                                                         </p>
                                                     @enderror
                                                     <button id="togglePassword4" type="button"
-                                                        class="absolute inset-y-7 right-0 px-3 py-2 font-bold text-black" tabindex="-1">
+                                                        class="absolute inset-y-7 right-0 px-3 py-2 font-bold text-black"
+                                                        tabindex="-1">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">
@@ -516,6 +519,24 @@
                                     </div>
                                 </div>
                             </form>
+                        @endif
+                    </div>
+                    <!-- Delete Profile Image-->
+                    <div class="flex">
+                        @if (isset(auth()->user()->image))
+                            <div class="mx-auto">
+                                <form id="deleteimage" action="{{ route('deleteadminphoto') }}" method="POST"
+                                    class="inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button id="deleteimage" name="deleteimage" type="submit"
+                                        class="bg-red-600 text-sm text-white px-2 py-2 rounded-lg"
+                                        onclick="return confirm('Are You Sure?')">
+                                        Delete Profile Image
+                                    </button>
+                                </form>
+                            </div>
+                        @else
                         @endif
                     </div>
                 </div>

@@ -128,7 +128,7 @@
                         <div> <!-- Current Image -->
                             <label class="block mb-2 text-sm font-medium text-gray-900" for="Images">Current Image
                                 file</label>
-                            @if (auth()->user()->image !=="null")
+                            @if (auth()->user()->image !== 'null')
                                 <div class="image-container inline-flex mx-4 mb-4">
                                     <img src="{{ asset('storage/' . auth()->user()->image) }}"
                                         alt="{{ auth()->user()->image }}" class="w-24  object-cover rounded-md"
@@ -149,9 +149,9 @@
                         Submit</button>
                 </div>
             </form>
-            {{-- <div class="text-black">{{auth()->user()->image}}</div> --}}
+            <!-- Delete Profile Image-->
             <div class="flex">
-                    @if (auth()->user()->image !== "null")
+                @if (isset(auth()->user()->image))
                     <div class="mx-auto">
                         <form id="deleteimage" action="{{ route('deleteuserphoto') }}" method="POST"
                             class="inline-block">
@@ -164,11 +164,10 @@
                             </button>
                         </form>
                     </div>
-                    @else
-                        <p class="text-gray-400 dark:text-gray-600"></p>
-                    @endif
+                @else
+                @endif
             </div>
-            
+
         </div>
     </div>
 @endsection

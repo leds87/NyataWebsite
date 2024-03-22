@@ -23,8 +23,13 @@
                     <header class="mb-4 lg:mb-6 not-format">
                         <address class="flex items-center mb-6 not-italic">
                             <div class="inline-flex items-center mr-3 text-sm text-gray-900 ">
-                                <img class="mr-4 w-16 h-16 rounded-full"
-                                    src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
+                                @if ($dataadmin->image ==! null)
+                                    <img class="mr-4 w-16 h-16  object-cover rounded-full" src="{{ asset('storage/' . $dataadmin->image) }}" alt="Admin Image">
+                                @else
+                                    {{-- <div class="text-black text-xl">{{ $dataadmin->image }}</div> --}}
+                                    <img class="mr-4 w-16 h-16 rounded-full"
+                                        src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
+                                @endif
                                 <div>
                                     <div href="#" rel="author" class="text-xl font-bold text-gray-900 capitalize">
                                         {{ $datanews->from }}

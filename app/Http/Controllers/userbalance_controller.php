@@ -146,8 +146,7 @@ class userbalance_controller extends Controller
             ]
         );
         userbalance::create($data);
-        return $request;
-        // redirect('userbalance');
+        return redirect('userbalance');
     }
 
     public function moneyinformationdata()
