@@ -39,7 +39,7 @@
 
                                 </div>
                                 <div class="">
-                                    <a href="newsshow/{{$item->id}}">
+                                    <a href="newsshow/{{$item->slug}}">
                                         <button type="button"
                                             class="text-white bg-green-800 hover:bg-slate-900 focus:ring-4 focus:outline-none focus:ring-slate-200 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center">
                                             Details

@@ -34,8 +34,18 @@ class news_controller extends Controller
                 'children_id' => 'max:100',
             ]
         );
+
+        //CREATE CUSTOM ID
+        $prefix = "U";
+        $count = news::count() + 1;
+
+        // Create a formatted ID with a prefix and padded count
+        $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
+        $customId = $prefix . $formattedCount;
+
         $data['from'] = auth()->user()->name;
-        $data['from_id'] = auth()->user()->id;
+        $data['slug'] = $request->title.'%'.$customId;
+        $data['from_slug'] = auth()->user()->slug;
         $data['role'] = auth()->user()->role . ' ' . auth()->user()->log;
 
         news::create($data);
@@ -53,19 +63,17 @@ class news_controller extends Controller
         return redirect()->route('adminshow')->with("success", "Data Deleted!");
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $datanews = news::find($id);
-        // $slug = $datanews->slug;
-        // $datanews2 = news::find($slug);
-        // dd($datanews2);
+        // $datanews = news::find($id);
+        $datanews = news::where('slug',$slug)->first();
         $datachildren = childrendata::find($datanews->children_id);
-        $dataadmin = admindata::find($datanews->from_id);
+        $dataadmin2 = admindata::where('slug', $datanews->from_slug)->first();
 
         return view('adminpage.newsshow', [
             'datanews' => $datanews,
             'datachildren' => $datachildren,
-            'dataadmin' => $dataadmin,
+            'dataadmin' => $dataadmin2,
         ]);
     }
 
@@ -102,7 +110,7 @@ class news_controller extends Controller
     {
         $data = childrendata::all();
         $date = Carbon::now()->format('Y-m-d');
-        return view('adminpage.inputnews', compact('data','date'));
+        return view('adminpage.inputnews', compact('data', 'date'));
     }
 
     public function update(Request $request, $id)
