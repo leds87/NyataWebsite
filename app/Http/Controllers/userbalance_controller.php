@@ -73,7 +73,8 @@ class userbalance_controller extends Controller
 
 
         //Total amount donation in 1 ID
-        $userdata = userbalance::where('user_id', auth()->user()->id)->where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
+        // $userdata = userbalance::where('user_id', auth()->user()->id)->where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
+        $userdata = userbalance::where('user_id', auth()->user()->id)->where('status_code', '200')->get(); //TOTAL AMOUNT OF DONATION
         $amount = [];
         foreach ($userdata as $ud) {
             $amount[] = $ud->amount;

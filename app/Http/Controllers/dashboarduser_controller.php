@@ -41,7 +41,7 @@ class dashboarduser_controller extends Controller
         // $datanews = $data3; // MERGE DATA!!
 
         $collection = new Collection($data3);
-        $datanews = $collection->sortByDesc('date');
+        $datanews = $collection->sortByDesc('id');
 
         //EXPECTED SUPPORT BALANCE
         $a2 = []; //GET Required Donation from every child
