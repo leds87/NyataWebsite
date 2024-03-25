@@ -75,28 +75,23 @@
             @endif
 
             {{-- SECTION BOX 1 --}}
-            <div class=" mx-auto mt-8 p-4 shadow-md rounded-md w-1/3 mb-4 bg-zinc-100">
+            <div class=" mx-auto mt-8 p-4 shadow-md rounded-md lg:w-1/3 sm:max-w-full mb-4 bg-zinc-100">
                 <h1 class="text-xl text-black font-semibold  mb-4 ">{{ auth()->user()->name }}'s balance</h1>
-                <div class="flex items-center space-x-2 mb-5">
+                <div class="flex items-center space-x-2 mb-5 ">
                     @if (auth()->user()->image)
                         <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="User Avatar"
                             class="w-12 h-12 rounded-full object-cover">
                     @else
                         <div class="text-gray-500">No avatar</div>
                     @endif
-                    <div class="mx-auto">
+                    <div class="mx-auto k">
                         <p class=" text-black font-semibold">{{ auth()->user()->name }}</p>
                         <p class=" text-black">{{ auth()->user()->email }}</p>
                         <p class=" text-black capitalized text-center">Current Log : {{ auth()->user()->log }}</p>
                     </div>
 
-                    {{-- <div class="">
-                        <a href="/profileedit%{{ auth()->user()->slug }}">
-                            <button class="bg-blue-900 px-3 py-2 rounded-xl text-white">Transaction Status</button>
-                        </a>
-                    </div> --}}
-                    <div class="">
-                        <button class="bg-black px-2 py-2 rounded-xl text-white mt-4"
+                    <div class=" ">
+                        <button class=" bg-black px-2 py-2 rounded-xl text-white mt-4 ml-14"
                             data-modal-target="static-transaction-history"
                             data-modal-toggle="static-transaction-history">Transaction History</button>
                         <div id="static-transaction-history" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
@@ -235,87 +230,87 @@
             </div>
 
             {{-- SECTION BOX 2 --}}
-            <div class="flex">
-                <div class="mx-auto shadow-lg text-left w-1/3 pt-3 mb-5 pl-5 ">
-                    <div class="text-2xl text-black font-bold ">Details </div>
-                    <div class="my-2 border-2 border-gray-300"></div>
-                    @auth
-                        @if (auth()->user()->log == 'admin')
-                            {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
+            <div class="mx-auto shadow-lg text-left lg:w-1/3 sm:max-w-full pt-3 mb-5 px-5 ">
+                <div class="text-2xl text-black font-bold ">Details </div>
+                <div class="my-2 border-2 border-gray-300"></div>
+                @auth
+                    @if (auth()->user()->log == 'admin')
+                        {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
                             </h1> --}}
-                            <h1 class="text-sm text-black mb-2">Name : <span
-                                    class="text-lg">{{ auth()->user()->name }}</span>
-                            </h1>
-                        @else
-                            {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
+                        <h1 class="text-sm text-black mb-2">Name : <span class="text-lg">{{ auth()->user()->name }}</span>
+                        </h1>
+                    @else
+                        {{-- <h1 class="text-sm text-black mb-2">id : <span class="text-lg">{{ auth()->user()->id }}</span>
                             </h1> --}}
-                            <h1 class="text-sm text-black mb-2 capitalize"> Total Support :
-                                <span class="text-lg">Rp {{ $totaldonation }} </span>
-                            </h1>
-                            <h1 class="text-sm text-black mb-2 capitalize"> last month support :
-                                <span class="text-lg">Rp {{ $lastmonthsupport }} </span>
-                            </h1>
-                            <h1 class="text-sm text-black mb-2 capitalize"> Current Supported Child :
-                                <span class="text-lg">{{ $countchildren }} </span>
-                            </h1>
-                            <h1 class="text-sm text-black mb-2 capitalize">expected support :
-                                <span class="text-lg">Rp {{ $expectedsupport }}</span>
-                            </h1>
-                        @endauth
-                    @endif
+                        <h1 class="text-sm text-black mb-2 capitalize"> Total Support :
+                            <span class="text-lg">Rp {{ $totaldonation }} </span>
+                        </h1>
+                        <h1 class="text-sm text-black mb-2 capitalize"> last month support :
+                            <span class="text-lg">Rp {{ $lastmonthsupport }} </span>
+                        </h1>
+                        <h1 class="text-sm text-black mb-2 capitalize"> Current Supported Child :
+                            <span class="text-lg">{{ $countchildren }} </span>
+                        </h1>
+                        <h1 class="text-sm text-black mb-2 capitalize">expected support :
+                            <span class="text-lg">Rp {{ $expectedsupport }}</span>
+                        </h1>
+                    @endauth
+                @endif
 
-                    <form action="" method="POST" id="submit_form">
-                        @csrf
-                        <input type="hidden" name="json" id="json_callback">
-                    </form>
+                <form action="" method="POST" id="submit_form">
+                    @csrf
+                    <input type="hidden" name="json" id="json_callback">
+                </form>
 
-                    <div class=" flex justify-items-center p-4 md:p-5">
-                        <button type="button" id="pay-button" name="pay-button"
-                            class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-24 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
-                            Donate Now
-                        </button>
-                    </div>
-                    <script type="text/javascript">
-                        // For example trigger on button clicked, or any time you need
-                        var payButton = document.getElementById('pay-button');
-                        payButton.addEventListener('click', function() {
-                            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-                            window.snap.pay('{{ $snapToken }}', {
-                                onSuccess: function(result) {
-                                    /* You may add your own implementation here */
-                                    alert("payment success!");
-                                    console.log(result);
-                                    send_response_to_form(result);
-                                },
-                                onPending: function(result) {
-                                    /* You may add your own implementation here */
-                                    alert("wating your payment!");
-                                    console.log(result);
-                                    send_response_to_form(result);
-                                },
-                                onError: function(result) {
-                                    /* You may add your own implementation here */
-                                    alert("payment failed!");
-                                    console.log(result);
-                                    send_response_to_form(result);
-                                },
-                                onClose: function() {
-                                    /* You may add your own implementation here */
-                                    alert('you closed the popup without finishing the payment');
-                                    console.log(result);
-                                    send_response_to_form(result);
-                                }
-                            })
-                        });
-
-                        function send_response_to_form(result) {
-                            document.getElementById('json_callback').value = JSON.stringify(result);
-                            $('#submit_form').submit();
-                        }
-                    </script>
+                <div class=" grid grid-cols-2 p-4 md:p-5">
+                    <button type="button" id="pay-button" name="pay-button"
+                        class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-1 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                        Donate Now
+                    </button>
+                    <button type="button" id="subscription-button" name="subscription-button"
+                        class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-1 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                        Create Subscription Payment
+                    </button>
                 </div>
-            </div>
+                <script type="text/javascript">
+                    // For example trigger on button clicked, or any time you need
+                    var payButton = document.getElementById('pay-button');
+                    payButton.addEventListener('click', function() {
+                        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+                        window.snap.pay('{{ $snapToken }}', {
+                            onSuccess: function(result) {
+                                /* You may add your own implementation here */
+                                alert("payment success!");
+                                console.log(result);
+                                send_response_to_form(result);
+                            },
+                            onPending: function(result) {
+                                /* You may add your own implementation here */
+                                alert("wating your payment!");
+                                console.log(result);
+                                send_response_to_form(result);
+                            },
+                            onError: function(result) {
+                                /* You may add your own implementation here */
+                                alert("payment failed!");
+                                console.log(result);
+                                send_response_to_form(result);
+                            },
+                            onClose: function() {
+                                /* You may add your own implementation here */
+                                alert('you closed the popup without finishing the payment');
+                                console.log(result);
+                                send_response_to_form(result);
+                            }
+                        })
+                    });
 
+                    function send_response_to_form(result) {
+                        document.getElementById('json_callback').value = JSON.stringify(result);
+                        $('#submit_form').submit();
+                    }
+                </script>
+            </div>
 
         </div>
     </div>

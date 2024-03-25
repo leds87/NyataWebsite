@@ -196,36 +196,29 @@
                     <div class="p-5">
                         <div class="flex">
                             <div>
-                                <p class="capitalize text-black">payment method:
-                                    {{ $item['payment_type'] }}
-                                </p>
-                                <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 inline-flex capitalize">
-                                    {{ $item['from'] }}
-                                </p>
-                                <p class="text-gray-600 dark:text-gray-400 mb-2 mr-3 flex ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                <p class="text-black mb-2">
+                                    {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                                    </svg>
+                                    </svg> --}}
                                     <span
-                                        class="">{{ \Carbon\Carbon::parse($item['date'])->format('l jS F Y') }}</span>
+                                        class="text-black">{{ \Carbon\Carbon::parse($item['date'])->format('l jS F Y') }}</span>
                                 </p>
-                                {{-- <p class="text-gray-600 dark:text-gray-400 mb-2  mr-3 inline-flex">
-                            {{ $item['location'] }}
-                        </p> --}}
-                                <p class="mb-3 font-normal text-gray-800"><span class="normal-case">
-                                        Total SupportedChild {{ $item['totalsupportedchild'] }}
-                                    </span> </p>
-                                <p class="capitalize text-black">transaction status:{{ $item['status'] }}
-
+                                <p class="capitalize text-black mb-2">payment method: <span class="uppercase">{{ $item['payment_type'] }}</span></p>
+                                <p class="font-normal text-black mb-2"><span class="normal-case">Total Supported {{ $item['totalsupportedchild'] }} child</span> </p>
+                                <p class="capitalize text-black mb-2">transaction status :  {{ $item['status'] }}
+                                <p class="capitalize text-black mb-2">Total amount of donation: Rp {{ $item['amount'] }}
+                                    @if ($item->payment_type == 'bank_transfer')
+                                <p class="capitalize text-black mb-2">Virtual Account Payment: <span class="uppercase bg-black text-white p-1 rounded-lg">{{ $item['va_bank'] }}</span> {{ $item['va_number'] }}
+                                @endif
                             </div>
                             @if ($item->status_code == '200')
                                 {{-- <img src="" class="hidden" alt=""> --}}
                             @else
                                 @if ($item->payment_type == 'qris')
                                     <img src="https://api.sandbox.midtrans.com/v2/qris/{{ $item['transaction_id'] }}/qr-code"
-                                        alt="" class="w-48 mx-auto">
+                                        alt="" class="w-48 mx-auto bg-black object-contain p-1 rounded-lg border-4">
                                 @else
                                 @endif
                             @endif

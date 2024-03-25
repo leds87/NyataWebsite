@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('payment_type');
             $table->string('payment_code')->nullable();
             $table->string('pdf_url')->nullable();
+            $table->string('va_bank')->nullable();
+            $table->string('va_number')->nullable();
             $table->string('date');
             $table->string('month');
             $table->integer('totalsupportedchild');

@@ -30,8 +30,9 @@ class userbalance_controller extends Controller
         }
         $expectedsupport = array_sum($a2);
 
-        //FOR PAYMENT!//
 
+
+        //FOR PAYMENT!//
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
         // \Midtrans\Config::$serverKey = 'SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R';
@@ -68,8 +69,8 @@ class userbalance_controller extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-    
-            // dd($snapToken);
+
+        // dd($snapToken);
 
 
         //Total amount donation in 1 ID
@@ -118,7 +119,8 @@ class userbalance_controller extends Controller
     {
         $json = json_decode($request->get('json'));
         // return $request;
-        // dd($json);
+        // dd($json); 
+
         //CHILD HAS SUPPORT BY USER ID
         $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
         $child = [];
@@ -133,19 +135,22 @@ class userbalance_controller extends Controller
             [
                 'transaction_id' => $json->transaction_id,
                 'order_id' => $json->order_id,
-                'status' => $json->status_message,
+                'status' => $json->transaction_status,
                 'status_code' => $json->status_code,
                 'user_id' => auth()->user()->id,
                 'email' => auth()->user()->email,
-                'amount' => $json->gross_amount, 
+                'amount' => $json->gross_amount,
                 'payment_type' => $json->payment_type,
                 'payment_code' => optional($json)->payment_code ?? null,
                 'pdf_url' => optional($json)->pdf_url ?? null,
+                'va_bank' => optional($json)->va_numbers[0]->bank ?? null,
+                'va_number' => optional($json)->va_numbers[0]->va_number ?? null,
                 'date' => now()->format('d-m-Y H:i:s'),
                 'month' => now()->format('m-Y'),
                 'totalsupportedchild' => $countchildren,
             ]
         );
+
         userbalance::create($data);
         return redirect('userbalance');
     }
@@ -157,7 +162,7 @@ class userbalance_controller extends Controller
         $userbalance2 = userbalance::where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
         $userbalance = userbalance::all(); //data
 
-        $data = userbalance::orderBy('date','desc')->get(); //data
+        $data = userbalance::orderBy('date', 'desc')->get(); //data
         // $data = userbalance::with('users')->get(); //data
         // dd($data);
         // $data = userbalance::join('userdata', 'id', '=', 'userbalance.user_id')            
@@ -239,12 +244,12 @@ class userbalance_controller extends Controller
         // $uid = $userbalance->pluck('user_id');
         // $datauser = userdata::whereIn('id',$uid)->get(['id','name']);
         // $datauser = userdata::whereIn('id',$uid)->pluck('name');
-        
+
         // $ub = userbalance::first();
         // $datauser = json_encode($ub ? userdata::find($ub->user_id)->name : 'Unknown');
         // dd($datauser);
 
-        return view('adminpage.moneyinformationdata', compact('users','datauser', 'data', 'transactionhistory', 'currentMonthlocalized', 'totallastmonthsupport', 'totalchildren', 'totaluser', 'totaluserdoesntdoanted', 'totaldonationneed', 'totaldonation', 'totaluserdonated', 'totalsupportedchildren', 'totalchildren', 'notsupportedchildren'));
+        return view('adminpage.moneyinformationdata', compact('users', 'datauser', 'data', 'transactionhistory', 'currentMonthlocalized', 'totallastmonthsupport', 'totalchildren', 'totaluser', 'totaluserdoesntdoanted', 'totaldonationneed', 'totaldonation', 'totaluserdonated', 'totalsupportedchildren', 'totalchildren', 'notsupportedchildren'));
     }
 
     public function userbalancehistory()
@@ -254,5 +259,49 @@ class userbalance_controller extends Controller
             ->get();
 
         return view('adminpage.userbalancehistory', compact('transactionhistory'));
+    }
+
+    public function createsubscription()
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => "https://api.sandbox.midtrans.com/v1/subscriptions",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => json_encode([
+                'customer_details' => [
+                    'first_name' => 'Budi',
+                    'last_name' => 'Utomo',
+                    'email' => 'budi.utomo@midtrans.com',
+                    'phone' => '081223323423',
+                    'customer_details_required_fields' => [
+                        'email',
+                        'first_name',
+                        'phone'
+                    ]
+                ]
+            ]),
+            CURLOPT_HTTPHEADER => [
+                "accept: application/json",
+                "authorization: Basic U0ItTWlkLXNlcnZlci1JSkJYdlVOdFgxdnozRTJ3c1FsUEd3NVI6",
+                "content-type: application/json"
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
+        }
     }
 }
