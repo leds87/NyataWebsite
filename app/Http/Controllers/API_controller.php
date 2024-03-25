@@ -18,6 +18,8 @@ class API_controller extends Controller
 
         // status berhasil
         $order = userbalance::where('order_id', $request->order_id)->first();
-        return $order->update(['status'=>'Success, transaction is found']);
+        return 
+        $order->update(
+            ['status_code'=>'200','status'=>'Success, transaction is found']);
     }
 }

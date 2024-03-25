@@ -262,15 +262,20 @@
                     <input type="hidden" name="json" id="json_callback">
                 </form>
 
-                <div class=" grid grid-cols-2 p-4 md:p-5">
+                <div class=" flex p-4 md:p-5">
                     <button type="button" id="pay-button" name="pay-button"
-                        class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-1 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                        class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
                         Donate Now
                     </button>
-                    <button type="button" id="subscription-button" name="subscription-button"
-                        class="text-white mx-auto bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-1 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
-                        Create Subscription Payment
-                    </button>
+                </div>
+                <div class="flex">
+                    <form action="/createsubscription" method="POST"class="mx-auto" enctype="multipart/form-data">
+                        @csrf
+                        <button type="submit" id="subscription-button" name="subscription-button"
+                            class="text-white mx-auto bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                            Subscribe this payment
+                        </button>
+                    </form>
                 </div>
                 <script type="text/javascript">
                     // For example trigger on button clicked, or any time you need
@@ -310,6 +315,40 @@
                         $('#submit_form').submit();
                     }
                 </script>
+
+                {{-- <script type="text/javascript">
+                    // For example trigger on button clicked, or any time you need
+                    var subsButton = document.getElementById('subscription-button');
+                    subsButton.addEventListener('click', function() {})
+                        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+                    //     window.snap.pay('{{ $snapToken }}', {
+                    //         onSuccess: function(result) {
+                    //             /* You may add your own implementation here */
+                    //             alert("payment success!");
+                    //             console.log(result);
+                    //             send_response_to_form(result);
+                    //         },
+                    //         onPending: function(result) {
+                    //             /* You may add your own implementation here */
+                    //             alert("wating your payment!");
+                    //             console.log(result);
+                    //             send_response_to_form(result);
+                    //         },
+                    //         onError: function(result) {
+                    //             /* You may add your own implementation here */
+                    //             alert("payment failed!");
+                    //             console.log(result);
+                    //             send_response_to_form(result);
+                    //         },
+                    //         onClose: function() {
+                    //             /* You may add your own implementation here */
+                    //             alert('you closed the popup without finishing the payment');
+                    //             console.log(result);
+                    //             send_response_to_form(result);
+                    //         }
+                    //     })
+                    // });
+                </script> --}}
             </div>
 
         </div>
