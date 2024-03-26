@@ -76,11 +76,10 @@ class userbalance_controller extends Controller
 
 
         );
-
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         // dd($snapToken);
-
+        // dd($response);
 
         //Total amount donation in 1 ID
         // $userdata = userbalance::where('user_id', auth()->user()->id)->where('status', 'LIKE', '%' . 'Success' . '%')->get(); //TOTAL AMOUNT OF DONATION
@@ -128,7 +127,7 @@ class userbalance_controller extends Controller
     {
         $json = json_decode($request->get('json'));
         // return $request;
-        // dd($json);
+        dd($json);
 
         //CHILD HAS SUPPORT BY USER ID
         $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
@@ -270,7 +269,7 @@ class userbalance_controller extends Controller
         return view('adminpage.userbalancehistory', compact('transactionhistory'));
     }
 
-    public function acreatesubscription()
+    public function createsubscription()
     {
         $response = Http::post('https://api.sandbox.midtrans.com/v1/subscriptions', [
             'name' => 'MONTHLY_2019',
@@ -301,12 +300,12 @@ class userbalance_controller extends Controller
         // Process the response
         $responseData = $response->json();
 
-        dd($responseData);
+        dd($response);
         // Do something with the response data
         return $responseData;
     }
 
-    public function bcreatesubscription()
+    public function asdfcreatesubscription()
     {
         //FOR PAYMENT!//
         // Set your Merchant Server Key
@@ -356,7 +355,7 @@ class userbalance_controller extends Controller
         // Process the response
         // $responseData = $response->json();
 
-        // dd($responseData);
+        dd($response);
         // Do something with the response data
         // return $responseData;
 
@@ -446,7 +445,9 @@ class userbalance_controller extends Controller
         // return $responseData;
     }
 
-    private function agenerateToken()
+
+
+    public function abccreatesubscription(Request $request)
     {
         // Define the token request payload
         $tokenPayload = [
@@ -454,58 +455,130 @@ class userbalance_controller extends Controller
             "card_exp_month" => "01",
             "card_exp_year" => "2025",
             "card_cvv" => "123",
-            "client_key" => "<YOUR_CLIENT_KEY>", // Replace with your client key
+            "client_key" => "SB-Mid-client-_wxRytc85Z3IwRI6", // Replace with your client key
         ];
+
+        $clientkey = "SB-Mid-client-_wxRytc85Z3IwRI6";
+        $encodedclientKey = base64_encode($clientkey);
 
         // Send a POST request to generate token
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
-            'Authorization' => 'Basic <YOUR_CLIENT_KEY_ENCODED_IN_BASE64>', // Replace with your client key encoded in base64
+            'Authorization' => $encodedclientKey, // Replace with your client key encoded in base64
         ])->post('https://api.sandbox.midtrans.com/v2/token', $tokenPayload);
 
         // Process the token response
         $tokenResponse = $response->json();
 
-        return $tokenResponse;
-    }
+        // return $tokenResponse;
 
-    public function abcreatesubscription(Request $request)
-    {
         // Define the request payload
         $payload = [
             "name" => "MONTHLY_SUBSCRIPTION",
             "amount" => "100000",
             "currency" => "IDR",
             "payment_type" => "credit_card",
-            "token" => $this->generateToken(),
+            "token" => $tokenResponse['token_id'],
             "schedule" => [
                 "interval" => 1,
                 "interval_unit" => "month",
                 "max_interval" => 12
             ]
         ];
-
-        // Send a POST request to generate token
-        $tokenResponse = $this->generateToken();
-
-        // Extract token from token response
-        $token = $tokenResponse['token'];
-
-        // Set token in payload
-        $payload['token'] = $token;
+        // dd($payload);
 
         // Send a POST request to the API endpoint to create subscription
+        $key = "SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R";
+        $encodedKey = base64_encode($key);
+
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
-            'Authorization' => 'Basic <YOUR_SERVER_KEY_ENCODED_IN_BASE64>', // Replace with your server key encoded in base64
+            'Authorization' => 'Basic SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R', // Replace with your server key encoded in base64
         ])->post('https://api.sandbox.midtrans.com/v1/subscriptions', $payload);
 
+
+        dd($response);
         // Process the response
         $responseData = $response->json();
+        // dd($responseData);
+
 
         // Return the response data or do something else with it
         return $responseData;
+    }
+    public function casdfreatesubscription()
+    {
+        //CHILD HAS SUPPORT BY USER ID
+        $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
+        $child = [];
+        foreach ($datachildrenfilter as $dcf) {
+            $child[] = $dcf->childrendata_id;
+        }
+        $childrendata = childrendata::whereIn('id', $child)->get(); //GETDATA CHILD
+        $countchildren = count($childrendata);
+        //EXPECTED SUPPORT BALANCE
+        $a2 = []; //GET Required Donation from every child
+        foreach ($childrendata as $a3) {
+            $a2[] = $a3->required_donation;
+        }
+        $expectedsupport = array_sum($a2);
+
+        //FOR PAYMENT!//
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        // \Midtrans\Config::$serverKey = 'SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => $expectedsupport,
+            ),
+            'customer_details' => array(
+                'first_name' => auth()->user()->name,
+                'email' => auth()->user()->email,
+                'phone' => auth()->user()->phone,
+                'address' => auth()->user()->address,
+            ),
+            'item_details' => array(
+                [
+                    'id' => auth()->user()->name . '_' . auth()->user()->id,
+                    'price' => $expectedsupport,
+                    'quantity' => '1',
+                    'name' => 'Donation for' . ' ' . $countchildren . ' ' . 'Supported Child',
+                ]
+            ),
+            'support_detail' => array(
+                'total_supported_child' => $countchildren,
+            ),
+
+            'recurring' => array(
+                'required' => true,
+                'start_time' => "2024-04-25 15:07:00 +0700",
+                'interval_unit' => "month"
+            ),
+
+
+        );
+
+        // Send a POST request to the API endpoint to create subscription
+        $key = "SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R";
+        $encodedKey = base64_encode($key);
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+            'Authorization' => 'Basic SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R', // Replace with your server key encoded in base64
+        ])->post('https://api.sandbox.midtrans.com/v1/subscriptions', $params);
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        return response();
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\admindata;
 use App\Models\adminlog;
+use App\Models\userdata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +21,7 @@ class admindata_controller extends Controller
 
 
     public function store(Request $request)
-    
+
     {
         // //CREATE CUSTOM ID
         $prefix = "A";
@@ -39,12 +40,13 @@ class admindata_controller extends Controller
                 'phone' => 'required',
                 'role' => 'required',
                 'note' => 'required',
-            ],[
+            ],
+            [
                 'email.unique' => 'Email telah digunakan! Silakan gunakan email yang lain.'
             ]
         );
-        
-        $validatedData['slug'] = $request->name.'%'.$customId;
+
+        $validatedData['slug'] = $request->name . '%' . $customId;
         $validatedData['log'] = 'admin';
         $validatedData['password'] = Hash::make($validatedData['password']);
         admindata::create($validatedData);
@@ -137,15 +139,20 @@ class admindata_controller extends Controller
             'password' => $request->password,
         ];
 
+
         if (Auth::guard('admin')->attempt($infologin)) {
             $request->session()->regenerate();
-            return redirect()->intended('/adminpage')->with("sukses", "Berhasil Login!");
+            return redirect()->intended('/adminpage')->with('success', "Berhasil Login!");
         }
         if (Auth::guard('user')->attempt($infologin)) {
             $request->session()->regenerate();
-            return redirect()->intended('/userpage')->with("sukses", "Berhasil Login!");
+            return redirect('/userpage')->with('success', "Welcome " . auth()->user()->name . '!');
         }
-        return redirect()->route('login')->with("gagal", 'Username/Password salah');
+
+
+
+
+        return redirect()->route('login')->with("gagal", 'Email/Password salah');
     }
 
 
@@ -185,7 +192,7 @@ class admindata_controller extends Controller
         }
 
         $data->save();
-        return redirect('profile')->with("success", "Data".' '.auth()->user()->name.' '.'updated');
+        return redirect('profile')->with("success", "Data" . ' ' . auth()->user()->name . ' ' . 'updated');
     }
 
     public function aa(Request $request, $id)
@@ -204,37 +211,39 @@ class admindata_controller extends Controller
         //     'current_password'=>'Your Current Password Doesnt Match with our record'
         // ]);
         $request->validate([
-            'password' => ['required','confirmed'],
+            'password' => ['required', 'confirmed'],
             'password_confirmation' => ['required'],
         ]);
         $data = admindata::find($id);
         $data->password = $request->password;
         $data['password'] = Hash::make($data['password']);
         $data->save();
-        if($data->save()){
+        if ($data->save()) {
             return redirect('profile')->with('success', "Password Updated");
-        }else{
+        } else {
             return redirect()->back()->withErrors(['error' => 'Failed to save data']);
         }
     }
 
     public function changePassword(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'password' => 'required|min:6|confirmed',
-        ],[
-            'password.required' => 'The password field required',
-            'password.min' => 'The password must be at least :min characters.',
-            'password.confirmed' => 'The password confirmation does not match.',
-        ]
-    );
+        $validatedData = $request->validate(
+            [
+                'password' => 'required|min:6|confirmed',
+            ],
+            [
+                'password.required' => 'The password field required',
+                'password.min' => 'The password must be at least :min characters.',
+                'password.confirmed' => 'The password confirmation does not match.',
+            ]
+        );
 
         $data = admindata::find($id);
         $data->password = $request->password;
         // $data['password'] = Hash::make($data['password']);
         $data->password = bcrypt($validatedData['password']);
         $data->save();
-        return redirect('profile')->with('success','Password' . ' '. auth()->user()->name .' '. 'updated');
+        return redirect('profile')->with('success', 'Password' . ' ' . auth()->user()->name . ' ' . 'updated');
         //  response()->json(['message' => 'Password' . ' '. auth()->user()->name .' '. 'Updated'], 200);
     }
 

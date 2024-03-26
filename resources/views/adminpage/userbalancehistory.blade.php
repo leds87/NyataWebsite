@@ -75,7 +75,7 @@
             <!-- Modal Body Trigger -->
             <div class="p-5">
                 @foreach ($transactionhistory as $item)
-                    @if (stripos($item['status'], 'Success') !== false)
+                    @if (($item['status_code'] === '200'))
                         <div id="alert-additional-content-1"
                             class="p-2 mb-4 text-green-800 border-2 border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
                             role="alert">
