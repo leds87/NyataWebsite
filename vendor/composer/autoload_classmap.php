@@ -61,6 +61,7 @@ return array(
     'App\\Models\\news' => $baseDir . '/app/Models/news.php',
     'App\\Models\\notification' => $baseDir . '/app/Models/notification.php',
     'App\\Models\\schooldata' => $baseDir . '/app/Models/schooldata.php',
+    'App\\Models\\subscriptionpayment' => $baseDir . '/app/Models/subscriptionpayment.php',
     'App\\Models\\supportedchildren' => $baseDir . '/app/Models/supportedchildren.php',
     'App\\Models\\userbalance' => $baseDir . '/app/Models/userbalance.php',
     'App\\Models\\userdata' => $baseDir . '/app/Models/userdata.php',

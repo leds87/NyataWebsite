@@ -595,6 +595,7 @@ class ComposerStaticInit4ed2425e8632d964ef4d6b719ba8432b
         'App\\Models\\news' => __DIR__ . '/../..' . '/app/Models/news.php',
         'App\\Models\\notification' => __DIR__ . '/../..' . '/app/Models/notification.php',
         'App\\Models\\schooldata' => __DIR__ . '/../..' . '/app/Models/schooldata.php',
+        'App\\Models\\subscriptionpayment' => __DIR__ . '/../..' . '/app/Models/subscriptionpayment.php',
         'App\\Models\\supportedchildren' => __DIR__ . '/../..' . '/app/Models/supportedchildren.php',
         'App\\Models\\userbalance' => __DIR__ . '/../..' . '/app/Models/userbalance.php',
         'App\\Models\\userdata' => __DIR__ . '/../..' . '/app/Models/userdata.php',

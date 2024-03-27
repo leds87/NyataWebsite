@@ -189,6 +189,8 @@ Route::get('/userinformationdata',[userdata_controller::class,'userinformationda
 Route::get('/schoolinformationdata',[schooldata_controller::class,'schoolinformationdata'])->middleware('auth:admin')->name('schoolinformationdata');
 
 Route::post('/createsubscription', [userbalance_controller::class, 'createsubscription'])->middleware('auth:user,admin')->name('createsubscription');
+Route::get('/subscribepayment', [userbalance_controller::class, 'subscribepaymentview'])->middleware('auth:user,admin')->name('subscribepayment');
+Route::post('/subscribepayment', [userbalance_controller::class, 'createsubscribepayment'])->middleware('auth:user,admin')->name('createsubscribepayment');
 
 // Route::get('/registeremailview', function () {
 //     return view('adminpage.registeremailview');

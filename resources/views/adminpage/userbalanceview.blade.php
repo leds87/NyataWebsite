@@ -268,7 +268,7 @@
                         Donate Now
                     </button>
                 </div>
-                <div class="flex">
+                {{-- <div class="flex">
                     <form action="/createsubscription" method="POST"class="mx-auto" enctype="multipart/form-data">
                         @csrf
                         <button type="submit" id="subscription-button" name="subscription-button"
@@ -276,6 +276,14 @@
                             Subscribe this payment
                         </button>
                     </form>
+                </div> --}}
+                <div class="flex">
+                    <a href="{{route ('subscribepayment')}}">
+                        <button type="button" id="subscription-button" name="subscription-button"
+                            class="text-white mx-auto bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase">
+                            Subscribe this payment
+                        </button>
+                    </a>
                 </div>
                 <script type="text/javascript">
                     // For example trigger on button clicked, or any time you need

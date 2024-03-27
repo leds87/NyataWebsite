@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\childrendata;
 use App\Models\schooldata;
+use App\Models\subscriptionpayment;
 use App\Models\supportedchildren;
 use App\Models\userbalance;
 use App\Models\userdata;
@@ -269,7 +270,60 @@ class userbalance_controller extends Controller
         return view('adminpage.userbalancehistory', compact('transactionhistory'));
     }
 
-    public function createsubscription()
+    public function subscribepaymentview()
+    {
+        $data = subscriptionpayment::all();
+        
+        // userbalance::orderBy('date', 'desc')
+        //     ->where('user_id', auth()->user()->id)
+        //     ->get();
+
+        //CHILD HAS SUPPORT BY USER ID
+        $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
+        $child = [];
+        foreach ($datachildrenfilter as $dcf) {
+            $child[] = $dcf->childrendata_id;
+        }
+        $childrendata = childrendata::whereIn('id', $child)->get(); //GETDATA CHILD
+        // dd($childrendata);
+        $countchildren = count($childrendata);
+
+        return view('adminpage.subscribepaymentview', compact('data', 'countchildren', 'childrendata'));
+    }
+
+    public function createsubscribepayment(Request $request)
+    {
+
+        //CREATE CUSTOM ID
+        $prefix = "SC";
+        $count = subscriptionpayment::count() + 1;
+
+        // Create a formatted ID with a prefix and padded count
+        $formattedCount = str_pad($count, 3, '0', STR_PAD_LEFT);
+        $subscriptionid = $prefix . $formattedCount;
+
+        // $subscriptionid = subscriptionpayment::count();
+        // dd($subscriptionid);
+        $childid2 = $request->childsupported;
+        // $amount2 = childrendata::where('id',$childid2)->get();
+        $requireddonationchild = childrendata::find($childid2);
+        $amount = $requireddonationchild['required_donation'];
+        $data = (
+            [
+                'subscription_id' => $subscriptionid,
+                'period' => $request->period,
+                'childid' => $request->childsupported,
+                'amount' => $amount,
+                'status' => 'active',
+                'since' => $request->since,
+            ]
+        );
+        // dd($request);
+        subscriptionpayment::create($data);
+        return redirect('subscribepayment');
+    }
+
+    public function aaacreatesubscription()
     {
         $response = Http::post('https://api.sandbox.midtrans.com/v1/subscriptions', [
             'name' => 'MONTHLY_2019',
