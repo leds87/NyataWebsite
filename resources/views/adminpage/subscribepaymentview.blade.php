@@ -87,7 +87,12 @@
                             @foreach ($childrendata as $item)
                                 <p class="font-semibold text-black"> {{ $item['name'] }} <span
                                         class="text-sm font-normal">Required Donation :</span> Rp
-                                    {{ $item['required_donation'] }}</p>
+                                    {{-- {{ $item['required_donation'] }} --}}
+                                    @php
+                                        $aa = $item['required_donation'];
+                                        $formattedAmount = number_format($aa, 0, ',', '.');
+                                    @endphp
+                                </p>
                             @endforeach
                             {{-- School : {{ $item['school'] }} Age : {{ $item['age'] }} --}}
                             {{--
@@ -136,7 +141,6 @@
                                 Since
                             </label>
                             <input datepicker datepicker-format="yyyy-mm-dd" type="text" id="since" name="since"
-                                onchange="updateSelectedDate(this)"
                                 class="bg-black border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required placeholder="Select date" autocomplete="off">
 
@@ -155,38 +159,23 @@
                             <p class="text-black font-semibold">Child Supported : <span id="childrenselected"
                                     class="text-black"></span></p>
                             <p class=" text-black font-semibold">Total Donation :
-                                <span id="totaldonation" class="text-black">105000</span>
+                                <span id="totaldonation" class="text-black">-</span>
                             </p>
                             <p class=" text-black font-semibold">Since :
-                                <span id="sinceselected" class="text-black">2024-03-22</span>
+                                <span id="sinceselected" class="text-black">-</span>
                             </p>
+
                             <script>
                                 document.getElementById('period').addEventListener('change', function() {
                                     var selectedOption = this.value;
                                     document.getElementById('durationselected').textContent = selectedOption;
                                 });
-                                document.addEventListener('change', function() {
-                                    if (event.target.matches('#since')) {
-                                        var selectedDate = event.target.value;
-                                        document.getElementById('sinceselected').textContent = selecteddate;
-                                    }
-                                })
-                                document.getElementById('since').addEventListener('change', function() {
-                                    var selecteddate = input.value;
-                                    document.getElementById('sinceselected').textContent = selecteddate;
-                                });
-                                // $(document).ready(function() {
-                                //     $('#since').on('input', function() {
-                                //         var selectedDate = $(this).val();
-                                //         $('#sinceselected').text("Selected Date: " + selectedDate);
-                                //     });
-                                // });
 
                                 document.getElementById('childsupported').addEventListener('change', function() {
                                     var selectedOption = this.selectedOptions[0].textContent;
+                                    document.getElementById('childrenselected').textContent = selectedOption;
                                     // var required_donation = selectedOption.dataset.requireddonation;
                                     // var name = selectedOption.dataset.name;
-                                    document.getElementById('childrenselected').textContent = selectedOption;
                                     // document.getElementById('totaldonation').textContent = required_donation;
                                 });
                             </script>
@@ -233,7 +222,14 @@
                                         @endphp
                                         {{ $childname }}
                                     </td>
-                                    <td class=" px-6 py-4">{{ $item['amount'] }}</td>
+                                    <td class=" px-6 py-4">
+                                        {{-- {{ $item['amount'] }} --}}
+                                        @php
+                                            $amount = $item['amount'];
+                                            $formattedAmount = number_format($amount, 0, ',', '.');
+                                        @endphp
+                                        <p class="">Rp {{ $formattedAmount }}</p>
+                                    </td>
                                     @if ($item['status'] === 'active')
                                         <td class=" px-6 py-4 bg-green-700 text-white">{{ $item['status'] }}</td>
                                     @else

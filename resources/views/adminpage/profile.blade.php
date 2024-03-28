@@ -523,20 +523,40 @@
                     </div>
                     <!-- Delete Profile Image-->
                     <div class="flex">
-                        @if (isset(auth()->user()->image))
-                            <div class="mx-auto">
-                                <form id="deleteimage" action="{{ route('deleteadminphoto') }}" method="POST"
-                                    class="inline-block">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button id="deleteimage" name="deleteimage" type="submit"
-                                        class="bg-red-600 text-sm text-white px-2 py-2 rounded-lg"
-                                        onclick="return confirm('Are You Sure?')">
-                                        Delete Profile Image
-                                    </button>
-                                </form>
-                            </div>
+                        @if (auth()->user()->log === 'user')
+                            {
+                                @if (isset(auth()->user()->image))
+                                <div class="mx-auto">
+                                    <form id="deleteimage" action="{{ route('deleteuserphoto') }}" method="POST"
+                                        class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button id="deleteimage" name="deleteimage" type="submit"
+                                            class="bg-red-600 text-sm text-white px-2 py-2 rounded-lg"
+                                            onclick="return confirm('Are You Sure?')">
+                                            Delete Profile Image
+                                        </button>
+                                    </form>
+                                </div>
+                            @else
+                            @endif
+                            }
                         @else
+                            @if (isset(auth()->user()->image))
+                                <div class="mx-auto">
+                                    <form id="deleteimage" action="{{ route('deleteadminphoto') }}" method="POST"
+                                        class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button id="deleteimage" name="deleteimage" type="submit"
+                                            class="bg-red-600 text-sm text-white px-2 py-2 rounded-lg"
+                                            onclick="return confirm('Are You Sure?')">
+                                            Delete Profile Image
+                                        </button>
+                                    </form>
+                                </div>
+                            @else
+                            @endif
                         @endif
                     </div>
                 </div>

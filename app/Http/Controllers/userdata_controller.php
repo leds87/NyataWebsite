@@ -334,6 +334,6 @@ class userdata_controller extends Controller
         // dd($data);
         $filename =   auth()->user()->image;
         Storage::disk('public')->delete($filename);
-        return back()->with('Success', 'Photo Deleted');
+        return redirect('profile')->with('Success', 'Photo Deleted');
     }
 }
