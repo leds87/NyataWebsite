@@ -128,7 +128,7 @@ class userbalance_controller extends Controller
     {
         $json = json_decode($request->get('json'));
         // return $request;
-        dd($json);
+        // dd($json);
 
         //CHILD HAS SUPPORT BY USER ID
         $datachildrenfilter = supportedchildren::where('user_id', Auth::id())->get(); //GET Everychild that support by UserID
@@ -272,7 +272,8 @@ class userbalance_controller extends Controller
 
     public function subscribepaymentview()
     {
-        $data = subscriptionpayment::all();
+        $data = subscriptionpayment::where('userid',Auth::id())->get();
+        // dd($data);
         
         // userbalance::orderBy('date', 'desc')
         //     ->where('user_id', auth()->user()->id)
@@ -287,6 +288,8 @@ class userbalance_controller extends Controller
         $childrendata = childrendata::whereIn('id', $child)->get(); //GETDATA CHILD
         // dd($childrendata);
         $countchildren = count($childrendata);
+
+        // $required_donation = childrendata::all();
 
         return view('adminpage.subscribepaymentview', compact('data', 'countchildren', 'childrendata'));
     }
@@ -313,6 +316,7 @@ class userbalance_controller extends Controller
                 'subscription_id' => $subscriptionid,
                 'period' => $request->period,
                 'childid' => $request->childsupported,
+                'userid' => auth()->user()->id,
                 'amount' => $amount,
                 'status' => 'active',
                 'since' => $request->since,
@@ -322,6 +326,9 @@ class userbalance_controller extends Controller
         subscriptionpayment::create($data);
         return redirect('subscribepayment');
     }
+
+
+    
 
     public function aaacreatesubscription()
     {

@@ -87,7 +87,7 @@
                             @foreach ($childrendata as $item)
                                 <p class="font-semibold text-black"> {{ $item['name'] }} <span
                                         class="text-sm font-normal">Required Donation :</span> Rp
-                                    {{-- {{ $item['required_donation'] }} --}}
+                                    {{ $item['required_donation'] }}
                                     @php
                                         $aa = $item['required_donation'];
                                         $formattedAmount = number_format($aa, 0, ',', '.');
@@ -143,7 +143,6 @@
                             <input datepicker datepicker-format="yyyy-mm-dd" type="text" id="since" name="since"
                                 class="bg-black border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required placeholder="Select date" autocomplete="off">
-
                         </div>
 
 
@@ -172,6 +171,11 @@
                                 });
 
                                 document.getElementById('childsupported').addEventListener('change', function() {
+                                    var selectedOption = $requirement_donation.value;
+                                    document.getElementById('totaldonation').textContent = selectedOption;
+                                });
+
+                                document.getElementById('childsupported').addEventListener('change', function() {
                                     var selectedOption = this.selectedOptions[0].textContent;
                                     document.getElementById('childrenselected').textContent = selectedOption;
                                     // var required_donation = selectedOption.dataset.requireddonation;
@@ -181,8 +185,7 @@
                             </script>
                             <div class="flex mt-4">
                                 <div class="p-2 bg-black text-center mx-auto rounded-lg"><button type="submit">Subscribe
-                                        this
-                                        payment</button></div>
+                                        this payment</button></div>
                             </div>
                         </div>
 
@@ -191,7 +194,7 @@
             </form>
 
             {{-- SECTION BOX 2 DETAILS  --}}
-            <div class="shadow-lg text-left w-full pt-3 mb-5 pl-5 ">
+            <div class="shadow-lg text-left w-full py-3 px-3 mb-5 pl-5 ">
                 <div class="text-2xl text-black font-bold ">Recurring Plans Details </div>
                 <div class="my-2 border-2 border-gray-300"></div>
                 <div class="overflow-x-auto">
@@ -204,6 +207,7 @@
                                 <th scope="col" class="px-6 py-4">Amount</th>
                                 <th scope="col" class="px-6 py-4">Status</th>
                                 <th scope="col" class="px-6 py-4">Since</th>
+                                <th scope="" class="">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -236,6 +240,14 @@
                                         <td class=" px-6 py-4">{{ $item['status'] }}</td>
                                     @endif
                                     <td class=" px-6 py-4">{{ $item['since'] }}</td>
+                                    <td class="pt-3">
+                                        <form action="/unsubscribe/{{$item->id}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="bg-red px-3 py-3 items-center text-center text-white rounded-lg">Unsubscribe</button>
+
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

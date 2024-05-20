@@ -70,6 +70,54 @@ class childrensupported_controller extends Controller
         $uniqueschools = array_unique(array_column($data->toArray(), 'school')); //TO SHOW What filter that can available for school filter.
         $uniqueslocations = array_unique(array_column($data->toArray(), 'location')); //TO SHOW What filter that can available for location filter.
 
+
+
+        //  //FOR PAYMENT!//
+        // // Set your Merchant Server Key
+        // \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        // // \Midtrans\Config::$serverKey = 'SB-Mid-server-IJBXvUNtX1vz3E2wsQlPGw5R';
+        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        // \Midtrans\Config::$isProduction = false;
+        // // Set sanitization on (default)
+        // \Midtrans\Config::$isSanitized = true;
+        // // Set 3DS transaction for credit card to true
+        // \Midtrans\Config::$is3ds = true;
+
+        // $params = array(
+        //     'transaction_details' => array(
+        //         'order_id' => rand(),
+        //         'gross_amount' => $childrendata = childrendata::whereIn('id', $child)->get(); //GETDATA CHILD //GETDATA CHILD,
+        //     ),
+        //     'customer_details' => array(
+        //         'first_name' => auth()->user()->name,
+        //         'email' => auth()->user()->email,
+        //         'phone' => auth()->user()->phone,
+        //         'address' => auth()->user()->address,
+        //     ),
+        //     'item_details' => array(
+        //         [
+        //             'id' => auth()->user()->name . '_' . auth()->user()->id,
+        //             'price' => $expectedsupport,
+        //             'quantity' => '1',
+        //             'name' => 'Donation for' . ' ' . $countchildren . ' ' . 'Supported Child',
+        //         ]
+        //     ),
+        //     'support_detail' => array(
+        //         'total_supported_child' => $countchildren,
+        //     ),
+
+        //     // 'recurring' => array(
+        //     //     'required' => true,
+        //     //     'start_time' => "2024-04-25 15:07:00 +0700",
+        //     //     'interval_unit' => "month"
+        //     // ),
+
+
+        // );
+        // $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+
+
         return view('adminpage.childrensupported', compact('data', 'uniqueschools', 'uniqueslocations'));
     }
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('subscription_id');
             $table->string('period');
+            $table->string('userid');
             $table->string('childid');
             $table->string('amount');
             $table->string('status');
