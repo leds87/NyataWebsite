@@ -8,7 +8,7 @@
     <div class="bg-white py-20">
         <div class="content">
             <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                class="lg:text-2xl text-center text-white rounded-2xl bg-[#ff0000] px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 User Overview</h1>
             {{-- SUCCESS MESSAGES --}}
             @if (session('success'))
@@ -87,10 +87,10 @@
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">User List</h2>
 
 
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full text-left text-gray-900 text-sm font-light">
-                                <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr class="bg-gray-200">
+                        <div class="overflow-x-auto rounded-xl">
+                            <table class="min-w-full text-left text-gray-900 text-sm font-light ">
+                                <thead class="border-b font-medium dark:border-neutral-500 ">
+                                    <tr class="bg-gray-200 ">
                                         <th scope="col" class="px-6 py-4">ID</th>
                                         <th scope="col" class="px-6 py-4">Name</th>
                                         {{-- <th scope="col" class="px-6 py-4">Address</th> --}}

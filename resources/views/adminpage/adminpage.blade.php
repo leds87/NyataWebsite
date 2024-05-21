@@ -64,7 +64,7 @@
 
             {{-- TITLE --}}
             <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                class="lg:text-2xl text-center text-white rounded-2xl bg-[#ff0000] px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Admin Overview</h1>
 
 
@@ -72,9 +72,9 @@
             {{-- DASHBOARD USER INFORMATION & CHILD INFORMATION --}}
             <div class="flex flex-wrap py-2">
                 <div
-                    class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:w-3/5 shadow mb-5 py-5">
+                    class="pt-6 bg-[#ff0000] border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 sm:w-3/5 shadow mb-5 py-5">
                     <!-- User Data -->
-                    <div class="flex flex-row w-full bg-black p-5">
+                    <div class="flex flex-row w-full bg-[#ff0000] p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> User Information Data</div>
 
                         <div class="w-1/4 flex ">
@@ -125,9 +125,9 @@
                     });
                 </script>
 
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
+                <div class="pt-6 bg-[#ff0000] border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
                     <!-- Child Data -->
-                    <div class="flex flex-row w-full bg-black p-5">
+                    <div class="flex flex-row w-full bg-[#ff0000] p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> Child Information Data</div>
 
                         <div class="w-1/4 flex ">
@@ -183,9 +183,9 @@
 
             {{-- DASHBOARD MONEY INFORMATION & SCHOOL INFORMATION --}}
             <div class="flex flex-wrap py-2">
-                <div class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
+                <div class="pt-6 bg-[#ff0000] border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
                     <!-- Money Data -->
-                    <div class="flex flex-row w-full bg-black p-5">
+                    <div class="flex flex-row w-full bg-[#ff0000] p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> Money Information Data</div>
 
                         <div class="w-1/4 flex ">
@@ -245,9 +245,9 @@
                 </script>
 
                 <div
-                    class="pt-6 bg-red-800 border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
+                    class="pt-6 bg-[#ff0000] border max-w-full border-gray-200 mx-auto rounded-lg lg:w-2/5 shadow mb-5 py-5">
                     <!-- Child Data -->
-                    <div class="flex flex-row w-full bg-black p-5">
+                    <div class="flex flex-row w-full bg-[#ff0000] p-5">
                         <div class=" text-2xl tracking-tight font-bold w-3/4"> School Information Data</div>
 
                         <div class="w-1/4 flex ">

@@ -8,7 +8,7 @@
 
         <!-- TITLE  -->
         <div class="content">
-            <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 rounded-xl py-3 font-bold mb-4 mx-auto md:text-sm">
+            <h1 class="lg:text-2xl text-center text-white bg-[#ff0505] px-2 rounded-xl py-3 font-bold mb-4 mx-auto md:text-sm">
                 Notification Input</h1>
 
 

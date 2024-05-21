@@ -8,7 +8,7 @@
 
             <!-- TITLE  -->
             <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                class="lg:text-2xl text-center text-white rounded-2xl bg-[#ff0505] px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Notification Overview</h1>
             <a href='inputnotification' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input notification</a>
 
@@ -20,10 +20,10 @@
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Notification List
                         </h2>
 
-                        <div class="overflow-x-auto">
+                        <div class="overflow-x-auto rounded-xl">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light table-fixed">
-                                <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr class="bg-gray-100">
+                                <thead class="border-b-2 font-medium dark:border-neutral-500">
+                                    <tr class="bg-gray-200">
                                         <th scope="col" class="px-6 py-4 ">date</th>
                                         <th scope="col" class="px-6 py-4 ">ID</th>
                                         <th scope="col" class="px-6 py-4 ">from</th>

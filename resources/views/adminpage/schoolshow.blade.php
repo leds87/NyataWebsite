@@ -8,28 +8,27 @@
 
             <!-- TITLE -->
             <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                class="lg:text-2xl text-center text-white rounded-2xl bg-[#ff0000] px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 School Overview</h1>
-            <a href='inputschool' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input School</a>
+            <a href='inputschool' class="text-gray-100 px-2 py-2 border-2 bg-[#ff0000]">input School</a>
 
             <!-- CONTENT -->
             <section class="">
-                <section class=" text-gray-900">
+                <section class="text-gray-900">
                     <div class="py-8 lg:py-16 ">
-                        <h2 class="mb-4 text-4xl mx-auto tracking-tight font-extrabold text-center text-gray-900 ">School
-                            List</h2>
-                        <div class="overflow-x-auto">
+                        <h2 class="mb-4 text-4xl mx-auto tracking-tight font-extrabold text-center text-gray-900 ">School List</h2>
+                        <div class="overflow-x-auto rounded-xl">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light">
-                                <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr class="bg-gray-200">
-                                        <th scope="col" class="px-6 py-2">ID</th>
-                                        <th scope="col" class="px-6 py-2">School Name</th>
-                                        {{-- <th scope="col" class="px-6 py-2 w-1/4">Address</th> --}}
-                                        <th scope="col" class="px-6 py-2">Location</th>
-                                        <th scope="col" class="px-6 py-2">Total of children</th>
-                                        <th scope="col" class="px-6 py-2">School Status</th>
-                                        <th scope="col" class="px-6 py-2">Required Donation</th>
-                                        <th scope="col" class="px-6 py-2 text-center">Action</th>
+                                <thead class="border-b-2 font-medium dark:border-neutral-500">
+                                    <tr class="bg-gray-200 rounded-xl">
+                                        <th scope="col" class="px-6 py-3">ID</th>
+                                        <th scope="col" class="px-6 py-3">School Name</th>
+                                        {{-- <th scope="col" class="px-6 py-3 w-1/4">Address</th> --}}
+                                        <th scope="col" class="px-6 py-3">Location</th>
+                                        <th scope="col" class="px-6 py-3">Total of children</th>
+                                        <th scope="col" class="px-6 py-3">School Status</th>
+                                        <th scope="col" class="px-6 py-3">Required Donation</th>
+                                        <th scope="col" class="px-6 py-3 text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

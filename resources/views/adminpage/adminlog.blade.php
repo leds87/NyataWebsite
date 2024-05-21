@@ -7,7 +7,7 @@
 
             {{-- TITLE --}}
             <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-1 mx-auto md:text-sm">
+                class="lg:text-2xl text-center text-white rounded-2xl bg-[#ff0000] px-2 py-3 font-bold mb-1 mx-auto md:text-sm">
                 Admin Log Overview</h1>
 
             {{-- TABLE --}}

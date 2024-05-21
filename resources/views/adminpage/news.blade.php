@@ -8,7 +8,7 @@
 
             <!-- TITLE  -->
             <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                class="lg:text-2xl text-center text-white rounded-2xl bg-[#ff0505] px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 News Overview</h1>
             <a href='inputnews' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input news</a>
 
@@ -18,10 +18,10 @@
                     <div class="py-8 lg:py-16 mx-auto max-w-screen-2xl">
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">News List</h2>
 
-                        <div class="overflow-x-auto">
+                        <div class="overflow-x-auto rounded-2xl">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light">
                                 <thead class="border-b font-medium dark:border-neutral-500">
-                                    <tr class="bg-gray-100">
+                                    <tr class="bg-gray-200">
                                         <th scope="col" class="px-6 py-4">ID</th>
                                         <th scope="col" class="px-6 py-4">Title</th>
                                         <th scope="col" class="px-6 py-4">date</th>

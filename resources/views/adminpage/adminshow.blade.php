@@ -7,11 +7,11 @@
 
             {{-- TITLE --}}
             <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                class="lg:text-2xl text-center text-white rounded-2xl bg-[#ff0000] px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 Admin Overview</h1>
 
             {{-- Input Admin Button --}}
-            <a href='inputadmin' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input admin</a>
+            <a href='inputadmin' class="text-gray-100 rounded-lg px-2 py-2 border-2 bg-[#ff0000]">input admin</a>
 
 
             <section class=""> <!-- Table Admin List-->
@@ -20,9 +20,9 @@
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 ">Admin List</h2>
 
 
-                        <div class="overflow-x-auto">
+                        <div class="overflow-x-auto rounded-2xl">
                             <table class="min-w-full text-left text-gray-900 text-sm font-light">
-                                <thead class="border-b font-medium dark:border-neutral-500">
+                                <thead class="border-b-2 font-medium dark:border-neutral-500">
                                     <tr class="bg-gray-200">
                                         <th scope="col" class="px-6 py-4">ID</th>
                                         <th scope="col" class="px-6 py-4">Name</th>
