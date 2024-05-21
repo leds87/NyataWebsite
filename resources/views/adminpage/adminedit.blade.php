@@ -10,7 +10,7 @@
             {{-- TITLE --}}
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-                Admin Edit..</h1>
+                Admin Edit...</h1>
 
             {{-- Content --}}
             <form action="/adminedit/{{ $data->id }}" method="POST" class="w-full max-w-lg py-5 mx-auto">
