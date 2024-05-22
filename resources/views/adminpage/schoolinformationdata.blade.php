@@ -6,7 +6,7 @@
     <div class="bg-white py-20">
         <div class="content">
             <div class=" py-9">
-                <h1 class="lg:text-2xl text-center text-white bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                <h1 class="lg:text-2xl text-center text-white bg-[#ff0000] px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                     School Information Data</h1>
             </div>
 

@@ -36,7 +36,7 @@
                 {{-- LOGIN FORM --}}
                 <input type="email" id="email" name ="email"
                     class="text-black border-2 my-5 mx-auto w-full block invalid:text-red-500 peer invalid:border-red-500"
-                    value ="{{ Session::get('name') }}" placeholder="name" autofocus required>
+                    value ="{{ Session::get('name') }}" placeholder="email" autofocus required>
                 {{-- <p id="email" name="email" class="text-sm text-red-500 invisible peer-invalid:visible">Email Doesn't Valid!</p> --}}
                 <input type="password" id="password" name="password" class="text-black border-2 mx-auto w-full block "
                     placeholder="password" required>

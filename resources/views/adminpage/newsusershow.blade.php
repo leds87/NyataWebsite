@@ -8,7 +8,7 @@
     <div class="bg-white py-20">
         <div class="content">
             <h1
-                class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
+                class="lg:text-2xl text-center text-white rounded-2xl bg-[#ff0000] px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
                 All News Overview</h1>
             {{-- <a href='inputnotification' class="text-gray-800 px-2 py-2 border-2 bg-blue-500">input notification</a> --}}
             <section class="">
@@ -41,7 +41,7 @@
                                 <div class="">
                                     <a href="newsshow/{{$item->slug}}">
                                         <button type="button"
-                                            class="text-white bg-green-800 hover:bg-slate-900 focus:ring-4 focus:outline-none focus:ring-slate-200 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center">
+                                            class="text-white bg-red-600 hover:bg-[#ff0000] focus:ring-4 focus:outline-none focus:ring-slate-200 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center">
                                             Details
                                         </button>
                                     </a>
