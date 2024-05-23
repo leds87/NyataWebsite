@@ -2,6 +2,26 @@
 @extends('adminpage.layoutadmin')
 {{-- @section('title', __('AdminPage')) --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<style>
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #374151;
+    }
+    .select2-container--default .select2-results__option {
+        color: #374151;
+    }
+    .select2-container--default .select2-results__option--highlighted {
+        color: #1f2937;
+    }
+    .select2-search__field .select2-search--dropdown {
+        color: #1f2937;
+    }
+    .select2-container--default .select2-search--dropdown .select2-search__field {
+        color: #000;
+    }
+</style>
+
 @section('page-content')
     <div class="bg-white py-20">
 
@@ -33,17 +53,42 @@
                         <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                     </div>
                     <div class="w-1/2 px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        <label id="to_label" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-password">
                             to user_name
                         </label>
-                        <select name="to" id="to"
+                        {{-- <select name="to" id="to"
                             class="text-gray-400 font-normal focus:text-gray-700 w-full px-2 py-2 bg-gray-200 focus:bg-white border-none">
-                            @foreach ($datauser as $user)
+                             @foreach ($datauser as $user)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endforeach
-                            <option value="">All</option>
+                            <option value="">All</option> 
+                        </select> --}}
+                        <select name="to" id="to"
+                            class="text-gray-400 font-normal focus:text-gray-700 w-full px-2 py-2 bg-gray-200 focus:bg-white border-none">
                         </select>
+                        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+                        <script>
+                            $(document).ready(function(){
+                                $('#to').select2({
+                                    placeholder:'Select User',
+                                    ajax: {
+                                        url:"{{route('touser')}}",
+                                        processResults: function({data}){
+                                            return {
+                                                results: $.map(data, function(item){
+                                                    return{
+                                                        id: item.id,
+                                                        text: item.name
+                                                    }
+                                                })
+                                            }
+                                        }
+                                    }
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">

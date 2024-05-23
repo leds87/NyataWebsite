@@ -23,6 +23,15 @@ class news_controller extends Controller
         // return view('adminpage.news', ['mergeddata'=>$mergeddata]);
     }
 
+    public function selectchild()
+    {
+        $data = childrendata::where('name', 'LIKE', '%'.request('q').'%')->paginate(10);
+        return response()->json($data);
+        // $query = $request->get('query');
+        // $child = childrendata::where('name', 'LIKE', "%{$query}%")->get();
+
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate(

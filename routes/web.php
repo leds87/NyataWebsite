@@ -21,6 +21,7 @@ use App\Http\Controllers\userdata_controller;
 use App\Http\Controllers\userlog_controller;
 use App\Models\admindata;
 use App\Models\news;
+use App\Models\notification;
 use App\Models\userdata;
 use Illuminate\Console\View\Components\Alert;
 
@@ -122,6 +123,7 @@ Route::get('/newsedit/{id}/edit',[news_controller::class,'edit'])->name('newsedi
 Route::put('/newsedit/{id}',[news_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/newsshow/{id}', [news_controller::class, 'show'])->middleware('auth:user,admin');
 Route::get('/newsusershow', [news_controller::class, 'newsusershow'])->middleware('auth:user,admin')->name('newsusershow');
+Route::get('/selectchild', [news_controller::class, 'selectchild'])->name('selectchild')->middleware('auth:admin');;
 
 Route::get('/inputuser', function () { return view('adminpage.inputuser'); })->name('inputuser')->middleware('auth:admin');
 Route::post('/inputusers', [userdata_controller::class, 'store'])->middleware('auth:user,admin');
@@ -177,6 +179,7 @@ Route::delete('/destroynotification/{id}',[notification_controller::class,'destr
 Route::get('/notificationedit%{id}',[notification_controller::class,'edit'])->name('notificationedit')->middleware('auth:user,admin');
 Route::put('/notificationedit/{id}',[notification_controller::class,'update'])->middleware('auth:user,admin');
 Route::get('/notificationshow/{title}', [notification_controller::class, 'show'])->middleware('auth:user,admin');
+Route::get('/touser', [notification_controller::class, 'touser'])->name('touser')->middleware('auth:admin');
 
 Route::post('/notifreadupdate/{id}',[notification_controller::class,'updatereadnotification'])->middleware('auth:user,admin');
 

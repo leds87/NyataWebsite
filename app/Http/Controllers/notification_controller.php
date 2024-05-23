@@ -43,6 +43,11 @@ class notification_controller extends Controller
         return view('adminpage.notification', compact('datanotification', 'datachildren', 'dataadmin', 'datauser'));
     }
 
+    public function touser(){
+        $data = userdata::where('name', 'LIKE', '%'.request('q').'%')->paginate(10);
+        return response()->json($data);
+    }
+
     public function store(Request $request)
     {
         if (isNull($request->to)) {
