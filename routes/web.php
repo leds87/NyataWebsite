@@ -61,7 +61,9 @@ Route::get('/whatwedo', function () {
     return view('whatwedo');
 })->name('whatwedo');
 
-Route::get('/adikasuh', [adikasuh_controller::class, 'index'])->name('adikasuh');
+Route::get('/adikasuh', function () {
+    return view('adikasuh');
+})->name('adikasuh');
 
 Route::get('/travelcharity', function () {
     return view('travelcharity');

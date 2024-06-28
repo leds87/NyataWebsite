@@ -44,8 +44,8 @@
     </section>
 
     <script>
-        countUp('AdikAsuhMember', {{ $childrencount }}, true);
-        countUp('SekolahMember', {{ $totalschool }}, false);
+        countUp('AdikAsuhMember', '2011', true);
+        countUp('SekolahMember', '38', false);
     </script>
 
     {{-- MAP --}}
