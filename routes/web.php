@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adikasuh_controller;
 use App\Http\Controllers\admindata_controller;
 use App\Http\Controllers\adminlog_controller;
 use App\Http\Controllers\childrendata_controller;
@@ -60,9 +61,7 @@ Route::get('/whatwedo', function () {
     return view('whatwedo');
 })->name('whatwedo');
 
-Route::get('/adikasuh', function () {
-    return view('adikasuh');
-})->name('adikasuh');
+Route::get('/adikasuh', [adikasuh_controller::class, 'index'])->name('adikasuh');
 
 Route::get('/travelcharity', function () {
     return view('travelcharity');
