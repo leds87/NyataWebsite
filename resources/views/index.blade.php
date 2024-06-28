@@ -211,7 +211,7 @@
 
     <script>
         countUp('AdikAsuhMember', 2011, true);
-        countUp('SekolahMember', 35, false);
+        countUp('SekolahMember', 38, false);
         countUp('KakahAsuhMember', 723, true);
     </script>
 
