@@ -44,8 +44,8 @@
     </section>
 
     <script>
-        countUp('AdikAsuhMember', 1788, true);
-        countUp('SekolahMember', 35, false);
+        countUp('AdikAsuhMember', 2011, true);
+        countUp('SekolahMember', 38, false);
     </script>
 
     {{-- MAP --}}
