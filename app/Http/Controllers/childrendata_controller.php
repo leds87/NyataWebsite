@@ -200,4 +200,23 @@ class childrendata_controller extends Controller
 
         return view('adminpage.childinformationdata', compact('notsupportedchildren', 'totalsupportedchildren', 'data', 'childrencount', 'activechildren', 'educatedchildren', 'successchildren'));
     }
+    public function deletechildrenphoto($id)
+    {
+        $data = childrendata::find($id);
+
+        $filename = image::where('childrendata_id',$id)->value('path');
+        Storage::disk('public')->delete($filename);
+        $data->images()->delete([]);
+        return redirect('childrenshow')->with('Success', 'Photo Deleted');
+    }
 }
+        // $images = $data->images();
+        // // dd($images);
+        // foreach ($images as $image) {
+        //     Storage::disk('public')->delete($image->path);
+        // }
+  // $data->image = null;
+        // $data->save();
+        // // dd($data);
+        // $filename =   auth()->user()->image;
+        // Storage::disk('public')->delete($filename);

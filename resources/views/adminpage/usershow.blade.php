@@ -206,11 +206,24 @@
                                                                         <label for="password"
                                                                             class="block mb-2 text-sm font-medium text-gray-900 ">New
                                                                             password</label>
+                                                                        <button id="togglePassword1" type="button"
+                                                                            class=" absolute right-5 py-3 px-2 text-black"
+                                                                            tabindex="-1">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                fill="none" viewBox="0 0 24 24"
+                                                                                stroke-width="1.5" stroke="currentColor"
+                                                                                class="w-6 h-6">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                                                            </svg>
+                                                                        </button>
                                                                         <input type="password" name="password"
                                                                             id="password" placeholder="••••••••"
                                                                             class="bg-gray-50 border my-3 border-gray-300 text-gray-900 @error('password') is-invalid @enderror
                                                                   sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                             required>
+
                                                                         @error('password')
                                                                             <p class="text-red-500 text-xs italic">
                                                                                 {{ $message }}
@@ -221,13 +234,27 @@
                                                                         <label for="password_confirmation"
                                                                             class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
                                                                             password</label>
+                                                                        <button id="togglePassword2" type="button"
+                                                                            class="absolute right-5 py-3 px-2 text-black"
+                                                                            tabindex="-1">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                fill="none" viewBox="0 0 24 24"
+                                                                                stroke-width="1.5" stroke="currentColor"
+                                                                                class="w-6 h-6">
+                                                                                <path stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                                                            </svg>
+                                                                        </button>
                                                                         <input type="password"
                                                                             name="password_confirmation"
                                                                             id="password_confirmation"
                                                                             placeholder="••••••••"
                                                                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg 
-                                                                  @error('password_confirmation') is-invalid @enderror focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                  
+                                                                            @error('password_confirmation') is-invalid @enderror focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                             required="">
+
                                                                         @error('password_confirmation')
                                                                             <p class="text-red-500 text-xs italic">
                                                                                 {{ $message }}
@@ -246,6 +273,31 @@
                                                         </div>
                                                     </div>
                                                 </form>
+                                                <script>
+                                                    const togglePassword1 = document.getElementById('togglePassword1');
+                                                    const togglePassword2 = document.getElementById('togglePassword2');
+                                                    const passwordInput = document.getElementById('password');
+                                                    const password_confirmationInput = document.getElementById('password_confirmation');
+                                                    const passwordInput2 = document.getElementById('password').value;
+                                                    const password_confirmationInput2 = document.getElementById('password_confirmation').value;
+
+                                                    togglePassword1.addEventListener('click', function() {
+                                                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                                        passwordInput.setAttribute('type', type);
+                                                    });
+
+                                                    togglePassword2.addEventListener('click', function() {
+                                                        const type = password_confirmationInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                                        password_confirmationInput.setAttribute('type', type);
+                                                    });
+
+                                                    if (password === confirmPassword) {
+                                                        message.textContent = "Passwords match!";
+                                                        // You can submit the form or perform other actions here if needed
+                                                    } else {
+                                                        message.textContent = "Passwords do not match!";
+                                                    }
+                                                </script>
                                             </td>
                                         </tr>
                                     @endforeach

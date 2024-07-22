@@ -129,6 +129,7 @@
                                         <div class="mx-2"></div>
                                     @endforeach
                                 </div>
+
                             @else
                                 <p class="text-gray-400 dark:text-gray-600">No images available
                                 </p>
@@ -159,6 +160,22 @@
                         Submit</button>
                 </div>
             </form>
+
+             @if ($data->images->isNotEmpty())
+            <div class="mx-auto flex">
+                <form id="deleteimage" action="{{ route('deletechildrenphoto', [$data->id]) }}" method="POST"
+                    class="inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <button id="deleteimage" name="deleteimage" type="submit"
+                        class="bg-red-600 text-sm text-white px-2 py-2 rounded-lg mx-auto"
+                        onclick="return confirm('Are You Sure?')">
+                        Delete Children Image
+                    </button>
+                </form>
+            </div>
+            @else
+            @endif
         </div>
     </div>
 @endsection

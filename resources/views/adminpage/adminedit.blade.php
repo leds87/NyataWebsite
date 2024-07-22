@@ -10,7 +10,7 @@
             {{-- TITLE --}}
             <h1
                 class="lg:text-2xl text-center text-white rounded-2xl bg-green-800 px-2 py-3 font-bold mb-4 mx-auto md:text-sm">
-                Admin Edit...</h1>
+                Admin Edit</h1>
 
             {{-- Content --}}
             <form action="/adminedit/{{ $data->id }}" method="POST" class="w-full max-w-lg py-5 mx-auto">
@@ -92,9 +92,12 @@
                             id="note" name="note" type="text"value="{{ $data->note }}">
                     </div>
                 </div>
-                <button type="submit"
+                <div class="flex">
+
+                    <button type="submit"
                     class="py-2 px-4 mx-auto my-4 text-sm font-medium text-center text-black border-2 rounded-lg bg-primary-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                     Submit</button>
+                </div>
 
             </form>
         </div>

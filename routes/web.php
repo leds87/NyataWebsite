@@ -157,6 +157,7 @@ Route::put('/childrenedit/{id}',[childrendata_controller::class,'update'])->midd
 Route::get('/childrenshow', [childrendata_controller::class, 'showdata'])->middleware('auth:admin')->name('childrenshow');
 Route::put('/childrenupdatesupport/{id}',[childrensupported_controller::class,'updatesupport'])->middleware('auth:user')->name('updatesupport');
 Route::put('/childrenupdateunsupport/{id}',[childrensupported_controller::class,'updateunsupport'])->middleware('auth:user')->name('updateunsupport');
+Route::delete('/deletechildrenphoto/{id}', [childrendata_controller::class, 'deletechildrenphoto'])->middleware('auth:admin')->name('deletechildrenphoto');
 
 Route::get('/nyataadmin',[admindata_controller::class, 'index']);
 Route::post('/nyataadmin',[admindata_controller::class, 'login'])->name('login');
